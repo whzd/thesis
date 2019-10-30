@@ -141,6 +141,10 @@ And by doing so, the definition of new words will be found somewhere and not gue
 
 * In the generated definition of the concept, all the word need to be in the databases, so that the avatar can properly translated it to sign language.
 
+* A explicação do conceit tem de ser o mais simples possivel.
+
+o indicador da seimplicidade semantica do conceito pode ser o numero de palavra ja definidas na base de dados.
+
 ## Others
 
 Examples of online sign language dictionaries:
@@ -152,3 +156,21 @@ Examples of online sign language dictionaries:
 <https://scrapy.org/> - Mainly written on Python
 
 <https://github.com/internetarchive/heritrix3/wiki> - Mainly written on Java
+
+
+encontra a definição da palavra
+
+avaliar a simolicidade do ponto de vista semantica de um conceito
+
+simplificatr a explicação
+
+ea:
+information retrival
+information extraciton
+
+introdução
+estado de arte e contexto
+desenho analise
+implementação
+anvaliação
+conclusão
