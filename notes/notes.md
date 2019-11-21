@@ -4,16 +4,6 @@
 
 ### Suggested links
 
-#### Towards Automatic Concept-based Explanations
-
-(<https://arxiv.org/abs/1902.03129>,
-<https://ai.google/research/pubs/pub48522/>)
-
-This paper focus on analising the parts of data that are used by a ML classification model.
-While those models use just pixels, when those pixels are put together they can represent something that as meaning to the human being.  
-
-"Our goal is to explain a machine learning model’s decision making via units that are more understandable to humans than individual features, pixels, characters, and so forth. Following the literature [45, 20], throughout this work, we refer to these units as concepts"
-
 #### Automatic Extraction of Concepts from Texts and Applications
 
 (<https://run.unl.pt/handle/10362/14268>)
@@ -116,6 +106,11 @@ Indicator representation approaches
 
 2. Machine Learning
 
+#### Automatic Extraction of Spatial Information From Text
+
+In this thesis report the author is optimizing common information extraction algorithms, for the detection of spatial locations presented in texts written in Portuguese.
+The results produced in this theses had a Precision raging from 70 to 78 and a recall raging from 30 to 49.
+
 ### Links Found
 
 #### Learning to Explain Non-Standard English Words and Phrases
@@ -141,9 +136,17 @@ And by doing so, the definition of new words will be found somewhere and not gue
 
 * In the generated definition of the concept, all the word need to be in the databases, so that the avatar can properly translated it to sign language.
 
-* A explicação do conceit tem de ser o mais simples possivel.
+* A explicação do conceit tem de ser o mais simples possível.
 
-o indicador da seimplicidade semantica do conceito pode ser o numero de palavra ja definidas na base de dados.
+O indicador da simplicidade semântica do conceito pode ser o numero de palavra ja definidas na base de dados.
+
+### Information Retrival
+
+"Information retrieval (IR) is finding material (usually documents) of an
+unstructured nature (usually text) that satisfies an information need from
+within large collections (usually stored on computers)."
+
+### Information Extraction
 
 ## Others
 
@@ -157,20 +160,14 @@ Examples of online sign language dictionaries:
 
 <https://github.com/internetarchive/heritrix3/wiki> - Mainly written on Java
 
+### TODO
 
-encontra a definição da palavra
+uc 1 encontra a definição da palavra
 
-avaliar a simolicidade do ponto de vista semantica de um conceito
+uc 2 avaliar a simplicidade do ponto de vista semântica de um conceito
 
-simplificatr a explicação
+uc 3 simplificar a explicação
 
 ea:
 information retrival
-information extraciton
-
-introdução
-estado de arte e contexto
-desenho analise
-implementação
-anvaliação
-conclusão
+information extraction
