@@ -171,3 +171,13 @@ uc 3 simplificar a explicação
 ea:
 information retrival
 information extraction
+
+adicionar alimentar avatar ao diagram
+
+numero de palavras max, como metodo de avaliação
+
+descrever o processo desde o estado base atual até ao avanºado
+
+adopatr uma abordagem capaz de suportar varias lingua ex ficheiro de def, ou sites referencias
+
+segunda 9/12 -18h 
