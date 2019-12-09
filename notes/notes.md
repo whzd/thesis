@@ -238,20 +238,15 @@ uc 2 avaliar a simplicidade do ponto de vista semântica de um conceito
 
 uc 3 simplificar a explicação
 
+numero de palavras max, como metodo de avaliação
+
+descrever o processo desde o estado base atual até ao avançado
+
+adotar uma abordagem capaz de suportar varias lingua ex ficheiro de def, ou sites referencias
+
+segunda 9/12 -18h
+
 ### Question(s)
 
 Pode se chamar aos utilizadores da linguagem gestual portuguesa 'utilizadores'?
 Qual o nome correto a ser dado a quem está a utilizar a linguagem e quem está a ver a linguagem (e.g. O falante e o ouvinte)?
-ea:
-information retrival
-information extraction
-
-adicionar alimentar avatar ao diagram
-
-numero de palavras max, como metodo de avaliação
-
-descrever o processo desde o estado base atual até ao avanºado
-
-adopatr uma abordagem capaz de suportar varias lingua ex ficheiro de def, ou sites referencias
-
-segunda 9/12 -18h 

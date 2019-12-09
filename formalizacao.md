@@ -39,16 +39,12 @@ gesto correspondente. Essas palavras/conceitos têm que ser explicadas usando o 
 recorrente em domínios científicos. Termos como “nanotecnologia” não têm um gesto correspondente sendo necessário
 explicar o conceito por outras palavras. Pretende-se nesta tese desenvolver um sistema automático de interpretação que
 possa resolver este problema recorrendo a técnicas da área do Information Retrieval (IR), Information Extraction (IE) e
-Text Mining (TM). O protótipo a desenvolver deverá receber com input uma palavra ou expressão e devolver um texto
-que explique o conceito relacionado.
-
-**CORRIGIR**
+Text Mining (TM).
 
 ## 11 Objetivos
 
-Promover a inclusão e igualdade de oportunidades da comunidade surda. Facilitar a produção de conteúdos em LGP.
-
-**CORRIGIR**
+Deve ser criada uma aplicação que utilize técnicas de Text Mining, Information Scraping e Information Retrival para poder gerar uma explicação para uma dada palavra ou expressão. A expressão gerada será posteriomente traduzida para linguagem gestual através de um avatar, o qual faz parte de outro projeto do GILT-ISEP.
+Esta aplicação pretende assim promover a inclusão e igualdade de oportunidades da comunidade surda, facilitando a produção de conteúdos em LGP.
 
 ## Outcomes
 
@@ -67,8 +63,6 @@ Sim
 
 ### 13 Qual a abordagem/método a seguir para interpretar e sistematizar o problema a resolver?
 
-Deve ser criada uma aplicação que utilize técnicas de Text Mining, Information Scraping e Information Retrival para poder gerar uma explicação para uma dada palavra ou expressão. A expressão gerada será posteriormente convertida para linguagem gestual, pelo que deverá de ser simples o suficiente uma vez que o léxico da Linguagem Gestual Portuguesa é reduzido.
-
 **CORRIGIR**
 
 ## Outcome 2: Sintetizar conhecimento existente relacionado com o problema ou as abordagens para a resolução do problema (Nível 4)
@@ -81,8 +75,6 @@ Sim
 
 Será feito um levantamento do estado da arte relacionada com métodos e abordagens para a extração de conceitos presentes em texto e de aplicações onde é gerada uma explicação para uma determinada palavra ou expressão.
 
-**CORRIGIR**
-
 ## Outcome 3: Avaliar diferentes abordagens para a resolução do problema (Nível 5)
 
 ### 16 Serão avaliados métodos ou tecnologias para resolução do problema?
@@ -91,7 +83,7 @@ Sim
 
 ### 17 Como serão avaliadas as diferentes abordagens (métodos e tecnologias) para a resolução do problema? Se não for avaliada, porquê?
 
-Existem várias técnicas utilizadas para a extração de conceitos. Pretende-se que sejam avaliadas as técnicas utilizadas previamente, em trabalhos desenvolvidos (ver referências bibliográficas), para que sejam racionalmente e justificadamente aplicadas no desenvolvimento da solução. A avaliação terá como base a precisão obtida em abordagens similares.
+Existem várias técnicas utilizadas para a extração de conceitos. Pretende-se que sejam avaliadas as técnicas utilizadas previamente, em trabalhos desenvolvidos (ver referências bibliográficas), assim como outras existentes para que sejam racionalmente e justificadamente aplicadas no desenvolvimento da solução. A avaliação que dará resultado à escolha de umas técnicas em detrimento de outras será feita com base na eficiência, na linguagem, na documentação disponível...
 
 **CORRIGIR**
 
@@ -130,9 +122,9 @@ Serão utilizadas métricas de avaliação para algoritmos de text mining. A sol
 
 ## 24 Referências bibliográficas
 
-Thanapon Noraset, C. L. (2016). Definition Modeling: Learning to define word embeddings in natural language. Evanston,
-Illinois, USA: Department of Electrical Engineering & Computer Science. Ventura, J. M. (2014). Automatic Extraction of
-Concepts from Texts. Lisboa: Faculdade de Ciências e Tecnologia - Universidade Nova de Lisboa.
+Thanapon Noraset, C. L. (2016). Definition Modeling: Learning to define word embeddings in natural language. Evanston, Illinois, USA: Department of Electrical Engineering & Computer Science;
+
+Ventura, J. M. (2014). Automatic Extraction of Concepts from Texts. Lisboa: Faculdade de Ciências e Tecnologia - Universidade Nova de Lisboa;
 
 ## 25 Descrição do estágio (se existir)
 
