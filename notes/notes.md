@@ -249,4 +249,4 @@ segunda 9/12 -18h
 ### Question(s)
 
 Pode se chamar aos utilizadores da linguagem gestual portuguesa 'utilizadores'?
-Qual o nome correto a ser dado a quem está a utilizar a linguagem e quem está a ver a linguagem (e.g. O falante e o ouvinte)?
+Qual o nome correto a ser dado a quem está a utilizar a linguagem e quem está a ver a linguagem (e.g. O falante e o ouvinte)? emissor e receptor 

@@ -63,7 +63,7 @@ Sim
 
 ### 13 Qual a abordagem/método a seguir para interpretar e sistematizar o problema a resolver?
 
-**CORRIGIR**
+Numa fase preliminar irá haver discussão com a comunidade surda para perceber quais as necessidades reais uma vez que a comunidade surda ser um alvo muito particular.
 
 ## Outcome 2: Sintetizar conhecimento existente relacionado com o problema ou as abordagens para a resolução do problema (Nível 4)
 
@@ -83,9 +83,7 @@ Sim
 
 ### 17 Como serão avaliadas as diferentes abordagens (métodos e tecnologias) para a resolução do problema? Se não for avaliada, porquê?
 
-Existem várias técnicas utilizadas para a extração de conceitos. Pretende-se que sejam avaliadas as técnicas utilizadas previamente, em trabalhos desenvolvidos (ver referências bibliográficas), assim como outras existentes para que sejam racionalmente e justificadamente aplicadas no desenvolvimento da solução. A avaliação que dará resultado à escolha de umas técnicas em detrimento de outras será feita com base na eficiência, na linguagem, na documentação disponível...
-
-**CORRIGIR**
+Existem várias técnicas utilizadas para a extração de conceitos. Pretende-se que sejam avaliadas as técnicas utilizadas previamente, em trabalhos desenvolvidos (ver referências bibliográficas), assim como outras existentes para que sejam racionalmente e justificadamente aplicadas no desenvolvimento da solução. A avaliação que dará resultado à escolha de umas técnicas em detrimento de outras será feita com base na eficiência, na documentação e suporte disponível.
 
 ## Outcome 4: Desenhar uma solução para o problema adotando boas práticas de engenharia informática (Nível 4)
 
