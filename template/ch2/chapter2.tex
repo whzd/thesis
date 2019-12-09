@@ -7,17 +7,34 @@ This chapter presents a review of the most relevant topics (e.g. Information Ret
 
 \section{Information Retrival}
 
-\dots
 
-As the name suggests, Information Retrival, is the act of retriving information from a source.
+Information Retrival (IR), as the name suggests, is the act of retriving information from a source.
 But this definition can be very broad.
-Christopher D. Manning et al. (\citeyear{Reference4}) wrote on his book that Information Retrival is finding materials of an unstructured nature that satisfies an information need from within large collections.
+Christopher D. Manning et al. (\citeyear{Reference1}) wrote on his book that Information Retrival is finding materials of an unstructured nature that satisfies an information need from within large collections.
 
 \section{Information Extraction}
 
-\dots
+As society became more data oriented having access to both structured and unstructured data became easy.
+The difference between those those types of data is that structured data is semantically defined for a target domain and is interpreted with respect to category and context.
+Therefor the need for applications capable of extracting structured data had increased.
+
+Information Extraction (IE) is the name given to the process of automatically extracting structured information from an unstructured sources, mainly texts.
+The result of an IE process is different for every case since it can be tailored according to the application needs.
+Nowadays this applications can be used to fullfill personal, scientific and enterprise needs.
+
+With the evolution of technology, IE also evolved and different models for the extraction of information were created.
+These models are the following: Rule-based, Statictical, Hybrids (both rule-based and statistical) and Conditional Random Fields.
+
+One example of a rule-based approach is given by Rosa Del Gaudio and António Branco (\citeyear{Reference4}), in this paper the authors created a IE system that was capable extracting the definition of a word from texts written in Portuguese.
+
+Another example \dots
 
 \section{Related Work}
 
-The goal is to investigate approaches to the problem of generating a definition, or explanation to a given word or expression.
+In this section are discussed studies that are related to the work here reported and whose results and methods may be put in contrast with those produced in this work.
 
+After extensive research, this project seems to be the first to try to accomplish the goal of generating a definition to a given word or expression using Text Mining, Information Retrival and Information Extraction.
+Thanapon Noraset et al. (\citeyear{Reference3}) used Deep Learning, more precisely Recurrent Neural Networks (RNN) that learn to generate a definition from a pre-defined database\dots
+
+Ke Ni and William Yang Wang (\citeyear{Reference2}) also chose a Deep Learning approach, using RNN to generate a definition of slang words or expressions in twits.
+In this approach, the RNN was trained using an online, user contributed, dictionary called Urban Dictionary.

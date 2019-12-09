@@ -127,7 +127,91 @@ The focus was non-standard expressions, such as slang, and the databased used to
 In this paper the authors trained Recurrent Neural Network models to generate a definitions of a given word.
 The data set used was bases on a dictionary definitions.
 
-**NOTE:**
+#### How to make words with vectors: Phrase generation in distributional semantics
+
+(<https://www.aclweb.org/anthology/P14-1059.pdf>)
+
+In this paper the authors used an approach that revert the composition process and propose a framework of data-induced, syntax-dependent functions that decompose a single vetor into vetor sequence.
+This approach was tested in a monolingual scenario and in a cross-lingual setting.
+
+#### Automatically deriving structured knowledge bases from on-line dictionaries (NOT RELATED)
+
+(<https://www.researchgate.net/publication/2610226_Automatically_Deriving_Structured_Knowledge_Bases_From_on-Line_Dictionaries>)
+
+In this paper the authors present an approach to build a lexical knowledge base from on-line dictionaries.
+
+#### Wanderlust: Extracting Semantic Relations from Natural Language Text Using Dependency Grammar Patterns
+
+(<http://citeseerx.ist.psu.edu/viewdoc/summary;?doi=10.1.1.204.5708>)
+
+In this paper the authors developed an algorithm called Wanderlust which automatically extracts semantic relations from natural language text.
+The paper focus on the following use case: "Applying Wanderlust to the English Wikipedia corpus and use the obtained semantic relations to populate a semantic wiki."
+In this use case, a precision value of over 80% was measured.
+
+#### Neural Net Model for Featured Word Extraction
+
+(<https://arxiv.org/abs/cs/0206001>)
+
+In this paper the authors present a theoretical model bases on using Neural Network.
+This model gives emphasis on extracting 'featured words' from an article.
+Since this is a theoretical work there are no tests an therefor no result values.
+
+#### Automatic Extraction of Definitions in Portuguese: A Rule-Based Approach
+
+(<https://link.springer.com/chapter/10.1007%2F978-3-540-77002-2_55>)
+
+In this paper the authors used a rule-based system for automatic extraction of definition from Portuguese texts.
+The system was tested using texts from three different domains: information society, computer science for non experts and e-learning.
+The results of the approach presented in this paper were in average 14% for precision, 86% for recall and 0.33 for F2 score.
+
+**Notes:**
+
+* A rule-based system is used to store and manipulate knowledge to interpret information in a useful way.
+
+* The F2 score is used in applications where it's more importante to classify correctly as many positive samples as possible, rather than maximixing the number of correct classifications. (<https://www.quora.com/What-is-the-F2-score-in-machine-learning>)
+
+### Information Retrival
+
+**O que é ?**
+**Para que serve ?**
+**Como surgiu ?**
+**Aplicações ?**
+
+"Information retrieval (IR) is finding material (usually documents) of an
+unstructured nature (usually text) that satisfies an information need from
+within large collections (usually stored on computers)."
+
+The discipline of information retrieval has developed automatic methods, typically of a statistical flavor, for indexing large document collections and classifying documents.
+
+### Information Extraction
+
+Information Extraction (<https://www.nowpublishers.com/article/Details/DBS-003>)
+
+**O que é ?**
+**Para que serve ?**
+**Como surgiu ?**
+**Aplicações ?**
+
+As society became more data oriented having access to both structured and unstructured data became easy.
+The difference between those those types of data is that structured data is semantically defined for a target domain and is interpreted with respect to category and context.
+Therefor the need for applications capable of extracting structured data had increased.
+
+Information Extraction (IE) is the name given to the process of automatically extracting structured information from an unstructured sources, mainly texts.
+The result of an IE process is different for every case since it can be tailored according to the application needs.
+Nowadays this applications can be used to fullfill personal, scientific and enterprise needs.
+
+With the evolution of technology, IE also evolved and different models for the extraction of information were created.
+These models are the following: Rule-based, Statictical, Hybrids (both rule-based and statistical) and Conditional Random Fields.
+
+One example of a rule-based approach is given by Rosa Del Gaudio and António Branco (cite), in this paper the authors created a IE system that was capable extracting the definition of a word from texts written in Portuguese.
+
+## Others
+
+Examples of online sign language dictionaries:
+<https://www.spreadthesign.com>
+<https://www.signbsl.com/>
+
+**Random Information:**
 
 * Unlike the previous papers where there was a fixed databased required for the training phase of the neural networks.
 This means that new words that were not presented in those databases will have a chance to be wrongly defined.
@@ -136,23 +220,9 @@ And by doing so, the definition of new words will be found somewhere and not gue
 
 * In the generated definition of the concept, all the word need to be in the databases, so that the avatar can properly translated it to sign language.
 
-* A explicação do conceit tem de ser o mais simples possível.
+* A explicação do conceito tem de ser o mais simples possível.
 
-O indicador da simplicidade semântica do conceito pode ser o numero de palavra ja definidas na base de dados.
-
-### Information Retrival
-
-"Information retrieval (IR) is finding material (usually documents) of an
-unstructured nature (usually text) that satisfies an information need from
-within large collections (usually stored on computers)."
-
-### Information Extraction
-
-## Others
-
-Examples of online sign language dictionaries:
-<https://www.spreadthesign.com>
-<https://www.signbsl.com/>
+* O indicador da simplicidade semântica do conceito pode ser o numero de palavra ja definidas na base de dados.
 
 ### Open-source Web crawlers
 
@@ -168,6 +238,7 @@ uc 2 avaliar a simplicidade do ponto de vista semântica de um conceito
 
 uc 3 simplificar a explicação
 
-ea:
-information retrival
-information extraction
+### Question(s)
+
+Pode se chamar aos utilizadores da linguagem gestual portuguesa 'utilizadores'?
+Qual o nome correto a ser dado a quem está a utilizar a linguagem e quem está a ver a linguagem (e.g. O falante e o ouvinte)?
