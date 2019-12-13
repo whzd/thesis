@@ -63,7 +63,7 @@ Sim
 
 ### 13 Qual a abordagem/método a seguir para interpretar e sistematizar o problema a resolver?
 
-Numa fase preliminar irá haver discussão com a comunidade surda para perceber quais as necessidades reais uma vez que a comunidade surda ser um alvo muito particular.
+Numa fase preliminar irá haver discussão com a comunidade surda, em particular no Agrupamento de Escolas Dona Maria II, escola de referência para surdos, para perceber quais as necessidades reais dos utilizadores finais. Em paralelo com este estudo iremos analisar alguns dicionários de língua gestual disponíveis online com o intuíto de identificar funcionalidades e formas de interação comuns neste tipo de aplicações.
 
 ## Outcome 2: Sintetizar conhecimento existente relacionado com o problema ou as abordagens para a resolução do problema (Nível 4)
 
@@ -73,7 +73,7 @@ Sim
 
 ### 15 Qual a abordagem/método a seguir para sintetizar o conhecimento existente relacionado com o problema ou as abordagens para a resolução do problema? Se não for feito, porquê?
 
-Será feito um levantamento do estado da arte relacionada com métodos e abordagens para a extração de conceitos presentes em texto e de aplicações onde é gerada uma explicação para uma determinada palavra ou expressão.
+Será feito um levantamento do estado da arte relacionada com métodos e abordagens para a extração de conceitos presentes em texto e de aplicações onde é gerada uma explicação para uma determinada palavra ou expressão. Serão estudadas as características gramaticais da língua gestual e o seu vocabulário para perceber o grau de simplicidade das explicações produzidas.
 
 ## Outcome 3: Avaliar diferentes abordagens para a resolução do problema (Nível 5)
 
@@ -120,9 +120,17 @@ Serão utilizadas métricas de avaliação para algoritmos de text mining. A sol
 
 ## 24 Referências bibliográficas
 
-Thanapon Noraset, C. L. (2016). Definition Modeling: Learning to define word embeddings in natural language. Evanston, Illinois, USA: Department of Electrical Engineering & Computer Science;
+Noraset, T., Liang, C., Birnbaum, L., & Downey, D. (2017, February). Definition modeling: Learning to define word embeddings in natural language. In Thirty-First AAAI Conference on Artificial Intelligence.
 
 Ventura, J. M. (2014). Automatic Extraction of Concepts from Texts. Lisboa: Faculdade de Ciências e Tecnologia - Universidade Nova de Lisboa;
+
+Del Gaudio R., Branco A. (2007) Automatic Extraction of Definitions in Portuguese: A Rule-Based Approach. In: Neves J., Santos M.F., Machado J.M. (eds) Progress in Artificial Intelligence. EPIA 2007. Lecture Notes in Computer Science, vol 4874. Springer, Berlin, Heidelberg;
+
+Das, A., Marko, M., Probst, A., Porter, M. A., & Gershenson, C. (2008). Neural net model for featured word extraction. In Unifying Themes in Complex Systems IV (pp. 353-361). Springer, Berlin, Heidelberg;
+
+Ni, K., & Wang, W. Y. (2017). Learning to explain non-standard English words and phrases. arXiv preprint arXiv:1709.09254.
+
+Dinu, G., & Baroni, M. (2014, June). How to make words with vectors: Phrase generation in distributional semantics. In Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) (pp. 624-633).
 
 ## 25 Descrição do estágio (se existir)
 
