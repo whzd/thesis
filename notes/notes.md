@@ -288,7 +288,13 @@ adotar uma abordagem capaz de suportar varias lingua ex ficheiro de def, ou site
 
 ### Question(s)
 
-Lingua Gestual Portuguesa - Vocabulário?
+M4 ?
+
+alternativas de design ?
+
+Hipóteses ?
+
+indicadores ?
 
 Questionário:
 
