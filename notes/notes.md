@@ -129,7 +129,7 @@ The data set used was bases on a dictionary definitions.
 
 #### How to make words with vectors: Phrase generation in distributional semantics
 
-(<https://www.aclweb.org/anthology/P14-1059.pdf>)
+(<https://www.aclweb.org/anthology/P14-1059/>)
 
 In this paper the authors used an approach that revert the composition process and propose a framework of data-induced, syntax-dependent functions that decompose a single vetor into vetor sequence.
 This approach was tested in a monolingual scenario and in a cross-lingual setting.
@@ -177,11 +177,18 @@ The results of the approach presented in this paper were in average 14% for prec
 **Como surgiu ?**
 **Aplicações ?**
 
-"Information retrieval (IR) is finding material (usually documents) of an
-unstructured nature (usually text) that satisfies an information need from
-within large collections (usually stored on computers)."
-
 The discipline of information retrieval has developed automatic methods, typically of a statistical flavor, for indexing large document collections and classifying documents.
+
+The search for information is a human activity that was always present.
+The World Wide Web brought the commodity of searching information from within one's home, where before it was required to go to a place that stored said information, mainly libraries.
+
+Information Retrival (IR), as the name suggests, is the act of retriving information from a source, but this definition can be very broad.
+Christopher D. Manning et al. (cite) wrote on his book that Information Retrival is finding materials of an unstructured nature that satisfies an information need from within large collections.
+
+The IR systems can be arranged in three groups based on its scale.
+This groups are: Web search, personal information retrieval and institutional, and domain-specific search.
+
+The Web search
 
 ### Information Extraction
 
@@ -201,9 +208,43 @@ The result of an IE process is different for every case since it can be tailored
 Nowadays this applications can be used to fullfill personal, scientific and enterprise needs.
 
 With the evolution of technology, IE also evolved and different models for the extraction of information were created.
-These models are the following: Rule-based, Statictical, Hybrids (both rule-based and statistical) and Conditional Random Fields.
+These models are the following: Rule-based, Statictical, Hybrids (both rule-based and statistical) and Conditional Random Fields (cite).
 
 One example of a rule-based approach is given by Rosa Del Gaudio and António Branco (cite), in this paper the authors created a IE system that was capable extracting the definition of a word from texts written in Portuguese.
+
+### Portuguese Sign Language
+
+"Serão estudadas as características gramaticais da língua gestual e o seu vocabulário para perceber o grau de simplicidade das explicações produzidas."
+
+A Letra e o Gesto Estruturas Linguísticas em Língua Gestual Portuguesa e Língua Portuguesa - Tânia Margarida Martins
+
+Lingua Gestual Portuguesa (LGP):
+
+* Características gramaticais
+
+* Vocabulário
+
+Sign language was created to allow people to communicate through signs instead of sounds.
+This is particularly usefull for those that have some earing impairment that made them incapable of learing to communicate through sounds.
+In the context of a sign language, a sign, which is composed by the movement of the upper limbs, the configuration and orientation of the hands and facial expression, is used to represent an idea.
+According to the Portuguese Deaf Association there are around 150000 people with some type of earing impairment and around 30000 of those that use the Portuguese Sign Language (PSL). (cite1)
+This language was approved by the Constitution of the Portuguese Republic, in 1997, and became one of the three oficial languages in Portugal.
+There are three ways to structure a sentence In PSL: subject-object-verb, subject-verb-object or object-subject-verb.
+The other parts used in Portuguese Language, like the propositions and the arthicles, are omitted when converted to PSL. (cite2) & (cite3)
+
+Some gramatical caracteristics of the Portuguese Sign Language are:
+
+* In most cases the prefix "women" is used to identify the female version of a being while the male version is identified by the lack of a prefix "male".
+
+* To describe a quantity of a given subject a number can be added or the use of the suffix "many".
+
+* To represent temporal placement its used the suffix "past" or "future" to the verb.
+
+* The negation of a sentence is defined by the word "not" at the end.
+
+* It is used an interrogative pronoun at the end of the sentence to represent it as a question.
+
+VOCABULARY?
 
 ## Others
 
@@ -235,6 +276,7 @@ And by doing so, the definition of new words will be found somewhere and not gue
 uc 1 encontra a definição da palavra
 
 uc 2 avaliar a simplicidade do ponto de vista semântica de um conceito
+(qual é a forma mais simples de explicar um conceito)
 
 uc 3 simplificar a explicação
 
@@ -244,9 +286,30 @@ descrever o processo desde o estado base atual até ao avançado
 
 adotar uma abordagem capaz de suportar varias lingua ex ficheiro de def, ou sites referencias
 
-segunda 9/12 -18h
-
 ### Question(s)
 
-Pode se chamar aos utilizadores da linguagem gestual portuguesa 'utilizadores'?
-Qual o nome correto a ser dado a quem está a utilizar a linguagem e quem está a ver a linguagem (e.g. O falante e o ouvinte)? emissor e receptor 
+Lingua Gestual Portuguesa - Vocabulário?
+
+Questionário:
+
+    Algumas regras/restrições/condições:
+
+    1. Responda a cada questão de forma objetiva, clara e sintética.
+
+    2. Cada resposta está limitada a 2500 caracteres.
+
+    3. As respostas devem ser auto-explicativas/contidas, ou seja, deve ser possível entender a resposta sem conhecimento prévio dos detalhes do trabalho.
+
+    4. A avaliação desta componente será baseada exclusivamente nas respostas fornecidas. O relatório P1 entregue não será analisado nem avaliado neste contexto.
+
+    5. As respostas a estas questões devem ser elaboradas com base no relatório P1. Espera-se que cada resposta seja sintetizada a partir de P1 descrevendo única e exclusivamente os aspetos fundamentais relativos à pergunta em concreto.
+
+1-Descrição do problema (< 2500 caracteres)
+
+2-Descrição dos objetivos (< 2500 caracteres)
+
+3-Especificação da hipótese de investigação (< 2500 caracteres)
+
+4-Identificação dos indicadores e fontes de informação (< 2500 caracteres)
+
+5-Descrição da metodologia de avaliação (< 2500 caracteres)

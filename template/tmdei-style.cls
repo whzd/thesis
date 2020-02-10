@@ -197,7 +197,7 @@
   title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
 
-\RequirePackage[acronym,nonumberlist,toc]{glossaries} %Required to define acronyms and make glossaries
+\RequirePackage[nomain,acronym,nonumberlist,toc]{glossaries} %Required to define acronyms and make glossaries
 
 \RequirePackage[centerlast,small,sc]{caption} % Required for customising the captions
 \setlength{\captionmargin}{50pt}
