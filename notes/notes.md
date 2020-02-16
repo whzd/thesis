@@ -286,15 +286,28 @@ descrever o processo desde o estado base atual até ao avançado
 
 adotar uma abordagem capaz de suportar varias lingua ex ficheiro de def, ou sites referencias
 
+------
+criar api 
+
+falar de uma primeira abordagem
+
 ### Question(s)
 
 M4 ?
 
+m4 no caso de uma palvra sem tradução procurar uma explicaçao
+
 alternativas de design ?
+
+design atual, design mais simples (implementação simples)
 
 Hipóteses ?
 
+possibilidade de utilizar algoritmso de text mining para gerar ezplkicação parar surdos
+
 indicadores ?
+
+indicadores(metricas de text mining) e fontes de informação(algoritmos de textmingi)
 
 Questionário:
 
