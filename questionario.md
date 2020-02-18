@@ -36,27 +36,27 @@ Com este projeto pretende-se também tornar mais fácil a criação de conteúdo
 
 ## 3-Especificação da hipótese de investigação (< 2500 caracteres)
 
-Para que o projeto seja capaz de facilitar a criação de conteúdo em Lingua Gestual Portuguesa e assim contribuir para promover a inclusão e igualdade de oportunidades para a comunidade surda, a hipótese a testar passa por averiguar a possibilidade de utilizar algoritmos de text mining para gerar explicação para utilizadores da Lingua Gestual Portuguesa.
-
-Como tal foram criadas as seguintes hipóteses:
-
-* Hipótese nula (H0): Não é possível utilizar algoritmos de text mining para gerar a explicação de uma palavra ou expressão para utilizadores da Lingua Gestual Portuguesa.
-
-Tendo em conta conta que, H0, significa que em média os algoritmos utilizados não permitem gerar explicações.
-
-* Hipótese alternativa (H1): É possível utilizar algoritmos de text mining para gerar a explicação de uma palavra ou expressão para utilizadores da Lingua Gestual Portuguesa.
-
-Tendo em conta conta que, H1, significa que em média os algoritmos utilizados permitem gerar explicações.
+Tendo em conta os objetivos apresentados, para que o projeto seja capaz de facilitar a criação de conteúdo em Lingua Gestual Portuguesa e assim contribuir para promover a inclusão e igualdade de oportunidades para a comunidade surda.
+Foi definida a hipótese que passa por averiguar a possibilidade de utilizar algoritmos de text mining para gerar explicação de uma palavra ou expressão para utilizadores da Lingua Gestual Portuguesa.
 
 ## 4-Identificação dos indicadores e fontes de informação (< 2500 caracteres)
 
-Neste projeto temos como fontes de infomação os algoritmos de text mining e os seus indicadores são as métricas como Precision, Recall, Accuracy and F-measure.
+Neste projeto irão ser utilizados algoritmos de Text Mining os quais irão produzir resultados que serão então avaliados através das métricas existentes para estes casos, sendo estas:
+
+* Precision - Trata-se da fração das identificações positivas sobre todas as identificações feitas pelo modelo.
+
+* Recall - Trata-se da fração das identificações positivas sobre todas as identificações possíveis de fazer nos dados.
+
+* Accuracy - Trata-se da fração das identificações corretamente feitas pelo modelo.
+
+* F-measure - Trata-se da média harmónica entre a Precision e o Recall.
 
 ## 5-Descrição da metodologia de avaliação (< 2500 caracteres)
 
-De modo a avaliar as hipóteses definidas anteriormente, iram ser realizados inquéritos de modo a aferir a qualidade da produto relativamente à
-usabilidade.
-O questionário utilizado foi o SUS (System Usability Scale).
+Uma vez que o publico alvo da aplicação a ser desenvolvida tem necessidades especiais, será inicialmente construida uma solução simples de modo a averiguar se o desenvolvimento vai de encontra a tais necessidades.
+
+De modo a aferir a qualidade da produto relativamente à sua usabilidade iram ser usados questionários.
+O modelo de questionário a ser utilizado será o SUS (System Usability Scale).
 Os critérios que este questionário ajuda a avaliar são:
 
 * Eficácia - Consiste em apurar se os utilizadores do website conseguem atingir os seus objetivos.
@@ -64,3 +64,9 @@ Os critérios que este questionário ajuda a avaliar são:
 * Eficiência - Consiste em constatar quanto esforço e recursos são necessários para que os utilizadores consigam atingir os seus objetivos.
 
 * Satisfação - Consiste em averiguar se a experiência do utilizador foi satisfatória.
+
+Se não for atingido um nível de qualidade satisfatorio será desenhada uma atualização à solução de forma a resolver problemas identificados pelo publico alvo.
+
+Caso seja atingido esse nível de qualidade, o desenvolvimento irá continuar fazendo os ajustes necessários tendo em conta o feedback recebido.
+
+Esta método de avaliação irá novamente ser aplicado uma vez que a aplicação atinja um novo estado em que este tipo de avaliação seja viavel.
