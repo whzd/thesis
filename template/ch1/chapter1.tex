@@ -3,10 +3,14 @@
 \chapter{Introduction} % Main chapter title
 \label{chap:Chapter1} % For referencing the chapter elsewhere, use Chapter~\ref{Chapter1}
 
+The aim of this chapter is to present the developed work.
+It is possible to find the project's problem and its context, followed by the objectives defined to create a possible solution.
+
 \section{Context}
 
 Learning is the act or process of acquiring knowledge, and it's a part of the human life from birth to death.
 This ability is shared by humans and animals and it's being partially implemented to machines with the help of machine learning.
+Humans learn by interaction with other others or the environment.
 
 The traditional way of learing is known as rote learning and it is defined by the memorization of information based in repetition.
 It has the advantage of quickly developing basic knowledge, an example of this is teaching a kid the alphabet or the numbers.
@@ -14,8 +18,9 @@ A major disadvantage of this approach is not be able to be used to teach more co
 Explaning a thopic like "Love" is not possible with this methodology.
 
 One alternative to rote learning is meaningful learning, also known as conceptual learning.
-Meaningful learning focus on understanding new knowledge 
-\dots
+Meaningful learning focus on understanding new knowledge and how it is related to the previously obtained.
+One disadvantage of this approach is that not every human has the same previous knowledge, therefore, if not tailored, it wil take different people different time to be understand. 
+On the other hand, a major advantage is the encouragement of understanding which benefits retention of knowledge.
 
 Novak (\citeyear{novak_2012}) wrote in is book that meaningful learning has three requirements : 
 
@@ -25,17 +30,25 @@ Novak (\citeyear{novak_2012}) wrote in is book that meaningful learning has thre
     \item The willing to learn meaningfully - The learner chooses to consciously relate new knowledge to relevant knowledge already obtained.
 \end{itemize}
 
+Concepts are the key aspect of this approach, that help humans understand and realate knowledge.
 Concepts are abstract or generic ideas that have a common set of features that are shared across multiple situations and contexts.
-\dots
 
-An example that helps understand this is the concept of chair.
-A chair can take multiple shapes and forms but there are some characteristic that are share among all of them, such as having legs, a seat and a back rest.
-Once you learn those, you understand the concept of it as a whole, and are able to identify most chairs as such.
+Humans have learned concepts even if they are not aware of it.
+An example of it is shown everytime they take a sit on chair.
+Chairs can take very different designs but they all share some characteristic, such as having a mean of support, a seat and a back rest.
+The concept of chair is made by those shared characteristic and once one understandes that concept he will be able to identify most chairs as such.
 
 \section{Problem}
 
 Concept explanation can take a fundamental part of the learning process, whether it takes place in an educational environment, a day-to-day or a profissional context.
-The importance of concept explanation is even greater when it comes to languages with a small lexicon, in particular sign languages, namely the \gls{PSL}.
+The importance of concept explanation is even greater when it comes to languages with a small lexicon, in particular sign languages.
+
+According to the World Health Organization (\citeyear{who_2018}), as of march 2018, there were 466 million people with desabling hearing loss, this represents 5\% of the world population.
+Without being able to hear, deaf people are not able to communicate using sound therefor they must use sign languages.
+
+The number of different sign languages are not precisely defined, but most countries have their one sign language.
+
+In Portugal the language used by the deaf community is known as \gls{PSL}.
 The lexicon of \gls{PSL} is composed by multiple signs where each once represents a word or an expression of the \gls{PL}.
 However, there are numerous words in \gls{PL} that don't have a sign that translates them.
 Those words/expressions have to be explained using the available lexicon.
@@ -45,12 +58,13 @@ One example of this, is the a concept like 'Nanotechnology' which doesn't have a
 
 \section{Objectives}
 
-Build and api \dots
+Taking into consideration the problem previously explained, the first goal is to develop an \gls{API} that is capable of generating the explanation of a given word or expression.
+To be able to produce said explanation the \gls{API} will use Text Mining, Information Scraping and Information Retrival techniques.
 
-Taking into consideration the problem previously explained, the main objective of this project is to develop an application capable of generating the explanation of a given word or expression.
-To be able to produce said explanation the application will use Text Mining, Information Scraping and Information Retrival techniques.
+The developed \gls{API} will be used to create a web application, that presents the user with an explanation for the input given.
+To present the explanation the application will use text, as well as an avatar that will convert said text to \gls{PSL}.
+The avatar was developed in another GILT project, and is already in use in another web application also related to \gls{PSL}.
 
-The resulting explanation will be presented has text to the user and also translated to Portuguese Sign Langue with the help of an avatar that was previously developed in GILT-ISEP.
+Future or already existing projects made by GILT may use this \gls{API} to further enchance their functionalities.
 
-This project has the intent to make it easier to produce content in Portuguese Sign language, and by doing so, promoting the inclusion and equality of opportunities for the deaf community. 
-
+This project has the intent to make it easier to produce content in \gls{PSL}, and by doing so, promoting the inclusion and equality of opportunities for the deaf community. 
