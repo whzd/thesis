@@ -7,7 +7,8 @@ In this chapter is possible to find the design progression and the reasoning beh
 
 \section{Architecture}
 
-\dots
+To ensure quality, any solution needs a carfully planned architecture that accomplishes efficiently and effectively the already established requirements.
+With this in mind, a component diagram was created to demonstrate all the components, and their interactions, that will compose the system.
 
 \begin{figure}[H]
 \centering
@@ -16,7 +17,15 @@ In this chapter is possible to find the design progression and the reasoning beh
 \label{fig:cd}
 \end{figure}
 
-\dots
+The architecture proposed to be implemented is shown in Figure~\ref{fig:cd}, it is composed by the following components:
+
+\begin{itemize}
+    \item Website - This component is responsible for the interactions of the users with the application.
+    \item Explanation App - This component is responsible for processing the users input and converting the APIs output to the website.
+    \item Explanation API - This component is responsible for generating an explanation for a given string.
+    \item Avatar API - This component is responsible for converting a given string to \gls{PSL}.
+    \item Avatar DB - This component is responsible for storing all the translations from \gls{PL} to \gls{PSL}.
+\end{itemize}
 
 \section{System Functionalities}
 
@@ -133,7 +142,7 @@ The major benefit of choosing this approach is allowing a fast developed of a pr
 \section{Design alternatives}
 
 The main goal was initial the development of a web application that was capable of showing the users an explanation of a word or expression.
-Like so the application was envisioned as a monolith as \dots
+Like so the application was envisioned to take the input generate the explanation and show it to the user, like its shown in Figure~\ref{fig:ocd}.
 
 \begin{figure}[H]
 \centering
@@ -142,6 +151,6 @@ Like so the application was envisioned as a monolith as \dots
 \label{fig:ocd}
 \end{figure}
 
-The disadvantage of this design in comparison with the one previously presented is that in this one the backend of the web application would produce the explanation.
+The disadvantage of this design in comparison with the one previously presented is that, in this one, the backend of the web application would produce the explanation.
 This wouldn't allow to easily reutilize the main functionality of the application which is the generation of an explanation.
 In GILT there are projects that would benefit from this feature and therefore the design had to be changed.
