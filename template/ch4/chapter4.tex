@@ -5,6 +5,21 @@
 
 In this chapter is possible to find the design progression and the reasoning behind it.
 
+\section{Architecture}
+
+\dots
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{ch4/assets/component_diagram.png}
+\caption[Component Diagram]{Component Diagram}
+\label{fig:cd}
+\end{figure}
+
+\dots
+
+\section{System Functionalities}
+
 The first step to design a possible solution was to create a high-level view of the main functionalities the application should have.
 
 \begin{figure}[H]
@@ -106,11 +121,27 @@ With the complete design of the application in mind a simpler and easier to impl
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/mvp_2.png}
+\includegraphics[scale=0.5]{ch4/assets/mvp_2.png}
 \caption[Minimun Value Product]{Minimun Value Product}
 \label{fig:mvp}
 \end{figure}
 
 The Figure~\ref{fig:mvp} shows the starting point of the solution to be developed.
 As a \gls{MVP}, this design focus on the key functionalities that the solution must have, removing everything else.
-The major benefit of choosing this approach is allowing a fast developed of a prototype that can be used to receive feedback from the target audience, in order to garante that the solution is going towards their needs.
+The major benefit of choosing this approach is allowing a fast developed of a prototype that can be used to receive feedback from the target audience, in order to garante that the solution is going towards their needs. 
+
+\section{Design alternatives}
+
+The main goal was initial the development of a web application that was capable of showing the users an explanation of a word or expression.
+Like so the application was envisioned as a monolith as \dots
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{ch4/assets/component_diagram_old.png}
+\caption[Old Component Diagram]{Old Component Diagram}
+\label{fig:ocd}
+\end{figure}
+
+The disadvantage of this design in comparison with the one previously presented is that in this one the backend of the web application would produce the explanation.
+This wouldn't allow to easily reutilize the main functionality of the application which is the generation of an explanation.
+In GILT there are projects that would benefit from this feature and therefore the design had to be changed.
