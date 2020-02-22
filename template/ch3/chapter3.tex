@@ -20,11 +20,12 @@ This section \dots the process of analysing the functional and non-functional re
 \section{Value Analysis}
 
 In order to develop a new product there is a need for a value analysing in order to properly assess the relation between cost and value.
-The analysis presented in the following subsections will follow the New Concept Development Model (NCD) (\cite{koen_2001}) approach.
+This analysis presented in the following subsections. 
 
 \subsection{New Concept Development Model}
 
 \dots
+will follow the New Concept Development Model (NCD) (\cite{koen_2001}) approach.
 
 The model as defined by Koen, is composed by five key stages:
 
@@ -37,7 +38,7 @@ The model as defined by Koen, is composed by five key stages:
     One of this limitations is that a translation to be added requires that a person is recorded performing the signs required to reproduce the word or expression.
     Another limitation of those dictionaries is the lack of translations for word from the scientific domain.
 
-    \item Idea creation - In this stage, \dots ideas for a solution that targets the identified opportunity and is a better fit over the other alternatives analysed.
+    \item Idea creation - In this stage, some ideas were formulated for a solution that targets the identified opportunity and is a better fit over the other alternatives analysed.
     One idea is that the solution to be developed makes the process of explaning a concept automatic.
     For this, the explanation can be found somewhere online and it is possible to obtain it using Information Retrival, Information Extraction and Text Mining techniques.
     To make the obtained explanation viable to be presented to a member of the deaf community it would be better to translate it to \gls{PSL}.
@@ -82,6 +83,9 @@ A value proposition is
 
 \dots
 
+The first stage consists in creating the hierarchical decision tree where the criteria and viable alternatives are defined.
+\dots
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{ch2/assets/AHP.png}
@@ -97,6 +101,8 @@ As observed in the Figure~\ref{fig:AHP}, the items of the first layer, correspon
     \item Multi-language - The compatibility of processing texts and performing tasks using different languages. 
 \end{itemize}
 
+The second stage consists in defining the priorities between the elements of each hierarchical level.
+This is created using the the Fundamental scale created by \textcite{saaty_1987}.
 
 \begin{table}[H]
 \caption{Fundamental scale \autocite{saaty_1987}.}
@@ -121,3 +127,71 @@ As observed in the Figure~\ref{fig:AHP}, the items of the first layer, correspon
 \end{tabular}
 \end{table}
 
+The following table was created to compare the criteria of the decision tree using the values from the Table~\ref{tab:scale}.
+
+\begin{table}[H]
+\caption{Comparison Criteria.}
+\label{tab:criteria}
+\centering
+\begin{tabular}{|m{4cm}|m{3cm}|m{3cm}|m{3cm}|}
+\hline
+\tabhead{Criteria} & \tabhead{Programming language} & \tabhead{Support} & \tabhead{Multi-language} \\
+\hline
+Programming language & 1 & 1/7 & 1/5 \\
+\hline
+Support & 7 & 1 & 5 \\
+\hline
+Multi-language & 5 & 1/5 & 1 \\
+\hline
+Sum & 13 & 47/35 & 31/5 \\
+\hline
+\end{tabular}
+\end{table}
+
+With the information in the Table~\ref{tab:criteria} it is possible to assess that the criterion "Support" is of very strong importance in comparison with the "Programming language" criterion, and it is of strong importance when compared to "Multi-langue".
+Also the criterion "Multi-language" is of strong importance when compared to the "Programming language" criterion.
+
+The third stage consists in \dots
+
+\begin{table}[H]
+\caption{Comparison Criteria Normalized.}
+\label{tab:normalization}
+\centering
+\begin{tabular}{|m{4cm}|m{3cm}|m{3cm}|m{3cm}|}
+\hline
+\tabhead{Criteria} & \tabhead{Programming language} & \tabhead{Support} & \tabhead{Multi-language} \\
+\hline
+Programming language & 1/13 & 5/47 & 1/31 \\
+\hline
+Support & 7/13 & 35/47 & 25/31 \\
+\hline
+Multi-language & 5/13 & 7/47 & 5/31 \\
+\hline
+Sum & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{table}
+
+Having normalized the criteria values as shown in Table~\ref{tab:normalization}, the next step is to calculate the priority order of each criterion.
+To accomplish this the arithmetic mean is used in each normalized criterion values previously obtained.
+
+\begin{table}[H]
+\caption{Relative priority.}
+\label{tab:relativePriority}
+\centering
+\begin{tabular}{|m{4cm}|m{4cm}|}
+\hline
+\tabhead{Criteria} & \tabhead{Relative priority} \\
+\hline
+Programming language & 0.072 \\
+\hline
+Support & 0.697 \\
+\hline
+Multi-language & 0.232 \\
+\hline
+\end{tabular}
+\end{table}
+
+With the values from the Table~\ref{tab:relativePriority} is possible to conclude that the principal criterion for the choise of framework is "Support", followed by "Multi-language" and lastly "Programming language".
+
+The forth stage consists in \dots
