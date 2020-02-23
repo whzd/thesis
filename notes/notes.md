@@ -280,22 +280,24 @@ uc 2 avaliar a simplicidade do ponto de vista semântica de um conceito
 
 uc 3 simplificar a explicação
 
-numero de palavras max, como metodo de avaliação
+numero de palavras max, como método de avaliação
 
 descrever o processo desde o estado base atual até ao avançado
 
 adotar uma abordagem capaz de suportar varias lingua ex ficheiro de def, ou sites referencias
 
 ------
-criar api 
+criar api
 
-falar de uma primeira abordagem
+------
+
+(Survey for the ability to understand a concept based on a generated explanation)
 
 ### Question(s)
 
 M4 ?
 
-m4 no caso de uma palvra sem tradução procurar uma explicaçao
+m4 no caso de uma palavra sem tradução procurar uma explicaçao
 
 alternativas de design ?
 

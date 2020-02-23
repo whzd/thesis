@@ -19,8 +19,8 @@ User Story 1: Obtain explanation for a word/expression
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{ch3/assets/ssd.png}
-\caption[CANVAS]{US1 Success Scenario}
+\includegraphics[scale=0.65]{ch3/assets/ssd.png}
+\caption[US1 Success Scenario]{US1 Success Scenario}
 \label{fig:ssd1}
 \end{figure}
 
@@ -33,14 +33,14 @@ User Story 1: Obtain explanation for a word/expression
 \section{Value Analysis}
 
 In order to develop a new product there is a need for a value analysing in order to properly assess the relation between cost and value.
-This analysis presented in the following subsections. 
+This analysis is presented in the following subsections. 
 
 \subsection{New Concept Development Model}
 
-\dots
-will follow the \gls{NCD} (\cite{koen_2001}) approach.
+The \gls{NCD} \autocite{koen_2001} is a methodology that supplies a structure to transform an opportunity in a concept by following its key stages.
+This will help understand the opportunity value in a well defined manner.
 
-The model as defined by Koen, is composed by five key stages:
+The five key stages, that compose the model defined by \textcite{koen_2001}, were used to define the opportunity behind this project.
 
 \begin{itemize}
     \item Opportunity identification - The opportunity was identified by a member of the deaf community.
@@ -53,13 +53,13 @@ The model as defined by Koen, is composed by five key stages:
 
     \item Idea creation - In this stage, some ideas were formulated for a solution that targets the identified opportunity and is a better fit over the other alternatives analysed.
     One idea is that the solution to be developed makes the process of explaning a concept automatic.
-    For this, the explanation can be found somewhere online and it is possible to obtain it using Information Retrival, Information Extraction and Text Mining techniques.
+    For this, the explanation can be found somewhere online and it is possible to obtain it using information retrival, information extraction and text mining techniques.
     To make the obtained explanation viable to be presented to a member of the deaf community it would be better to translate it to \gls{PSL}.
     For this, there is another GILT project that is already capable of performing this translation and the \gls{API} behind it can be used in this solution.
 
     \item Idea selection - In this stage, the goal was to take all the possible ideas an approaches in a single one that fulfills the necessary requirements.
     The resulting idea is to develop an automatic interpretation system having the needs of the deaf community in mind.
-    This system will use Information Retrival, Information Extraction and Text Mining to generate the explanation of a given word or expression.
+    This system will use Information retrival, information extraction and text mining to generate the explanation of a given word or expression.
     It will also translate said explanation to \gls{PSL}.
 
     \item Concept definition - After having the idea selected the next step is to define the objectives needed to achieve it.
@@ -82,29 +82,31 @@ The identified sacrifices are the need for a device that is able to connect to t
 A value proposition is 
 
 \subsection{CANVAS model}
-
+  
 \dots
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth,keepaspectratio]{ch3/assets/CANVAS.png}
-\caption[CANVAS]{CANVAS Model}
+\caption[CANVAS Model]{CANVAS Model}
 \label{fig:CANVAS}
 \end{figure}
 
-\subsection{AHP}
+\subsection{Analytic Hierarchy Process (AHP)}
 
-\dots
+The \gls{AHP} was introduced by \textcite{saaty_1987} and is an efficient tool to use in the process of complex decision making.
+It allows to define priorities using qualitative and quantitative criteria to help reduce complex decisions to a series of paired comparisons.
+Using this method will also reduce the bias in process of choice.
 
 \subsubsection{Stage 1 - Creating the hierarchical decision tree}
 
 This stage consists in creating the hierarchical decision tree where the criteria and viable alternatives are defined.
-In regard to the problem, it goal is to determin which Text Mining tools will provide the most value for the project.
+In regard to the problem, it goal is to determin which text mining tools will provide the most value for the project.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{ch3/assets/AHP.png}
-\caption[AHP Hierarchy Division]{AHP Hierarchy Division}
+\caption[Hierarchical Decision Tree]{Hierarchical Decision Tree}
 \label{fig:AHP}
 \end{figure}
 
@@ -173,7 +175,8 @@ Also the criterion "Multi-language" is of strong importance when compared to the
 
 \subsubsection{Stage 3 - Relative priority of each criterion}
 
-The third stage consists in \dots
+This stage consists in obtaining the normalized criteria values and its relative priorities.
+To accomplish this, each value is devidded by the sum of its respective columnthe sum of each colum.
 
 \begin{table}[H]
 \caption{Comparison Criteria Normalized.}
@@ -216,21 +219,25 @@ With the values from the Table~\ref{tab:relativePriority} is possible to conclud
 
 \subsubsection{Stage 4 - Consistency evaluation of relative priorities}
 
-This stage consists in \dots
+This stage consists in calculating the \gls{CR} to assess the consistency of the priorities used in Table~\ref{tab:criteria}.
+
+To calculate the \gls{CR}, the \gls{CI} and the \gls{RI} are used as shown in the following equation:
 
 \begin{equation}
     CR = \frac{CI}{RI}
 \end{equation}
 
-\dots
+It is possible to calculate the \gls{CI} using the following equation:
 
 \begin{equation}
+    \label{eqn:CI}
     CI = \frac{\lambda_{max}-n}{n-1}
 \end{equation}
 
-\dots
+In the Equation~\ref{eqn:CI}, $n$ is the number of criteria and $\lambda_{max}$ is the largest eigenvalue of the matrix.
 
 \begin{gather}
+    \label{eqn:preLambda}
     \begin{bmatrix}
         1 & 1/3 & 1/2 \\
         3 & 1 & 3 \\
@@ -250,15 +257,23 @@ This stage consists in \dots
     \end{bmatrix}
 \end{gather}
 
-\dots
 
 \begin{gather}
+    \label{eqn:lambdaMax}
     \lambda_{max} = 
     \frac{\frac{0.481}{0.159} + \frac{1.822}{0.589} + \frac{0.766}{0.252}}{3}
     = 3.05
 \end{gather}
 
-\dots
+The $\lambda_{max}$ was obtained in the Equation~\ref{eqn:lambdaMax} by calculating the mean of the resulting values from the Equation~\ref{eqn:preLambda} that multiplies the criteria comparison matrix by its priority vector.
+
+The next step is to calculate the \gls{CI} using the following equation:
+
+\begin{equation}
+    CI = \frac{3.05-3}{3-1} = 0.025
+\end{equation}
+
+The \gls{RI} can be obtained in the index table provided by \textcite{saaty_1987}, were a part of it is presended bellow.
 
 \begin{table}[H]
 \caption{Index Table \autocite{saaty_1987}.}
@@ -273,13 +288,9 @@ RI & 0 & 0 & 0.58 & 0.90 & 1.12 \\
 \end{tabular}
 \end{table}
 
-\dots
+The \gls{RI} used will be 0.58 since the $n$, as previously is 3.
 
-\begin{equation}
-    CI = \frac{3.05-3}{3-1} = 0.025
-\end{equation}
-
-\dots
+Having the \gls{CI} and the \gls{RI} values, it was possible to calculate the \gls{CR} as shown in the following equation:
 
 \begin{equation}
     CR = \frac{0.025}{0.58} = 0.043
@@ -289,49 +300,152 @@ Since the obtained value 0.043 is less than 0.1 it is possible to conclude that 
 
 \subsubsection{Stage 5 - Construction of the parity comparison matrix for each criterion}
 
-This stage consists in \dots
+This stage consists in creating a parity comparison matrix for each of the alternatives presented in the hierarchical decision tree, this are the text mining tools.
+The relative priorities were calculated as shown previously in Stage 3.
 
 \begin{table}[H]
 \caption{Programming Language Parity Comparison Matrix.}
 \label{tab:criterionPL}
 \centering
-\begin{tabular}{|m{4cm}|m{3cm}|m{3cm}|m{3cm}|}
+\begin{tabular}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
 \hline
 \tabhead{Programming Language} & \tabhead{NLTK} & \tabhead{openNLP} & \tabhead{Google Cloud NL} \\
 \hline
-NLTK & 0 & 0 & 0 \\
+NLTK & 1 & 5 & 1/2 \\
 \hline
-openNLP & 0 & 0 & 0 \\
+openNLP & 1/5 & 1 & 1/5 \\
 \hline
-Google Cloud NL & 0 & 0 & 0 \\
+Google Cloud NL & 2 & 5 & 1 \\
 \hline
-Sum & 0 & 0 & 0 \\
+Sum & 16/5 & 11 & 17/10 \\
 \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[H]
-\caption{Programming Language Priority Vector.}
+\caption{Programming Language Relative Priority.}
 \label{tab:criterionPLPV}
 \centering
-\begin{tabular}{|m{4cm}|m{4cm}|}
+\begin{tabular}{|m{3cm}|m{3cm}|}
 \hline
-\tabhead{Programming Language} & \tabhead{Priority Vector} \\
+\tabhead{Programming Language} & \tabhead{Relative Priority} \\
 \hline
-NLTK & 0 \\
+NLTK & 0.354 \\
 \hline
-openNLP & 0 \\
+openNLP & 0.090 \\
 \hline
-Google Cloud NL \\
+Google Cloud NL & 0.598 \\
 \hline
 \end{tabular}
 \end{table}
 
+\begin{table}[H]
+\caption{Support Parity Comparison Matrix.}
+\label{tab:criterionPL}
+\centering
+\begin{tabular}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
+\hline
+\tabhead{Support} & \tabhead{NLTK} & \tabhead{openNLP} & \tabhead{Google Cloud NL} \\
+\hline
+NLTK & 1 & 3 & 5 \\
+\hline
+openNLP & 1/3 & 1 & 3 \\
+\hline
+Google Cloud NL & 1/5 & 1/3 & 1 \\
+\hline
+Sum & 23/15 & 13/3 & 9 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\caption{Support Relative Priority.}
+\label{tab:criterionPLPV}
+\centering
+\begin{tabular}{|m{3cm}|m{3cm}|}
+\hline
+\tabhead{Support} & \tabhead{Relative Priority} \\
+\hline
+NLTK & 0.633 \\
+\hline
+openNLP & 0.260 \\
+\hline
+Google Cloud NL & 0.106 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\caption{Multi-language Comparison Matrix.}
+\label{tab:criterionPL}
+\centering
+\begin{tabular}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
+\hline
+\tabhead{Multi-language} & \tabhead{NLTK} & \tabhead{openNLP} & \tabhead{Google Cloud NL} \\
+\hline
+NLTK & 1 & 4 & 1/2 \\
+\hline
+openNLP & 1/4 & 1 & 1/5 \\
+\hline
+Google Cloud NL & 2 & 5 & 1 \\
+\hline
+Sum & 13/4 & 10 & 17/10 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\caption{Multi-language Relative Priority.}
+\label{tab:criterionPLPV}
+\centering
+\begin{tabular}{|m{3cm}|m{3cm}|}
+\hline
+\tabhead{Multi-language} & \tabhead{Relative Priority} \\
+\hline
+NLTK & 0.334 \\
+\hline
+openNLP & 0.098 \\
+\hline
+Google Cloud NL & 0.568  \\
+\hline
+\end{tabular}
+\end{table}
+
+To conclude this stage, the hierarchical decision tree was recreated with the all the calculated values, as shown in the following figure:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{ch3/assets/AHP_weighted.png}
+\caption[Hierarchical decision tree with criteria parity comparison]{Hierarchical decision tree with criteria parity comparison}
+\label{fig:ssd1}
+\end{figure}
 
 \subsubsection{Stage 6 - Obtain the composite property for alternatives}
 
 This stage consists in \dots
 
+\begin{gather}
+    \begin{bmatrix}
+        0.354 & 0.633 & 0.334 \\
+        0.090 & 0.260 & 0.098 \\
+        0.598 & 0.106 & 0.568
+    \end{bmatrix}
+    *
+    \begin{bmatrix}
+      0.159 \\
+      0.589 \\
+      0.252
+    \end{bmatrix}
+      =
+    \begin{bmatrix}
+      \textbf{0.513} \\
+      0.192 \\
+      0.301
+    \end{bmatrix}
+\end{gather}
+
 \subsubsection{Stage 7 - Choise of alternative}
 
-This stage consists in \dots
+This stage consists in analyse the obtained values and determin which is the best alternative.
+Looking at the obtained values, with the criteria selected and its calculated importance in mind, it is safe to affirm that the best option is NLTK.
+With the results from this process, the solution to be developed in this project will use NLTK as its text mining Tool.

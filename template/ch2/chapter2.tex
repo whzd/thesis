@@ -11,12 +11,13 @@ Sign language was created to allow people to communicate through signs instead o
 This is particularly usefull for those that have some earing impairment that made them incapable of learing to communicate through sounds.
 In the context of a sign language, a sign, which is composed by the movement of the upper limbs, the configuration and orientation of the hands and facial expression, is used to represent an idea.
     
-According to the Portuguese Deaf Association there are around 150000 people with some type of earing impairment and around 30000 of those that use the Portuguese Sign Language (PSL) (\cite{gaspar_2015}).
+According to the Portuguese Deaf Association there are around 150000 people with some type of earing impairment and around 30000 of those that use the Portuguese Sign Language (PSL) \autocite{gaspar_2015}.
 This language was approved by the Constitution of the Portuguese Republic, in 1997, and became one of the three oficial languages in Portugal.
-There are three ways to structure a sentence In PSL: subject-object-verb, subject-verb-object or object-subject-verb.
-The other parts used in Portuguese Language, like the propositions and the arthicles, are omitted when converted to PSL (\cite{bento_2013}), (\cite{martins_2011}).
 
-Some gramatical caracteristics of the Portuguese Sign Language are (\cite{bento_2013}):
+There are three ways to structure a sentence In PSL: subject-object-verb, subject-verb-object or object-subject-verb.
+The other parts used in Portuguese Language, like the propositions and the arthicles, are omitted when converted to PSL \autocite{bento_2013}, \autocite{martins_2011}.
+
+Some gramatical caracteristics of the Portuguese Sign Language are \autocite{bento_2013}:
 
 \begin{itemize}
     \item In most cases the prefix "women" is used to identify the female version of a being while the male version is identified by the lack of a prefix "male".
@@ -32,7 +33,7 @@ The search for information is a human activity that was always present.
 The World Wide Web brought the commodity of searching information from within one's home, where before it was required to go to a place that stored said information, mainly libraries.
 
 Information Retrival (IR), as the name suggests, is the act of retriving information from a source, but this definition can be very broad.
-Christopher D. Manning et al. (\citeyear{manning_2008}) wrote on his book that Information Retrival is finding materials of an unstructured nature that satisfies an information need from within large collections.
+\textcite{manning_2008} wrote on their book that Information Retrival is finding materials of an unstructured nature that satisfies an information need from within large collections.
 
 The IR systems can be arranged in three groups based on its scale.
 This groups are: Web search, personal information retrieval and institutional, and domain-specific search.
@@ -52,12 +53,12 @@ The result of an IE process is different for every case since it can be tailored
 Nowadays this applications can be used to fullfill personal, scientific and enterprise needs.
 
 With the evolution of technology, IE also evolved and different techniques for the extraction of information were developed.
-This techniques are the following: Rule-based, Statictical, Hybrids (both rule-based and statistical) and Conditional Random Fields (\cite{sarawagi_2008}).
+This techniques are the following: Rule-based, Statictical, Hybrids (both rule-based and statistical) and Conditional Random Fields \autocite{sarawagi_2008}.
 
-A rule-based approach was used by Rosa Del Gaudio and António Branco (\citeyear{gaudio_2007}).
+A rule-based approach was used by \textcite{gaudio_2007}.
 In this paper the authors created a IE system that was capable extracting the definition of a word from texts written in Portuguese.
 
-A statistical approach was used by Ventura (\citeyear{ventura_2014}). 
+A statistical approach was used by \textcite{ventura_2014}. 
 In his PhD report, he presented an alternative approach to the extraction of relevant terms from text.
 Since relevance of a term is not conceptual, the author proposes to extract all concepts, which have a less fuzzy nature, and let the downstream application decide the relevance of those concepts.
 A concept in the text mining area consists of a word or sequence of words which possess semantic value.
@@ -67,14 +68,16 @@ A concept in the text mining area consists of a word or sequence of words which 
 In this section are discussed studies that are related to the work here reported and whose results and methods may be put in contrast with those produced in this work.
 
 After extensive research, this project seems to be the first to try to accomplish the goal of generating a definition to a given word or expression using Text Mining, Information Retrival and Information Extraction.
-Thanapon Noraset et al. (\citeyear{noraset_2016}) used Deep Learning, more precisely Recurrent Neural Networks (RNN) that learn to generate a definition from a pre-defined database \dots
 
-Ke Ni and William Yang Wang (\citeyear{ni_2017}) also chose a Deep Learning approach, using RNN to generate a definition of slang words or expressions in twits.
-In this approach, the RNN was trained using an online, user contributed, dictionary called Urban Dictionary.
+Trying to achieve a similar goal using a different approach, \textcite{noraset_2016} used Deep Learning, more precisely \gls{RNN} to generate a definition g a definition for a given word and its embedding
+The models were trained using a pre-defined database.
+
+\textcite{ni_2017} also chose a Deep Learning approach, using \gls{RNN} to generate a definition of slang words or expressions in twits.
+In this approach, the \gls{RNN} was trained using an online, user contributed, dictionary called Urban Dictionary.
 
 (dictionaries)
 
-https://www.spreadthesign.com/
+https://www.spreadthesign.com/ 
 https://www.signbsl.com/
 
 \section{Technologies}
