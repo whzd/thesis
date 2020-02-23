@@ -3,19 +3,19 @@
 \chapter{Analysis} % Main chapter title
 \label{chap:Chapter3} % For referencing the chapter elsewhere, use \ref{chap:Chapter3} 
 
-In this chapter it will be presented a bussiness value analysis of the project and the reasoning behind it. 
+In this chapter it will be presented a bussiness value analysis and the reasoning behind it. 
 
 \section{Engineering Requirements}
 
-This section \dots the process of analysing the functional and non-functional requirements of this project.
+This section presents the process of analysing the functional requirements of this project.
 
 \subsection{Functional Requirements}
 
-\dots
+In order to define the functional requirements of the project, users stories were created were a sequence diagram shows the interaction between the user and the system.
 
 User Story 1: Obtain explanation for a word/expression
 
-\dots
+As a user of the web application I want to be able to get the explanation of a given word/expression.
 
 \begin{figure}[H]
 \centering
@@ -24,11 +24,7 @@ User Story 1: Obtain explanation for a word/expression
 \label{fig:ssd1}
 \end{figure}
 
-\dots
-
-\subsection{Non-functional Requirements}
-
-\dots
+For this success scenario to be succeed, the user needs to provide a valid word or expression.
 
 \section{Value Analysis}
 
@@ -69,26 +65,36 @@ The five key stages, that compose the model defined by \textcite{koen_2001}, wer
 
 \subsection{Value}
 
-Value for customer, Perceived Value, Benefits, Sacrifices
+The perceived value is based on the benefits and sacrifices identified.
 
-The benefit that was identified is \dots helping in the process of explaning a concept using sign language.
-
-The identified sacrifices are the need for a device that is able to connect to the internet.
-
-\dots
+\begin{table}[H]
+\caption{Perceived Value}
+\label{tab:scale}
+\centering
+\begin{tabular}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
+\hline
+\tabhead{} & \tabhead{Product} & \tabhead{Service} & \tabhead{Relationship} \\
+\hline
+Benefit & Knowledge & Utility & Trust\\
+\hline
+Sacrifice &  & Search costs & \\
+\hline
+\end{tabular}
+\end{table}
 
 \subsection{Value Proposition}
+ 
+With the goal of helping the process of concept explanation, with focus on the inclusion of the deaf community, this solution aims to use information retrival, information extraction and text mining techniques to develop a system capable of generating an explanation of a given word or expresion and also provide the \gls{PSL} translation.
 
-A value proposition is 
+\subsection{Business Model Canvas}
 
-\subsection{CANVAS model}
-  
-\dots
-
+In order to ensure a solid solid structuring of the various business characteristics is necessary to use tools that help in the strategic management planning.
+One of those tools is the Bussiness Model Canvas, that provides 9 key blocs to aid in the proccess of planning the bussiness concepts.
+ 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth,keepaspectratio]{ch3/assets/CANVAS.png}
-\caption[CANVAS Model]{CANVAS Model}
+\caption[Canvas Model]{Canvas Model}
 \label{fig:CANVAS}
 \end{figure}
 
@@ -422,7 +428,7 @@ To conclude this stage, the hierarchical decision tree was recreated with the al
 
 \subsubsection{Stage 6 - Obtain the composite property for alternatives}
 
-This stage consists in \dots
+This stage consists in obtaining the composite property for the alternatives, to accomplish this, the matrix composed by each criterion relative priority is multipied by the criteria weight as shown in the following equation:
 
 \begin{gather}
     \begin{bmatrix}
@@ -447,5 +453,5 @@ This stage consists in \dots
 \subsubsection{Stage 7 - Choise of alternative}
 
 This stage consists in analyse the obtained values and determin which is the best alternative.
-Looking at the obtained values, with the criteria selected and its calculated importance in mind, it is safe to affirm that the best option is NLTK.
-With the results from this process, the solution to be developed in this project will use NLTK as its text mining Tool.
+Looking at the obtained values, with the criteria selected and its calculated importance in mind, it is safe to affirm that the best option is NLTK since it obtained the highest valued (0.513).
+With the results from this process, the solution to be developed in this project will use NLTK as its text mining tool.

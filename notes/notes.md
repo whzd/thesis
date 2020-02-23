@@ -292,6 +292,27 @@ criar api
 ------
 
 (Survey for the ability to understand a concept based on a generated explanation)
+(explain canvas model)
+(value)
+(Information retrival)
+
+\section{Technologies}
+\label{sec:technologies}
+
+\dots
+
+\subsection{NLTK}
+
+Natural Language Toolkit (NLTK) is a plataform to build python programs
+
+\subsection{openNLP}
+
+\dots
+
+\subsection{Google Cloud Natural Language API}
+
+\dots
+
 
 ### Question(s)
 
