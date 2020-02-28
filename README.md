@@ -1,1 +1,1 @@
-# thesis-report
+# thesis
