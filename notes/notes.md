@@ -313,6 +313,8 @@ Natural Language Toolkit (NLTK) is a plataform to build python programs
 
 \dots
 
+(chapter3 - end of Stage 1
+The tools here shown as alternatives are described in more detail in Section~\ref{sec:technologies}.)
 
 ### Question(s)
 
