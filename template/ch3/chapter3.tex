@@ -1,13 +1,13 @@
 % Chapter 3
 
 \chapter{Analysis} % Main chapter title
-\label{chap:Chapter3} % For referencing the chapter elsewhere, use \ref{chap:Chapter3} 
+\label{chap:Chapter3} % For referencing the chapter elsewhere, use \ref{chap:Chapter3}
 
-In this chapter it will be presented a bussiness value analysis and the reasoning behind it. 
+In this chapter it will be presented a business value analysis and the reasoning behind it.
 
 \section{Engineering Requirements}
 
-This section presents the process of analysing the functional requirements of this project.
+This section presents the process of analyzing the functional requirements of this project.
 
 \subsection{Functional Requirements}
 
@@ -28,8 +28,8 @@ For this success scenario to be succeed, the user needs to provide a valid word 
 
 \section{Value Analysis}
 
-In order to develop a new product there is a need for a value analysing in order to properly assess the relation between cost and value.
-This analysis is presented in the following subsections. 
+In order to develop a new product there is a need for a value analyzing in order to properly assess the relation between cost and value.
+This analysis is presented in the following subsections.
 
 \subsection{New Concept Development Model}
 
@@ -40,26 +40,26 @@ The five key stages, that compose the model defined by \textcite{koen_2001}, wer
 
 \begin{itemize}
     \item Opportunity identification - The opportunity was identified by a member of the deaf community.
-    He claimed that there were no solution to help the process of explaning a given concept using sign language.
+    He claimed that there were no solution to help the process of explaining a given concept using sign language.
     The lexicon of \gls{PSL} is quite small so most words don't have a direct translation, therefore it is required to use the available gestures to explain them.
 
-    \item Opportunity analysis - When analysing the market, the only tools that have some similarities are the sign language dictionaries but they have some limitation that make it impossible to be a viable solution.
+    \item Opportunity analysis - When analyzing the market, the only tools that have some similarities are the sign language dictionaries but they have some limitation that make it impossible to be a viable solution.
     One of this limitations is that a translation to be added requires that a person is recorded performing the signs required to reproduce the word or expression.
     Another limitation of those dictionaries is the lack of translations for word from the scientific domain.
 
-    \item Idea creation - In this stage, some ideas were formulated for a solution that targets the identified opportunity and is a better fit over the other alternatives analysed.
-    One idea is that the solution to be developed makes the process of explaning a concept automatic.
-    For this, the explanation can be found somewhere online and it is possible to obtain it using information retrival, information extraction and text mining techniques.
+    \item Idea creation - In this stage, some ideas were formulated for a solution that targets the identified opportunity and is a better fit over the other alternatives analyzed.
+    One idea is that the solution to be developed makes the process of explaining a concept automatic.
+    For this, the explanation can be found somewhere online and it is possible to obtain it using information retrieval, information extraction and text mining techniques.
     To make the obtained explanation viable to be presented to a member of the deaf community it would be better to translate it to \gls{PSL}.
     For this, there is another GILT project that is already capable of performing this translation and the \gls{API} behind it can be used in this solution.
 
     \item Idea selection - In this stage, the goal was to take all the possible ideas an approaches in a single one that fulfills the necessary requirements.
     The resulting idea is to develop an automatic interpretation system having the needs of the deaf community in mind.
-    This system will use Information retrival, information extraction and text mining to generate the explanation of a given word or expression.
+    This system will use Information retrieval, information extraction and text mining to generate the explanation of a given word or expression.
     It will also translate said explanation to \gls{PSL}.
 
     \item Concept definition - After having the idea selected the next step is to define the objectives needed to achieve it.
-    The goals of this project are to develop an \gls{API} capable of generating the explanation of a given concept and a web application that will use this, and another \gls{API} to help the deaf community in the process of concept explanation. 
+    The goals of this project are to develop an \gls{API} capable of generating the explanation of a given concept and a web application that will use this, and another \gls{API} to help the deaf community in the process of concept explanation.
 
 \end{itemize}
 
@@ -83,14 +83,14 @@ Sacrifice &  & Search costs & \\
 \end{table}
 
 \subsection{Value Proposition}
- 
-With the goal of helping the process of concept explanation, with focus on the inclusion of the deaf community, this solution aims to use information retrival, information extraction and text mining techniques to develop a system capable of generating an explanation of a given word or expresion and also provide the \gls{PSL} translation.
+
+With the goal of helping the process of concept explanation, with focus on the inclusion of the deaf community, this solution aims to use information retrieval, information extraction and text mining techniques to develop a system capable of generating an explanation of a given word or expression and also provide the \gls{PSL} translation.
 
 \subsection{Business Model Canvas}
 
 In order to ensure a solid solid structuring of the various business characteristics is necessary to use tools that help in the strategic management planning.
-One of those tools is the Bussiness Model Canvas, that provides 9 key blocs to aid in the proccess of planning the bussiness concepts.
- 
+One of those tools is the Business Model Canvas, that provides 9 key blocs to aid in the process of planning the business concepts.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth,keepaspectratio]{ch3/assets/CANVAS.png}
@@ -107,7 +107,7 @@ Using this method will also reduce the bias in process of choice.
 \subsubsection{Stage 1 - Creating the hierarchical decision tree}
 
 This stage consists in creating the hierarchical decision tree where the criteria and viable alternatives are defined.
-In regard to the problem, it goal is to determin which text mining tools will provide the most value for the project.
+In regard to the problem, it goal is to determine which text mining tools will provide the most value for the project.
 
 \begin{figure}[H]
 \centering
@@ -121,7 +121,7 @@ As observed in the Figure~\ref{fig:AHP}, the items of the first layer, correspon
 \begin{itemize}
     \item Programming language - The language to be used for developing the solution \gls{API}.
     \item Support - The number of reliable sources of information, the quality of the documentation and an active community.
-    \item Multi-language - The compatibility of processing texts and performing tasks using different languages. 
+    \item Multi-language - The compatibility of processing texts and performing tasks using different languages.
 \end{itemize}
 
 The presented alternatives where selected for being able to process natural language.
@@ -129,7 +129,7 @@ The presented alternatives where selected for being able to process natural lang
 \subsubsection{Stage 2 - Alternative and criteria comparison}
 
 This stage consists in defining the priorities between the elements of each hierarchical level.
-This is created using the the Fundamental scale created by \textcite{saaty_1987}.
+This is created using the Fundamental scale created by \textcite{saaty_1987}.
 
 \begin{table}[H]
 \caption{Fundamental scale \autocite{saaty_1987}.}
@@ -175,13 +175,13 @@ Sum & 6 & 5/3 & 9/2 \\
 \end{tabular}
 \end{table}
 
-With the information in the Table~\ref{tab:criteria} it is possible to assess that the criterion "Support" is of very strong importance in comparison with the "Programming language" criterion, and it is of strong importance when compared to "Multi-langue".
+With the information in the Table~\ref{tab:criteria} it is possible to assess that the criterion "Support" is of very strong importance in comparison with the "Programming language" criterion, and it is of strong importance when compared to "Multi-language".
 Also the criterion "Multi-language" is of strong importance when compared to the "Programming language" criterion.
 
 \subsubsection{Stage 3 - Relative priority of each criterion}
 
 This stage consists in obtaining the normalized criteria values and its relative priorities.
-To accomplish this, each value is devidded by the sum of its respective columnthe sum of each colum.
+To accomplish this, each value is divided by the sum of its respective column the sum of each column.
 
 \begin{table}[H]
 \caption{Comparison Criteria Normalized.}
@@ -265,7 +265,7 @@ In the Equation~\ref{eqn:CI}, $n$ is the number of criteria and $\lambda_{max}$ 
 
 \begin{gather}
     \label{eqn:lambdaMax}
-    \lambda_{max} = 
+    \lambda_{max} =
     \frac{\frac{0.481}{0.159} + \frac{1.822}{0.589} + \frac{0.766}{0.252}}{3}
     = 3.05
 \end{gather}
@@ -278,7 +278,7 @@ The next step is to calculate the \gls{CI} using the following equation:
     CI = \frac{3.05-3}{3-1} = 0.025
 \end{equation}
 
-The \gls{RI} can be obtained in the index table provided by \textcite{saaty_1987}, were a part of it is presended bellow.
+The \gls{RI} can be obtained in the index table provided by \textcite{saaty_1987}, were a part of it is presented bellow.
 
 \begin{table}[H]
 \caption{Index Table \autocite{saaty_1987}.}

@@ -1,14 +1,14 @@
 % Chapter 6
 
 \chapter{Evaluation} % Main chapter title
-\label{chap:Chapter6} 
+\label{chap:Chapter6}
 
 During the development of a solution it is necessary to evaluate its quality as well as if it resolves the problems for what it was created to.
-This chapter aims to assess the developed solution using tests and experiments and analysing their outcome.
+This chapter aims to assess the developed solution using tests and experiments and analyzing their outcome.
 
 \section{Evaluation metrics}
 
-In order to evaluate the developed solution for the problem exposed in the Section 1.2 there needs to be test the following features: 
+In order to evaluate the developed solution for the problem exposed in the Section 1.2 there needs to be test the following features:
 
 \begin{itemize}
     \item The ability for a user to understand a concept based on a generated explanation.
@@ -27,7 +27,7 @@ After it has been defined, the hypothesis will be tested using evaluating method
 \section{Methodologies}
 
 The technical quality of the solution is measure using tests, namely integration tests, functional tests and system tests.
-Has the development gets to a state where those tests are reliable, they will be executed using specific tools  namely unitary and of integration, which are run using specifc tools.
+Has the development gets to a state where those tests are reliable, they will be executed using specific tools  namely unitary and of integration, which are run using specific tools.
 
 The usability of the website and the ability to understand a concept based on the generated explanation will be evaluated using surveys.
 For the usability the surveys to be used will be the SUS (System Usability Scale).
@@ -35,12 +35,12 @@ The criteria for this survey are the following:
 
 \begin{itemize}
     \item Effectiveness - Evaluates if the website users were able to achieve their goals.
-    \item Efficiency - Evaluates the effort and resorcers needed for the users to achieve their goals.
+    \item Efficiency - Evaluates the effort and resources needed for the users to achieve their goals.
     \item Satisfaction - Evaluates the satisfaction of the users experience.
 \end{itemize}
 
 The utilization of text mining algorithms requires specific metrics to evaluate its performance.
-This metrics are: 
+This metrics are:
 
 \begin{itemize}
     \item Accuracy - It is the fraction of the correct predictions made by the model.
@@ -53,7 +53,7 @@ This metrics are:
 
     \item Precision - It is the fraction of positive identification among all the identifications made by the model.
     It can be calculated using the following formula:
-    
+
     \begin{equation}
     Precision = \frac{True Positives}{True Positives + False Positives}
     \label{eqn:Precision}
@@ -61,15 +61,15 @@ This metrics are:
 
     \item Recall - It is the fraction of positive identification among all the possible identification to be made.
     It can be calculated using the following formula:
-    
+
     \begin{equation}
     Recall = \frac{True Positives}{True Positives + False Negatives}
     \label{eqn:Recall}
     \end{equation}
 
-    \item F-measure - It is the harmonic mean between Recall and Precision, in order to give a better preception of both in a single value.
+    \item F-measure - It is the harmonic mean between Recall and Precision, in order to give a better perception of both in a single value.
     It can be calculated using the following formula:
-    
+
     \begin{equation}
     F-measure = \frac{2*{Precision}*{Recall}}{Precision + Recall}
     \label{eqn:F-measure}
