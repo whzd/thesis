@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Menu } from 'antd';
 
 class Navbar extends Component {
+
     render(){
         return(
             <div className="Navbar">
