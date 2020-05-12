@@ -13,16 +13,17 @@ def index():
 @app.route('/search')
 def search():
     expression = request.args.get('query')
-    print(expression)
     if(expression != ""):
         priberam = "https://dicionario.priberam.org/" + expression
         infopedia = "https://www.infopedia.pt/dicionarios/lingua-portuguesa/" + expression
         lexico = "https://www.lexico.pt/" + expression
-        sources = [ priberam, infopedia, lexico ]
+        wikipedia = "https://pt.wikipedia.org/wiki/" + expression
+        info = [ infopedia, lexico, wikipedia]
         definition = Priberam.scrap(expression)
-        response_object = {'expression' : expression,
+        response_object = {'expression' : expression.capitalize(),
             'definition' : definition,
-            'sources' : sources }
+            'source' : priberam,
+            'additionalInfo' : info}
     else:
         response_object = None
     return jsonify(response_object)
