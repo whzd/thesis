@@ -273,23 +273,7 @@ And by doing so, the definition of new words will be found somewhere and not gue
 
 ### TODO
 
-uc 1 encontra a definição da palavra
-
-uc 2 avaliar a simplicidade do ponto de vista semântica de um conceito
-(qual é a forma mais simples de explicar um conceito)
-
-uc 3 simplificar a explicação
-
-numero de palavras max, como método de avaliação
-
-descrever o processo desde o estado base atual até ao avançado
-
-adotar uma abordagem capaz de suportar varias lingua ex ficheiro de def, ou sites referencias
-
-------
-criar api
-
-------
+Fix report:
 
 (Survey for the ability to understand a concept based on a generated explanation)
 (explain canvas model)
@@ -316,44 +300,39 @@ Natural Language Toolkit (NLTK) is a plataform to build python programs
 (chapter3 - end of Stage 1
 The tools here shown as alternatives are described in more detail in Section~\ref{sec:technologies}.)
 
+-------------
+
+Base de dados (class de queries como em node.js)
+Tabela sings-lingua
+Palavra
+
+Mock Glosa API
+method(string)
+return string
+
+Text mining approach
+Coseno mais baixo entre duas frases = contextos diferentes
+Coseno mais alto entre duas frases = contextos similares
+(distancia de jankar)
+
+Processo de obtenção da explicação
+1. Procurar a palavra
+If(source dont provide diferente context):
+	2. Calcular o coseno entre as explicações.
+	2.1 If(coseno < x) = newContext
+Else:
+	2.Dividir as explicações consoante o contexto
+3. Enviar frase a frase para a Mock glosa
+4. Verificar as frases com o maior numero de palavras presentes na base de dados
+5. Apresentar a explicação com o maior numero de palavras, uma por contexto.
+
+FrontEnd fix
+1. Feedback button per explanation with the option to look for a new one.
+2. Display an image per explanation.
+3. Increase font size.
+4. Fix "Fontes" to only display the source page.
+5. Add "Infomação adicional" to display usefull links
+6. Implemente second language using language file
+
 ### Question(s)
 
-M4 ?
-
-m4 no caso de uma palavra sem tradução procurar uma explicaçao
-
-alternativas de design ?
-
-design atual, design mais simples (implementação simples)
-
-Hipóteses ?
-
-possibilidade de utilizar algoritmso de text mining para gerar ezplkicação parar surdos
-
-indicadores ?
-
-indicadores(metricas de text mining) e fontes de informação(algoritmos de textmingi)
-
-Questionário:
-
-    Algumas regras/restrições/condições:
-
-    1. Responda a cada questão de forma objetiva, clara e sintética.
-
-    2. Cada resposta está limitada a 2500 caracteres.
-
-    3. As respostas devem ser auto-explicativas/contidas, ou seja, deve ser possível entender a resposta sem conhecimento prévio dos detalhes do trabalho.
-
-    4. A avaliação desta componente será baseada exclusivamente nas respostas fornecidas. O relatório P1 entregue não será analisado nem avaliado neste contexto.
-
-    5. As respostas a estas questões devem ser elaboradas com base no relatório P1. Espera-se que cada resposta seja sintetizada a partir de P1 descrevendo única e exclusivamente os aspetos fundamentais relativos à pergunta em concreto.
-
-1-Descrição do problema (< 2500 caracteres)
-
-2-Descrição dos objetivos (< 2500 caracteres)
-
-3-Especificação da hipótese de investigação (< 2500 caracteres)
-
-4-Identificação dos indicadores e fontes de informação (< 2500 caracteres)
-
-5-Descrição da metodologia de avaliação (< 2500 caracteres)

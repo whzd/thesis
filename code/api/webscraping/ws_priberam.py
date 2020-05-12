@@ -11,19 +11,30 @@ class Priberam:
         path = (Priberam.URL+string)
         source = requests.get(path, headers=Priberam.HEADERS).content
         soup = BeautifulSoup(source, "lxml")
+        results = []
         notFound = soup.find('div', {'class': 'alert alert-info'})
         if(notFound==None):
-            test=soup.find('sup', string="1")
-            if(test!=None):
-                section = test.find_next('p', attrs={'style':'padding-left:12px;margin:0;'})
+            context=soup.find('sup')
+            diffContexts = []
+            if(context!=None):
+                section = context.find_next('p', attrs={'style':'padding-left:12px;margin:0;'})
                 definition = section.find_next('span', {'class':'def'}).text
+                results.append(definition)
+                newContext = context.find_next('sup')
+                while newContext!=None:
+                    section = newContext.find_next('p', attrs={'style':'padding-left:12px;margin:0;'})
+                    definition = section.find_next('span', {'class':'def'}).text
+                    results.append(definition)
+                    newContext = newContext.find_next('sup')
             else:
                 section = soup.find('p', attrs={'style':'padding-left:12px;margin:0;'})
                 definition = section.find_next('span', {'class':'def'}).text
+                results.append(definition)
         else:
             definition = "Não foram encontrados resultados."
+            results.append(definition)
 
-        return definition
+        return results
 
 if __name__ == "__main__":
     print('(Priberam) Insira a palavra a pesquisar: ')

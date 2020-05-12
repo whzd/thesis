@@ -13,15 +13,12 @@
     }
 }
 
-.App-header {
+.ant-layout-header {
     background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+}
+
+.ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal {
+    background-color: #282c34;
 }
 
 .App-link {
@@ -40,16 +37,16 @@
 .site-layout-content {
     background: #fff;
     padding: 24px;
-    min-height: 280px;
+    min-height: 850px;
 }
 
 .logo {
-    width: 120px;
-    height: 31px;
+    width: 200px;
+    height: 46px;
     background: rgba(255, 255, 255, 0.2);
-    margin: 16px 24px 16px 0;
+    margin: 8px 24px 16px 0;
     float: left;
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/ad/Isep-logo.png");
+    background-image: url("http://virtual-campus.eu/gilt/wp-content/uploads/2013/05/GILT_logo_regular5.png");
     background-size: cover;
 }
 

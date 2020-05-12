@@ -13,8 +13,7 @@ const { Header, Footer, Content } = Layout;
 class App extends Component {
 
     state = {
-        explanations: [],
-        flag: false
+        explanations: null
     }
 
     handleSubmit = async (conceptFromSearch) => {
@@ -25,31 +24,33 @@ class App extends Component {
         })
         console.log(response.data)
         this.setState({
-            explanations: response.data.resp,
-            flag: true
+            explanations: response.data,
         })
     };
 
     render() {
         return (
             <div className="App">
-            <h1> Welcome! </h1>
-            <Layout className="layout">
-            <Header>
-            <div className="logo" />
-            <Navbar />
-            </Header>
-            <Content style={{ padding: '0 50px' }}>
-            <div className="site-layout-content">
-            <Search handleFormSubmit={this.handleSubmit}/>
-            <Row>
-                <Col flex={4}><Display string={this.state.explanations}/></Col>
-                <Col flex={1}><Avatar show={this.state.flag}/></Col>
-            </Row>
-            </div>
-            </Content>
-            <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-            </Layout>
+                <Layout className="layout">
+                    <Header>
+                        <Row>
+                            <Col flex="1 1 200px"><div className="logo" /></Col>
+                            <Col flex="0 1 300px"><Navbar /></Col>
+                        </Row>
+                    </Header>
+                    <Content style={{ padding: '0 50px' }}>
+                        <div className="site-layout-content">
+                            <Search handleFormSubmit={this.handleSubmit}/>
+                            <br />
+                            <br />
+                            <Row justify="center">
+                                <Col flex="1 1 200px"><Display content={this.state.explanations}/></Col>
+                                <Col flex="0 1 300px"><Avatar show={this.state.explanations}/></Col>
+                            </Row>
+                        </div>
+                    </Content>
+                    <Footer style={{ textAlign: 'center' }}>GILT ©2016</Footer>
+                </Layout>
             </div>
         )
     }

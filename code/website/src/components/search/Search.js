@@ -5,7 +5,7 @@ import { SearchOutlined } from '@ant-design/icons';
 class Search extends Component {
 
     state = {
-        term: 'Default text'
+        term: 'Pesquisa'
     };
 
     handleChange = (event) => {
@@ -22,12 +22,8 @@ class Search extends Component {
     render() {
         return (
             <div className="Search">
-            Search block
             <form onSubmit={this.handleSubmit} className='ui form'>
-            <Input.Group compact>
-            <Input style={{ width: '40%' }} placeholder={this.state.term} size="large" onChange={this.handleChange}/>
-            <Button style={{ width: '10%' }} size="large" type="primary" onClick={this.handleSubmit} icon={<SearchOutlined />}>Search</Button>
-            </Input.Group>
+            <Input.Search style={{ width: '40%' }} placeholder={this.state.term} size="large" onChange={this.handleChange} enterButton/>
             </form>
             </div>
         )

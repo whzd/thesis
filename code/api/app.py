@@ -12,11 +12,19 @@ def index():
 
 @app.route('/search')
 def search():
-    strings = []
     expression = request.args.get('query')
-    definition1 = Priberam.scrap(expression)
-    strings.append(definition1)
-    response_object = {'resp' : strings }
+    print(expression)
+    if(expression != ""):
+        priberam = "https://dicionario.priberam.org/" + expression
+        infopedia = "https://www.infopedia.pt/dicionarios/lingua-portuguesa/" + expression
+        lexico = "https://www.lexico.pt/" + expression
+        sources = [ priberam, infopedia, lexico ]
+        definition = Priberam.scrap(expression)
+        response_object = {'expression' : expression,
+            'definition' : definition,
+            'sources' : sources }
+    else:
+        response_object = None
     return jsonify(response_object)
 
 @app.route('/concept', methods=['POST'])

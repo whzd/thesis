@@ -8,13 +8,15 @@ class Avatar extends Component {
         const isShown = this.props.show;
         let img;
 
-        if(isShown) {
+        if(isShown!=null) {
             img = <div className="mock"><img src={ mock } width="308" height="455"/></div>
+        }
+        else{
+            img = ""
         }
 
         return (
             <div className="Avatar">
-            Avatar block
             {img}
             </div>
         )
