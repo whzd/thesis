@@ -15,24 +15,33 @@ class Priberam:
         notFound = soup.find('div', {'class': 'alert alert-info'})
         if(notFound==None):
             context=soup.find('sup')
-            diffContexts = []
+            options = []
             if(context!=None):
                 section = context.find_next('p', attrs={'style':'padding-left:12px;margin:0;'})
                 definition = section.find_next('span', {'class':'def'}).text
-                results.append(definition)
+                options.append(definition)
+                results.append(options)
+                options = []
                 newContext = context.find_next('sup')
                 while newContext!=None:
                     section = newContext.find_next('p', attrs={'style':'padding-left:12px;margin:0;'})
                     definition = section.find_next('span', {'class':'def'}).text
-                    results.append(definition)
+                    options.append(definition)
+                    results.append(options)
+                    options =[]
                     newContext = newContext.find_next('sup')
             else:
-                section = soup.find('p', attrs={'style':'padding-left:12px;margin:0;'})
-                definition = section.find_next('span', {'class':'def'}).text
-                results.append(definition)
+                options = []
+                res = soup.find('div', {'id': 'resultados'})
+                sections = res.find_all('p', attrs={'style':'padding-left:12px;margin:0;'})
+                for x in sections:
+                    number = x.find_next('span', attrs={'style': 'font-size:0.9em; color:#999;'})
+                    if(number!=None):
+                        definition = x.find_next('span', {'class':'def'}).text
+                        options.append(definition)
+                results.append(options)
         else:
-            definition = "Não foram encontrados resultados."
-            results.append(definition)
+            results.append(["Não foram encontrados resultados."])
 
         return results
 
