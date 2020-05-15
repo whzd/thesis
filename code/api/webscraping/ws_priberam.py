@@ -14,31 +14,52 @@ class Priberam:
         results = []
         notFound = soup.find('div', {'class': 'alert alert-info'})
         if(notFound==None):
-            context=soup.find('sup')
-            options = []
-            if(context!=None):
-                section = context.find_next('p', attrs={'style':'padding-left:12px;margin:0;'})
-                definition = section.find_next('span', {'class':'def'}).text
-                options.append(definition)
-                results.append(options)
+            multipleContexts = soup.find('sup')
+            if ' ' in string :
+                results.append(["Funcionalidade ainda não implementada."])
+                #expression = soup.find_all('span', text=string , attr={'class':'def'})
+                #expreDef = expression.find_next_sibling('span', attr={'class':'def'})
+            elif multipleContexts != None :
+                targetBlock = soup.find('div', {'style': 'padding:10px;border:2px solid #d0d2d7;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;'})
+                typoMsg = soup.find('div', {'style': 'margin-top:10px;'})
+                if typoMsg != None :
+                    targetBlock = typoMsg
+                skipBlock = targetBlock.find_next_sibling('div')
+                res = skipBlock.find_next_sibling('div')
+                allDivs = res.find_all('div')
+                for t in allDivs:
+                    options = []
+                    numberOne = False
+                    isContext = t.find_next('sup')
+                    if(isContext!=None):
+                        sections = t.find_all('p', attrs={'style':'padding-left:12px;margin:0;'})
+                        for x in sections:
+                            number = x.find_next('span', attrs={'style': 'font-size:0.9em; color:#999;'})
+                            if number != None :
+                                number = number.text.strip()
+                                definition = x.find_next('span', {'class':'def'}).text
+                                if number=="1." and not numberOne :
+                                    options.append(definition)
+                                    numberOne = True
+                                if number!="1." and numberOne:
+                                    options.append(definition)
+                        if options :
+                            results.append(options)
+            else:
+                res = soup.find('div', {'id': 'resultados'})
                 options = []
-                newContext = context.find_next('sup')
-                while newContext!=None:
-                    section = newContext.find_next('p', attrs={'style':'padding-left:12px;margin:0;'})
+                isComplex = res.find('span', attrs={'style': 'font-size:0.9em; color:#999;'})
+                if isComplex != None :
+                    sections = res.find_all('p', attrs={'style':'padding-left:12px;margin:0;'})
+                    for x in sections:
+                        number = x.find_next('span', attrs={'style': 'font-size:0.9em; color:#999;'})
+                        if(number!=None):
+                            definition = x.find_next('span', {'class':'def'}).text
+                            options.append(definition)
+                else:
+                    section = res.find('p', attrs={'style':'padding-left:12px;margin:0;'})
                     definition = section.find_next('span', {'class':'def'}).text
                     options.append(definition)
-                    results.append(options)
-                    options =[]
-                    newContext = newContext.find_next('sup')
-            else:
-                options = []
-                res = soup.find('div', {'id': 'resultados'})
-                sections = res.find_all('p', attrs={'style':'padding-left:12px;margin:0;'})
-                for x in sections:
-                    number = x.find_next('span', attrs={'style': 'font-size:0.9em; color:#999;'})
-                    if(number!=None):
-                        definition = x.find_next('span', {'class':'def'}).text
-                        options.append(definition)
                 results.append(options)
         else:
             results.append(["Não foram encontrados resultados."])
