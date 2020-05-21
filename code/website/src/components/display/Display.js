@@ -1,35 +1,49 @@
 import React, { Component } from 'react';
 import { Card, Collapse } from 'antd';
+import './Display.css';
 
-    const { Panel } = Collapse;
+const { Panel } = Collapse;
 
 class Display extends Component {
 
 
     render() {
+        let displayContent
+        let moreInfo
         let definition
         if(this.props.content != null) {
-            definition = <div>
-                <Card title={this.props.content.expression} style={{ width: '90%' }}>
-                <p>{this.props.content.definition}</p>
-                </Card>
-                <br />
-                <br />
-                <Collapse accordion style={{ width: '90%' }}>
-                <Panel header="Fontes" key="1">
-                <p><a href={this.props.content.sources[0]}>{this.props.content.sources[0]}</a></p>
-                <p><a href={this.props.content.sources[1]}>{this.props.content.sources[1]}</a></p>
-                <p><a href={this.props.content.sources[2]}>{this.props.content.sources[2]}</a></p>
-                </Panel>
-                </Collapse>
+            moreInfo = this.props.content.additionalInfo.map((item, index) => (
+                <p><a href={item} key={index}>{item}</a></p>
+            ));
+
+            definition = this.props.content.definition.map((item, index) => (
+                <div id={index}>
+                    <Card title={this.props.content.expression} style={{ width: '90%' }}>
+                        <p>{item[0]}</p>
+                    </Card>
+                    <br />
+                </div>
+            ));
+
+            displayContent =
+                <div>
+                        {definition}
+                    <Collapse accordion style={{ width: '90%' }}>
+                        <Panel header="Fontes" key="1">
+                            <p><a href={this.props.content.source}>{this.props.content.source}</a></p>
+                        </Panel>
+                        <Panel header="Informação Adicional" key="2">
+                                {moreInfo}
+                        </Panel>
+                    </Collapse>
                 </div>
         }else{
-            definition = ""
+            displayContent = ""
         }
 
         return (
             <div className="Display">
-            { definition }
+                    { displayContent }
             </div>
         )
     }

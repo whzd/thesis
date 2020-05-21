@@ -34,8 +34,9 @@ class App extends Component {
                 <Layout className="layout">
                     <Header>
                         <Row>
-                            <Col flex="1 1 200px"><div className="logo" /></Col>
-                            <Col flex="0 1 300px"><Navbar /></Col>
+                            <Col flex={1}><div className="logo" /></Col>
+                            <Col flex={8}><h1> <b>E</b>xplicação <b>A</b>utomática de <b>C</b>onceitos </h1></Col>
+                            <Col flex={1}><Navbar /></Col>
                         </Row>
                     </Header>
                     <Content style={{ padding: '0 50px' }}>

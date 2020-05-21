@@ -2,36 +2,16 @@
     text-align: center;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
 .ant-layout-header {
-    background-color: #282c34;
+    background-color: #021e22;
 }
 
-.ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal {
-    background-color: #282c34;
+h1 {
+    color: #54b7b4;
 }
 
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+h1 b {
+    color: #ffff;
 }
 
 .site-layout-content {
@@ -41,18 +21,11 @@
 }
 
 .logo {
-    width: 200px;
+    width: 105px;
     height: 46px;
-    background: rgba(255, 255, 255, 0.2);
     margin: 8px 24px 16px 0;
     float: left;
-    background-image: url("http://virtual-campus.eu/gilt/wp-content/uploads/2013/05/GILT_logo_regular5.png");
+    background-image: url('../../assets/imgs/logo.png');
     background-size: cover;
 }
 
-[data-theme="dark"] .site-layout-content {
-    background: #141414;
-}
-[data-theme="dark"] .logo {
-    background: rgba(255,255,255,0.3);
-}

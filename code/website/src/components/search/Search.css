@@ -1,0 +1,21 @@
+.ant-btn-primary {
+    background-color: #54b7b4;
+    border-color: #78777c;
+}
+
+.ant-btn-primary:hover {
+    background-color: #54b7b4;
+    border-color: #78777c;
+}
+
+.ant-input {
+    color: #78777c;
+}
+
+.ant-input:focus, .ant-input-focused {
+    box-shadow: 0 0 0 2px #54b7b433;
+}
+
+.ant-input-search-enter-button input:hover, .ant-input-search-enter-button input:focus {
+    border-color: #54b7b4;
+}
