@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Collapse } from 'antd';
+import { CameraOutlined } from '@ant-design/icons';
 import './Display.css';
 
 const { Panel } = Collapse;
@@ -19,7 +20,7 @@ class Display extends Component {
             definition = this.props.content.definition.map((item, index) => (
                 <div id={index}>
                     <Card title={this.props.content.expression} style={{ width: '90%' }}>
-                        <p>{item[0]}</p>
+                        <p>{item[0]} <a href={`https://www.google.com/search?q=${item[0]}&tbm=isch`} target="_blank"><CameraOutlined /></a></p>
                     </Card>
                     <br />
                 </div>
