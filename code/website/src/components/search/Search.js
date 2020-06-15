@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Input } from 'antd';
+import { Input, Button } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 import './Search.css';
 
 class Search extends Component {
@@ -16,14 +17,13 @@ class Search extends Component {
 
     handleSubmit = event => {
         this.props.handleFormSubmit(this.state.term);
+        return false;
     }
 
     render() {
         return (
             <div className="Search">
-                <form onSubmit={this.handleSubmit} className='ui form'>
-                    <Input.Search style={{ width: '40%' }} placeholder="Pesquisa" size="large" onChange={this.handleChange} onSearch={this.handleSubmit} enterButton/>
-                </form>
+            <Input.Search style={{ width: '40%' }} placeholder='Pesquisa' size="large" onChange={this.handleChange} onSearch={this.handleSubmit} enterButton/>
             </div>
         )
     }
