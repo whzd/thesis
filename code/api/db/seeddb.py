@@ -25,7 +25,7 @@ def create_sign_PT(conn, sign):
               VALUES (?) '''
     cur = conn.cursor()
     cur.execute(sql, [sign])
-    onn.commit()
+    conn.commit()
 
     return cur.lastrowid
 

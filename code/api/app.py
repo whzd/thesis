@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from webscraping.ws_priberam import Priberam
+from db.querydb import *
 
 app = Flask(__name__)
 CORS(app)
@@ -28,11 +29,10 @@ def search():
         response_object = None
     return jsonify(response_object)
 
-@app.route('/concept', methods=['POST'])
-def explanation():
-    response_object = {'status': 'success'}
-    if request.method == 'POST':
-        return jsonify(response_object)
+def testWord(word):
+    database = "db/pythonsqlite.db"
+    conn = create_connection(database)
+    row = select_pt_sign_by_word(conn, word)
 
 if __name__ == "__main__":
     app.run(debug=True)
