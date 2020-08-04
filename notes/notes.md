@@ -271,6 +271,17 @@ And by doing so, the definition of new words will be found somewhere and not gue
 
 <https://github.com/internetarchive/heritrix3/wiki> - Mainly written on Java
 
+### Server
+
+nginx reverse proxy
+
+explanation api - systemd service
+sudo systemctl start explanation
+
+web app - pm2 process
+pm2 start website/node_modules/react-scripts/scripts/start.js --name "eac"
+pm2 start eac
+
 ### TODO
 
 Fix report:
