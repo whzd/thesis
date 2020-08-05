@@ -91,7 +91,7 @@ def rows(conn):
 
 def main():
 
-    database = r"pythonsqlite.db"
+    database = "db/pythonsqlite.db"
 
     conn = create_connection(database)
 
