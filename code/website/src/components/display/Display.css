@@ -12,3 +12,12 @@
     font-weight: bold;
     color: #fff
 }
+
+#feedback {
+    float: right;
+    font-size: 25px;
+}
+
+#feedback a {
+    padding-left: 20px;
+}

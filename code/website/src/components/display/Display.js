@@ -34,9 +34,9 @@ class Display extends Component {
                     showIcon
                 /></div>
             }else{
+
                 feedback =
-                    <div>
-                            Feedback:
+                    <div id="feedback">
                         <a href="#"><LikeOutlined /></a>
                         <Popconfirm
                             title="Deseja uma nova explicação?"
@@ -49,9 +49,11 @@ class Display extends Component {
                         </Popconfirm>
                     </div>
 
+
                     moreInfo = this.props.content.additionalInfo.map((item, index) => (
                         <p><a href={item} key={index}>{item}</a></p>
                     ));
+
 
                 definition = this.props.content.definition.map((item, index) => (
                     <div id={index}>
@@ -63,6 +65,7 @@ class Display extends Component {
                         <br />
                     </div>
                 ));
+
 
                 displayContent =
                     <div>
