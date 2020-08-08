@@ -26,10 +26,10 @@ def search():
         #axios.get(/convert?phrase=)
 
         #4. Check the number of words from the definition that are in the DB
-        sortedMatchList = buildWordMatchList(definitions)
+        #sortedMatchList = buildSortedMatchList(definitions)
 
         #5. Present the definition with the highest number of matches
-        response_object = buildResponse(expression, definition)
+        response_object = buildResponse(expression, definitions)
 
     else:
         response_object = None
