@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import mock from '../../assets/imgs/mock_avatar.png';
+import './Avatar.css';
 
 class Avatar extends Component {
 
@@ -9,7 +10,7 @@ class Avatar extends Component {
         let img;
 
         if(isShown!=null) {
-            img = <div className="mock"><img src={ mock } width="308" height="455"/></div>
+            img = <div className="mock"><img src={ mock } /></div>
         }
         else{
             img = ""

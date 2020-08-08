@@ -33,10 +33,10 @@ class App extends Component {
             <div className="App">
                 <Layout className="layout">
                     <Header>
-                        <Row>
-                            <Col flex={1}><div className="logo" /></Col>
-                            <Col flex={8}><h1> <b>E</b>xplicação <b>A</b>utomática de <b>C</b>onceitos </h1></Col>
-                            <Col flex={1}><Navbar /></Col>
+                        <Row justify="center">
+                            <Col xs={ 6 } sm={ 4 } md={ 3 } lg={ 3 } xl={ 2 }><div className="logo" /></Col>
+                            <Col xs={ 12 } sm={ 15 } md={ 3 } lg={ 16 } xl={ 18 }><h1> <b>E</b>xplicação <b>A</b>utomática de <b>C</b>onceitos </h1></Col>
+                            <Col xs={ 6 } sm={ 4 } md={ 3 } lg={ 3 } xl={ 2 }><Navbar /></Col>
                         </Row>
                     </Header>
                     <Content style={{ padding: '0 50px' }}>
@@ -45,8 +45,8 @@ class App extends Component {
                             <br />
                             <br />
                             <Row justify="center">
-                                <Col flex="1 1 200px"><Display content={this.state.explanations}/></Col>
-                                <Col flex="0 1 300px"><Avatar show={this.state.explanations}/></Col>
+                                <Col xs={ 12 } sm={ 12 } md={ 3 } lg={ 14 } xl={ 14 }><Display content={this.state.explanations}/></Col>
+                                <Col xs={ 12 } sm={ 12 } md={ 3 } lg={ 4 } xl={ 6 }><Avatar show={this.state.explanations}/></Col>
                             </Row>
                         </div>
                     </Content>
