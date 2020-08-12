@@ -8,7 +8,7 @@
 
 h1 {
     color: #54b7b4;
-    font-size: 2.2vw;
+    font-size: calc(1.3px + 2vw);
 }
 
 h1 b {
@@ -18,13 +18,13 @@ h1 b {
 .site-layout-content {
     background: #fff;
     padding: 24px;
-    min-height: 850px;
+    min-height: 840px;
 }
 
 .logo {
-    width: 105px;
-    height: 46px;
-    margin: 8px 24px 16px 0;
+    width: 8vw;
+    min-width: 80px;
+    height: 63.5px;
     float: left;
     background-image: url('../../assets/imgs/logo.png');
     background-size: cover;
