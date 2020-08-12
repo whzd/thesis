@@ -1,5 +1,6 @@
 .ant-card-head {
     font-weight: bold;
+    font-size: calc(10px + 1vw);
     color: #54b7b4;
 }
 
@@ -7,7 +8,17 @@
     color: #78777c;
 }
 
+.ant-card-body > p {
+    font-size: calc(8px + 0.7vw);
+    color: #78777c;
+}
+
+.ant-card-body > p > a {
+    font-size: calc(9px + 0.8vw);
+    color: #54b7b4;
+}
 .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+    font-size: calc(9px + 0.8vw);
     background-color: #54b7b4;
     font-weight: bold;
     color: #fff
@@ -15,9 +26,12 @@
 
 #feedback {
     float: right;
-    font-size: 25px;
 }
 
-#feedback a {
+#feedback > a {
+    font-size: calc(9px + 0.8vw);
+    color: #54b7b4;
     padding-left: 20px;
 }
+
+

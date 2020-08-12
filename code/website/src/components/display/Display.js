@@ -58,7 +58,7 @@ class Display extends Component {
                 definition = this.props.content.definition.map((item, index) => (
                     <div id={index}>
                         <Card title={`${index+1}. ${this.props.content.expression}`} style={{ width: '90%' }}>
-                            <p>{item[0]} <a href={`https://www.google.com/search?q=${item[0]}&tbm=isch`} target="_blank"><CameraOutlined /></a></p>
+                            <p>{item[0]}  &nbsp; <a href={`https://www.google.com/search?q=${item[0]}&tbm=isch`} target="_blank"><CameraOutlined style={{ fontSize: '30 px'}} /></a></p>
                             <br />
                                 {feedback}
                         </Card>
