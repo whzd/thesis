@@ -23,7 +23,7 @@ class Search extends Component {
     render() {
         return (
             <div className="Search">
-            <Input.Search style={{ width: '40%' }} placeholder='Pesquisa' size="large" onChange={this.handleChange} onSearch={this.handleSubmit} enterButton/>
+            <Input.Search style={{ width: '50%' }} placeholder='Pesquisa' size="large" onChange={this.handleChange} onSearch={this.handleSubmit} enterButton/>
             </div>
         )
     }

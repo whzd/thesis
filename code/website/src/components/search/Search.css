@@ -3,12 +3,18 @@
     border-color: #78777c;
 }
 
+.ant-btn-lg {
+    height: calc(28px + 1vw);
+    font-size: calc(8px + 0.7vw);
+}
+
 .ant-btn-primary:hover {
     background-color: #54b7b4;
     border-color: #78777c;
 }
 
 .ant-input {
+    font-size: calc(8px + 0.7vw);
     color: #78777c;
 }
 

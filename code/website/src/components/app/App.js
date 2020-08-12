@@ -41,7 +41,9 @@ class App extends Component {
                     </Header>
                     <Content style={{ padding: '0 50px' }}>
                         <div className="site-layout-content">
-                            <Search handleFormSubmit={this.handleSubmit}/>
+                            <Row justify="center">
+                                <Col xs={ 24 } sm={ 24 } md={ 24 } lg={ 24 } xl={ 24 }><Search handleFormSubmit={this.handleSubmit}/></Col>
+                            </Row>
                             <br />
                             <br />
                             <Row justify="center">
