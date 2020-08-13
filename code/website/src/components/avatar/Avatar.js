@@ -10,7 +10,7 @@ class Avatar extends Component {
         let img;
 
         if(isShown!=null) {
-            img = <div className="mock"><img src={ mock } /></div>
+            img = <div className="mock"><img src={ mock } alt="Mock avatar"/></div>
         }
         else{
             img = ""
