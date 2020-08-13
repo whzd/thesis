@@ -22,7 +22,7 @@ h1 b {
 }
 
 .logo {
-    width: 8vw;
+    width: calc(60px + 5vw);
     min-width: 80px;
     height: 63.5px;
     float: left;
