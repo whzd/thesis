@@ -17,6 +17,15 @@
     font-size: calc(9px + 0.8vw);
     color: #54b7b4;
 }
+
+.ant-card-body > p > .ant-btn {
+    float: left;
+    font-size: calc(9px + 0.8vw);
+    line-height: calc(9px + 0.8vw);
+    height: calc(20px + 1vw);
+    padding: 4px;
+}
+
 .ant-collapse > .ant-collapse-item > .ant-collapse-header {
     font-size: calc(9px + 0.8vw);
     background-color: #54b7b4;

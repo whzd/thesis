@@ -13,6 +13,10 @@
     border-color: #78777c;
 }
 
+.ant-btn-primary:focus {
+    background-color: #78777c;
+}
+
 .ant-input {
     font-size: calc(8px + 0.7vw);
     color: #78777c;

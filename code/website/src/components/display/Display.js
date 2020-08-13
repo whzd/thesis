@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Card, Collapse, Popconfirm, message, Alert } from 'antd';
-import { CameraOutlined, DislikeOutlined, LikeOutlined } from '@ant-design/icons';
+import { PlayCircleOutlined, CameraOutlined, DislikeOutlined, LikeOutlined } from '@ant-design/icons';
 import './Display.css';
 
 const { Panel } = Collapse;
@@ -59,8 +59,7 @@ class Display extends Component {
                     <div id={index}>
                         <Card title={`${index+1}. ${this.props.content.expression}`} style={{ width: '90%' }}>
                             <p>{item[0]}  &nbsp; <a href={`https://www.google.com/search?q=${item[0]}&tbm=isch`} target="_blank" rel="noopener noreferrer"><CameraOutlined style={{ fontSize: '30 px'}} /></a></p>
-                            <br />
-                                {feedback}
+                            <p><Button type="primary">Visualizar<PlayCircleOutlined /></Button> {feedback}</p>
                         </Card>
                         <br />
                     </div>
