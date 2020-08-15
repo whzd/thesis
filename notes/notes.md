@@ -248,11 +248,91 @@ VOCABULARY?
 
 ## Others
 
+### Text Evaluation Metrics
+
+**Evaluation Metrics for Text and Creation of Writing Tool for Sports Journalism** - Luís Correia
+
+
+*Flesch Reading Ease Score*
+
+The score ranges from 0 to 100, and the readability levels were maped to the scores.
+Higher values indicate better legibility, intelligibility and readability.
+The initial aim of this metric was to assess the legibility in educational texts.
+
+The formula takes in consideration the following variables:
+total words, total sentences and total syllables.
+
+*Flesch-Kincaid Grade Level*
+
+This metric was the recalculation of the previous metric.
+Rather than having mapped values, the results are equivalent to the grade level of education required to understand the text.
+
+The formula takes in consideration the same variables as the previous one.
+
+*Gunning Fog Index*
+
+The score ranges from 0 to 20.
+The value of the score corresponds to the education grade that the reader should have to understand the text on the first reading.
+
+The formula takes in consideration the following variables:
+total words, total sentences and complex words.
+
+Complex words are words with three or more syllables with some exceptions.
+
+*Automated Readability Index*
+
+The score value corresponds to the education grade level.
+
+The formula takes in consideration the following variables:
+total characters, total words and total sentences.
+
+*Coleman-Liau Index*
+
+The score value aims to approximates the minimum U.S. educatrion grade level to comprehend a certain text.
+
+The formula takes in consideration the following variables:
+number of letters per 100 words and number of sentences per 100 words.
+
+*Dale-Chall and New Dale-Chall*
+
+The score aims to find the grade level required to comprehend a certain text.
+
+The formula takes in consideration the following variables:
+total words, total sentences and difficul words.
+
+The difficul words are all the words that do not appear in a list of common words for the English language.
+Having difficult words defined by a list allows to ajust said difficult to different contexts by adding words to the list.
+
+*Simple Measure of Gobbledygook (SMOG)*
+
+The score aims to determine the grade level required to comprehend a certain text.
+
+The formula takes in consideration only one variable: polysyllable count.
+
+The polysyllable words(3 or more syllables) are counted from the 30 lines (first 10, middle 10 and last 10).
+
+*Fry Graph*
+
+The score is based in a graph that estimates the required grade level.
+
+The graph was built assuming that texts thta contained shorter sentences and words with less syllables become more readable.
+
+*Raygor Estimate Graph*
+
+*FORCAST*
+
+*SPACHE*
+
+*Conclusion*
+
+The main variables taken in consideration in the metrics used to calculate readabillity are the following:
+Characters, complex words, syllables, words and sentences.
+
+### Random Information
+
 Examples of online sign language dictionaries:
 <https://www.spreadthesign.com>
 <https://www.signbsl.com/>
-
-**Random Information:**
 
 * Unlike the previous papers where there was a fixed databased required for the training phase of the neural networks.
 This means that new words that were not presented in those databases will have a chance to be wrongly defined.
