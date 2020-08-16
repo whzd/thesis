@@ -232,7 +232,7 @@ This language was approved by the Constitution of the Portuguese Republic, in 19
 There are three ways to structure a sentence In PSL: subject-object-verb, subject-verb-object or object-subject-verb.
 The other parts used in Portuguese Language, like the propositions and the arthicles, are omitted when converted to PSL. (cite2) & (cite3)
 
-Some gramatical caracteristics of the Portuguese Sign Language are:
+Some grammatical characteristics of the Portuguese Sign Language are:
 
 * In most cases the prefix "women" is used to identify the female version of a being while the male version is identified by the lack of a prefix "male".
 
@@ -252,10 +252,9 @@ VOCABULARY?
 
 **Evaluation Metrics for Text and Creation of Writing Tool for Sports Journalism** - Luís Correia
 
-
 *Flesch Reading Ease Score*
 
-The score ranges from 0 to 100, and the readability levels were maped to the scores.
+The score ranges from 0 to 100, and the readability levels were mapped to the scores.
 Higher values indicate better legibility, intelligibility and readability.
 The initial aim of this metric was to assess the legibility in educational texts.
 
@@ -274,6 +273,7 @@ The formula takes in consideration the same variables as the previous one.
 The score ranges from 0 to 20.
 The value of the score corresponds to the education grade that the reader should have to understand the text on the first reading.
 
+
 The formula takes in consideration the following variables:
 total words, total sentences and complex words.
 
@@ -288,7 +288,7 @@ total characters, total words and total sentences.
 
 *Coleman-Liau Index*
 
-The score value aims to approximates the minimum U.S. educatrion grade level to comprehend a certain text.
+The score value aims to approximates the minimum U.S. education grade level to comprehend a certain text.
 
 The formula takes in consideration the following variables:
 number of letters per 100 words and number of sentences per 100 words.
@@ -298,10 +298,10 @@ number of letters per 100 words and number of sentences per 100 words.
 The score aims to find the grade level required to comprehend a certain text.
 
 The formula takes in consideration the following variables:
-total words, total sentences and difficul words.
+total words, total sentences and difficult words.
 
-The difficul words are all the words that do not appear in a list of common words for the English language.
-Having difficult words defined by a list allows to ajust said difficult to different contexts by adding words to the list.
+The difficult words are all the words that do not appear in a list of common words for the English language.
+Having difficult words defined by a list allows to adjust said difficult to different contexts by adding words to the list.
 
 *Simple Measure of Gobbledygook (SMOG)*
 
@@ -315,18 +315,40 @@ The polysyllable words(3 or more syllables) are counted from the 30 lines (first
 
 The score is based in a graph that estimates the required grade level.
 
-The graph was built assuming that texts thta contained shorter sentences and words with less syllables become more readable.
+The graph was built assuming that texts that contained shorter sentences and words with less syllables become more readable.
 
 *Raygor Estimate Graph*
 
+Like the previous one, the score is based in a graph that estimates the required grade level.
+
+The formula used to calculate the score takes in consideration the number of words with more than 6 letters in 100 lines of text.
+
 *FORCAST*
+
+The score aims indicates either the grade level required or the age required.
+It is used for multiple-choice quizzes and forms rather than text.
+
+The formula takes in consideration only one variable: the number of monosyllabic words.
 
 *SPACHE*
 
+The score aims to determine the grade level required to comprehend a given text.
+It is used for texts that are used to third-grade or lower.
+
+The formula used to calculate the score takes in consideration the following variables:
+total words, sentence length and under of unfamiliar words.
+
 *Conclusion*
 
-The main variables taken in consideration in the metrics used to calculate readabillity are the following:
+The main variables taken in consideration in the metrics used to calculate readability are the following:
 Characters, complex words, syllables, words and sentences.
+
+In a sign language this variables that might be taken in consideration are:
+
+Number of signs per sentence.
+
+Complex signs - Signs that required more complex hand movements or, that require both hands or that required facial expression.
+
 
 ### Random Information
 
