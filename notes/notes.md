@@ -473,7 +473,5 @@ adicionar o indice  de legibilidade de cada definição, apos estar desenvolvida
 
 descrever de uma forma geral que formulas existem e como podem ser usada uma abordagem semelhante para a criação de uma formula para a linguagem gestual
 
-
-
 ### Question(s)
 
