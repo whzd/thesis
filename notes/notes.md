@@ -349,7 +349,6 @@ Number of signs per sentence.
 
 Complex signs - Signs that required more complex hand movements or, that require both hands or that required facial expression.
 
-
 ### Random Information
 
 Examples of online sign language dictionaries:
@@ -384,7 +383,7 @@ web app - pm2 process
 pm2 start website/node_modules/react-scripts/scripts/start.js --name "eac"
 pm2 start eac
 
-### TODO
+### TODO/Feedback
 
 Fix report:
 
@@ -446,6 +445,35 @@ FrontEnd fix
 4. Fix "Fontes" to only display the source page.
 5. Add "Infomação adicional" to display usefull links
 6. Implemente second language using language file
+
+-----------------------------------------------------
+
+1. Formula de legibilidade para lingua gestual portuguesa
+numero de configuraçao de mao, numero de momentos( fases dos gestos), utilizaçao de mao dominante ou ambas, numero de expressoes facias
+
+2. artigo
+descrição, indicador a desenvolver, problema, solução, possiveis resultados (não por esta ordem)
+
+apresentar o primeiro esboço
+
+3. text mining
+nrr, nova descrisão usando outra origem
+
+obter todo o texto, dividir o texto por frases. procurar referencias a definição já existente nas frases
+
+4. site
+site de referencia para cada linguaguem (px. portugues = priberam)
+configuraçao de qual site de referencia usar
+
+usar text mining para nova descrição ou para a primeira caso não exista site de referência
+
+adicionar o indice  de legibilidade de cada definição, apos estar desenvolvida
+
+5. relatorio
+
+descrever de uma forma geral que formulas existem e como podem ser usada uma abordagem semelhante para a criação de uma formula para a linguagem gestual
+
+
 
 ### Question(s)
 
