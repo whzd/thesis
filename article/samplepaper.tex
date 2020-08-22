@@ -86,21 +86,21 @@ A user interacts with the solution through a web application, developed in React
 
 This input is sent to an Application Programming Interface (API), developed in Python, that is capable of generating explanations using Text Mining, Information Scraping and Information Retrieval techniques.
 
-The generated explanations after being sorted are presented to the user in plain text but it also can be translated to PSL with the help of an avatar if the user chooses to.
-The avatar responsible for the translation is a project already being developed by GILT.
+The generated explanations after being sorted are presented to the user in plain text.
 
 \subsection{Portuguese Sign Language Readability}
 
 The developed API generates multiple explanations and even more for words that have different meanings based on the context.
 This explanations need to be sorted in order to present the user with the ones best suited for their needs.
 
-For a regular language, one metric that can be used to sort the results is the readability score.
+For a regular language, there are metrics that can be used to classify each expression in order to sort them accordingly.
+One metric that can be used for this is the readability score.
 This score indicates how easily a reader would understand the explanation that he's reading.
 
 There are multiple formulas that could be used for calculating this score for the PL.
 However there is none for the PSL.
 
-After analyzing the existing readability formulas, a new formula was develope to calculate the readability of PSL content.
+After analyzing the existing formulas for calculating the readability for the PL, a new formula was developed to calculate the readability of PSL content.
 The formula aims to calculate the readability of each sign using the following variables:
 
 \begin{itemize}
@@ -112,15 +112,25 @@ The formula aims to calculate the readability of each sign using the following v
 
 The resulting formula is (INSERT FORMULA HERE).
 
-possiveis resultados
-
 \dots
 
 \section{Future Development}
 
+The project development is not yet terminated, thus more functionalities are still going to be implemented in order to better fulfill the need of its target audience.
+
+With the needs of the main users in mind the explanations displayed in plain text will also be translated to PSL with the help of an avatar.
+The avatar responsible for the translation is a project already being developed by GILT, that will be integrated with the web application.
+
+The API developed may be used to further enhance the functionalities of future or already existing GILT projects.
+
+To target an even broader audience the project will support other languages which the previously mentioned avatar is capable of performing the translation of plain text to the corresponding sign language.
+
 \dots
 
 \section{Conclusion}
+
+This article presents a general view of the project that is currently in development with the intent to make it easier to produce content in PSL.
+By doing so, it will promote the inclusion and equality of opportunities for the deaf community.
 
 \dots
 
@@ -140,24 +150,24 @@ Novak, J.: Learning, creating, and using knowledge: concept maps as facilitative
 \bibitem{who_2020}
 WHO Deafness and hearing loss, \url{https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss}. Last accessed 19 Aug 2020
 
-\bibitem{ref_article1}
-Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
+%\bibitem{ref_article1}
+%Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
 
-\bibitem{ref_lncs1}
-Author, F., Author, S.: Title of a proceedings paper. In: Editor,
-F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
-Springer, Heidelberg (2016). \doi{10.10007/1234567890}
+%\bibitem{ref_lncs1}
+%Author, F., Author, S.: Title of a proceedings paper. In: Editor,
+%F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
+%Springer, Heidelberg (2016). \doi{10.10007/1234567890}
 
-\bibitem{ref_book1}
-Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
-Location (1999)
+%\bibitem{ref_book1}
+%Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
+%Location (1999)
 
-\bibitem{ref_proc1}
-Author, A.-B.: Contribution title. In: 9th International Proceedings
-on Proceedings, pp. 1--2. Publisher, Location (2010)
+%\bibitem{ref_proc1}
+%Author, A.-B.: Contribution title. In: 9th International Proceedings
+%on Proceedings, pp. 1--2. Publisher, Location (2010)
 
-\bibitem{ref_url1}
-LNCS Homepage, \url{http://www.springer.com/lncs}. Last accessed 4
-Oct 2017
+%\bibitem{ref_url1}
+%LNCS Homepage, \url{http://www.springer.com/lncs}. Last accessed 4
+%Oct 2017
 \end{thebibliography}
 \end{document}
