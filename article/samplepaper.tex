@@ -14,7 +14,7 @@
 
 \begin{document}
 %
-\title{Automatic Concept Explanation}
+\title{Automatic Concept Explanation for Deaf Users}
 %
 %\titlerunning{Abbreviated paper title}
 % If the paper title is too long for the running head, you can set
@@ -38,7 +38,7 @@ Instituto Superior de Engenharia do Porto\\
 The abstract should briefly summarize the contents of the paper in
 150--250 words.
 
-\keywords{First keyword  \and Second keyword \and Another keyword.}
+\keywords{Sign language \and Text summarization \and Automatic concept explanation.}
 \end{abstract}
 %
 %
@@ -69,18 +69,22 @@ The importance of concept explanation is even greater when it comes to languages
 According to the World Health Organization \cite{who_2020}, as of march 2018, there were 466 million people with disabling hearing loss, this represents 5\% of the world population.
 Without being able to hear, deaf people are not able to communicate using sound therefor they must use sign languages.
 
-In Portugal the language used by the deaf community is known as Portuguese Sign Language (PSL).
-The lexicon of PSL is composed by multiple signs where each once represents a word or an expression of the Portuguese Language (PL).
+In Portugal the language used by the deaf community is known as Língua Gestual Portuguesa (LGP).
+The lexicon of LGP is composed by multiple signs where each once represents a word or an expression of the main language, Português.
+
+\section{Related Work}
+
+\dots
 
 \section{Automatic Concept Explanation}
 
-There are numerous words in PL that don't have a sign that translates them.
+There are numerous words in Português that don't have a sign that translates them.
 Those words/expressions have to be explained using the available lexicon.
 
 This problem is recurrent when it comes to scientific domains.
 One example of this, is a concept like 'Nanotechnology' which doesn't have a sign for it, and so it's necessary to explain it using other words.
 
-Automatic concept explanation was the solution design to aid in the process of explaining a given concept to the users of the PSL.
+Automatic concept explanation was the solution design to aid in the process of explaining a given concept to the users of the LGP.
 
 A user interacts with the solution through a web application, developed in React, where he can search for a given word or expression.
 
@@ -88,7 +92,7 @@ This input is sent to an Application Programming Interface (API), developed in P
 
 The generated explanations after being sorted are presented to the user in plain text.
 
-\subsection{Portuguese Sign Language Readability}
+\subsection{LGP Readability}
 
 The developed API generates multiple explanations and even more for words that have different meanings based on the context.
 This explanations need to be sorted in order to present the user with the ones best suited for their needs.
@@ -97,10 +101,10 @@ For a regular language, there are metrics that can be used to classify each expr
 One metric that can be used for this is the readability score.
 This score indicates how easily a reader would understand the explanation that he's reading.
 
-There are multiple formulas that could be used for calculating this score for the PL.
-However there is none for the PSL.
+There are multiple formulas that could be used for calculating this score in Português.
+However there is none for the LGP.
 
-After analyzing the existing formulas for calculating the readability for the PL, a new formula was developed to calculate the readability of PSL content.
+After analyzing the existing formulas for calculating the readability for the PL, a new formula was developed to calculate the readability of LGP content.
 The formula aims to calculate the readability of each sign using the following variables:
 
 \begin{itemize}
@@ -114,22 +118,22 @@ The resulting formula is (INSERT FORMULA HERE).
 
 \dots
 
-\section{Future Development}
+\section{Contributions and Evaluation}
+
+\dots
+
+\section{Conclusions and Future Work}
 
 The project development is not yet terminated, thus more functionalities are still going to be implemented in order to better fulfill the need of its target audience.
 
-With the needs of the main users in mind the explanations displayed in plain text will also be translated to PSL with the help of an avatar.
+With the needs of the main users in mind the explanations displayed in plain text will also be translated to LGP with the help of an avatar.
 The avatar responsible for the translation is a project already being developed by GILT, that will be integrated with the web application.
 
 The API developed may be used to further enhance the functionalities of future or already existing GILT projects.
 
 To target an even broader audience the project will support other languages which the previously mentioned avatar is capable of performing the translation of plain text to the corresponding sign language.
 
-\dots
-
-\section{Conclusion}
-
-This article presents a general view of the project that is currently in development with the intent to make it easier to produce content in PSL.
+This article presents a general view of the project that is currently in development with the intent to make it easier to produce content in LGP.
 By doing so, it will promote the inclusion and equality of opportunities for the deaf community.
 
 \dots
