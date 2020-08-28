@@ -70,15 +70,57 @@ According to the World Health Organization \cite{who_2020}, as of march 2018, th
 Without being able to hear, deaf people are not able to communicate using sound therefor they must use sign languages.
 
 In Portugal the language used by the deaf community is known as Língua Gestual Portuguesa (LGP).
-The lexicon of LGP is composed by multiple signs where each once represents a word or an expression of the main language, Português.
+The lexicon of LGP is composed by multiple signs where each once represents a word or an expression of the main language, Portuguese.
 
 \section{Related Work}
+
+As mentioned in the introduction there is a lack for a solution capable to translate concepts from Portuguese to LGP.
+There is however some partial solutions, like online dictionaries and sign language interpreters.
+
+\dots
+
+This section will describe those partial solutions as well as the existing Portuguese readability metrics that were analyzed in order to create the LGP readability metric.
+
+\subsection{Online Dictionaries}
+
+One of the most known online dictionaries with LGP content is the SpreadTheSign \cite{sts_2020}.
+In this dictionary a user can search for a word and if there is a previously recorded video translation for that word, in the site database, it will be displayed for the user.
+The search results only display the video of a person performing the corresponding sign, and the possibility to look at the same word in another sign language.
+
+Another online dictionary that provides content for the LGP users is the Infopédia \cite{infopedia_2020}.
+Although this is a Portuguese dictionary, it also contains a section for searching words in LGP.
+Here the search results, not only provide a video translation of the word, but also an explanation in Portuguese in how to reproduce the sign shown in the video.
+
+The main limitation of this solutions is the necessity of previously recorded translations.
+
+\subsection{Sign Language Interpreter}
+
+CTILG \cite{ctilg_2020} is a company that provides professional LGP translation services in workshops, classes, congresses, events and more.
+
+\dots
+
+A more affordable solution is the Serviin \cite{serviin_2020} which is a service that provides a interpreter to work as a middle-man between a deaf person and a targeted service/company.
+This solution is available as a mobile app, with a very low cost for the deaf user or through a web app that is free.
+
+The main limitation of this solutions is the need to rely on another person to accomplish a task.
+This removes the autonomy of the LGP user.
+
+\subsection{Portuguese Readability Metrics}
+
+Readability metrics are used for...
+There are some widly known and used metrics for the English language, such as ...
+This metrics predict the grade the user must have to fully understand the content of a given text.
+
+In 2019, Antunes, H and Lopes, C published an article \cite{ptread_2019} that adapted the values of the metrics used to calculate the readability of text in English so it could be applied to Portuguese.
+
+% TODO
+(TABLE)
 
 \dots
 
 \section{Automatic Concept Explanation}
 
-There are numerous words in Português that don't have a sign that translates them.
+There are numerous words in Portuguese that don't have a sign that translates them.
 Those words/expressions have to be explained using the available lexicon.
 
 This problem is recurrent when it comes to scientific domains.
@@ -101,7 +143,7 @@ For a regular language, there are metrics that can be used to classify each expr
 One metric that can be used for this is the readability score.
 This score indicates how easily a reader would understand the explanation that he's reading.
 
-There are multiple formulas that could be used for calculating this score in Português.
+There are multiple formulas that could be used for calculating this score in Portuguese.
 However there is none for the LGP.
 
 After analyzing the existing formulas for calculating the readability for the PL, a new formula was developed to calculate the readability of LGP content.
@@ -153,6 +195,23 @@ Novak, J.: Learning, creating, and using knowledge: concept maps as facilitative
 
 \bibitem{who_2020}
 WHO Deafness and hearing loss, \url{https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss}. Last accessed 19 Aug 2020
+
+\bibitem{sts_2020}
+Spread The Sign, \url{https://www.spreadthesign.com/}. Last accessed 26 Aug 2020
+
+\bibitem{infopedia_2020}
+Infopédia, \url{https://www.infopedia.pt/dicionarios/lingua-gestual}. Last accessed 26 Aug 2020
+
+\bibitem{ctilg_2020}
+Ctilg, \url{http://www.ctilg.pt/}. Last accessed 27 Aug 2020
+
+\bibitem{serviin_2020}
+Serviin, \url{http://www.portaldocidadaosurdo.pt/Serviin}. Last accessed 27 Aug 2020
+
+\bibitem{ptread_2019}
+Antunes, H., Lopes, C.: Analyzing the adequacy of readability indicators to a non-english language.
+In: International Conference of the Cross-Language Evaluation Forum for European Languages,
+pages 149--155. Springer, 2019.
 
 %\bibitem{ref_article1}
 %Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
