@@ -75,9 +75,7 @@ The lexicon of LGP is composed by multiple signs where each once represents a wo
 \section{Related Work}
 
 As mentioned in the introduction there is a lack for a solution capable to translate concepts from Portuguese to LGP.
-There is however some partial solutions, like online dictionaries and sign language interpreters.
-
-\dots
+There are however some partial solutions.
 
 This section will describe those partial solutions as well as the existing Portuguese readability metrics that were analyzed in order to create the LGP readability metric.
 
@@ -91,39 +89,38 @@ Another online dictionary that provides content for the LGP users is the Infopé
 Although this is a Portuguese dictionary, it also contains a section for searching words in LGP.
 Here the search results, not only provide a video translation of the word, but also an explanation in Portuguese in how to reproduce the sign shown in the video.
 
-The main limitation of this solutions is the necessity of previously recorded translations.
+Online dictionaries as a solution is limited by the database of prerecorded videos, and the LGP lexicon.
+The latter is a problem because they focus on a direct translation, word to sign, instead of trying to translate the meaning of the word.
 
 \subsection{Sign Language Interpreter}
 
-CTILG \cite{ctilg_2020} is a company that provides professional LGP translation services in workshops, classes, congresses, events and more.
+In regard to the sign language interpreters in Portugal there is CTILG \cite{ctilg_2020}, a company that provides professional LGP translation services in workshops, classes, congresses, events and more.
+This company is responsible for the live translation of some morning TV shows.
 
-\dots
+A more affordable solution for a regular LGP user is the Serviin \cite{serviin_2020} which is a service that provides a interpreter to work as a middle-man between a deaf person and a targeted service/company.
+This solution is available as a mobile app, with a very low cost for the deaf user, or through a  web app that is free.
 
-A more affordable solution is the Serviin \cite{serviin_2020} which is a service that provides a interpreter to work as a middle-man between a deaf person and a targeted service/company.
-This solution is available as a mobile app, with a very low cost for the deaf user or through a web app that is free.
-
-The main limitation of this solutions is the need to rely on another person to accomplish a task.
-This removes the autonomy of the LGP user.
+This solution is limited by the interpreters own knowledge and their cost.
+Also by utilizing this solution the LGP user is sacrificing some of his autonomy.
 
 \subsection{Portuguese Readability Metrics}
 
-Readability metrics are used for...
-There are some widly known and used metrics for the English language, such as ...
-This metrics predict the grade the user must have to fully understand the content of a given text.
+Readability metrics are used to calculate a score that relates to the level of education a reader will need to fully understand the context of a given text.
+There are some widely known and used metrics for the English language, such as Flesh Reading Ease, New Dale-Chall, SMOG, Flesh-Kincaid, Gunning Fog and so on.
 
 In 2019, Antunes, H and Lopes, C published an article \cite{ptread_2019} that adapted the values of the metrics used to calculate the readability of text in English so it could be applied to Portuguese.
-The adapted readability metrics are presented in table \cite{table1}.
+The adapted readability metrics are presented in table \ref{table:ptformulas}.
 
 \begin{table}
     \caption{Adjusted Portuguese formulas.}
-    \label{tab1:table1}
+    \label{table:ptformulas}
     \begin{tabular}{l|l}
         \hline
         {} & {\bfseries Formula} \\
         \hline
         SMOG & \(16.830 \times \sqrt{CW \times 30 \div SE} - 23.809\)  \\
         \hline
-        Flesch Kincaid & \(0.883 \times WO \div SE + 17.347 \times SY \div WO - 41.239\) \\
+        Flesch-Kincaid & \(0.883 \times WO \div SE + 17.347 \times SY \div WO - 41.239\) \\
         \hline
         ARI & \(6.286 \times CH \div WO + 0.927 \times WO \div SE - 36.551\) \\
         \hline
@@ -134,8 +131,6 @@ The adapted readability metrics are presented in table \cite{table1}.
         \multicolumn{2}{l}{CH - characters, CW - complex words, SY - syllables, WO - words, SE - sentences}
     \end{tabular}
 \end{table}
-
-\dots
 
 \section{Automatic Concept Explanation}
 
@@ -213,7 +208,7 @@ By doing so, it will promote the inclusion and equality of opportunities for the
         Novak, J.: Learning, creating, and using knowledge: concept maps as facilitative tools in schools and corporations. 2nd edn. Routlege, New York (2012)
 
     \bibitem{who_2020}
-        WHO Deafness and hearing loss, \url{https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss}. Last accessed 19 Aug 2020
+        WHO, \url{https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss}. Last accessed 19 Aug 2020
 
     \bibitem{sts_2020}
         Spread The Sign, \url{https://www.spreadthesign.com/}. Last accessed 26 Aug 2020
