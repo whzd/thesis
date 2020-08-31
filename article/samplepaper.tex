@@ -35,10 +35,10 @@ Instituto Superior de Engenharia do Porto\\
 \maketitle              % typeset the header of the contribution
 %
 \begin{abstract}
-The abstract should briefly summarize the contents of the paper in
-150--250 words.
+    The abstract should briefly summarize the contents of the paper in
+    150--250 words.
 
-\keywords{Sign language \and Text summarization \and Automatic concept explanation.}
+    \keywords{Sign language \and Text summarization \and Automatic concept explanation.}
 \end{abstract}
 %
 %
@@ -112,9 +112,28 @@ There are some widly known and used metrics for the English language, such as ..
 This metrics predict the grade the user must have to fully understand the content of a given text.
 
 In 2019, Antunes, H and Lopes, C published an article \cite{ptread_2019} that adapted the values of the metrics used to calculate the readability of text in English so it could be applied to Portuguese.
+The adapted readability metrics are presented in table \cite{table1}.
 
-% TODO
-(TABLE)
+\begin{table}
+    \caption{Adjusted Portuguese formulas.}
+    \label{tab1:table1}
+    \begin{tabular}{l|l}
+        \hline
+        {} & {\bfseries Formula} \\
+        \hline
+        SMOG & \(16.830 \times \sqrt{CW \times 30 \div SE} - 23.809\)  \\
+        \hline
+        Flesch Kincaid & \(0.883 \times WO \div SE + 17.347 \times SY \div WO - 41.239\) \\
+        \hline
+        ARI & \(6.286 \times CH \div WO + 0.927 \times WO \div SE - 36.551\) \\
+        \hline
+        Coleman Liau & \(5.730 \times CH \div WO - 171.365 \times SE \div WO - 6.662\) \\
+        \hline
+        Gunning Fog & \(0.760 \times WO \div SE + 58.600 \times CW \div WO - 12.166\) \\
+        \hline
+        \multicolumn{2}{l}{CH - characters, CW - complex words, SY - syllables, WO - words, SE - sentences}
+    \end{tabular}
+\end{table}
 
 \dots
 
@@ -190,47 +209,47 @@ By doing so, it will promote the inclusion and equality of opportunities for the
 % \bibliography{mybibliography}
 %
 \begin{thebibliography}{8}
-\bibitem{novak_2012}
-Novak, J.: Learning, creating, and using knowledge: concept maps as facilitative tools in schools and corporations. 2nd edn. Routlege, New York (2012)
+    \bibitem{novak_2012}
+        Novak, J.: Learning, creating, and using knowledge: concept maps as facilitative tools in schools and corporations. 2nd edn. Routlege, New York (2012)
 
-\bibitem{who_2020}
-WHO Deafness and hearing loss, \url{https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss}. Last accessed 19 Aug 2020
+    \bibitem{who_2020}
+        WHO Deafness and hearing loss, \url{https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss}. Last accessed 19 Aug 2020
 
-\bibitem{sts_2020}
-Spread The Sign, \url{https://www.spreadthesign.com/}. Last accessed 26 Aug 2020
+    \bibitem{sts_2020}
+        Spread The Sign, \url{https://www.spreadthesign.com/}. Last accessed 26 Aug 2020
 
-\bibitem{infopedia_2020}
-Infopédia, \url{https://www.infopedia.pt/dicionarios/lingua-gestual}. Last accessed 26 Aug 2020
+    \bibitem{infopedia_2020}
+        Infopédia, \url{https://www.infopedia.pt/dicionarios/lingua-gestual}. Last accessed 26 Aug 2020
 
-\bibitem{ctilg_2020}
-Ctilg, \url{http://www.ctilg.pt/}. Last accessed 27 Aug 2020
+    \bibitem{ctilg_2020}
+        Ctilg, \url{http://www.ctilg.pt/}. Last accessed 27 Aug 2020
 
-\bibitem{serviin_2020}
-Serviin, \url{http://www.portaldocidadaosurdo.pt/Serviin}. Last accessed 27 Aug 2020
+    \bibitem{serviin_2020}
+        Serviin, \url{http://www.portaldocidadaosurdo.pt/Serviin}. Last accessed 27 Aug 2020
 
-\bibitem{ptread_2019}
-Antunes, H., Lopes, C.: Analyzing the adequacy of readability indicators to a non-english language.
-In: International Conference of the Cross-Language Evaluation Forum for European Languages,
-pages 149--155. Springer, 2019.
+    \bibitem{ptread_2019}
+        Antunes, H., Lopes, C.: Analyzing the adequacy of readability indicators to a non-english language.
+        In: International Conference of the Cross-Language Evaluation Forum for European Languages,
+        pages 149--155. Springer, 2019.
 
-%\bibitem{ref_article1}
-%Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
+        %\bibitem{ref_article1}
+        %Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
 
-%\bibitem{ref_lncs1}
-%Author, F., Author, S.: Title of a proceedings paper. In: Editor,
-%F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
-%Springer, Heidelberg (2016). \doi{10.10007/1234567890}
+        %\bibitem{ref_lncs1}
+        %Author, F., Author, S.: Title of a proceedings paper. In: Editor,
+        %F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
+        %Springer, Heidelberg (2016). \doi{10.10007/1234567890}
 
-%\bibitem{ref_book1}
-%Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
-%Location (1999)
+        %\bibitem{ref_book1}
+        %Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
+        %Location (1999)
 
-%\bibitem{ref_proc1}
-%Author, A.-B.: Contribution title. In: 9th International Proceedings
-%on Proceedings, pp. 1--2. Publisher, Location (2010)
+        %\bibitem{ref_proc1}
+        %Author, A.-B.: Contribution title. In: 9th International Proceedings
+        %on Proceedings, pp. 1--2. Publisher, Location (2010)
 
-%\bibitem{ref_url1}
-%LNCS Homepage, \url{http://www.springer.com/lncs}. Last accessed 4
-%Oct 2017
+        %\bibitem{ref_url1}
+        %LNCS Homepage, \url{http://www.springer.com/lncs}. Last accessed 4
+        %Oct 2017
 \end{thebibliography}
 \end{document}
