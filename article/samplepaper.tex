@@ -46,54 +46,43 @@ Instituto Superior de Engenharia do Porto\\
 \section{Introduction}
 
 Concepts are abstract or generic ideas that have a common set of features that are shared across multiple situations and contexts.
-
 Concept explanation can take a fundamental part of the learning process, whether it takes place in an educational environment, a day-to-day or a professional context.
 The importance of concept explanation is even greater when it comes to languages with a small lexicon, in particular sign languages.
 
 According to the World Health Organization \cite{who_2020}, as of march 2018, there were 466 million people with disabling hearing loss, this represents 5\% of the world population.
 Without being able to hear, deaf people are not able to communicate using sound therefor they must use sign languages.
 
-In Portugal the language used by the deaf community is known as Língua Gestual Portuguesa (LGP).
+In Portugal the official language of the deaf community is known as Língua Gestual Portuguesa (LGP).
+This language is also used by the surrounding community, such as their relatives, teaches, and so on.
 The lexicon of LGP is composed by multiple signs where each one represents a word or an expression of the main language, Portuguese.
 However the opposite is not true.
 There are numerous words in Portuguese that don't have a sign that translates them.
 
-\dots
-
-Those words/expressions have to be explained using the available lexicon, but there are no LGP enciclopidias...
-there are LGP dictionaries but they too fail to translate words that have no sign to direct translate them.
-
-\dots
+In order for a LGP user to understand those words/expressions the explanation must be formed by the available lexicon, yet there are no LGP encyclopedias.
+The closest thing available are the LGP dictionaries but they fail to translate words that have no sign that can directly translate them.
 
 This problem is recurrent when it comes to scientific domains.
-One example of this, is a concept like 'Nanotechnology' which doesn't have a sign for it, and so it's necessary to explain it using other words.
+To understand a concept like 'Nanotechnology', which there are no signs for it, a LGP user has to access tools with content made for the Portuguese users.
 
-\dots
+Even though LGP is the language taught to the people that are not able to communicate using Portuguese, they are two very different languages.
+Each with their own lexicon and grammar, so most of the LGP users will struggle to understand Portuguese content.
 
-The LGP users have to access content made for the Portuguese users.
-But Portuguese and LGP are two different languages, with differerent lexicon and grammer, so most users will struggle to understand it.
+A LGP user might also resort to a sign language interpreter that would explain the meaning of the word to him, but this would be a even less practical solution
 
-\dots
+With the goal of solving this problem for the users of LGP this project was created with the hypothesis that is possible to utilize machine learning techniques, summarization and automatic translation to generate the explanation of a given word or expression in LGP that does not exist in its lexicon.
 
-hipotese do trabalho
+In order to test this hypothesis, the developed project consists of three major components.
+An API capable of generating explanations of a given word.
+A formula that calculates the LGP readability score of each expression.
+A web app for the users to interact with, that allows them to search for a word and displays the generated explanation in plain text as well as a translation in LGP with the help of a previously developed avatar.
 
-\dots
+In regards to results it is expected that this project is able to generate accurate LGP explanation that were classified with a reliable LGP readability score by the developed formula.
 
-abordagem em traços gerais w/ indicadores de degibilidade lgp
-
-\dots
-
-With this project we aim to provide an online encyclopedia capable of providing the users with an LGP explanation of a given word/expression.
-
-\dots
-
-In the Related Work section it is presented with a deeper explanation of the partial solutions available as well as the Portuguese readability metrics.
-In the Automatic Concept Explanation it is presented the description of the developed solution.
-In the Contributions and Evaluation section it is presented how this project can contribute to the learning process of the LGP users and how its going to be evaluated to confirm or deny the hypothesis.
-In the Future Development section it is presented how this solution can evolve to become more complete and target a bigger audience.
-In the Conclusion section it is presented the final thoughts.
-
-\dots
+After this introduction the paper is divided into four more sections:
+Section 2 presents a deeper explanation of the partial solutions available as well as the Portuguese readability metrics that were the foundation of the LGP readability metric.
+Section 3 describes the developed solution.
+Section 4 explains this project contributions and how is it  going to be evaluated to confirm or deny the previously mentioned hypothesis.
+Section 5 draws the conclusions and how it can evolve to become more complete and target a bigger audience.
 
 \section{Related Work}
 
@@ -159,6 +148,8 @@ The adapted readability metrics are presented in table \ref{table:ptformulas}.
 
 Automatic concept explanation was the solution design to aid in the process of explaining a given concept to the users of the LGP.
 
+% TODO: Add components diagram
+
 A user interacts with the solution through a web application, developed in React, where he can search for a given word or expression.
 
 This input is sent to an Application Programming Interface (API), developed in Python, that is capable of generating explanations using Text Mining, Information Scraping and Information Retrieval techniques.
@@ -198,13 +189,14 @@ The resulting formula is (INSERT FORMULA HERE).
 \section{Conclusions and Future Work}
 
 The project development is not yet terminated, thus more functionalities are still going to be implemented in order to better fulfill the need of its target audience.
-
-With the needs of the main users in mind the explanations displayed in plain text will also be translated to LGP with the help of an avatar.
-The avatar responsible for the translation is a project already being developed by GILT, that will be integrated with the web application.
+this functionalities are \dots
+1 the explanations displayed in plain text will also be translated to LGP by integrating the GILT avatar with the web application.
+2 present a realiable LGP score for each presented expression
 
 The API developed may be used to further enhance the functionalities of future or already existing GILT projects.
 
-To target an even broader audience the project will support other languages which the previously mentioned avatar is capable of performing the translation of plain text to the corresponding sign language.
+To target an even broader audience the project might support other languages which, the previously mentioned avatar, is capable of performing the translation of plain text to the corresponding sign language.
+\dots
 
 This article presents a general view of the project that is currently in development with the intent to make it easier to produce content in LGP.
 By doing so, it will promote the inclusion and equality of opportunities for the deaf community.
