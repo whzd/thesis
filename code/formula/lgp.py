@@ -1,15 +1,15 @@
 import json
 
 
-CONST1 = 0.7
-CONST2 = 0.3
-CONST3 = 1
-CONST4 = 0.5
+CONST_CONFIG = 0.7
+CONST_MOMENTS = 0.3
+CONST_HANDS = 1
+CONST_FEXPRES = 0.5
 
 
 # Calculates the readability score
 def readability(configs, moments, hands, expressions):
-    res = (CONST1 * configs + CONST2 * moments + CONST4 * expressions) * (CONST3 * hands)
+    res = (CONST_CONFIG * configs + CONST_MOMENTS * moments + CONST_FEXPRES * expressions) * (CONST_HANDS * hands)
     return res
 
 
@@ -76,7 +76,7 @@ def findHighAndLowScore(tableData):
 def prettyPrint(configs, moments, hands, expressions):
     print("LGP Readability Formula")
     print()
-    formula = "({} * Configs + {} * Moments + {} * Expressions) * ({} * Hands)".format(CONST1, CONST2, CONST4, CONST3)
+    formula = "({} * Configs + {} * Moments + {} * Expressions) * ({} * Hands)".format(CONST_CONFIG, CONST_MOMENTS, CONST_FEXPRES, CONST_HANDS)
     print(formula)
 
 
