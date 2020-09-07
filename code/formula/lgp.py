@@ -27,7 +27,7 @@ def removeFileHeader(jsonFileData):
     return jsonFileData[2]['data']
 
 
-# Extracts the important data from a JSON line
+# Extracts the sing data from a JSON line
 def extractSignData(jsonLine):
     word = jsonLine['word']
     moments = eval(jsonLine['config'])
@@ -42,21 +42,34 @@ def extractSignData(jsonLine):
 
 # Finds the lowest and highst readability score from the table data
 def findHighAndLowScore(tableData):
-    highest = []
-    lowest = []
+    highest = {}
+    lowest = {}
+    first = True
     # Skip the 26 letters
-    for sign in tableData[26:29]:
+    for sign in tableData[26:]:
         signData = extractSignData(sign)
-        print()
-        print(signData)
-        print()
+
         if(signData['configLeft'] > 0):
             score = readability((signData['configRight'] + signData['configLeft']), signData['moments'], 2, 1)
         else:
             score = readability(signData['configRight'], signData['moments'], 1, 1)
-        print(score)
 
-        #TODO find high and low signs bases on score
+        # Set first word as a temporary standard
+        if (first):
+            highest = {'sign':signData, 'score': score}
+            lowest = {'sign':signData, 'score': score}
+            first = False
+        elif(score < lowest['score']):
+            lowest = {'sign':signData, 'score': score}
+        elif(score > highest['score']):
+            highest = {'sign':signData, 'score': score}
+
+    print("Sign with the highest LGP readability score: ")
+    print(highest)
+    print()
+    print("Sign with the lowest LGP readability score: " )
+    print(lowest)
+    print()
 
 
 # Formats the formula print
