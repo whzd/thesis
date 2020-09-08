@@ -5,6 +5,7 @@
 \documentclass[runningheads]{llncs}
 %
 \usepackage{graphicx}
+\usepackage{float}
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
 %
@@ -41,7 +42,7 @@ Instituto Superior de Engenharia do Porto\\
     This language like other sign languages has a small lexicon that is not able to represent all the word of the Portuguese language.
     The users of LGP when faced with words like 'Nanotechnology' have to resort to tools made for Portuguese because the ones available to them are not ideal.
     Those solution either lack a translation which is the case of online dictionaries or are not practical which is the case of sign language interpreters.
-    With the goal to solve this problem, this solution was created with the hypothesis of being able to utilize machine learning techniques, summarization and automatic translation to generate the explanation of a given word or expression in Lingua Gestual Portuguesa (LGP), that does not exist in its lexicon.
+    With the goal to solve this problem, this solution was created with the hypothesis of being able to utilize machine learning techniques, summarization and automatic translation to generate the explanation of a given word or expression in Língua Gestual Portuguesa (LGP), that does not exist in its lexicon.
     The solution consists in using the mentioned techniques to develop an Application Programming Interface (API) capable of generating an explanation of a given word or expression.
     This API will feed a web application responsible for receiving the user input and presenting the generated explanation in plain text and its translation to LGP.
     A previously developed avatar that is integrated with the web application is responsible for said translation.
@@ -158,23 +159,38 @@ The adapted readability metrics are presented in table \ref{table:ptformulas}.
 
 %TODO
 
-Automatic concept explanation was the solution design to aid in the process of explaining a given concept to the users of the LGP.
+In order to solve the previously mentioned problems Automatic Concept Explanation was created.
+The main functionality of this solution is to allow the LGP users to search for a word or expression in Portuguese and display its explanation as well as the respective LGP translation.
 
-\begin{figure}[h!]
+A user interacts with the web application that was developed in React, an open-source JavaScript framework for building user interfaces.
+Here the user can search of the desired concept as well as changing the page language.
+This is also the place where the generated explanation are shown in plain text or in LGP by the avatar.
+
+When a concept is searched for, the input is sent to a API that was developed in Flask, a lightweight open-source Python web framework.
+This API will generate a list of explanations using Text Mining, Information Scraping and Information Retrieval techniques.
+
+\dots
+
+All the components can be seen in the figure \ref{fig1}.
+
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{component_diagram.png}
 \caption{Component Diagram.} \label{fig1}
 \end{figure}
 
-A user interacts with the solution through a web application, developed in React, where he can search for a given word or expression.
+%The figure \ref{fig2} shows the user interface when a user searches for the word 'Manga'.
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale=0.2]{interface.png}
+%\caption{Application Interface.} \label{fig2}
+%\end{figure}
 
-This input is sent to an Application Programming Interface (API), developed in Python, that is capable of generating explanations using Text Mining, Information Scraping and Information Retrieval techniques.
-
-The generated explanations after being sorted are presented to the user in plain text.
 
 \subsection{LGP Readability}
 
-The developed API generates multiple explanations and even more for words that have different meanings based on the context.
+The developed API always generates more than one explanations and the number is even higher for words that have different meanings based on its context.
 This explanations need to be sorted in order to present the user with the ones best suited for their needs.
 
 For a regular language, there are metrics that can be used to classify each expression in order to sort them accordingly.
@@ -215,8 +231,8 @@ This article presents a general view of the project that is currently in develop
 The project development is not yet terminated, thus more functionalities are still going to be implemented in order to better fulfill the need of its target audience.
 The main feature still to be implemented is the integration of the avatar that is responsible for translating the explanations displayed in plain text to LGP.
 Another important feature not yet implemented is the displaying of the LGP readability score next to each explanation.
+In regards to future work, the project can target an even broader audience by support other languages which, the previously mentioned avatar, is capable of performing the translation of plain text to the corresponding sign language.
 In regards to future work, the API developed may be used to further enhance the functionalities of future or already existing GILT projects.
-To target an even broader audience the project might support other languages which, the previously mentioned avatar, is capable of performing the translation of plain text to the corresponding sign language.
 
 \dots
 
