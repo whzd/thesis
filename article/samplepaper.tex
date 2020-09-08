@@ -157,27 +157,28 @@ The adapted readability metrics are presented in table \ref{table:ptformulas}.
 
 \section{Automatic Concept Explanation}
 
-%TODO
-
 In order to solve the previously mentioned problems Automatic Concept Explanation was created.
 The main functionality of this solution is to allow the LGP users to search for a word or expression in Portuguese and display its explanation as well as the respective LGP translation.
 
 A user interacts with the web application that was developed in React, an open-source JavaScript framework for building user interfaces.
 Here the user can search of the desired concept as well as changing the page language.
 This is also the place where the generated explanation are shown in plain text or in LGP by the avatar.
+After each explanation, it is also presented their LGP Readability Score, which is presented more in depth in the following subsection as well as feedback options.
+If one of the presented explanations is not acceptable, it is possible for the user to request a new one.
 
-When a concept is searched for, the input is sent to a API that was developed in Flask, a lightweight open-source Python web framework.
+When a concept is searched for, the input is sent to an API that was developed in Flask, a lightweight open-source Python web framework.
 This API will generate a list of explanations using Text Mining, Information Scraping and Information Retrieval techniques.
-
-\dots
+The list is sorted based on each explanation LGP Readability Score.
 
 All the components can be seen in the figure \ref{fig1}.
 
-\begin{figure}[H]
+\begin{figure}[ht]
 \centering
 \includegraphics[scale=0.4]{component_diagram.png}
 \caption{Component Diagram.} \label{fig1}
 \end{figure}
+
+The avatar and its database are projects that were previously developed by GILT and that are used to enhance this project.
 
 %The figure \ref{fig2} shows the user interface when a user searches for the word 'Manga'.
 %
@@ -187,30 +188,34 @@ All the components can be seen in the figure \ref{fig1}.
 %\caption{Application Interface.} \label{fig2}
 %\end{figure}
 
-
 \subsection{LGP Readability}
 
 The developed API always generates more than one explanations and the number is even higher for words that have different meanings based on its context.
 This explanations need to be sorted in order to present the user with the ones best suited for their needs.
 
-For a regular language, there are metrics that can be used to classify each expression in order to sort them accordingly.
-One metric that can be used for this is the readability score.
-This score indicates how easily a reader would understand the explanation that he's reading.
+For a regular language, there are metrics, like the readability score, that can be used to classify each expression in order to sort them accordingly.
+This score indicates how easily a reader would comprehend the text that he's reading.
 
-There are multiple formulas that could be used for calculating this score in Portuguese.
+There are multiple formulas that could be used for calculating this score in Portuguese, as shown in table \ref{table:ptformulas}.
 However there is none for the LGP.
 
-After analyzing the existing formulas for calculating the readability for the PL, a new formula was developed to calculate the readability of LGP content.
-The formula aims to calculate the readability of each sign using the following variables:
+When looking at the readability formulas for Portuguese, it is easy to notice that, all of them take in consideration the same variables, which are common in every written text: characters, complex words, syllables, words and sentences.
+
+After analyzing the LGP signs, with the goal of creating a new readability calculation formula, all the shared variables where identified:
 
 \begin{itemize}
-    \item Number of hand configuration.
-    \item Number of moments
-    \item Number of hands used
-    \item Number of facial expression used
+    \item Hand configurations - The hand shape in a particular moment.
+    \item Moments - The position of the hand in relation to the body.
+    \item Hands - Both hands or only the dominant hand.
+    \item Facial expressions - Motion or position of the face muscles.
 \end{itemize}
 
-The resulting formula is (INSERT FORMULA HERE).
+%TODO
+
+The formula was created as (formula com constantes a 1) \dots
+The formula was tested using the signs from the avatar database and the constants were manually adjusted to produce a more compact interval of values.
+
+The formula is currently at (INSERT FORMULA HERE) since the facial expressions are not yet taking in consideration due to the current version of the avatar not displaying them.
 
 \dots
 
@@ -230,9 +235,10 @@ This article presents a general view of the project that is currently in develop
 
 The project development is not yet terminated, thus more functionalities are still going to be implemented in order to better fulfill the need of its target audience.
 The main feature still to be implemented is the integration of the avatar that is responsible for translating the explanations displayed in plain text to LGP.
-Another important feature not yet implemented is the displaying of the LGP readability score next to each explanation.
-In regards to future work, the project can target an even broader audience by support other languages which, the previously mentioned avatar, is capable of performing the translation of plain text to the corresponding sign language.
-In regards to future work, the API developed may be used to further enhance the functionalities of future or already existing GILT projects.
+Another feature not yet implemented is the displaying of the LGP readability score next to each explanation.
+Also the possibility for the user to ask for a new explanation if one of the presented ones is deemed unacceptable.
+In regards to future work, the project can target an even broader audience by supporting other languages which, the avatar, is capable of performing the translation from plain text to the corresponding sign language.
+Furthermore, the developed API may be used to further enhance the functionalities of future or already existing GILT projects.
 
 \dots
 
