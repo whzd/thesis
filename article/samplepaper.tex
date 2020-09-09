@@ -6,6 +6,7 @@
 %
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{amsmath}
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
 %
@@ -160,6 +161,14 @@ The adapted readability metrics are presented in table \ref{table:ptformulas}.
 In order to solve the previously mentioned problems Automatic Concept Explanation was created.
 The main functionality of this solution is to allow the LGP users to search for a word or expression in Portuguese and display its explanation as well as the respective LGP translation.
 
+All the components can be seen in the figure \ref{fig1}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.4]{component_diagram.png}
+\caption{Component Diagram.} \label{fig1}
+\end{figure}
+
 A user interacts with the web application that was developed in React, an open-source JavaScript framework for building user interfaces.
 Here the user can search of the desired concept as well as changing the page language.
 This is also the place where the generated explanation are shown in plain text or in LGP by the avatar.
@@ -169,14 +178,6 @@ If one of the presented explanations is not acceptable, it is possible for the u
 When a concept is searched for, the input is sent to an API that was developed in Flask, a lightweight open-source Python web framework.
 This API will generate a list of explanations using Text Mining, Information Scraping and Information Retrieval techniques.
 The list is sorted based on each explanation LGP Readability Score.
-
-All the components can be seen in the figure \ref{fig1}.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[scale=0.4]{component_diagram.png}
-\caption{Component Diagram.} \label{fig1}
-\end{figure}
 
 The avatar and its database are projects that were previously developed by GILT and that are used to enhance this project.
 
@@ -204,20 +205,21 @@ When looking at the readability formulas for Portuguese, it is easy to notice th
 After analyzing the LGP signs, with the goal of creating a new readability calculation formula, all the shared variables where identified:
 
 \begin{itemize}
-    \item Hand configurations - The hand shape in a particular moment.
-    \item Moments - The position of the hand in relation to the body.
-    \item Hands - Both hands or only the dominant hand.
-    \item Facial expressions - Motion or position of the face muscles.
+    \item Hand configurations (CF) - The hand shape in a particular moment.
+    \item Moments (MT) - The position of the hand in relation to the body.
+    \item Hands (HS) - Both hands or only the dominant hand.
+    \item Facial expressions (FE) - Motion or position of the face muscles.
 \end{itemize}
 
-%TODO
+Using those variables the following formula was created:
 
-The formula was created as (formula com constantes a 1) \dots
-The formula was tested using the signs from the avatar database and the constants were manually adjusted to produce a more compact interval of values.
+\begin{equation}
+(0.7 \times CF + 0.3 \times MT + 1 \times FE) \times (0.5 \times HS)
+\label{eqn1}
+\end{equation}
 
-The formula is currently at (INSERT FORMULA HERE) since the facial expressions are not yet taking in consideration due to the current version of the avatar not displaying them.
-
-\dots
+The formula was tested using the signs from the avatar database and the constant values, that inicialy were set to 1, were manually adjusted to produce a more compact interval of results.
+However, the constant value for the facial expressions were unaltered due to the current version of the avatar not supporting them.
 
 \section{Contributions and Evaluation}
 
@@ -229,14 +231,13 @@ In regards to the contribution of this project, it has the intent to make it eas
 \section{Conclusions and Future Work}
 
 %TODO
-This article presents a general view of the project that is currently in development.
 
-\dots
+This article presents a general view of the prject that is still in developmente, thus more functionalities are still going to be implemented in order to better fulfill the need of its target audience.
 
-The project development is not yet terminated, thus more functionalities are still going to be implemented in order to better fulfill the need of its target audience.
 The main feature still to be implemented is the integration of the avatar that is responsible for translating the explanations displayed in plain text to LGP.
 Another feature not yet implemented is the displaying of the LGP readability score next to each explanation.
 Also the possibility for the user to ask for a new explanation if one of the presented ones is deemed unacceptable.
+
 In regards to future work, the project can target an even broader audience by supporting other languages which, the avatar, is capable of performing the translation from plain text to the corresponding sign language.
 Furthermore, the developed API may be used to further enhance the functionalities of future or already existing GILT projects.
 
