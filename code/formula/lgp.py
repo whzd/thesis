@@ -3,8 +3,8 @@ import json
 
 CONST_CONFIG = 0.7
 CONST_MOMENTS = 0.3
-CONST_HANDS = 1
-CONST_FEXPRES = 0.5
+CONST_HANDS = 0.5
+CONST_FEXPRES = 1
 
 
 # Calculates the readability score
@@ -95,7 +95,7 @@ def manualRun():
 
 def fileRun():
     print()
-    data = importFromJSONFile("wordsPT.JSON")
+    data = importFromJSONFile("./wordsPT.JSON")
     tableData = removeFileHeader(data)
     findHighAndLowScore(tableData)
 
