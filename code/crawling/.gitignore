@@ -1,0 +1,5 @@
+# Ignore webcrawling generated files
+raw-files/
+
+# Ignore html to txt converted files
+files/
