@@ -2,8 +2,8 @@
 
 This folder contains the files responsible for creating the summarization of text from web pages.
 
-It is recomended to create a virtual enviroment to install and run the files.
-To create virtual enviroment use the following command:
+It is recommended to create a virtual environment to install and run the files.
+To create virtual environment use the following command:
 
 ```bash
 pyhton -m venv venv
@@ -29,6 +29,8 @@ To install this packages use the following command:
 pip install scrapy bs4 nltk
 ```
 
+**IMPORTANT:** It is required to follow the established order in order.
+
 ## 1. Crawling the web
 
 To set the starting starting websites edit the `./spiders/configs/default.txt` file.
@@ -41,10 +43,10 @@ scrapy runspider spiders/default-spider.py
 
 ## 2. Converting HTML to text
 
-To run the HTML to txt converter use the following command:
+To run the HTML to text converter use the following command:
 
 ```bash
-python
+python htmlToTxt.py
 ```
 
 ## 3. Summarizing the converted text
