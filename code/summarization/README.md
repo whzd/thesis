@@ -29,7 +29,7 @@ To install this packages use the following command:
 pip install scrapy bs4 nltk
 ```
 
-**IMPORTANT:** It is required to follow the established order in order.
+**IMPORTANT:** It is required to follow the established order.
 
 ## 1. Crawling the web
 
