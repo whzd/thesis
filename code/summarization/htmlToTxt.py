@@ -1,7 +1,12 @@
 import os
 from bs4 import BeautifulSoup
+import re
 
 directory = './raw-files/'
+
+# Average number of character in a sentence in English (75-100)
+# Minimum number of character a sentence must have in order to be accepted
+MIN_CHAR = 50
 
 for filename in os.listdir(directory):
 
@@ -12,17 +17,17 @@ for filename in os.listdir(directory):
 
     soup = BeautifulSoup(content, 'lxml')
 
-    for script in soup(["script", "style"]):
-        script.extract()
+    paragraphs = soup.find_all('p')
+    text = ''
+    for p in paragraphs:
+        if (len(p.text) > MIN_CHAR):
+            text += p.text
 
-    text = soup.get_text(separator=' ')
-
-    lines = (line.strip() for line in text.splitlines())
-
-    chunks = (line.strip() for line in lines)
-    #chunks = (phrase.strip() for line in lines for phrase in line.split(' '))
-
-    text = '\n'.join(chunk for chunk in chunks if chunk)
+    #Cleaning data
+    # Remove square brackets
+    text = re.sub(r'\[[0-9]*\]', ' ', text)
+    # Remove extra spaces
+    text = re.sub(r'\s+', ' ', text)
 
 
     title = soup.find('title').text.strip()
