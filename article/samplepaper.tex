@@ -218,13 +218,36 @@ Using those variables the following formula was created:
 \label{eqn1}
 \end{equation}
 
-The formula was tested using the signs from the avatar database and the constant values, that inicialy were set to 1, were manually adjusted to produce a more compact interval of results.
+The formula was tested using the signs from the avatar database and the constant values, that initially were set to 1, were manually adjusted to produce a more compact interval of results.
 However, the constant value for the facial expressions were unaltered due to the current version of the avatar not supporting them.
+In the table \ref{table:signs} is shown an example of some signs and its readability score.
+
+\begin{table}[H]
+    \centering
+    \caption{Readability scores example.}
+    \label{table:signs}
+    \begin{tabular}{l|l|l|l|l}
+        {\bfseries Sign} & {\bfseries CF} & {\bfseries MT} & {\bfseries HS} & {\bfseries Score} \\
+        \hline
+        Javali & 1 & 1 & 1 & 1.00  \\
+        \hline
+        Fornecedor & 2 & 6 & 1 & 2.09  \\
+        \hline
+        Auxílio & 2 & 4 & 2 & 3.59 \\
+        \hline
+        Consumo & 4 & 6 & 2 & 5.60 \\
+        \hline
+        Esclarecer & 7 & 7 & 2 & 8.00 \\
+    \end{tabular}
+\end{table}
+
 
 \section{Contributions and Evaluation}
 
-%TODO
-In regards to the contribution of this project, it has the intent to make it easier to produce content in LGP, and by doing so, promoting the inclusion and equality of opportunities for the deaf community.
+Having the need for a metric that targeted the LGP user and was able to be used for sorting generated explanations, one of this project contributions is a formula that is able to calculate the readability of a sign in LGP.
+But the main contribution of this project is the ability to present in LGP a generated explanation of a given word or expression.
+
+In regards to the evaluations to be made, the reliability of the generated explanation as well as the precision of the developed formula will be evaluated by surveying the target audience.
 
 \dots
 
@@ -232,7 +255,7 @@ In regards to the contribution of this project, it has the intent to make it eas
 
 %TODO
 
-This article presents a general view of the prject that is still in developmente, thus more functionalities are still going to be implemented in order to better fulfill the need of its target audience.
+This article presents a general view of the project that is still in development, thus more functionalities are still going to be implemented in order to better fulfill the need of its target audience.
 
 The main feature still to be implemented is the integration of the avatar that is responsible for translating the explanations displayed in plain text to LGP.
 Another feature not yet implemented is the displaying of the LGP readability score next to each explanation.
