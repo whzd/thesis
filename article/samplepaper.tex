@@ -37,18 +37,15 @@ Instituto Superior de Engenharia do Porto\\
 \maketitle              % typeset the header of the contribution
 %
 \begin{abstract}
-    Concept explanation can take a fundamental part of the learning process.
-    Its importance is even greater when it comes to languages with small lexicons, such as sign languages.
-    In Portugal the official language used by the deaf community and the community that surrounds them is known as Língua Gestual Portuguesa (LGP).
-    This language like other sign languages has a small lexicon that is not able to represent all the word of the Portuguese language.
-    The users of LGP when faced with words like 'Nanotechnology' have to resort to tools made for Portuguese because the ones available to them are not ideal.
-    Those solution either lack a translation which is the case of online dictionaries or are not practical which is the case of sign language interpreters.
-    With the goal to solve this problem, this solution was created with the hypothesis of being able to utilize machine learning techniques, summarization and automatic translation to generate the explanation of a given word or expression in Língua Gestual Portuguesa (LGP), that does not exist in its lexicon.
-    The solution consists in using the mentioned techniques to develop an Application Programming Interface (API) capable of generating an explanation of a given word or expression.
-    This API will feed a web application responsible for receiving the user input and presenting the generated explanation in plain text and its translation to LGP.
-    A previously developed avatar that is integrated with the web application is responsible for said translation.
-    %TODO
-    (Resultados)
+    Concept explanation has a great importance in languages with small lexicons, such as sign languages.
+    In Portugal, the official language used by the deaf community and the community that surrounds them is known as Língua Gestual Portuguesa (LGP).
+    This language, like other sign languages has a small lexicon that is not able to represent all the words of the Portuguese language.
+    The users of LGP, when faced with words like 'Nanotechnology' have to resort to tools made for Portuguese because the ones available to them are not ideal.
+    Those solutions either lack a translation, which is the case of online dictionaries or aren't practical, which is the case of sign language interpreters.
+    To solve this problem, this project was created with the hypothesis of verifying if it's possible to utilize Text Mining, Information Scraping and Information Retrieval techniques to generate the explanation of a given word or expression that does not exist in the LGP lexicon.
+    The developed solution consists in an Application Programming Interface (API) capable of generating an explanation of a given word or expression.
+    This API will feed a web application responsible for receiving the user input and presenting the explanation in plain text and its translation to LGP using an avatar.
+    Although the development is not finished, the solution is already capable of displaying explanations in plain text that were generated with the mentioned techniques.
 
     \keywords{Sign language \and Text summarization \and Automatic concept explanation.}
 \end{abstract}
@@ -81,7 +78,7 @@ Each with their own lexicon and grammar, so most of the LGP users will struggle 
 
 A LGP user might also resort to a sign language interpreter that would explain the meaning of the word to him, but this would be a even less practical solution
 
-With the goal of solving this problem for the users of LGP this project was created with the hypothesis that is possible to utilize machine learning techniques, summarization and automatic translation to generate the explanation of a given word or expression in LGP that does not exist in its lexicon.
+With the goal of solving this problem for the users of LGP this project was created with the hypothesis that is possible to utilize Text Mining, Information Scraping and Information Retrieval techniques to generate the explanation of a given word or expression in LGP that does not exist in its lexicon.
 
 In order to test this hypothesis, the developed project consists of three major components.
 An API capable of generating explanations of a given word.
@@ -172,22 +169,20 @@ All the components can be seen in the figure \ref{fig1}.
 A user interacts with the web application that was developed in React, an open-source JavaScript framework for building user interfaces.
 Here the user can search of the desired concept as well as changing the page language.
 This is also the place where the generated explanation are shown in plain text or in LGP by the avatar.
-After each explanation, it is also presented their LGP Readability Score, which is presented more in depth in the following subsection as well as feedback options.
+After each explanation, it is also presented their LGP Readability Score, which is presented more in depth in the following subsection, as well as feedback options.
 If one of the presented explanations is not acceptable, it is possible for the user to request a new one.
 
 When a concept is searched for, the input is sent to an API that was developed in Flask, a lightweight open-source Python web framework.
-This API will generate a list of explanations using Text Mining, Information Scraping and Information Retrieval techniques.
-The list is sorted based on each explanation LGP Readability Score.
+This API will generate a list of explanations using only web scrapping or a combination of web crawling, web scrapping and text summarization.
+The approach to be used is set on its configuration file, and will depend on the initial source of information.
+For websites where a single page can be a rich source of information like in Priberam\cite{priberam}, the first approach can yield good results.
+On the hand, for websites where the information is scattered across many pages like Wikipedia\cite{wikipedia}, the second approach is ideal.
+
+All the tasks that compose each approach were developed using Python libraries: Scrapy for web-crawling, Beautiful Soup for web scrapping and Natural Language Toolkit (NLTK) for text summarization.
+
+The list of explanations is sorted based on each explanation LGP Readability Score, and the ones with the lowest score are selected.
 
 The avatar and its database are projects that were previously developed by GILT and that are used to enhance this project.
-
-%The figure \ref{fig2} shows the user interface when a user searches for the word 'Manga'.
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=0.2]{interface.png}
-%\caption{Application Interface.} \label{fig2}
-%\end{figure}
 
 \subsection{LGP Readability}
 
@@ -219,7 +214,7 @@ Using those variables the following formula was created:
 \end{equation}
 
 The formula was tested using the signs from the avatar database and the constant values, that initially were set to 1, were manually adjusted to produce a more compact interval of results.
-However, the constant value for the facial expressions were unaltered due to the current version of the avatar not supporting them.
+However, the constant value for the facial expressions was unaltered due to the current version of the avatar not supporting them.
 In the table \ref{table:signs} is shown an example of some signs and its readability score.
 
 \begin{table}[H]
@@ -244,27 +239,33 @@ In the table \ref{table:signs} is shown an example of some signs and its readabi
 
 \section{Contributions and Evaluation}
 
-Having the need for a metric that targeted the LGP user and was able to be used for sorting generated explanations, one of this project contributions is a formula that is able to calculate the readability of a sign in LGP.
-But the main contribution of this project is the ability to present in LGP a generated explanation of a given word or expression.
+The main contribution is an application capable of helping in the learning process of a LGP user by allowing him to find explanations for a word or expression in his main language.
+Another important contribution is a formula that can be used to calculate the readability of LGP content.
+This can make it easier to produce said content, and by doing so, promoting the inclusion and equality of opportunities for the deaf community.
 
-In regards to the evaluations to be made, the reliability of the generated explanation as well as the precision of the developed formula will be evaluated by surveying the target audience.
-
-\dots
+Although the project is not yet complete, the already developed functionality is capable of generate explanations in plain text using web crawling, web scrapping and text summarization and the avatar is able to translate plain text into LGP.
+Thus is possible to corroborate the hypothesis that is possible to utilize Text Mining, Information Scraping and Information Retrieval techniques to generate the explanation of a given word or expression that does not exist in the LGP lexicon.
 
 \section{Conclusions and Future Work}
 
-%TODO
+In conclusion the project is still in development and this article presents a general view of it.
 
-This article presents a general view of the project that is still in development, thus more functionalities are still going to be implemented in order to better fulfill the need of its target audience.
+The LGP readability formula was able to produce a reliable scores when there was no need for signs that required facial expression.
+However a new version of the avatar, that uses facial expressions, is being released which will allow to obtain values to calibrate the formula for the signs that do require facial expressions.
 
+At the current stage, the application is able to produce explanations based on the word searched and show it to the user in plain text.
+The explanation to be shown is not yet selected based on the readability formula.
+In the cases where it was generated using only web scrapping, the selection was based on the order from the source page.
+If it was generated using text summarization, the selection was based on the order created by its process.
+
+Furthermore other functionality will still be implemented or changed to better fulfill the need of the target audience.
 The main feature still to be implemented is the integration of the avatar that is responsible for translating the explanations displayed in plain text to LGP.
 Another feature not yet implemented is the displaying of the LGP readability score next to each explanation.
-Also the possibility for the user to ask for a new explanation if one of the presented ones is deemed unacceptable.
+Also the possibility for the user to ask for a new explanation if any of the ones available is deemed unacceptable.
 
 In regards to future work, the project can target an even broader audience by supporting other languages which, the avatar, is capable of performing the translation from plain text to the corresponding sign language.
-Furthermore, the developed API may be used to further enhance the functionalities of future or already existing GILT projects.
+Additionally, the developed API may be used to further enhance the functionality of future or already existing GILT projects.
 
-\dots
 
 %
 % ---- Bibliography ----
@@ -280,24 +281,30 @@ Furthermore, the developed API may be used to further enhance the functionalitie
         Novak, J.: Learning, creating, and using knowledge: concept maps as facilitative tools in schools and corporations. 2nd edn. Routlege, New York (2012)
 
     \bibitem{who_2020}
-        WHO, \url{https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss}. Last accessed 19 Aug 2020
+        WHO Deafness and hearing loss, \url{https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss}. Last accessed 19 Aug 2020
 
     \bibitem{sts_2020}
-        Spread The Sign, \url{https://www.spreadthesign.com/}. Last accessed 26 Aug 2020
+        Spread The Sign Homepage, \url{https://www.spreadthesign.com/}. Last accessed 26 Aug 2020
 
     \bibitem{infopedia_2020}
-        Infopédia, \url{https://www.infopedia.pt/dicionarios/lingua-gestual}. Last accessed 26 Aug 2020
+        Infopédia Portuguese Sign Language dictionary, \url{https://www.infopedia.pt/dicionarios/lingua-gestual}. Last accessed 26 Aug 2020
 
     \bibitem{ctilg_2020}
-        Ctilg, \url{http://www.ctilg.pt/}. Last accessed 27 Aug 2020
+        Ctilg Homepage, \url{http://www.ctilg.pt/}. Last accessed 27 Aug 2020
 
     \bibitem{serviin_2020}
-        Serviin, \url{http://www.portaldocidadaosurdo.pt/Serviin}. Last accessed 27 Aug 2020
+        Serviin Homepage, \url{http://www.portaldocidadaosurdo.pt/Serviin}. Last accessed 27 Aug 2020
 
     \bibitem{ptread_2019}
         Antunes, H., Lopes, C.: Analyzing the adequacy of readability indicators to a non-english language.
         In: International Conference of the Cross-Language Evaluation Forum for European Languages,
         pages 149--155. Springer, 2019.
+
+    \bibitem{priberam}
+        Priberam Homepage \url{https://dicionario.priberam.org/}, Last accessed 5 Sep 2020
+
+    \bibitem{wikipedia}
+        Wikipedia Homepage \url{https://www.wikipedia.org/}, Last accessed 5 Sep 2020
 
         %\bibitem{ref_article1}
         %Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
