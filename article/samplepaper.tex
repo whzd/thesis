@@ -45,7 +45,7 @@ Instituto Superior de Engenharia do Porto\\
     To solve this problem, this project was created with the hypothesis of verifying if it's possible to utilize Text Mining, Information Scraping and Information Retrieval techniques to generate the explanation of a given word or expression that does not exist in the LGP lexicon.
     The developed solution consists in an Application Programming Interface (API) capable of generating an explanation of a given word or expression.
     This API will feed a web application responsible for receiving the user input and presenting the explanation in plain text and its translation to LGP using an avatar.
-    Although the development is not finished, the solution is already capable of displaying explanations in plain text that were generated with the mentioned techniques.
+    The solution is capable of displaying explanations in plain text, generated with the mentioned techniques, and exhibiting a clear indicator of their LGP legibility for a deaf user.
 
     \keywords{Sign language \and Text summarization \and Automatic concept explanation.}
 \end{abstract}
@@ -55,19 +55,19 @@ Instituto Superior de Engenharia do Porto\\
 \section{Introduction}
 
 Concepts are abstract or generic ideas, that have a common set of features that are shared across multiple situations and contexts.
-Concept explanation can take a fundamental part of the learning process, whether it takes place in an educational environment, a day-to-day or a professional context.
+Concept explanation can take a fundamental part of the learning process\cite{conceptExp}, whether it takes place in an educational environment, a day-to-day or a professional context.
 The importance of concept explanation is even greater when it comes to languages with a small lexicon, in particular sign languages.
 
 According to the World Health Organization \cite{who_2020}, as of march 2018, there were 466 million people with disabling hearing loss, this represents 5\% of the world population.
 Without being able to hear, deaf people are not able to communicate using sound, therefore they must use sign languages.
 
 In Portugal the official language of the deaf community is known as Língua Gestual Portuguesa (LGP).
-This language is also used by the surrounding community, such as their relatives, teaches, and so on.
+This language is also used by the surrounding community, such as their relatives, teachers, and so on.
 The lexicon of LGP is composed by multiple signs where each one represents a word or an expression in Portuguese.
 However, the opposite is not true.
 There are numerous words in Portuguese that don't have a sign that translates them.
 
-In order for a LGP user to understand those words/expressions the explanation must be formed by the available lexicon, yet there are no LGP encyclopedias.
+In order for a LGP user to understand those words/expressions the explanation must be formed by the available lexicon\cite{deafness}, yet there are no LGP encyclopedias.
 The closest thing available are the LGP dictionaries but they fail to translate words that have no sign that can directly translate them.
 
 This problem is recurrent when it comes to scientific domains.
@@ -78,7 +78,7 @@ Each with their own lexicon and grammar, so most of the LGP users will struggle 
 
 A LGP user might also resort to a sign language interpreter that would explain the meaning of the word to him, but this would be an even less practical solution
 
-With the goal of solving this problem for the users of LGP, this project was created with the hypothesis that is possible to utilize Text Mining, Information Scraping and Information Retrieval techniques to generate the explanation of a given word or expression in LGP that does not exist in its lexicon.
+With the goal of solving this problem for the users of LGP, this project was created with the hypothesis that is possible to utilize Text Mining\cite{textmining}, Information Scraping\cite{scrapingInfo}\cite{autoScraping} and Information Retrieval\cite{infoRet} techniques to generate the explanation of a given word or expression in LGP that does not exist in its lexicon.
 
 In order to test this hypothesis, the developed project consists of three major components.
 An API capable of generating explanations of a given word.
@@ -126,11 +126,11 @@ Also by utilizing this solution, the LGP user is sacrificing some of his autonom
 
 \subsection{Portuguese Readability Metrics}
 
-Readability metrics are used to calculate a score, that relates to the level of education a reader will need, to fully understand the context of a given text.
+Readability metrics are used to calculate a score\cite{readability}, that relates to the level of education a reader will need, to fully understand the context of a given text.
 There are some widely known and used metrics for the English language, such as Flesh Reading Ease, New Dale-Chall, SMOG, Flesh-Kincaid, Gunning Fog and so on.
 
 In 2019, Antunes, H and Lopes, C published an article \cite{ptread_2019} that adapted the values of the metrics used to calculate the readability of text in English so it could be applied to Portuguese.
-The adapted readability metrics are presented in table \ref{table:ptformulas}.
+The adapted readability metrics are presented in Table \ref{table:ptformulas}.
 
 \begin{table}
     \caption{Adjusted Portuguese formulas.}
@@ -158,7 +158,7 @@ The adapted readability metrics are presented in table \ref{table:ptformulas}.
 In order to solve the previously mentioned problems, Automatic Concept Explanation was created.
 The main functionality of this solution, is to allow the LGP users to search for a word or expression in Portuguese and display its explanation as well as the respective LGP translation.
 
-All the components can be seen in the figure \ref{fig1}.
+All the components can be seen in Figure \ref{fig1}.
 
 \begin{figure}[ht]
 \centering
@@ -178,7 +178,7 @@ The approach to be used is set on its configuration file, and will depend on the
 For websites where a single page can be a rich source of information like in Priberam\cite{priberam}, the first approach can yield good results.
 On the other hand, for websites where the information is scattered across many pages like Wikipedia\cite{wikipedia}, the second approach is ideal.
 
-All the tasks that compose each approach were developed using Python libraries: Scrapy\cite{scrapy} for web-crawling, Beautiful Soup\cite{bs4} for web scrapping and Natural Language Toolkit (NLTK)\cite{nltk} for text summarization.
+All the tasks that compose each approach were developed using Python libraries: Scrapy\footnote{https://scrapy.org/} for web-crawling, Beautiful Soup\footnote{https://www.crummy.com/software/BeautifulSoup/bs4/doc/} for web scrapping and Natural Language Toolkit (NLTK)\footnote{https://www.nltk.org/} for text summarization.
 
 The list of explanations is sorted based on each explanation's LGP Readability Score, and the ones with the lowest score are selected.
 
@@ -192,7 +192,7 @@ Those explanations need to be sorted in order to present the users with the ones
 For a regular language, there are metrics, like the readability score, that can be used to classify each expression in order to sort them accordingly.
 This score indicates how easily a reader would comprehend the text that he's reading.
 
-There are multiple formulas that could be used for calculating this score in Portuguese, as shown in table \ref{table:ptformulas}.
+There are multiple formulas that could be used for calculating this score in Portuguese, as shown in Table \ref{table:ptformulas}.
 However, there is none for the LGP.
 
 When looking at the readability formulas for Portuguese, it is easy to notice that, all of them take in consideration the same variables, which are common in every written text: characters, complex words, syllables, words and sentences.
@@ -215,7 +215,7 @@ Using those variables the following formula was created:
 
 The formula was tested using the signs from the avatar database and the constant values, that were initially set to 1, were manually adjusted to produce a more compact interval of results.
 However, the constant value for the facial expressions was unaltered due to the current version of the avatar not supporting them.
-In the table \ref{table:signs} is shown an example of some signs and their readability score.
+In the Table \ref{table:signs} is shown an example of some signs and their readability score.
 
 \begin{table}[H]
     \centering
@@ -277,8 +277,38 @@ Additionally, the developed API may be used to further enhance the functionality
 % \bibliography{mybibliography}
 %
 \begin{thebibliography}{8}
+    \bibitem{conceptExp}
+        Ghorbani, A., Wexler, J., Zou, J., Kim B.: Towards Automatic Concept-based Explanations.
+        In: Wallach, H., Larachelle, H., Beygelzimer, A., Alchebuc, F., Fox, E., Garnett, R. (eds.)
+        Advances in Neural Information Processing Systems 32, pages 9277--9286. Curran Associates, Inc. (2019)
+        \url{http://papers.nips.cc/paper/9126-towards-automatic-concept-based-explanations.pdf}
+
     \bibitem{who_2020}
         WHO Deafness and hearing loss, \url{https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss}. Last accessed 19 Aug 2020
+
+    \bibitem{deafness}
+        Musselman, C.: How Do Children Who Can't Hear Learn to Read an Alphabetic Script? A Review of the Literature on Reading and Deafness.
+        In: The Journal of Deaf Studies and Deaf Education, vol. 5, pages 9--31. (2000)
+        \url{https://doi.org/10.1093/deafed/5.1.9}
+
+    \bibitem{textmining}
+        Gupta, V., Lehal, G: A Survey of Text Mining Techniques and Applications.
+        In: Journal of Emerging Technologies in Web Intelligence, vol.1, pages 60--76. Academy Publisher (2009)
+        \url{http://www.jetwi.us/uploadfile/2014/1230/20141230112729939.pdf}
+
+    \bibitem{scrapingInfo}
+        Young, J., Sinha, P., Lundberg, S., Kalis, J. 2004: Method and apparatus for scraping information from a website.
+        US20060095377A1, viewed 7 Sep 2020, retrieved from Google Patents.
+        \url{https://patents.google.com/patent/US20060095377A1/en}
+
+    \bibitem{autoScraping}
+        Rose, R. 2012: Automatically scraping and adding contact information .
+        US9665574B1, viewed 7 Sep 2020, retrieved from Google Patents.
+        \url{https://patents.google.com/patent/US9665574B1/en}
+
+    \bibitem{infoRet}
+        Baeza-Yates, R., Ribeiro-Neto, B.: Modern Information Retrieval.
+        Addison-Wesley Longman Publishing Co., Inc., USA, (1999)
 
     \bibitem{sts_2020}
         Spread The Sign Homepage, \url{https://www.spreadthesign.com/}. Last accessed 26 Aug 2020
@@ -292,11 +322,14 @@ Additionally, the developed API may be used to further enhance the functionality
     \bibitem{serviin_2020}
         Serviin Homepage, \url{http://www.portaldocidadaosurdo.pt/Serviin}. Last accessed 27 Aug 2020
 
+    \bibitem{readability}
+        Meyer, Bonnie J.: Text Coherence and Readability. In: Topics in Language Disorders, vol. 23, pages 204--224. (2003)
+
     \bibitem{ptread_2019}
         Antunes, H., Lopes, C.: Analyzing the adequacy of readability indicators to a non-english language.
         In: International Conference of the Cross-Language Evaluation Forum for European Languages,
-        pages 149--155. Springer, 2019.
-https://www.nltk.org/
+        pages 149--155. Springer (2019).
+
     \bibitem{react}
         React Homepage \url{https://reactjs.org/}, Last accessed 6 Sep 2020
 
@@ -309,33 +342,5 @@ https://www.nltk.org/
     \bibitem{wikipedia}
         Wikipedia Homepage \url{https://www.wikipedia.org/}, Last accessed 5 Sep 2020
 
-    \bibitem{scrapy}
-        Scrapy Homepage \url{https://scrapy.org/}, Last accessed 6 Sep 2020
-
-    \bibitem{bs4}
-        Beautiful Soup Documentation \url{https://www.crummy.com/software/BeautifulSoup/bs4/doc/}, Last accessed 6 Sep 2020
-
-    \bibitem{nltk}
-        Natural Language Toolkit Documentation \url{https://www.nltk.org/}, Last accessed 6 Sep 2020
-
-        %\bibitem{ref_article1}
-        %Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
-
-        %\bibitem{ref_lncs1}
-        %Author, F., Author, S.: Title of a proceedings paper. In: Editor,
-        %F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
-        %Springer, Heidelberg (2016). \doi{10.10007/1234567890}
-
-        %\bibitem{ref_book1}
-        %Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
-        %Location (1999)
-
-        %\bibitem{ref_proc1}
-        %Author, A.-B.: Contribution title. In: 9th International Proceedings
-        %on Proceedings, pp. 1--2. Publisher, Location (2010)
-
-        %\bibitem{ref_url1}
-        %LNCS Homepage, \url{http://www.springer.com/lncs}. Last accessed 4
-        %Oct 2017
 \end{thebibliography}
 \end{document}
