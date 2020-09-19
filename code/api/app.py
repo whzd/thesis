@@ -1,7 +1,8 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from webscraping.ws_priberam import Priberam
-from db.querydb import create_connection, check_pt_number_of_words
+from db.querydb import DBQuery
+from formula.lgp import LGPFormula
 
 app = Flask(__name__)
 CORS(app)
@@ -27,6 +28,7 @@ def search():
 
         #4. Check the number of words from the definition that are in the DB
         #sortedMatchList = buildSortedMatchList(definitions)
+        print(matchResults(definitions))
 
         #5. Present the definition with the highest number of matches
         response_object = buildResponse(expression, definitions)
@@ -35,22 +37,43 @@ def search():
         response_object = None
     return jsonify(response_object)
 
-def buildSortedMatchList(definitions):
+# Create a dictionary of results orders by LGP readability score
+def matchResults(definition):
     matches = []
-    res = []
-    for i in len(definitions):
-        for j in len(definitions[i]):
-            numberOfWords = testSentence(definitions[i][j])
-            matches.append(numberOfWords)
-        res.append([x for _,x in sorted(zip(matches,definitions[i]))])
-        matches.clear()
-    return res
+    for i in range(0,len(definition)):
+        for j in range(0,len(definition[i])):
+            matchContext = {}
+            score = sentenceLGPReadabilityScore(definition[i][j])
+            matchContext[definition[i][j]] = score
+        matches.append(matchContext)
+    return matches
 
-def testSentence(sentence):
-    database = "db/pythonsqlite.db"
-    conn = create_connection(database)
-    res = check_pt_number_of_words(conn, sentence)
-    return res
+# Get LGP sign data of a word
+def signData(word):
+    queryDB = DBQuery()
+    signData = dict(queryDB.select_sign_by_word(word))
+    # sign = (id, word, moments, configs, facialExp, hands)
+    return signData
+
+# Calculate the LGP readability score of a sign
+def wordLGPReadabilityScore(signData):
+    formula = LGPFormula()
+    score = formula.readability(sign['configs'], sign['moments'], sign['hands'], sign['facialExp'])
+    return score
+
+# Calculate the LGP readability score of a sentence
+def sentenceLGPReadabilityScore(sentence):
+    sentenceScore = 0
+    for word in sentence.split(' '):
+        if len(word) > 1:
+            sign = signData(word)
+            sentenceScore += wordLGPReadabilityScore(sign)
+    return sentenceScore
+
+# Sort a dictionary in ascending order of values
+def sortDefinitions(dictionary):
+    return sorted(dictionary.values(), key=lambda x: x[1])
+
 
 def buildResponse(expression, definition):
     priberam = "https://dicionario.priberam.org/" + expression
