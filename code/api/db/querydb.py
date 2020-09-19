@@ -1,76 +1,46 @@
+import os
 import sqlite3
 from sqlite3 import Error
 
-def create_connection(db_file):
+class DBQuery:
 
-    conn = None
-    try:
-        conn = sqlite3.connect(db_file)
-    except Error as e:
-        print(e)
+    # Setting filepath of the DB
+    DATABASE = os.path.join(os.path.dirname(__file__), "pythonsqlite.db")
 
-    return conn
+    # Create a DB connection
+    def create_connection(self, db_file):
 
-def check_pt_number_of_words(conn, sentence):
+        conn = None
+        try:
+            conn = sqlite3.connect(db_file)
+        except Error as e:
+            print(e)
 
-    cur = conn.cursor()
+        return conn
 
-    firstWord = True
-    sql = "SELECT COUNT(*) FROM signs_pt WHERE word IN ("
-    for w in sentence.split():
-        if not firstWord:
-            sql = sql + ", "
-        sql = sql + "'" + w + "'"
-        firstWord = False
-    sql = sql + ")"
+    # Select a sign based on a particular word
+    def select_sign_by_word(self, word):
+        """Gets the sign referent to a word
 
-    cur.execute(sql)
+        Args:
+            word (str): The word to search for
 
-    res=cur.fetchone()
+        Returns:
+            dict: a dictionary containing the row data from the sign
+        """
 
-    return res[0]
+        conn = self.create_connection(self.DATABASE)
 
-def check_pt_word(conn, word):
+        conn.row_factory = sqlite3.Row
+        cur = conn.cursor()
+        sql = "SELECT * FROM wordsPT WHERE word=\"%s\"" % word
+        cur.execute(sql)
 
-    cur = conn.cursor()
-    cur.execute("SELECT COUNT(1) FROM signs_pt WHERE word = ?", (word,))
+        res = cur.fetchone()
 
-    res = cur.fetchone()
-
-    return res[0]
-
-def select_pt_sign_by_word(conn, word):
-
-    cur = conn.cursor()
-    cur.execute("SELECT * FROM signs_pt WHERE word=?", (word,))
-
-    res = cur.fetchone()
-
-    return res
-
-def main():
-
-    database = "db/pythonsqlite.db"
-
-    conn = create_connection(database)
-
-    if conn is not None:
-
-        print("Sign with word 'coisa'.")
-
-        print(select_pt_sign_by_word(conn, 'coisa'))
-
-        print("Does word 'coisa' exists in the database?")
-
-        if(check_pt_word(conn, 'coisa') == 1):
-            print('yes')
-        else:
-            print('no')
-
-        sentence1 = "há um tempo um bom moço foi ter a minha casa"
-        print("SENTENCE1: " + sentence1)
-        print("How many words from SENTENCE1 are there in the database?")
-        print(check_pt_number_of_words(conn, sentence1))
+        return res
 
 if __name__ == '__main__':
-    main()
+    print("(DBQuery) Insert the word to search: ")
+    word = input()
+    print(select_sign_by_word(word))
