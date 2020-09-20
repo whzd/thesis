@@ -29,8 +29,9 @@ def search():
         #axios.get(/convert?phrase=)
 
         #4. Check the number of words from the definition that are in the DB
-        #sortedMatchList = buildSortedMatchList(definitions)
-        resultsScores = matchResults(definitions)
+        # sort results based on LGP readability
+        sort = False
+        resultsScores = matchResults(definitions, sort)
         print(resultsScores)
 
         #5. Present the definition with the highest number of matches
@@ -41,7 +42,7 @@ def search():
     return jsonify(response_object)
 
 # Create a dictionary of results orders by LGP readability score
-def matchResults(definition):
+def matchResults(definition, sort):
     # All results
     matches = []
     # Results
@@ -55,8 +56,10 @@ def matchResults(definition):
             score = sentenceLGPReadabilityScore(definition[i][j])
             explScore[definition[i][j]] = score
         # Sort context explanation
-        #matchContext.append(sortDefinitions(explScore))
-        matchContext.append(explScore)
+        if sort:
+            matchContext.append(sortDefinitions(explScore))
+        else:
+            matchContext.append(explScore)
         matches.append(matchContext)
     return matches
 
