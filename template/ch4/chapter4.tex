@@ -23,8 +23,8 @@ The architecture proposed to be implemented is shown in Figure~\ref{fig:cd}, it 
     \item Website - This component is responsible for the interactions of the users with the application.
     \item Explanation App - This component is responsible for processing the users input and converting the APIs output to the website.
     \item Explanation API - This component is responsible for generating an explanation for a given string.
-    \item Avatar API - This component is responsible for converting a given string to \gls{PSL}.
-    \item Avatar DB - This component is responsible for storing all the translations from \gls{PL} to \gls{PSL}.
+    \item Avatar API - This component is responsible for converting a given string to \gls{LGP}.
+    \item Avatar DB - This component is responsible for storing all the translations from Portuguese to \gls{LGP}.
 \end{itemize}
 
 \section{System Functionalities}
@@ -41,7 +41,7 @@ The first step to design a possible solution was to create a high-level view of 
 In the Figure~\ref{fig:Diagram1} is shown the main build blocks of the web application to be developed.
 The input received in M1 is send to the \gls{API} that generates an explanation in M2, which is validated in M3.
 From there the explanation might be sent back to the application and shown to the user in M5  or if does not meet all the criteria defined in M3 it will be fixed in M4 and reevaluated.
-After presenting the explanation to the user, the application will also be capable of send the text to an already existing \gls{API} that is capable of translate plain text to \gls{PSL} using a avatar in M6.
+After presenting the explanation to the user, the application will also be capable of send the text to an already existing \gls{API} that is capable of translate plain text to \gls{LGP} using a avatar in M6.
 
 To help better understand the created design, a more detailed view, is presented below, that describes each of the build blocks and how will they achieve the tasks previously mentioned.
 
@@ -124,7 +124,7 @@ If the explanation had incompatibility issues in M3, then those faulty words wil
 \end{figure}
 
 Shown in Figure~\ref{fig:M6} is the M6 block that will take the explanation text and send it to the avatar \gls{API}.
-The avatar will appear in the web page, and will translate the received text to \gls{PSL}.
+The avatar will appear in the web page, and will translate the received text to \gls{LGP}.
 
 With the complete design of the application in mind a simpler and easier to implement approach was design, also known as a \gls{MVP}.
 
