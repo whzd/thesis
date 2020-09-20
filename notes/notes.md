@@ -477,8 +477,8 @@ descrever de uma forma geral que formulas existem e como podem ser usada uma abo
 
 A formula calcula a legibilidade de cada sinal, portanto como calcular a legibilidade de uma expressão?
 
-p.x. Para ter a legibilidade de um expressão tinhas de somar a legibilidades dos sinais que a constituem e dividir  pelo numero de sinais.
+p.x. Para ter a legibilidade de um expressão tinhas de somar a legibilidades do sinal de cada palavra que a constituem e dividir pelo numero de palavras.
 
-Como é que vamos obter o numero de expressões faciais durante o calculo da legibilidade ?
-p.x. Adicionar a uma bd as expressões faciais para cada sinal
+Referir o avatar no estado de arte ?
 
+"A ordem entre extração de informação e recolha de informação parece-me trocada. Primeiro é feita a extração de informação, depois esta informação é consultada." ?
