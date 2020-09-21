@@ -32,7 +32,6 @@ def search():
         # sort results based on LGP readability
         sort = False
         resultsScores = matchResults(definitions, sort)
-        print(resultsScores)
 
         #5. Present the definition with the highest number of matches
         response_object = buildResponse(expression, definitions)
@@ -92,17 +91,19 @@ def wordLGPReadabilityScore(signData):
 # Calculate the LGP readability score of a sentence
 def sentenceLGPReadabilityScore(sentence):
     sentenceScore = 0
+    numberOfWords = 0
     for word in sentence.split(' '):
         # Removes ponctuation
         simpleWord = word.translate(str.maketrans('', '', string.punctuation))
         if len(simpleWord) > 1:
+            numberOfWords += 1
             sign = signData(simpleWord)
             if isinstance(sign, dict):
                 sentenceScore += wordLGPReadabilityScore(sign)
             else:
                 for letter in sign:
                     sentenceScore += wordLGPReadabilityScore(letter)
-    return sentenceScore
+    return sentenceScore/numberOfWords
 
 # Sort a dictionary in ascending order of values
 def sortDefinitions(dictionary):
