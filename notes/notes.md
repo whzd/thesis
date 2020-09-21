@@ -473,6 +473,15 @@ adicionar o indice  de legibilidade de cada definição, apos estar desenvolvida
 
 descrever de uma forma geral que formulas existem e como podem ser usada uma abordagem semelhante para a criação de uma formula para a linguagem gestual
 
+----------------------------------------------------
+ApresentaçAo
+
+Apresentar como foi obtivo a versão simples final, utilizando as diferentes stages da obtenção resultado. (readability score)
+
+Sempre que algo tenha dado trabalho a tornar algo simples é importante mostrar o processo.
+
+Na apresentação vincar (voltar a mostrar o que foi apresentado antes) para fazer a associação entre o resultado final e o processo.
+
 ### Question(s)
 
 A formula calcula a legibilidade de cada sinal, portanto como calcular a legibilidade de uma expressão?
