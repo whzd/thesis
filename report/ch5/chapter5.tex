@@ -2,3 +2,40 @@
 
 \chapter{Implementation} % Main chapter title
 \label{chap:Chapter5}
+
+\section{LGP Readability Formula}
+
+For a regular language, there are metrics, like the readability score, that can be used to classify each expression in order to sort them accordingly.
+This score indicates how easily a reader would comprehend the text that he's reading.
+
+There are multiple formulas that could be used for calculating this score in Portuguese, as shown in Table. %TODO REF.
+However, there is none for the LGP.
+
+When looking at the readability formulas for Portuguese, it is easy to notice that, all of them take in consideration the same variables, which are common in every written text: characters, complex words, syllables, words and sentences.
+
+After analyzing the LGP signs, with the goal of creating a new readability calculation formula, all the shared variables where identified:
+
+\begin{itemize}
+    \item Hand configurations (CF) - The hand shape in a particular moment.
+    \item Moments (MT) - The position of the hand in relation to the body.
+    \item Hands (HS) - Both hands or only the dominant hand.
+    \item Facial expressions (FE) - Motion or position of the face muscles.
+\end{itemize}
+
+Using those variables the following formula was created:
+
+\begin{equation}
+(0.7 \times CF + 0.3 \times MT + 1 \times FE) \times (0.5 \times HS)
+\label{wordScore}
+\end{equation}
+
+This formula allows to calculate the readability score of a word in LGP.
+In order to calculate the score of an entire sentence, the sum of the scores of each word were divided by the number of words in the sentence, creating the following formula:
+
+\begin{equation}
+    \frac{(0.7 \times CF + 0.3 \times MT + 1 \times FE) \times (0.5 \times HS)}{WO}
+\label{sentecneScore}
+\end{equation}
+
+\dots
+
