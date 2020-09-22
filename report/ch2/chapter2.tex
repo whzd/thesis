@@ -5,19 +5,37 @@
 
 This chapter presents a review of the most relevant topics, namely Portuguese Sign Language, Information Retrieval, Information Extraction, similar approaches to the problem to be solved and technologies that can be useful.
 
-\section{Língua Gestual Portuguesa}
+\section{Língua Gestual Portuguesa (LGP)}
 
 Sign language was created to allow people to communicate through signs instead of sounds.
 This is particularly useful for those that have some hearing impairment that made them incapable of learning to communicate through sounds.
-In the context of a sign language, a sign, which is composed by the movement of the upper limbs, the configuration and orientation of the hands and facial expression, is used to represent an idea.
 
-According to the Portuguese Deaf Association there are around 150000 people with some type of hearing impairment and around 30000 of those that use the \gls{LGP} \autocite{gaspar_2015}.
+In the context of a sign language, a sign, is used to represent an idea and it is composed by the movement and position of the upper limbs.
+Paula Escudeiro et al.\cite{escudeiro2015virtual} present the components of a \gls{LGP} sign as manual and non-manual.
+
+The manual component consists in every variables related to hands which includes:
+\begin{itemize}
+        \item Configuration of the hand - The form that each hand takes while executing a gesture.
+        \item Orientation of the palm of the hand - Some configurations only differ in the palm's orientation.
+        \item Location of articulation - The area where the gesture is performed (Connected to a body part, touching a body part or just in front of the user).
+        \item Movement of the hand - The motion of the hands during the execution of a gesture.
+\end{itemize}
+
+The non-manual component consists in the other variables that take part when representing a sign, which includes:
+\begin{itemize}
+        \item Body movement - The leaning of the torso which represents a temporal context.
+        \item Facial expressions - Used to add a sense of emotion to the speech.
+\end{itemize}
+
+According to the Portuguese Deaf Association there are around 150000 people with some type of hearing impairment and around 30000 of those that use the \gls{LGP}\cite{gaspar2015if2lgp}.
 This language was approved by the Constitution of the Portuguese Republic, in 1997, and became one of the three official languages in Portugal.
 
 There are three ways to structure a sentence In \gls{LGP}: subject-object-verb, subject-verb-object or object-subject-verb.
-The other parts used in Portuguese Language, like the propositions and the articles, are omitted when converted to \gls{LGP} \autocite{bento_2013}, \autocite{martins_2011}.
+It's entirely up to the user to chose the structure to use.
+Since there are no rule for this, the same user may choose to use a different structure for different sentences\cite{martins2011letra}.
+The other parts used to construct a sentence in Portuguese, like the propositions and the articles, are omitted when converted to \gls{LGP}\cite{bento2014avatares}.
 
-Some grammatical characteristics of the Portuguese Sign Language are \autocite{bento_2013}:
+Some grammatical characteristics of the Portuguese Sign Language are\cite{bento2014avatares}:
 
 \begin{itemize}
     \item In most cases the prefix "women" is used to identify the female version of a being while the male version is identified by the lack of a prefix "male".
@@ -37,7 +55,9 @@ The search for information is a human activity that was always present.
 The World Wide Web brought the commodity of searching information from within one's home, where before it was required to go to a place that stored said information, mainly libraries.
 
 Information Retrieval (IR), as the name suggests, is the act of retrieving information from a source, but this definition can be very broad.
-\textcite{manning_2008} wrote on their book that Information Retrieval is finding materials of an unstructured nature that satisfies an information need from within large collections.
+Manning et al.\cite{manning2008introduction} wrote on their book that Information Retrieval is finding materials of an unstructured nature that satisfies an information need from within large collections.
+
+\dots %TODO
 
 The IR systems can be arranged in three groups based on its scale.
 This groups are: Web search, personal information retrieval and institutional, and domain-specific search.
@@ -53,35 +73,78 @@ The result of an IE process is different for every case since it can be tailored
 Nowadays this applications can be used to fulfill personal, scientific and enterprise needs.
 
 With the evolution of technology, IE also evolved and different techniques for the extraction of information were developed.
-This techniques are the following: Rule-based, Statistical, Hybrids (both rule-based and statistical) and Conditional Random Fields \autocite{sarawagi_2008}.
+This techniques are the following: Rule-based, Statistical, Hybrids (both rule-based and statistical) and Conditional Random Fields\cite{sarawagi2008information}.
 
-A rule-based approach was used by \textcite{gaudio_2007}.
+A rule-based approach was used by Del Gaudio et al.\cite{del2007automatic}.
 In this paper the authors created a IE system that was capable extracting the definition of a word from texts written in Portuguese.
 
-A statistical approach was used by \textcite{ventura_2014}.
+A statistical approach was used by Ventura\cite{ventura2014automatic}.
 In his PhD report, he presented an alternative approach to the extraction of relevant terms from text.
 Since relevance of a term is not conceptual, the author proposes to extract all concepts, which have a less fuzzy nature, and let the downstream application decide the relevance of those concepts.
 A concept in the text mining area consists of a word or sequence of words which possess semantic value.
 
-\section{Related Work}
+\subsection{Online Dictionaries}
 
-In this section are discussed studies that are related to the work here reported and whose results and methods may be put in contrast with those produced in this work.
+One of the most known online dictionaries with \gls{LGP} content is the Spreadthesign\footnote{https://www.spreadthesign.com/}.
+In this dictionary an user can search for a word and if there's a previously recorded video translation for that word, at the site database, it will be displayed for the user.
+The search results only display the video of a person performing the corresponding sign, and the possibility to look at the same word in another sign language.
+
+Another online dictionary that provides content for the \gls{LGP} users is the Infopédia\footnote{https://www.infopedia.pt/dicionarios/lingua-gestual}.
+Although this is a Portuguese dictionary, it also contains a section for searching words in \gls{LGP}.
+Here, the search results, not only provide a video translation of the word, but also an explanation in Portuguese on how to reproduce the sign shown in the video.
+
+Online dictionaries as a solution, is limited by the database of prerecorded videos, and the \gls{LGP} lexicon.
+The latter is a problem, because they focus on a direct translation, word to sign, instead of trying to translate the meaning of the word.
+
+\subsection{Sign Language Interpreter}
+
+In regard to the sign language interpreters in Portugal, there is CTILG\footnote{http://www.ctilg.pt/}, a company that provides professional \gls{LGP} translation services in workshops, classes, congresses, events and more.
+This company is responsible for the live translation of some morning TV shows.
+
+A more affordable solution for a regular \gls{LGP} user, is the Serviin\footnote{http://www.portaldocidadaosurdo.pt/Serviin} which is a service that provides an interpreter to work as a middle-man between a deaf person and a targeted service/company.
+This solution is available as a mobile app, with a very low cost for the deaf user, or through a  web app that is free.
+
+This solution is limited by the interpreters own knowledge and their cost.
+Also by utilizing this solution, the \gls{LGP} user is sacrificing some of his autonomy.
+
+\subsection{Portuguese Readability Metrics}
+
+Readability metrics are used to calculate a score\cite{meyer2003text}, that relates to the level of education a reader will need, to fully understand the context of a given text.
+There are some widely known and used metrics for the English language, such as Flesh Reading Ease, New Dale-Chall, SMOG, Flesh-Kincaid, Gunning Fog and so on.
+
+In 2019, Antunes et. al.\cite{antunes2019analyzing} published an article that adapted the values of the metrics used to calculate the readability of text in English so it could be applied to Portuguese.
+The adapted readability metrics are presented in Table \ref{table:ptformulas}.
+
+\begin{table}
+    \caption{Adjusted Portuguese formulas.}
+    \label{table:ptformulas}
+    \begin{tabular}{l|l}
+        \hline
+        {} & {\bfseries Formula} \\
+        \hline
+        SMOG & \(16.830 \times \sqrt{CW \times 30 \div SE} - 23.809\)  \\
+        \hline
+        Flesch-Kincaid & \(0.883 \times WO \div SE + 17.347 \times SY \div WO - 41.239\) \\
+        \hline
+        ARI & \(6.286 \times CH \div WO + 0.927 \times WO \div SE - 36.551\) \\
+        \hline
+        Coleman Liau & \(5.730 \times CH \div WO - 171.365 \times SE \div WO - 6.662\) \\
+        \hline
+        Gunning Fog & \(0.760 \times WO \div SE + 58.600 \times CW \div WO - 12.166\) \\
+        \hline
+        \multicolumn{2}{l}{CH - characters, CW - complex words, SY - syllables, WO - words, SE - sentences}
+    \end{tabular}
+\end{table}
+
+\section{Related Work}
 
 After extensive research, this project seems to be the first to try to accomplish the goal of generating a definition to a given word or expression using Text Mining, Information Retrieval and Information Extraction.
 
-Trying to achieve a similar goal using a different approach, \textcite{noraset_2016} used Deep Learning, more precisely \gls{RNN} to generate a definition g a definition for a given word and its embedding
+Trying to achieve a similar goal using a different approach, Noraset Thanapon et al.\cite{noraset2016definition} used Deep Learning, more precisely \gls{RNN} to generate a definition g a definition for a given word and its embedding
 The models were trained using a pre-defined database.
 
-\textcite{ni_2017} also chose a Deep Learning approach, using \gls{RNN} to generate a definition of slang words or expressions in twits.
+Ni Ke et al.\cite{ni2017learning} also chose a Deep Learning approach, using \gls{RNN} to generate a definition of slang words or expressions in twits.
 In this approach, the \gls{RNN} was trained using an online, user contributed, dictionary called Urban Dictionary.
-
-In regards to translating Portuguese to its design sing language \gls{LGP}, there are some online dictionary capable of performing this task.
-One of them is Spread The Sign, it allows the translation of 39 dialects into their respective sign language.
-The translations are shown using a video recording of a person performing the signs that represent the searched term.
-
-Another online sign language dictionary is the Sign BSL, this one only supports British English to British sign language.
-Since this dictionary focus only on a single dialect each word has a lot more possible related meaning translations.
-Once again the translation shown are pre recorded videos of a person performing the signs.
 
 \section{Technology}
 
@@ -106,3 +169,13 @@ Once again the translation shown are pre recorded videos of a person performing 
 \subsection{React}
 
 \dots
+
+\subsection{Virtual Sign Avatar}
+
+This avatar was a project developed by GILT (Games, Interaction and Learning Technologies) and is capable of translate Portuguese text to \gls{LGP}.
+
+The visual part of the avatar as well as the animations it performs where created using Blender\footnote{https://www.blender.org/}.
+Its appearance  was made identical to the human body to help the process of translation.
+
+All the animations available to be performed by the avatar during the translation are stored in a database that relates each animation to the respective text.
+When is requested the translation of a text that is not present in the database the avatar will perform the animation of each letter of that text.
