@@ -5,10 +5,17 @@
 
 This chapter presents a review of the most relevant topics, namely Portuguese Sign Language, Information Retrieval, Information Extraction, similar approaches to the problem to be solved and technologies that can be useful.
 
-\section{Língua Gestual Portuguesa (LGP)}
+\section{Língua Gestual Portuguesa}
 
 Sign language was created to allow people to communicate through signs instead of sounds.
 This is particularly useful for those that have some hearing impairment that made them incapable of learning to communicate through sounds.
+
+The \gls{LGP} has its origins in the first Portuguese school for the deaf that was created in Lisbon by a Swedish educator by the name Pär Aron Borg.
+This educator introduced an adaptation of the Swedish manual alphabet that was used by the deaf community to communicate.
+Even though, currently, there are no similarities in the vocabulary of the \gls{LGP} and the Swedish sign language, the alphabet still shows the common origin\cite{oliveira2013tradutor}\cite{escudeiro2015virtual}
+
+According to the Portuguese Deaf Association there are around 150000 people with some type of hearing impairment and around 30000 of those that use the \gls{LGP}\cite{gaspar2015if2lgp}.
+This language was approved by the Constitution of the Portuguese Republic, in 1997, and became one of the three official languages in Portugal.
 
 In the context of a sign language, a sign, is used to represent an idea and it is composed by the movement and position of the upper limbs.
 Paula Escudeiro et al.\cite{escudeiro2015virtual} present the components of a \gls{LGP} sign as manual and non-manual.
@@ -27,16 +34,12 @@ The non-manual component consists in the other variables that take part when rep
         \item Facial expressions - Used to add a sense of emotion to the speech.
 \end{itemize}
 
-According to the Portuguese Deaf Association there are around 150000 people with some type of hearing impairment and around 30000 of those that use the \gls{LGP}\cite{gaspar2015if2lgp}.
-This language was approved by the Constitution of the Portuguese Republic, in 1997, and became one of the three official languages in Portugal.
-
-There are three ways to structure a sentence In \gls{LGP}: subject-object-verb, subject-verb-object or object-subject-verb.
-It's entirely up to the user to chose the structure to use.
+There are three ways to structure a sentence In \gls{LGP}: SOV (subject-object-verb), SVO (subject-verb-object) or OSV (object-subject-verb).
+The predominate sequence used is the SOV\cite{sousa2012interpretaccao}\cite{correia2015linguas} but it's entirely up to the user to chose the structure to use.
 Since there are no rule for this, the same user may choose to use a different structure for different sentences\cite{martins2011letra}.
 The other parts used to construct a sentence in Portuguese, like the propositions and the articles, are omitted when converted to \gls{LGP}\cite{bento2014avatares}.
 
 Some grammatical characteristics of the Portuguese Sign Language are\cite{bento2014avatares}:
-
 \begin{itemize}
     \item In most cases the prefix "women" is used to identify the female version of a being while the male version is identified by the lack of a prefix "male".
     \item To describe a quantity of a given subject a number can be added or the use of the suffix "many".
@@ -44,6 +47,15 @@ Some grammatical characteristics of the Portuguese Sign Language are\cite{bento2
     \item The negation of a sentence is defined by the word "not" at the end.
     \item It is used an interrogative pronoun at the end of the sentence to represent it as a question.
 \end{itemize}
+
+As already mentioned in the introduction the \gls{LGP} lexicon is quite small in comparison to Portuguese.
+So many Portuguese words are represented by a logical decomposition of its meaning.
+Using the word "Laranjeira" as an example, this the Portuguese word for orange tree.
+Since there are no sign for this word, it is represented by the signs "Árvore" and "Laranja" (Tree and Orange respectively).
+
+However when a \gls{LGP} user is faced with a word that he does not know its meaning he will spell each letter of the word.
+For short words this can be a practical solution but for long words like "Nanotecnologia" not so much.
+Spelling this word would require 13 sings while representing its meaning would take around 7 (e.g. Ciência, Estudar, Manipular, Materia, Tamanho, Muito, Pequeno).
 
 \section{Text Mining}
 
@@ -107,10 +119,14 @@ This solution is available as a mobile app, with a very low cost for the deaf us
 This solution is limited by the interpreters own knowledge and their cost.
 Also by utilizing this solution, the \gls{LGP} user is sacrificing some of his autonomy.
 
-\subsection{Portuguese Readability Metrics}
+\subsection{Readability Metrics}
 
 Readability metrics are used to calculate a score\cite{meyer2003text}, that relates to the level of education a reader will need, to fully understand the context of a given text.
 There are some widely known and used metrics for the English language, such as Flesh Reading Ease, New Dale-Chall, SMOG, Flesh-Kincaid, Gunning Fog and so on.
+
+\dots %TODO
+
+\subsection{Portuguese Readability Metrics}
 
 In 2019, Antunes et. al.\cite{antunes2019analyzing} published an article that adapted the values of the metrics used to calculate the readability of text in English so it could be applied to Portuguese.
 The adapted readability metrics are presented in Table \ref{table:ptformulas}.
@@ -140,11 +156,14 @@ The adapted readability metrics are presented in Table \ref{table:ptformulas}.
 
 After extensive research, this project seems to be the first to try to accomplish the goal of generating a definition to a given word or expression using Text Mining, Information Retrieval and Information Extraction.
 
-Trying to achieve a similar goal using a different approach, Noraset Thanapon et al.\cite{noraset2016definition} used Deep Learning, more precisely \gls{RNN} to generate a definition g a definition for a given word and its embedding
-The models were trained using a pre-defined database.
+Trying to achieve a similar goal using a different approach, Noraset Thanapon et al.\cite{noraset2016definition} chose a Deep Learning approach, that used a \gls{RNN} model that used distributed representations of words, also known as word embeddings, to generate dictionary representations.
+The models were trained using a pre-defined data set.
 
-Ni Ke et al.\cite{ni2017learning} also chose a Deep Learning approach, using \gls{RNN} to generate a definition of slang words or expressions in twits.
-In this approach, the \gls{RNN} was trained using an online, user contributed, dictionary called Urban Dictionary.
+Ni Ke et al.\cite{ni2017learning} also chose a Deep Learning approach and a \gls{RNN} model to generate a explanation of a given word or expression from "twits" which is the name given to the posts made by the users of Twitter\footnote{https://twitter.com/}.
+The focus was non-standard expressions, such as slang, presented in this posts.
+The \gls{RNN} was trained using an online, user contributed, dictionary called Urban Dictionary\footnote{https://www.urbandictionary.com/).
+
+\dots %TODO
 
 \section{Technology}
 
@@ -170,12 +189,20 @@ In this approach, the \gls{RNN} was trained using an online, user contributed, d
 
 \dots
 
+\subsection{Scrapy}
+
+\dots
+
+\subsection{Beautiful Soup 4 (bs4)}
+
+\dots
+
 \subsection{Virtual Sign Avatar}
 
 This avatar was a project developed by GILT (Games, Interaction and Learning Technologies) and is capable of translate Portuguese text to \gls{LGP}.
 
 The visual part of the avatar as well as the animations it performs where created using Blender\footnote{https://www.blender.org/}.
-Its appearance  was made identical to the human body to help the process of translation.
+Its appearance  was made identical to the human body to help the process of translation\cite{escudeiro2015virtual}.
 
 All the animations available to be performed by the avatar during the translation are stored in a database that relates each animation to the respective text.
 When is requested the translation of a text that is not present in the database the avatar will perform the animation of each letter of that text.
