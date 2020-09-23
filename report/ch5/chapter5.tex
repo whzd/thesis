@@ -19,7 +19,7 @@ When a concept is searched for, the input is sent to an API that was developed i
 This API will generate a list of explanations using only web scrapping or a combination of web crawling, web scrapping and text summarization.
 The approach to be used is set on its configuration file, and will depend on the initial source of information.
 For websites where a single page can be a rich source of information like in Priberam\footnote{https://dicionario.priberam.org/}, the first approach can yield good results.
-On the other hand, for websites where the information is scattered across many pages like Wikipedia\footnote{https://pt.wikipedia.org/wiki/Wikip\%C3\%A9dia:P\%C3\%A1gina_principal}, the second approach is ideal.
+On the other hand, for websites where the information is scattered across many pages like Wikipedia\footnote{https://pt.wikipedia.org/}, the second approach is ideal.
 
 All the tasks that compose each approach were developed using Python libraries: Scrapy\footnote{https://scrapy.org/} for web-crawling, Beautiful Soup\footnote{https://www.crummy.com/software/BeautifulSoup/bs4/doc/} for web scrapping and Natural Language Toolkit (NLTK)\footnote{https://www.nltk.org/} for text summarization.
 

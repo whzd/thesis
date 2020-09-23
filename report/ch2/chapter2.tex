@@ -161,9 +161,21 @@ The models were trained using a pre-defined data set.
 
 Ni Ke et al.\cite{ni2017learning} also chose a Deep Learning approach and a \gls{RNN} model to generate a explanation of a given word or expression from "twits" which is the name given to the posts made by the users of Twitter\footnote{https://twitter.com/}.
 The focus was non-standard expressions, such as slang, presented in this posts.
-The \gls{RNN} was trained using an online, user contributed, dictionary called Urban Dictionary\footnote{https://www.urbandictionary.com/).
+The \gls{RNN} was trained using an online, user contributed, dictionary called Urban Dictionary\footnote{https://www.urbandictionary.com/}.
 
-\dots %TODO
+Giorgina Dinu et al.\cite{dinu2014make} tried to generate a phrase that best express the meaning contained in a distributional vector.
+The test cases for this approach were a monolingual scenario where the phrase was generated in English and a cross-lingual setting where the vector was first used to generate the English expression and then translate it to Italian
+
+Wiliam Dolan et al.\cite{dolan1993automatically} described an automated strategy to created a lexical knowledge base from online dictionaries.
+This strategy was used to create a directed graph for semantic associations between words of the Longman Dictionary of Contemporary English\footnote{https://www.ldoceonline.com/}.
+The authors argue that using a knowledge base provide a more detailed information about a word meaning than a standard lexical lookup.
+
+Alan Akbik et al.\cite{akbik2009wanderlusl} developed an algorithm called Wanderlust which automatically extracts semantic relations from natural language text.
+This algorithm was applied to the English Wikipedia\footnote{https://en.wikipedia.org/} corpus and used to obtain semantic relations to populate a semantic wiki.
+
+Atin Das et. al.\cite{das2008neural} present a theoretical model based on using Neural Networks to extract what the authors calls 'featured words' from an article.
+This 'featured words' are the words that best describe a given article.
+Since this is a theoretical work there are no tests or specific use cases.
 
 \section{Technology}
 
