@@ -22,16 +22,16 @@ Paula Escudeiro et al.\cite{escudeiro2015virtual} present the components of a \g
 
 The manual component consists in every variables related to hands which includes:
 \begin{itemize}
-        \item Configuration of the hand - The form that each hand takes while executing a gesture.
-        \item Orientation of the palm of the hand - Some configurations only differ in the palm's orientation.
-        \item Location of articulation - The area where the gesture is performed (Connected to a body part, touching a body part or just in front of the user).
-        \item Movement of the hand - The motion of the hands during the execution of a gesture.
+    \item \textbf{Configuration of the hand} - The form that each hand takes while executing a gesture.
+    \item \textbf{Orientation of the palm of the hand} - Some configurations only differ in the palm's orientation.
+    \item \textbf{Location of articulation} - The area where the gesture is performed (Connected to a body part, touching a body part or just in front of the user).
+    \item \textbf{Movement of the hand} - The motion of the hands during the execution of a gesture.
 \end{itemize}
 
 The non-manual component consists in the other variables that take part when representing a sign, which includes:
 \begin{itemize}
-        \item Body movement - The leaning of the torso which represents a temporal context.
-        \item Facial expressions - Used to add a sense of emotion to the speech.
+    \item \textbf{Body movement} - The leaning of the torso which represents a temporal context.
+    \item \textbf{Facial expressions} - Used to add a sense of emotion to the speech.
 \end{itemize}
 
 There are three ways to structure a sentence In \gls{LGP}: SOV (subject-object-verb), SVO (subject-verb-object) or OSV (object-subject-verb).
@@ -48,18 +48,48 @@ Some grammatical characteristics of the Portuguese Sign Language are\cite{bento2
     \item It is used an interrogative pronoun at the end of the sentence to represent it as a question.
 \end{itemize}
 
-As already mentioned in the introduction the \gls{LGP} lexicon is quite small in comparison to Portuguese.
+As already mentioned in the Introduction the \gls{LGP} lexicon is quite small in comparison to Portuguese.
 So many Portuguese words are represented by a logical decomposition of its meaning.
 Using the word "Laranjeira" as an example, this the Portuguese word for orange tree.
 Since there are no sign for this word, it is represented by the signs "Árvore" and "Laranja" (Tree and Orange respectively).
 
 However when a \gls{LGP} user is faced with a word that he does not know its meaning he will spell each letter of the word.
 For short words this can be a practical solution but for long words like "Nanotecnologia" not so much.
-Spelling this word would require 13 sings while representing its meaning would take around 7 (e.g. Ciência, Estudar, Manipular, Materia, Tamanho, Muito, Pequeno).
+Spelling this word would require 13 sings while representing its meaning would take around 7 signs (e.g. Ciência, Estudar, Manipular, Materia, Tamanho, Muito e Pequeno).
 
 \section{Text Mining}
 
-\dots
+Text mining stands in between the fields of Data Mining, Information Retrieval, Information Extraction, Machine Learning, Knowledge Discovery and Natural Language Processing since its described as the process to find implicit, previously unknown, and potentially useful information from a large data source, which in this case is text.
+
+Information Extraction is the field most similar to Text Mining.
+Their main difference is that Information Extraction involves the extraction of specific structured information and predefined relations while Text Mining focus on discovering general unsuspected information and new relations\cite{mulins2008information}.
+
+The goal of text mining is to combines a human's linguistic capabilities with the processing power of a computer\cite{fan2006tapping}.
+To accomplish this it borrows many algorithms and techniques from the surrounding fields.
+
+Some of the most used Text Mining techniques\cite{gupta2009survey}\cite{tseng2007text}\cite{patel2012text} are the following:
+\begin{itemize}
+    \item \textbf{Summarization} - This technique consists in condensing the source text into a shorter version by reducing its detail while retaining the main points and overall meaning.
+            Text summarization methods can belong into two categories: extractive and abstractive.
+            The extractive methods focus in selecting important sentences or paragraphs and concatenating them into a shorter form.
+            This importance is based on statistical and linguistic features of each sentences.
+            The abstractive methods attempt to create a human-like interpretation of the document, and express those concepts in natural language.
+            Linguistic methods are used to create this interpretation and the new shorter text that contains the most important information from the original text.
+        \item \textbf{Categorization} - This technique involves identifying the main theme of a document by placing the document in a predefined category.
+            To accomplish this a computer program will count the occurrence of each word that appear.
+            This value will be used to identify the main topics covered by the document.
+            Tools that use Categorization normally have a method for ranking the documents by the quantity of content in a particular topic.
+        \item \textbf{Clustering} - This technique seeks to identify and organize similar documents into relevant subgroups or clusters.
+            The main difference to Categorization is that this groups are defined during the execution instead of predefined.
+            Another benefit of this technique is that a document can belong to multiple clusters.
+        \item \textbf{Concept linkage} - This technique connects related documents by identifying their shared concepts.
+            The primary goal of Concept Linkage is to provide browsing for information instead of searching for it as in Information Retrieval.
+        \item \textbf{Question Answering} - This technique uses natural language queries, which goal is to find the best answer to a given question.
+            A website that is capable of performing Question Answering, can allow a user to "ask" questions to the computer to get and exact or related answer.
+        \item \textbf{Information Visualization} - This technique, in addition to simple searching, allows the browsing of text sources in a visual hierarchy or map.
+            There are three steps required for visualization: Data preparation, Data analysis and Extraction and Visualization mapping.
+            Information visualization can be used to narrow down a broad range of documents and explore related topics.
+\end{itemize}
 
 \section{Information Retrieval}
 
@@ -68,6 +98,13 @@ The World Wide Web brought the commodity of searching information from within on
 
 Information Retrieval (IR), as the name suggests, is the act of retrieving information from a source, but this definition can be very broad.
 Manning et al.\cite{manning2008introduction} wrote on their book that Information Retrieval is finding materials of an unstructured nature that satisfies an information need from within large collections.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.65]{ch2/assets/retrieve.png}
+    \caption[InformationRetrival]{Visual representation of Information Retrieval\cite{gate2019}}
+\label{fig:iret}
+\end{figure}
 
 \dots %TODO
 
@@ -81,6 +118,14 @@ The difference between those those types of data is that structured data is sema
 Therefor the need for applications capable of extracting structured data had increased.
 
 Information Extraction (IE) is the name given to the process of automatically extracting structured information from an unstructured sources, mainly texts.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.65]{ch2/assets/extract.png}
+    \caption[InformationExtraction]{Visual representation of Information Extraction\cite{gate2019}}
+\label{fig:iext}
+\end{figure}
+
 The result of an IE process is different for every case since it can be tailored according to the application needs.
 Nowadays this applications can be used to fulfill personal, scientific and enterprise needs.
 
@@ -128,7 +173,7 @@ There are some widely known and used metrics for the English language, such as F
 
 \subsection{Portuguese Readability Metrics}
 
-In 2019, Antunes et. al.\cite{antunes2019analyzing} published an article that adapted the values of the metrics used to calculate the readability of text in English so it could be applied to Portuguese.
+In 2019, Antunes et al.\cite{antunes2019analyzing} published an article that adapted the values of the metrics used to calculate the readability of text in English so it could be applied to Portuguese.
 The adapted readability metrics are presented in Table \ref{table:ptformulas}.
 
 \begin{table}
@@ -159,7 +204,7 @@ After extensive research, this project seems to be the first to try to accomplis
 Trying to achieve a similar goal using a different approach, Noraset Thanapon et al.\cite{noraset2016definition} chose a Deep Learning approach, that used a \gls{RNN} model that used distributed representations of words, also known as word embeddings, to generate dictionary representations.
 The models were trained using a pre-defined data set.
 
-Ni Ke et al.\cite{ni2017learning} also chose a Deep Learning approach and a \gls{RNN} model to generate a explanation of a given word or expression from "twits" which is the name given to the posts made by the users of Twitter\footnote{https://twitter.com/}.
+Ni Ke et al.\cite{ni2017learning} also chose a Deep Learning approach and a \gls{RNN} model to generate a explanation of a given word or expression from "tweets" which is the name given to the posts made by the users of Twitter\footnote{https://twitter.com/}.
 The focus was non-standard expressions, such as slang, presented in this posts.
 The \gls{RNN} was trained using an online, user contributed, dictionary called Urban Dictionary\footnote{https://www.urbandictionary.com/}.
 
@@ -170,10 +215,10 @@ Wiliam Dolan et al.\cite{dolan1993automatically} described an automated strategy
 This strategy was used to create a directed graph for semantic associations between words of the Longman Dictionary of Contemporary English\footnote{https://www.ldoceonline.com/}.
 The authors argue that using a knowledge base provide a more detailed information about a word meaning than a standard lexical lookup.
 
-Alan Akbik et al.\cite{akbik2009wanderlusl} developed an algorithm called Wanderlust which automatically extracts semantic relations from natural language text.
+Alan Akbik et al.\cite{akbik2009wanderlust} developed an algorithm called Wanderlust which automatically extracts semantic relations from natural language text.
 This algorithm was applied to the English Wikipedia\footnote{https://en.wikipedia.org/} corpus and used to obtain semantic relations to populate a semantic wiki.
 
-Atin Das et. al.\cite{das2008neural} present a theoretical model based on using Neural Networks to extract what the authors calls 'featured words' from an article.
+Atin Das et al.\cite{das2008neural} present a theoretical model based on using Neural Networks to extract what the authors calls 'featured words' from an article.
 This 'featured words' are the words that best describe a given article.
 Since this is a theoretical work there are no tests or specific use cases.
 
@@ -211,10 +256,10 @@ Since this is a theoretical work there are no tests or specific use cases.
 
 \subsection{Virtual Sign Avatar}
 
-This avatar was a project developed by GILT (Games, Interaction and Learning Technologies) and is capable of translate Portuguese text to \gls{LGP}.
+The Virtual Sign Avatar\cite{escudeiro2015virtual} was a project developed by GILT (Games, Interaction and Learning Technologies) and is capable of translate Portuguese text to \gls{LGP}.
 
 The visual part of the avatar as well as the animations it performs where created using Blender\footnote{https://www.blender.org/}.
-Its appearance  was made identical to the human body to help the process of translation\cite{escudeiro2015virtual}.
+Its appearance was designed to be as close as possible to the human body to help in the process of translation.
 
 All the animations available to be performed by the avatar during the translation are stored in a database that relates each animation to the respective text.
 When is requested the translation of a text that is not present in the database the avatar will perform the animation of each letter of that text.
