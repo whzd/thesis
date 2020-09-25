@@ -57,6 +57,59 @@ However when a \gls{LGP} user is faced with a word that he does not know its mea
 For short words this can be a practical solution but for long words like "Nanotecnologia" not so much.
 Spelling this word would require 13 sings while representing its meaning would take around 7 signs (e.g. Ciência, Estudar, Manipular, Materia, Tamanho, Muito e Pequeno).
 
+\section{Information Retrieval}
+
+The search for information is a human activity that was always present.
+The World Wide Web brought the commodity of searching information from within one's home, where before it was required to go to a place that stored said information, mainly libraries.
+
+Information Retrieval (IR), as the name suggests, is the act of retrieving information from a source, but this definition can be very broad.
+Manning et al.\cite{manning2008introduction} wrote on their book that Information Retrieval is finding materials of an unstructured nature that satisfies an information need from within large collections.
+
+In Figure \ref{fig:iret} is shown a visual representation of the main functionality of Information Retrieval: getting a set of relevant documents.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.65]{ch2/assets/retrieve.png}
+    \caption[InformationRetrival]{Visual representation of Information Retrieval\cite{gate2019}}
+\label{fig:iret}
+\end{figure}
+
+The best, and most used, example of the application of Information Retrieval is a web search engine such as Google\footnote{https://www.google.com/}.
+When a search is performed in this engine, an algorithm will compare the text of the query with the text of a page and decide whether the page contains the information that is being sought.
+At its core, Information Retrieval aims to understand and model how people compare texts in order to design algorithms to accurately perform this comparison\cite{croft2010search}.
+
+\section{Information Extraction}
+
+As society became more data oriented having access to both structured and unstructured data became easy.
+The difference between those those types of data is that structured data is semantically defined for a target domain and is interpreted with respect to category and context.
+Therefor the need for applications capable of extracting structured data had increased.
+
+Information Extraction (IE) is the name given to the process of automatically extracting structured information from an unstructured sources, mainly texts.
+
+In Figure \ref{fig:iext} is shown a visual representation of the main functionality of Information Extraction: getting facts out of documents.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.65]{ch2/assets/extract.png}
+    \caption[InformationExtraction]{Visual representation of Information Extraction\cite{gate2019}}
+\label{fig:iext}
+\end{figure}
+
+The result of an IE process is different for every case since it can be tailored according to the application needs.
+Nowadays this applications can be used to fulfill personal, scientific and enterprise needs.
+
+With the evolution of technology, IE also evolved and different techniques for the extraction of information were developed.
+This techniques are the following: Rule-based, Statistical, Hybrids (both rule-based and statistical) and Conditional Random Fields\cite{sarawagi2008information}.
+
+A rule-based approach was used by Del Gaudio et al.\cite{del2007automatic}.
+In this paper the authors created a IE system that was capable extracting the definition of a Portuguese words from texts written in Portuguese.
+
+A statistical approach was used by Ventura\cite{ventura2014automatic}.
+In his PhD report, he presented an alternative approach to the extraction of relevant terms from text.
+Since relevance of a term is not conceptual, the author proposes to extract all concepts, which have a less fuzzy nature, and let the downstream application decide the relevance of those concepts.
+A concept in the text mining area consists of a word or sequence of words which possess semantic value.
+
+A conditional random fields approach was used by Kaijian Liu\cite{liu2017ontology}.
+This this paper, the authors proposed this approach to extract information that described existing deficiencies and performed maintenance actions from bridge inspection reports.
+
 \section{Text Mining}
 
 Text mining stands in between the fields of Data Mining, Information Retrieval, Information Extraction, Machine Learning, Knowledge Discovery and Natural Language Processing since its described as the process to find implicit, previously unknown, and potentially useful information from a large data source, which in this case is text.
@@ -91,56 +144,10 @@ Some of the most used Text Mining techniques\cite{gupta2009survey}\cite{tseng200
             Information visualization can be used to narrow down a broad range of documents and explore related topics.
 \end{itemize}
 
-\section{Information Retrieval}
+\section{Online Dictionaries}
 
-The search for information is a human activity that was always present.
-The World Wide Web brought the commodity of searching information from within one's home, where before it was required to go to a place that stored said information, mainly libraries.
-
-Information Retrieval (IR), as the name suggests, is the act of retrieving information from a source, but this definition can be very broad.
-Manning et al.\cite{manning2008introduction} wrote on their book that Information Retrieval is finding materials of an unstructured nature that satisfies an information need from within large collections.
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.65]{ch2/assets/retrieve.png}
-    \caption[InformationRetrival]{Visual representation of Information Retrieval\cite{gate2019}}
-\label{fig:iret}
-\end{figure}
-
-\dots %TODO
-
-The IR systems can be arranged in three groups based on its scale.
-This groups are: Web search, personal information retrieval and institutional, and domain-specific search.
-
-\section{Information Extraction}
-
-As society became more data oriented having access to both structured and unstructured data became easy.
-The difference between those those types of data is that structured data is semantically defined for a target domain and is interpreted with respect to category and context.
-Therefor the need for applications capable of extracting structured data had increased.
-
-Information Extraction (IE) is the name given to the process of automatically extracting structured information from an unstructured sources, mainly texts.
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.65]{ch2/assets/extract.png}
-    \caption[InformationExtraction]{Visual representation of Information Extraction\cite{gate2019}}
-\label{fig:iext}
-\end{figure}
-
-The result of an IE process is different for every case since it can be tailored according to the application needs.
-Nowadays this applications can be used to fulfill personal, scientific and enterprise needs.
-
-With the evolution of technology, IE also evolved and different techniques for the extraction of information were developed.
-This techniques are the following: Rule-based, Statistical, Hybrids (both rule-based and statistical) and Conditional Random Fields\cite{sarawagi2008information}.
-
-A rule-based approach was used by Del Gaudio et al.\cite{del2007automatic}.
-In this paper the authors created a IE system that was capable extracting the definition of a word from texts written in Portuguese.
-
-A statistical approach was used by Ventura\cite{ventura2014automatic}.
-In his PhD report, he presented an alternative approach to the extraction of relevant terms from text.
-Since relevance of a term is not conceptual, the author proposes to extract all concepts, which have a less fuzzy nature, and let the downstream application decide the relevance of those concepts.
-A concept in the text mining area consists of a word or sequence of words which possess semantic value.
-
-\subsection{Online Dictionaries}
+Dictionaries in the most common form are books, that list the words of a language in alphabetic order followed by their meaning.
+Whit the evolution of technology, this dictionaries also evolved into an online version that is more practical and easily accessible.
 
 One of the most known online dictionaries with \gls{LGP} content is the Spreadthesign\footnote{https://www.spreadthesign.com/}.
 In this dictionary an user can search for a word and if there's a previously recorded video translation for that word, at the site database, it will be displayed for the user.
@@ -153,7 +160,10 @@ Here, the search results, not only provide a video translation of the word, but 
 Online dictionaries as a solution, is limited by the database of prerecorded videos, and the \gls{LGP} lexicon.
 The latter is a problem, because they focus on a direct translation, word to sign, instead of trying to translate the meaning of the word.
 
-\subsection{Sign Language Interpreter}
+\section{Sign Language Interpreter}
+
+Sign language interpreters are people who help bridging the gap between the hearing impaired or deaf individuals and a spoken language.
+This can occur in a one-on-one situation as well as in a group setting.
 
 In regard to the sign language interpreters in Portugal, there is CTILG\footnote{http://www.ctilg.pt/}, a company that provides professional \gls{LGP} translation services in workshops, classes, congresses, events and more.
 This company is responsible for the live translation of some morning TV shows.
@@ -164,19 +174,53 @@ This solution is available as a mobile app, with a very low cost for the deaf us
 This solution is limited by the interpreters own knowledge and their cost.
 Also by utilizing this solution, the \gls{LGP} user is sacrificing some of his autonomy.
 
-\subsection{Readability Metrics}
+\section{Readability Metrics}
 
-Readability metrics are used to calculate a score\cite{meyer2003text}, that relates to the level of education a reader will need, to fully understand the context of a given text.
-There are some widely known and used metrics for the English language, such as Flesh Reading Ease, New Dale-Chall, SMOG, Flesh-Kincaid, Gunning Fog and so on.
+Readability is the trait that makes text clearer and more accessible to its readers.
+The readability metrics are used to calculate a score\cite{meyer2003text}, that relates to the level of education a reader will need, to fully understand the context of a given text.
 
-\dots %TODO
+The existing readability metrics\cite{correia2020evaluation} for the English language are the following:
+\begin{itemize}
+    \item \textbf{Flesch Reading Ease Score} - This metric outputs a score that ranges from 0 to 100 and the readability levels are mapped to this scores (e.g. 0--30 Very difficult, 31--50 Difficult, etc.).
+        Higher values indicate better legibility, intelligibility and readability.
+        The initial aim of this metric was to assess the legibility in educational texts.
+        To obtain its score this metric takes in consideration: total number of words, total number of sentences and total number of syllables.
+    \item \textbf{Flesch-Kincaid Grade Level} - This metric is the recalculation of the Flesch Reading Ease Score.
+        Instead of having mapped values, the results are equivalent to the grade level of education required to understand the text (e.g. 8 corresponds to at least the eight grade of education).
+    \item \textbf{Gunning Fog Index} - The scores calculated by this metric range from 0 to 20.
+        They correspond to the education grade that the reader should have in order to understand the text on the first reading.
+        The difference to the FLesch-Kincaid Grade Level is that it takes in consideration the existence of complex words in the text.
+        Complex words are words with three or more syllables with some exceptions.
+    \item \textbf{Automated Readability Index} - This metric also outputs a score that corresponds to the education grade level of the reader.
+        The difference is that it takes in consideration the word length, that is calculated bases on number of characters instead of number of syllables.
+    \item \textbf{Coleman-Liau Index} - This metric produces a score that aims to be an approximation of the minimum U.S. education grade level to comprehend a certain text.
+        Like the previous metric Automated Readability Index, this too uses the number of characters to calculate the word length.
+        The difference is that it only takes in consideration a sample of 100 words.
+    \item \textbf{Dale-Chall and New Dale-Chall} - The creators of this formula, took inspiration in the Flesch Reading Ease to calculate a score that relates to the grade level required to comprehend a certain text.
+        What makes this metric different from the others is that it takes in consideration the number of "hard" words.
+        A word is considered "hard" if it does not appear in a predefined list of familiar and easy to read words for the English language.
+        Having words defined in a list allows to adjust the difficulty for different contexts.
+    \item \textbf{Simple Measure of Gobbledygook (SMOG)} - This metric also related the resulting score to the grade level.
+        What makes this metric unique is that it only takes in consideration the number of polysyllable words in a text.
+        Polysyllable words are words with 3 or more syllables and are calculated from a sample of 30 lines (first 10, middle 10 and last 10).
+    \item \textbf{Fry Graph} - This metric estimates the required grade level of the reader based on a graph created by the author.
+        The graph was built assuming that texts that contained shorter sentences and words with less syllables become more readable.
+        To obtain its score, this metric takes in consideration the number of sentences and number of syllables in a sample of 100 words
+    \item \textbf{Raygor Estimate Graph} - This metric like the previous Fry Graph, estimates the required grade using a graph.
+        The difference is takes in consideration the number of words with six or more characters.
+    \item \textbf{FORCAST} - This metric can be used to either indicate the grade level required or the age required.
+        Unlike the other metrics, this one is typically used to evaluate multiple-choice quizzes and forms rather than text.
+    \item \textbf{SPACHE} - This metric, like the Dale-Chall, is used to calculate the grade level taking in consideration sentence length and the number of unfamiliar words.
+        The difference is that its target to determine the readability for third-grade level texts or below.
+\end{itemize}
 
 \subsection{Portuguese Readability Metrics}
 
 In 2019, Antunes et al.\cite{antunes2019analyzing} published an article that adapted the values of the metrics used to calculate the readability of text in English so it could be applied to Portuguese.
 The adapted readability metrics are presented in Table \ref{table:ptformulas}.
 
-\begin{table}
+\begin{table}[H]
+    \centering
     \caption{Adjusted Portuguese formulas.}
     \label{table:ptformulas}
     \begin{tabular}{l|l}
