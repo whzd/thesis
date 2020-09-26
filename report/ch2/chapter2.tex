@@ -3,7 +3,8 @@
 \chapter{State of Art}
 \label{chap:Chapter2}
 
-This chapter presents a review of the most relevant topics, namely Portuguese Sign Language, Information Retrieval, Information Extraction, similar approaches to the problem to be solved and technologies that can be useful.
+This chapter intends to present some essential knowledge about the most relevant topics, namely Portuguese Sign Language, Information Retrieval, Information Extraction, Text Mining.
+It also presents a description of the readability metrics, work related to this solution and technologies that are mentioned through out this report.
 
 \section{Língua Gestual Portuguesa}
 
@@ -55,7 +56,7 @@ Since there are no sign for this word, it is represented by the signs "Árvore" 
 
 However when a \gls{LGP} user is faced with a word that he does not know its meaning he will spell each letter of the word.
 For short words this can be a practical solution but for long words like "Nanotecnologia" not so much.
-Spelling this word would require 13 sings while representing its meaning would take around 7 signs (e.g. Ciência, Estudar, Manipular, Materia, Tamanho, Muito e Pequeno).
+Spelling this word would require 13 sings while representing its meaning would take around 7 signs (e.g. Ciência, Estudar, Manipular, Materia, Tamanho, Muito and Pequeno).
 
 \section{Information Retrieval}
 
@@ -69,7 +70,7 @@ In Figure \ref{fig:iret} is shown a visual representation of the main functional
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.65]{ch2/assets/retrieve.png}
-    \caption[InformationRetrival]{Visual representation of Information Retrieval\cite{gate2019}}
+    \caption[InformationRetrival]{Visual representation of Information Retrieval\footnote{Image source: https://gate.ac.uk/ie/}}
 \label{fig:iret}
 \end{figure}
 
@@ -89,7 +90,7 @@ In Figure \ref{fig:iext} is shown a visual representation of the main functional
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.65]{ch2/assets/extract.png}
-    \caption[InformationExtraction]{Visual representation of Information Extraction\cite{gate2019}}
+    \caption[InformationExtraction]{Visual representation of Information Extraction\footnote{Image source: https://gate.ac.uk/ie/}}
 \label{fig:iext}
 \end{figure}
 
@@ -268,35 +269,69 @@ Since this is a theoretical work there are no tests or specific use cases.
 
 \section{Technology}
 
-\dots
+This section presents the technologies that were analyzed to develop the solution presented by this report.
 
-\subsection{NLTK}
+\subsection{Natural Language Toolkit (NLTK)}
 
-\dots
+NLTK\footnote{https://www.nltk.org/} is an open source library for Python that is used for building programs that work with human language data.
+It provides text processing libraries for classification, tokenization, stemming, tagging, parsing and semantic reasoning.
+This library also has built-in support for 107 corpora and trained models.
 
-\subsection{openNLP}
+NLTK was design with four goals\cite{bird2009natural} in mind:
+\begin{itemize}
+    \item \textbf{Simplicity} - Give the users practical knowledge of NLP without any tedious processes usually associated with the processing of language data.
+    \item \textbf{Consistency} - Provide consistent interfaces and data structures, and simple method names.
+    \item \textbf{Extensibility} - Supply a structure that allows new software modules to be easily accommodated.
+    \item \textbf{Modularity} - Offer components that can be used independently.
+\end{itemize}
 
-\dots
+The natural languages supported in NLTK, other than English, depends on the task being implemented.
+As an example, it supports stemming in Portuguese, Arabic, Danish, Dutch, English, Finnish, French, German, Hungarian, Italian, Norwegian, Romanian, Russian, Spanish and Swedish.
+
+The creators of this tool wrote a book\cite{bird2009natural} which provides a practical introduction to programming for language processing, which makes it suitable for advanced users as well as users that are taking their first steps in this area.
+This book was originally released for the previous version, NLTK 2 that was focused in Python2.
+Since the release of Pyhton3, a new version of this tool was released NLTK 3, and the updated version of the book was made available online\footnote{http://www.nltk.org/book/}.
+
+\subsection{OpenNLP}
+
+Apache OpenNLP\footnote{http://opennlp.apache.org/} is an open source library for Java based in machine learning for processing natural language text.
+It supports the most common NLP tasks such as tokenization, sentence segmentation, part-of-speech tagging, named entity extraction, chunking, parsing and coreference resolution.
+
+OpenNLP provides a pre-trained language detector that can detect 103 languages.
+It also provides a couple of pre-trained models in English, Danish, Dutch, German, Spanish, Portuguese and Swedish that are recommended to be used for testing or to getting started with this framework.
+For other use cases the documentation recommends to train the models.
+
+In regards to documentation, it is been wrote by the development community of OpenNLP and it's extensive and very well detailed.
 
 \subsection{Google Cloud NLP}
 
-\dots
+Google Cloud NLP\footnote{https://cloud.google.com/natural-language} is a collection of projects made by Google that allows to derive insights from unstructured text using Google machine learning.
+This is composed by three projects: AutoML Natural Language, Healthcare Natural Language API and Natural Language API.
+
+The AutoML Natural Language allows the users to train custom models to classify, extract and detect sentiment with minimum effort and previous machine learning knowledge by using the AutoML\footnote{https://cloud.google.com/automl} technology.
+
+The Healthcare Natural Language API is still in early access, but has the goal is to provide the users the ability to generate custom information extraction models for healthcare and life sciences applications.
+
+The Natural Language API allows the users to apply natural language understanding such as sentiment analysis, entity analysis, entity sentiment analysis, content classification and syntax analysis.
+Since this technology is not open source, it comes with the disadvantage of being payed to use after a certain threshold, in this case 5000 requests to the API.
+
+When it comes to documentation, like any project from Google, it's very detailed with code snippets and preset environments to test those snippets whenever possible.
 
 \subsection{Flask}
 
-\dots
+Flask\footnote{https://flask.palletsprojects.com/} is an open source library \dots
 
 \subsection{React}
 
-\dots
+React\footnote{https://reactjs.org/} is and open source library \dots
 
 \subsection{Scrapy}
 
-\dots
+Scrapy\footnote{https://scrapy.org/} is an open source library \dots
 
-\subsection{Beautiful Soup 4 (bs4)}
+\subsection{Beautiful Soup 4}
 
-\dots
+Beautiful Soup 4\footnote{https://www.crummy.com/software/BeautifulSoup/bs4/doc/} is an open source library \dots
 
 \subsection{Virtual Sign Avatar}
 
