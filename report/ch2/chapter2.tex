@@ -319,11 +319,53 @@ When it comes to documentation, like any project from Google, it's very detailed
 
 \subsection{Flask}
 
-Flask\footnote{https://flask.palletsprojects.com/} is an open source library \dots
+Flask\footnote{https://flask.palletsprojects.com/} is an open source Python microframework for both web applications and microservices.
+The "micro" in microframework comes from the fact that it has little dependencies to external libraries.
+In this case it only depends on the Jinja template engine and the Werkzeug WSGI toolkit\cite{flask2020Docs}.
+
+Unlike other Python web framework like Django\footnote{https://www.djangoproject.com/}, Flask does not include a database abstraction layer, form validation or anything else that other libraries that are already established can handle.
+This is because the main idea of Flask is to build a good foundation for all applications leaving everything else up to the user or extensions.
+
+Flask supports numerous extensions for database integration, from validation, upload handling, open authentication technologies, etc. as if it was implemented in Flask itself.
+
+Listing~\ref{lst:helloWorld_python} shows how simple it is to set up a Flask application.
+
+\begin{center}
+\begin{minipage}{0.95\linewidth}
+\lstinputlisting [caption=Hello World in Flask (Python).,
+label=lst:helloWorld_python]
+{ch2/assets/flask.py}
+\end{minipage}
+\end{center}
+
+According to StackShare\cite{flask2020Stack}, Flask is being used in the tech stack of 502 companies with some of the most known being Netflix, reddit and trivago.
 
 \subsection{React}
 
-React\footnote{https://reactjs.org/} is and open source library \dots
+React\footnote{https://reactjs.org/} is an open source JavaScript library for building user interfaces.
+It allows the users to compose complex UIs using small and isolated pieces of code called "components".
+
+A component is a independent and reusable bit of code that can be compared to a JavaScript function.
+However this components work isolated and return HTML through a render function.
+
+There are also two other key features of this framework that make it more appealing:
+\begin{itemize}
+    \item \textbf{JSX (JavaScript Extension)} - It's a React extension that facilitates the modifications to the DOM by using simple, XML/HTML like code.
+    \item \textbf{Virtual DOM} - It's a copy of the site actual DOM that React uses to scan for the parts that needs change when an event (like the press of a button) happens.
+        This reduces loading time and processing power since it doesn't require for the whole DOM to be updated like it would when not using React.
+\end{itemize}
+
+Listing~\ref{lst:component_js} shows a component that uses JSX to define the text and that is render by the React virtual DOM.
+
+\begin{center}
+\begin{minipage}{0.95\linewidth}
+\lstinputlisting [caption=Composing Component (JavaScript).,
+label=lst:component_js]
+{ch2/assets/react.js}
+\end{minipage}
+\end{center}
+
+According to StackShare\cite{react2020Stack}, React is being used the tech stack of 8887 companies with some of the most known being Amazon, Facebook and Uber.
 
 \subsection{Scrapy}
 
