@@ -369,11 +369,65 @@ According to StackShare\cite{react2020Stack}, React is being used the tech stack
 
 \subsection{Scrapy}
 
-Scrapy\footnote{https://scrapy.org/} is an open source library \dots
+Scrapy\footnote{https://scrapy.org/} is an open source Python web-crawling and web scraping framework.
+It was originally designed for web scraping but it can also be used to extract data using APIs or as a general purpose web crawler.
+
+A web crawler is a program that browses the web with the purpose of downloading and indexing content.
+The name "web crawlers" comes from crawling which is the technical term for automatically accessing a website and obtaining data.
+Web crawling is the first stage of any web information retrieval system\cite{age2015self}.
+
+The main component of Srapy has the name "Spider" and it's a self-contained crawler that perform a set of instructions.
+According to the goal a spider is trying to achieve, this instructions can be as simple as just the starting page, for just a simple crawler or as complex as setting XPaths and CSS expressions to extract targeted information and automatically store the data in a database.
+
+In comparison with other web-crawling solution such as wget\footnote{https://www.gnu.org/software/wget/}, it has the benefit of being able to target parts of the document, using the built-in mechanism called Selectors, instead of the whole page.
+This is quite helpful when crawling websites filled with hyperlinks like the Wikipedia.
+
+This framework also offer an option to deploy the spiders in the cloud.
+However, like many other cloud solutions, this requires payment for an unlimited usage.
 
 \subsection{Beautiful Soup 4}
 
-Beautiful Soup 4\footnote{https://www.crummy.com/software/BeautifulSoup/bs4/doc/} is an open source library \dots
+Beautiful Soup 4\footnote{https://www.crummy.com/software/BeautifulSoup/bs4/doc/} is an open source Python library for extracting data from HTML and XML files.
+It creates a parse tree for each page that can be navigated, searched and modified in idiomatic ways, which is useful for web scraping.
+
+Web scraping is the process of accurately and quickly extracting data from a website.
+This process has 3 main steps:
+\begin{itemize}
+    \item \textbf{Target the data} - The scraper needs to be design to target and extract the exact data from a specific website.
+    \item \textbf{Parse the data} - The data is extracted in HTML after which it is parsed to extricate the raw data from the surrounding noise.
+    \item \textbf{Use the data} - The resulting data is available to be stored in a database or file or used for goal of the project in which it is included.
+\end{itemize}
+Some applications of web scraping can be: Price Monitoring, Market Research, Real Estate, News and Content Monitoring, etc.
+
+In regards to the parse trees, those are created using specific parsers libraries.
+Table~\ref{table:parsebs4} presents the available parsers for Beautiful Soup 4 and their advantages and disadvantages\cite{bs42020Docs}.
+
+\begin{table}[H]
+    \centering
+    \caption{Parsers libraries (Beautiful Soup 4).}
+    \label{table:parsebs4}
+    \begin{tabular}{l|l|p{5cm}}
+        Parser & Advantages & Disadvantages\\
+        \hline
+        \multirow {2}{*}{Python's html.parser} & {Decent speed} & {Not as fast as lxml, less lenient than html5lib} \\
+        & {Lenient} & {} \\
+        \hline
+        \multirow {2}{*}{lxml's parser HTML} & {Very fast} & {External C dependency} \\
+        & {Lenient} & {} \\
+        \hline
+        \multirow {2}{*}{lxml's parser XML} & {Very fast} & {External C dependency} \\
+        & {The only supported XML parser} & {} \\
+        \hline
+        \multirow {3}{*}{html5lib} & {Extremely lenient} & {Very slow} \\
+        & {Parses pages like a web browser} & {External Python dependency} \\
+        & {Creates valid HTML5} & {} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+When using an external parse library, lxml is the safest option since is the fastest and is capable of perform both HTML and XML parsing.
+The html5lib is a good option when it comes to parsing pages that may have a flaws in the HMTL form.
+Since it follows the HTML5 standards it will pair dangling tags as well as add missing tags that are required.
 
 \subsection{Virtual Sign Avatar}
 
