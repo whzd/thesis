@@ -3,40 +3,104 @@
 \chapter{Analysis} % Main chapter title
 \label{chap:Chapter3} % For referencing the chapter elsewhere, use \ref{chap:Chapter3}
 
-In this chapter it will be presented a business value analysis and the reasoning behind it.
+In this chapter is dedicated to the exposition of two sections: requirements engineering and value analysis.
 
-\section{Engineering Requirements}
+The first section, Requirements Engineering, consists in the design of software requirements, in the form of functional and non-functional requirements.
+The second one, Value Analysis, has the main goal of maximizing the value of the system, at the smallest possible cost.
 
-This section presents the process of analyzing the functional requirements of this project.
+\section{Requirements Engineering}
 
-\subsection{Non-functional Requirements}
+This section presents the process of analyzing the functional and non-functional requirements of this project.
+The FURPS\cite{eeles2005capturing} is a system to classify requirements and represented them by categories.
+It is also an acronym that represents:
 
-\dots %TODO: Improve
+\begin{itemize}
+    \item \textbf{Functionality} is concerned with characteristics such as the main project features.
+    \item \textbf{Usability} is concerned with characteristics such as aesthetics and consistency in the user interface.
+    \item \textbf{Reliability} is concerned with characteristics such as availability, accuracy of system calculations and the system's ability to recover from failure.
+    \item \textbf{Performance} is concerned with characteristics such as throughput, response time, recovery time, start-up time and shutdown time.
+    \item \textbf{Supportability} is concerned with characteristics such as testability, adaptability, maintainability, compatibility, configurability, installability, scalability and localizability.
+\end{itemize}
 
-\textbf{Accessibility}: In order to use this application the user need to have a device with internet connection, preferably a computer.
-
-\textbf{Usability}: Since the target audience is user of \gls{LGP} with special needs, the interface is very intuitive, simple and easy to read.
-
-\textbf{Performance}: Good performance is always a must, especially when using a search engine, the users want a fast response, therefore the generation of explanations was optimize to take as little time as possible.
+This was the system used to present and classify these categories in regards to this project.
 
 \subsection{Functional Requirements}
 
-\dots %TODO: Improve
-
-In order to define the functional requirements of the project, users stories were created were a sequence diagram shows the interaction between the user and the system.
-
-User Story 1: Obtain explanation for a word/expression
-
-As a user of the web application I want to be able to get the explanation of a given word/expression.
+In this section will contain information regarding the functional requirements of the system, in the for of use cases.
+These requirements generally represent the main product features.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.65]{ch3/assets/ssd.png}
-\caption[US1 Success Scenario]{US1 Success Scenario}
-\label{fig:ssd1}
+\includegraphics[scale=0.65]{ch3/assets/usecasediagram.png}
+\caption[Use Case Diagram]{Use Case Diagram}
+\label{fig:ucDiagram}
 \end{figure}
 
-For this success scenario to be succeed, the user needs to provide a valid word or expression.
+\subsubsection{US01: Obtain explanation}
+
+The user requests the system to present the explanation of a given word or expression.
+The system generates explanations and presents, the first in the list, to the user.
+
+\subsubsection{US02: Obtain alternative explanation}
+
+The user requests the system to present the explanation of a given word or expression.
+The system generates explanations and presents, the first in the list, to the user.
+The user gives negative feedback to the generated explanation.
+The system presents the option to generate a new one.
+The user selects the option for a new explanation.
+The system selects the next explanation on the list or generates a new one if there are none.
+
+\subsubsection{US03: Display LGP translation}
+
+The user requests the system to present the explanation of a given word or expression.
+The system generates explanations and presents, the first in the list, to user.
+The user requests the translation of the explanation to \gls{LGP}.
+The system sends the explanation text to the avatar API.
+The API returns the animation required to perform the translation.
+The integrated avatar performs the animations.
+
+\subsubsection{US04: Change language}
+
+The user requests the system to change the system language.
+The system provides the available languages.
+The user selects the desired language.
+The system updates and saves the information.
+
+\subsection{Non-functional Requirements}
+
+The remaining "URPS" categories describe non-functional requirements that are architecturally significant.
+
+\subsubsection{Usability}
+
+\begin{itemize}
+    \item \textbf{User Interaction} - The interaction with the user must be simple and very intuitive, taking in consideration the target audience special needs.
+    \item \textbf{Help} - The system must provide suitable and contextualized help to the task the user is performing.
+    \item \textbf{Interface} - It is required that the interface to be appealing and easy to read, once again, taking in consideration the target audience special needs.
+    \item \textbf{Error Prevention} - The system must prevent user mistakes and treat them accordingly.
+\end{itemize}
+
+\subsubsection{Reliability}
+
+\begin{itemize}
+    \item \textbf{Availability} - The system should have a very high availability rate.
+    \item \textbf{Predictability} - The system should be reliable, that is, free of technical errors.
+    \item \textbf{Fault Tolerance} - The system should be error-tolerant to protect the user from unintentional errors.
+\end{itemize}
+
+\subsubsection{Performance}
+
+\begin{itemize}
+    \item \textbf{Response Time} - The system's response time should be fast to provide quick access to data.
+\end{itemize}
+
+\subsubsection{Supportability}
+
+\begin{itemize}
+    \item \textbf{Testability} - The system should be easily testable in order to provide high confidence about correctness.
+    \item \textbf{Maintainability} - The system should have high maintainability, in order to allow future requirements and/or repairs.
+    \item \textbf{Configurability} - The system should support easy configurability, in order to allow adding new features.
+    \item \textbf{Localizability} - The system should support multiple languages.
+\end{itemize}
 
 \section{Value Analysis}
 
@@ -175,8 +239,8 @@ In regard to the problem, it goal is to determine which natural language process
 
 As observed in the Figure~\ref{fig:AHP}, the items of the first layer, corresponding to the primary objectives, had the following criteria behind their selection:
 \begin{itemize}
-    \item \textbf{Programming language} - The programming language required to be used by the natural langauge processing tool when developing a solution (e.g. Python, Java, C, JavaScript, etc.).
-    \item \textbf{Support} - The number and quality of reliable sources of information about each tool (e.g. Books, Documentation, Foruns, etc.).
+    \item \textbf{Programming language} - The programming language required to be used by the natural language processing tool when developing a solution (e.g. Python, Java, C, JavaScript, etc.).
+    \item \textbf{Support} - The number and quality of reliable sources of information about each tool (e.g. Books, Documentation, Forums, etc.).
     \item \textbf{Multi-language} - The compatibility of processing texts and performing tasks using natural languages other than English, with especial focus in Portuguese.
 \end{itemize}
 
@@ -184,7 +248,7 @@ The presented alternatives in the Figure~\ref{fig:AHP} are the selected natural 
 
 NLTK was chosen because it represents a tool that already as a lot of pre-trained models that can be easily used for developing a solution.
 The fact that  it's a library for Python, is also important since its the preferred programming language.
-Also, as presented in Chapter~\ref{chap:Chapter2} book available allows for a first time user to be able to learn quickly.
+Also, as mentioned in Chapter~\ref{chap:Chapter2}, the book available for this tool, allows for a first time user to be able to learn quickly.
 Furthermore, after a quick web search its easy to find examples of implementation of text mining approaches using this library.
 
 OpenNLP was chosen because, unlike NLTK, it represents a tool that is meant to be train by the user according to the project needs.
@@ -196,6 +260,8 @@ It can be used with multiplied programming languages such as, Python, PHP, Java,
 One important aspect of this tools, like other Google services, is the extensive and easy to follow documentation with code snippets that are able to be run in their services to have a better understanding them.
 
 There are countless others tools that are able to perform natural language processing, this were the selected ones since they were heavily recommended and can represent a good portion of them.
+
+The tools here mentioned are described in more detail in Chapter~\ref{chap:Chapter2}.
 
 \subsubsection{Stage 2 - Alternative and criteria comparison}
 
@@ -225,7 +291,8 @@ This is created using the Fundamental scale created by Saaty\cite{saaty1987analy
 \end{tabular}
 \end{table}
 
-The following table was created to compare the criteria of the decision tree using the values from the Table~\ref{tab:scale}.
+Each comparison between two criterion was defined using the values from the Table~\ref{tab:scale}, after pondering their relative importance.
+The following table was created to present the result of the comparisons made in regards to the criteria of the decision tree.
 
 \begin{table}[H]
 \caption{Comparison Criteria.}
@@ -246,9 +313,8 @@ Sum & 6 & 5/3 & 9/2 \\
 \end{tabular}
 \end{table}
 
-\dots %TODO: Improve explanation
-With the information in the Table~\ref{tab:criteria} it is possible to assess that the criterion "Support" is of very strong importance in comparison with the "Programming language" criterion, and it is of strong importance when compared to "Multi-language".
-Also the criterion "Multi-language" is of strong importance when compared to the "Programming language" criterion.
+With the information in the Table~\ref{tab:criteria} it is possible to assess that the criterion "Support" is of moderate importance (3) in comparison with the "Programming language" criterion, and it is of moderate importance (3) when compared to "Multi-language".
+Also the criterion "Multi-language" is of slightly more importance (2) when compared to the "Programming language" criterion.
 
 \subsubsection{Stage 3 - Relative priority of each criterion}
 
@@ -377,12 +443,12 @@ Since the obtained value 0.043 is less than 0.1 it is possible to conclude that 
 
 \subsubsection{Stage 5 - Construction of the parity comparison matrix for each criterion}
 
-This stage consists in creating a parity comparison matrix for each of the alternatives presented in the hierarchical decision tree, this are the text mining tools.
+This stage consists in creating a parity comparison matrix for each of the alternatives presented in the hierarchical decision tree, this are the natural language processing tools.
 The relative priorities were calculated as shown previously in Stage 3.
 
 \begin{table}[H]
 \caption{Programming Language Parity Comparison Matrix.}
-\label{tab:criterionPL}
+\label{tab:progLangPC}
 \centering
 \begin{tabular}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
 \hline
@@ -401,7 +467,7 @@ Sum & 16/5 & 11 & 17/10 \\
 
 \begin{table}[H]
 \caption{Programming Language Relative Priority.}
-\label{tab:criterionPLPV}
+\label{tab:progLangPCRP}
 \centering
 \begin{tabular}{|m{3cm}|m{3cm}|}
 \hline
@@ -418,7 +484,7 @@ Google Cloud NL & 0.598 \\
 
 \begin{table}[H]
 \caption{Support Parity Comparison Matrix.}
-\label{tab:criterionPL}
+\label{tab:supportPC}
 \centering
 \begin{tabular}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
 \hline
@@ -437,7 +503,7 @@ Sum & 23/15 & 13/3 & 9 \\
 
 \begin{table}[H]
 \caption{Support Relative Priority.}
-\label{tab:criterionPLPV}
+\label{tab:supportPCRP}
 \centering
 \begin{tabular}{|m{3cm}|m{3cm}|}
 \hline
@@ -454,7 +520,7 @@ Google Cloud NL & 0.106 \\
 
 \begin{table}[H]
 \caption{Multi-language Comparison Matrix.}
-\label{tab:criterionPL}
+\label{tab:multiLangPC}
 \centering
 \begin{tabular}{|m{3cm}|m{3cm}|m{3cm}|m{3cm}|}
 \hline
@@ -473,7 +539,7 @@ Sum & 13/4 & 10 & 17/10 \\
 
 \begin{table}[H]
 \caption{Multi-language Relative Priority.}
-\label{tab:criterionPLPV}
+\label{tab:multiLangPCRP}
 \centering
 \begin{tabular}{|m{3cm}|m{3cm}|}
 \hline
@@ -494,7 +560,7 @@ To conclude this stage, the hierarchical decision tree was recreated with the al
 \centering
 \includegraphics[scale=0.5]{ch3/assets/AHP_weighted.png}
 \caption[Hierarchical decision tree with criteria parity comparison]{Hierarchical decision tree with criteria parity comparison}
-\label{fig:ssd1}
+\label{fig:AHPWeighted}
 \end{figure}
 
 \subsubsection{Stage 6 - Obtain the composite property for alternatives}
@@ -525,4 +591,4 @@ This stage consists in obtaining the composite property for the alternatives, to
 
 This stage consists in analyze the obtained values and determine which is the best alternative.
 Looking at the obtained values, with the criteria selected and its calculated importance in mind, it is safe to affirm that the best option is NLTK since it obtained the highest valued (0.513).
-With the results from this process, the solution to be developed in this project will use NLTK as its natural language process tool.
+With the results from this process, the solution to be developed in this project will use NLTK as its natural language processing tool.
