@@ -11,13 +11,17 @@ This section presents the process of analyzing the functional requirements of th
 
 \subsection{Non-functional Requirements}
 
-\textbf{Accessibility}: In order to use this application the user need to have a devide with internet connection, preferbly a computer.
+\dots %TODO: Improve
+
+\textbf{Accessibility}: In order to use this application the user need to have a device with internet connection, preferably a computer.
 
 \textbf{Usability}: Since the target audience is user of \gls{LGP} with special needs, the interface is very intuitive, simple and easy to read.
 
-\textbf{Performance}: Good performance is always a must, especially when ussing a search engine, the users want a fast response, therefore the generation of explanations was optimize to take as little time as possible.
+\textbf{Performance}: Good performance is always a must, especially when using a search engine, the users want a fast response, therefore the generation of explanations was optimize to take as little time as possible.
 
 \subsection{Functional Requirements}
+
+\dots %TODO: Improve
 
 In order to define the functional requirements of the project, users stories were created were a sequence diagram shows the interaction between the user and the system.
 
@@ -41,10 +45,10 @@ This analysis is presented in the following subsections.
 
 \subsection{New Concept Development Model}
 
-The \gls{NCD} \autocite{koen_2001} is a methodology that supplies a structure to transform an opportunity in a concept by following its key stages.
+The \gls{NCD}\cite{koen2001providing} is a methodology that supplies a structure to transform an opportunity in a concept by following its key stages.
 This will help understand the opportunity value in a well defined manner.
 
-The five key stages, that compose the model defined by \textcite{koen_2001}, were used to define the opportunity behind this project.
+The five key stages, that compose the model defined by Koen\cite{koen2001providing}, were used to define the opportunity behind this project.
 
 \begin{itemize}
     \item Opportunity identification - The opportunity was identified by a member of the deaf community.
@@ -96,8 +100,33 @@ With the goal of helping the process of concept explanation, with focus on the i
 
 \subsection{Business Model Canvas}
 
-In order to ensure a solid solid structuring of the various business characteristics is necessary to use tools that help in the strategic management planning.
-One of those tools is the Business Model Canvas, that provides 9 key blocs to aid in the process of planning the business concepts.
+In order to ensure a solid structuring of the various business characteristics is necessary to use tools that help in the strategic management planning.
+The tools to be used must help answer some question, such as:
+
+\begin{itemize}
+        \item Who are the clients?
+        \item What do they value?
+        \item How can we reach them?
+        \item What skills are required?
+        \item What are the costs associated with our solution?
+\end{itemize}
+
+One of the tools that is able to help in this is the Business Model Canvas\cite{osterwalder2010business}, that provides 9 key blocs to aid in the process of planning the business concepts.
+The 9 key blocks are:
+
+\begin{itemize}
+    \item \textbf{Key Partners} - Describes the network of suppliers and partners that make the business model work.
+    \item \textbf{Key Activities} - Describes the most important things a company must do to make the business model work.
+    \item \textbf{Key Resources} - Describes the most important assets required to make a business model work.
+    \item \textbf{Value Propositions} - Describes the bundle of products and services that create value for the Customer Segments.
+    \item \textbf{Customer Relationships} - Describes the types of relationships a company establishes with the Customer Segments.
+    \item \textbf{Channels} - Describes how a company communicates with and reaches its Customer Segments to deliver a Value Proposition.
+    \item \textbf{Customer Segments} - Defines the different groups of people or organizations a company aims to reach and serve.
+    \item \textbf{Cost Structure} - Describes all costs incurred to operate a business model.
+    \item \textbf{Revenue Streams} - Represents the money a company generates from each Customer Segment.
+\end{itemize}
+
+In Figure~\ref{fig:CANVAS} it is illustrated the Business Model Canvas created for this project.
 
 \begin{figure}[H]
 \centering
@@ -106,16 +135,36 @@ One of those tools is the Business Model Canvas, that provides 9 key blocs to ai
 \label{fig:CANVAS}
 \end{figure}
 
+The solution developed has two customer segments, which are the Portuguese deaf community and the Portuguese Sign Language users.
+
+As for the product to be provided to this customers, it will be an application that aids in the learning of concepts by the users of Portuguese Sign Language.
+By doing so it will help to provide equal opportunities ans social inclusion of people with disabilities.
+
+To reach the target audience it should be presented in educational events and in events of the Portuguese Deaf Association or the Portuguese Federation of Deaf Associations.
+
+The customers can expect to find this solution on a website, with all the information needed and the possibility to clarify any doubts through the email support.
+
+In regards to the revenue this solution can get, it will have its origins in the investment made by External companies or Government Entities.
+
+When it comes to the resources required, the most important is the server to host the application to ensure maximum availability.
+
+To increase the changes for the solution to succeed, it is priority to design and develop the application with the special needs of the target audience in mind.
+As well as testing and adapting the solution if/when their needs fail to be met.
+
+This solution is in the best interest of education institution, the Portuguese Deaf Association, the Portuguese Federation of Deaf Associations and GILT so they will be the key partners.
+
+Finally, the costs will have their origin in the development and promotion of the application as well as any third-party application required to be used while escalating the solution.
+
 \subsection{Analytic Hierarchy Process (AHP)}
 
-The \gls{AHP} was introduced by \textcite{saaty_1987} and is an efficient tool to use in the process of complex decision making.
+The \gls{AHP} was introduced by Saaty\cite{saaty1987analytic} and is an efficient tool to use in the process of complex decision making.
 It allows to define priorities using qualitative and quantitative criteria to help reduce complex decisions to a series of paired comparisons.
 Using this method will also reduce the bias in process of choice.
 
 \subsubsection{Stage 1 - Creating the hierarchical decision tree}
 
 This stage consists in creating the hierarchical decision tree where the criteria and viable alternatives are defined.
-In regard to the problem, it goal is to determine which text mining tools will provide the most value for the project.
+In regard to the problem, it goal is to determine which natural language processing tools will provide the most value for the project.
 
 \begin{figure}[H]
 \centering
@@ -126,21 +175,23 @@ In regard to the problem, it goal is to determine which text mining tools will p
 
 As observed in the Figure~\ref{fig:AHP}, the items of the first layer, corresponding to the primary objectives, had the following criteria behind their selection:
 
+\dots %TODO: Improve description
 \begin{itemize}
     \item Programming language - The language to be used for developing the solution \gls{API}.
     \item Support - The number of reliable sources of information, the quality of the documentation and an active community.
     \item Multi-language - The compatibility of processing texts and performing tasks using different languages.
 \end{itemize}
 
+\dots %TODO: Improve explanation
 The presented alternatives where selected for being able to process natural language.
 
 \subsubsection{Stage 2 - Alternative and criteria comparison}
 
 This stage consists in defining the priorities between the elements of each hierarchical level.
-This is created using the Fundamental scale created by \textcite{saaty_1987}.
+This is created using the Fundamental scale created by Saaty\cite{saaty1987analytic}.
 
 \begin{table}[H]
-\caption{Fundamental scale \autocite{saaty_1987}.}
+\caption{Fundamental scale \cite{saaty1987analytic}.}
 \label{tab:scale}
 \centering
 \begin{tabular}{|m{4cm}|m{4cm}|m{4cm}|}
@@ -183,6 +234,7 @@ Sum & 6 & 5/3 & 9/2 \\
 \end{tabular}
 \end{table}
 
+\dots %TODO: Improve explanation
 With the information in the Table~\ref{tab:criteria} it is possible to assess that the criterion "Support" is of very strong importance in comparison with the "Programming language" criterion, and it is of strong importance when compared to "Multi-language".
 Also the criterion "Multi-language" is of strong importance when compared to the "Programming language" criterion.
 
@@ -286,10 +338,10 @@ The next step is to calculate the \gls{CI} using the following equation:
     CI = \frac{3.05-3}{3-1} = 0.025
 \end{equation}
 
-The \gls{RI} can be obtained in the index table provided by \textcite{saaty_1987}, were a part of it is presented bellow.
+The \gls{RI} can be obtained in the index table provided by Saaty\cite{saaty1987analytic}, were a part of it is presented bellow.
 
 \begin{table}[H]
-\caption{Index Table \autocite{saaty_1987}.}
+\caption{Index Table \cite{saaty1987analytic}.}
 \label{tab:index}
 \centering
 \begin{tabular}{|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|}
@@ -435,7 +487,7 @@ To conclude this stage, the hierarchical decision tree was recreated with the al
 
 \subsubsection{Stage 6 - Obtain the composite property for alternatives}
 
-This stage consists in obtaining the composite property for the alternatives, to accomplish this, the matrix composed by each criterion relative priority is multipied by the criteria weight as shown in the following equation:
+This stage consists in obtaining the composite property for the alternatives, to accomplish this, the matrix composed by each criterion relative priority is multiplied by the criteria weight as shown in the following equation:
 
 \begin{gather}
     \begin{bmatrix}
@@ -457,8 +509,8 @@ This stage consists in obtaining the composite property for the alternatives, to
     \end{bmatrix}
 \end{gather}
 
-\subsubsection{Stage 7 - Choise of alternative}
+\subsubsection{Stage 7 - Choice of alternative}
 
-This stage consists in analyse the obtained values and determin which is the best alternative.
+This stage consists in analyze the obtained values and determine which is the best alternative.
 Looking at the obtained values, with the criteria selected and its calculated importance in mind, it is safe to affirm that the best option is NLTK since it obtained the highest valued (0.513).
-With the results from this process, the solution to be developed in this project will use NLTK as its text mining tool.
+With the results from this process, the solution to be developed in this project will use NLTK as its natural language process tool.
