@@ -174,16 +174,28 @@ In regard to the problem, it goal is to determine which natural language process
 \end{figure}
 
 As observed in the Figure~\ref{fig:AHP}, the items of the first layer, corresponding to the primary objectives, had the following criteria behind their selection:
-
-\dots %TODO: Improve description
 \begin{itemize}
-    \item Programming language - The language to be used for developing the solution \gls{API}.
-    \item Support - The number of reliable sources of information, the quality of the documentation and an active community.
-    \item Multi-language - The compatibility of processing texts and performing tasks using different languages.
+    \item \textbf{Programming language} - The programming language required to be used by the natural langauge processing tool when developing a solution (e.g. Python, Java, C, JavaScript, etc.).
+    \item \textbf{Support} - The number and quality of reliable sources of information about each tool (e.g. Books, Documentation, Foruns, etc.).
+    \item \textbf{Multi-language} - The compatibility of processing texts and performing tasks using natural languages other than English, with especial focus in Portuguese.
 \end{itemize}
 
-\dots %TODO: Improve explanation
-The presented alternatives where selected for being able to process natural language.
+The presented alternatives in the Figure~\ref{fig:AHP} are the selected natural language processing tools.
+
+NLTK was chosen because it represents a tool that already as a lot of pre-trained models that can be easily used for developing a solution.
+The fact that  it's a library for Python, is also important since its the preferred programming language.
+Also, as presented in Chapter~\ref{chap:Chapter2} book available allows for a first time user to be able to learn quickly.
+Furthermore, after a quick web search its easy to find examples of implementation of text mining approaches using this library.
+
+OpenNLP was chosen because, unlike NLTK, it represents a tool that is meant to be train by the user according to the project needs.
+Being a Java library was some relevance since its the second preferred programming language.
+The available documentation, that is maintained by the developing community, is not as good as NLTK but still easy to follow.
+
+Google Cloud NLP was chosen because, unlike the two upper mentioned, it represents a tool that is not open source and therefore presents payed solution that maybe more efficient.
+It can be used with multiplied programming languages such as, Python, PHP, Java, Go, etc.
+One important aspect of this tools, like other Google services, is the extensive and easy to follow documentation with code snippets that are able to be run in their services to have a better understanding them.
+
+There are countless others tools that are able to perform natural language processing, this were the selected ones since they were heavily recommended and can represent a good portion of them.
 
 \subsubsection{Stage 2 - Alternative and criteria comparison}
 
