@@ -1,92 +1,206 @@
 % Chapter 4
 
-\chapter{Design} % Main chapter title
+\chapter{Analysis and Design} % Main chapter title
 \label{chap:Chapter4}
 
+%TODO Fix text
 In this chapter is possible to find the progression of the solution design and the reasoning behind it.
+In this chapter is dedicated to the exposition of two sections: requirements engineering and value analysis.
 
-\section{Use cases}
+The first section, Requirements Engineering, consists in the design of software requirements, in the form of functional and non-functional requirements.
 
-\dots %TODO
+\section{Requirements Engineering}
 
-\section{Architecture}
+This section presents the process of analyzing the functional and non-functional requirements of this project.
+The FURPS\cite{eeles2005capturing} is a system to classify requirements and represented them by categories.
+It is also an acronym that represents:
 
-To ensure quality, any solution needs a carefully planned architecture that accomplishes efficiently and effectively the already established requirements.
-With this in mind, a component diagram was created to demonstrate all the components, and their interactions, that will compose the system.
+\begin{itemize}
+    \item \textbf{Functionality} is concerned with characteristics such as the main project features.
+    \item \textbf{Usability} is concerned with characteristics such as aesthetics and consistency in the user interface.
+    \item \textbf{Reliability} is concerned with characteristics such as availability, accuracy of system calculations and the system's ability to recover from failure.
+    \item \textbf{Performance} is concerned with characteristics such as throughput, response time, recovery time, start-up time and shutdown time.
+    \item \textbf{Supportability} is concerned with characteristics such as testability, adaptability, maintainability, compatibility, configurability, installability, scalability and localizability.
+\end{itemize}
+
+This was the system used to present and classify these categories in regards to this project.
+
+\subsection{Functional Requirements}
+
+In this section will contain information regarding the functional requirements of the system, in the for of use cases.
+These requirements generally represent the main product features.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{ch4/assets/component_diagram.png}
+\includegraphics[scale=0.65]{ch3/assets/usecasediagram.png}
+\caption[Use Case Diagram]{Use Case Diagram}
+\label{fig:ucDiagram}
+\end{figure}
+
+\subsubsection{US01: Obtain explanation}
+
+The user requests the system to present the explanation of a given word or expression.
+The system generates explanations and presents, the first in the list, to the user.
+
+\subsubsection{US02: Obtain alternative explanation}
+
+The user requests the system to present the explanation of a given word or expression.
+The system generates explanations and presents, the first in the list, to the user.
+The user gives negative feedback to the generated explanation.
+The system presents the option to generate a new one.
+The user selects the option for a new explanation.
+The system selects the next explanation on the list or generates a new one if there are none.
+
+\subsubsection{US03: Display LGP translation}
+
+The user requests the system to present the explanation of a given word or expression.
+The system generates explanations and presents, the first in the list, to user.
+The user requests the translation of the explanation to \gls{LGP}.
+The system sends the explanation text to the avatar API.
+The API returns the animation required to perform the translation.
+The integrated avatar performs the animations.
+
+\subsubsection{US04: Change language}
+
+The user requests the system to change the system language.
+The system provides the available languages.
+The user selects the desired language.
+The system updates and saves the information.
+
+\subsection{Non-functional Requirements}
+
+The remaining "URPS" categories describe non-functional requirements that are architecturally significant.
+
+\subsubsection{Usability}
+
+\begin{itemize}
+    \item \textbf{User Interaction} - The interaction with the user must be simple and very intuitive, taking in consideration the target audience special needs.
+    \item \textbf{Help} - The system must provide suitable and contextualized help to the task the user is performing.
+    \item \textbf{Interface} - It is required that the interface to be appealing and easy to read, once again, taking in consideration the target audience special needs.
+    \item \textbf{Error Prevention} - The system must prevent user mistakes and treat them accordingly.
+\end{itemize}
+
+\subsubsection{Reliability}
+
+\begin{itemize}
+    \item \textbf{Availability} - The system should have a very high availability rate.
+    \item \textbf{Predictability} - The system should be reliable, that is, free of technical errors.
+    \item \textbf{Fault Tolerance} - The system should be error-tolerant to protect the user from unintentional errors.
+\end{itemize}
+
+\subsubsection{Performance}
+
+\begin{itemize}
+    \item \textbf{Response Time} - The system's response time should be fast to provide quick access to data.
+\end{itemize}
+
+\subsubsection{Supportability}
+
+\begin{itemize}
+    \item \textbf{Testability} - The system should be easily testable in order to provide high confidence about correctness.
+    \item \textbf{Maintainability} - The system should have high maintainability, in order to allow future requirements and/or repairs.
+    \item \textbf{Configurability} - The system should support easy configurability, in order to allow adding new features.
+    \item \textbf{Localizability} - The system should support multiple languages.
+\end{itemize}
+
+\section{Logic View}
+
+A logic view represents the principal components of the application, and their interactions, that will compose the system.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/component_diagram.png}
 \caption[Component Diagram]{Component Diagram}
 \label{fig:cd}
 \end{figure}
 
-The architecture proposed to be implemented is shown in Figure~\ref{fig:cd}, it is composed by the following components:
+The architecture proposed to be implemented is shown in Figure~\ref{fig:cd}.
+The components to be developed are the following:it is composed by the following components:
 
 \begin{itemize}
-    \item Website - This component is responsible for the interactions of the users with the application.
-    \item Explanation App - This component is responsible for processing the users input and converting the APIs output to the website.
-    \item Explanation API - This component is responsible for generating an explanation for a given string.
-    \item Avatar API - This component is responsible for converting a given string to \gls{LGP}.
-    \item Avatar DB - This component is responsible for storing all the translations from Portuguese to \gls{LGP}.
+    \item \textbf{Explanation App} - This component is responsible for processing the users input and converting the APIs output to the Web Browser.
+    \item \textbf{Explanation API} - This component is responsible for generating an explanation for a given string.
 \end{itemize}
 
-\section{System Functionalities}
+The components already developed that will be integrated are the following:
+\begin{itemize}
+    \item \textbf{Avatar API} - This component is responsible for converting a given string to \gls{LGP}.
+    \item \textbf{Avatar DB} - This component is responsible for storing all the translations from Portuguese to \gls{LGP}.
+\end{itemize}
 
-The first step to design a possible solution was to create a high-level view of the main functionalities the application should have.
-% Vista de processo TODO
+\subsection{Design alternative}
+
+The main goal was initial the development of a web application that was capable of showing the users an explanation of a word or expression.
+Like so the application was envisioned to take the input generate the explanation and show it to the user, like its shown in Figure~\ref{fig:ocd}.
+
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{ch4/assets/diagram1_2.png}
-\caption[High-Level Approach]{High-Level Approach}
+\includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/component_diagram_alternative.png}
+\caption[Alternative Component Diagram]{Alternative Component Diagram}
+\label{fig:ocd}
+\end{figure}
+
+The disadvantage of this design in comparison with the one previously presented is that, in this one, the back end of the web application would produce the explanation.
+This wouldn't allow to easily reutilize the main functionality of the application which is the generation of an explanation.
+In GILT there are projects that would benefit from this feature and therefore the design had to be changed.
+
+\section{Process View}
+
+The first step to design a possible solution was to create a high-level view of the main functionalities the application should have.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/diagram1_2.png}
+\caption[Application Flowchart]{Application Flowchart}
 \label{fig:Diagram1}
 \end{figure}
 
-In the Figure~\ref{fig:Diagram1} is shown the main build blocks of the web application to be developed.
+In the flowchart of Figure~\ref{fig:Diagram1} is shown the main build blocks of the application to be developed.
 The input received in M1 is send to the \gls{API} that generates an explanation in M2, which is validated in M3.
 From there the explanation might be sent back to the application and shown to the user in M5  or if does not meet all the criteria defined in M3 it will be fixed in M4 and reevaluated.
 After presenting the explanation to the user, the application will also be capable of send the text to an already existing \gls{API} that is capable of translate plain text to \gls{LGP} using a avatar in M6.
 
-To help better understand the created design, a more detailed view, is presented below, that describes each of the build blocks and how will they achieve the tasks previously mentioned.
+To help better understand the created design, a more detailed view, is presented below using activity diagrams, that describes each of the build blocks and how will they achieve the tasks previously mentioned.
+The activity diagram shows the flow of a functionality, the activities that compose that functionality and the decision making required and its consequences.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{ch4/assets/M1.png}
-\caption[User Input Module]{M1: User Input}
+\includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/M1.png}
+\caption[Activity Diagram User Input Module]{Activity Diagram - M1 User Input}
 \label{fig:M1}
 \end{figure}
 
-As shown in the Figure~\ref{fig:M1} the M1 block was design to receive a input string from the user.
+As shown in the activity diagram of Figure~\ref{fig:M1}, the M1 block was design to receive a input string from the user.
 This string is validated in order to detect common mistakes, such as typos, and when an mistake is detected the application suggests possible corrections.
 The user is then capable of accepting the suggestion given, make a manual correction or proceed without changing the input string.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{ch4/assets/M2.png}
-\caption[Find Explanation Module]{M2: Find Explanation}
+\includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/M2.png}
+\caption[Activity Diagram Find Explanation Module]{Activity Diagram - M2 Find Explanation}
 \label{fig:M2}
 \end{figure}
 
-The Figure~\ref{fig:M2} the M2 block shows the process of finding an explanation based on the received string.
-A web crawler would be use to find all the pages connected to a predefined starting page, such as Wikipedia or a dictionary.
-From this point, Information Retrieval techniques would be used to filter the pages that may contain information that is related to the received string.
+The Figure~\ref{fig:M2} activity diagram of the M2 block, shows the process of finding an explanation based on the received string.
+Information Retrieval techniques would be use to find all the pages connected to a predefined starting page, such as Wikipedia or a dictionary.
+From this point, it would filter the pages that may contain information that is related to the received string.
 The filtered pages would then be processed using Information Extraction techniques in order to filter the text that has some degree of relation with the initial string.
 An explanation will the be generated by implementing Text Mining techniques to the blocks of text obtained from the previous step.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{ch4/assets/M3.png}
-\caption[Evaluate Explanation Module]{M3: Evaluate Explanation}
+\includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/M3.png}
+\caption[Activity Diagram Evaluate Explanation Module]{Activity Diagram - M3 Evaluate Explanation}
 \label{fig:M3}
 \end{figure}
 
-In Figure~\ref{fig:M3} the M3 block presents the evaluation criteria defined in order to defined an explanation as valid in order to be presented to the user.
+In Figure~\ref{fig:M3}, the activity diagram of the M3 block presents the evaluation criteria defined in order to defined an explanation as valid in order to be presented to the user.
 Those criteria are the following:
 
 \begin{itemize}
-    \item Syntax integrity - The explanation follows syntax rules, or in other word, is a coherent sentence that can be understand when read.
-    \item Word count limit - The explanation string needs to be shorter that a predefined value.
-    \item Compatibility with the avatar \gls{DB} - The explanation string, ideally, needs to be composed only by words already exiting in the avatar \gls{DB}.
+    \item \textbf{Syntax integrity} - The explanation follows syntax rules, or in other word, is a coherent sentence that can be understand when read.
+    \item \textbf{Word count limit} - The explanation string needs to be shorter that a predefined value.
+    \item \textbf{Compatibility with the avatar \gls{DB}} - The explanation string, ideally, needs to be composed only by words already exiting in the avatar \gls{DB}.
 \end{itemize}
 
 If a criterion fails, the error is set, and the process progresses with M4.
@@ -95,11 +209,11 @@ If a received explanation meets all the criteria it will be sent back to the web
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/M4.png}
-\caption[Fix Explanation Module]{M4: Fix Explanation}
+\caption[Actibity Diagram Fix Explanation Module]{Activity Diagram - M4 Fix Explanation}
 \label{fig:M4}
 \end{figure}
 
-As it can be seen in Figure~\ref{fig:M4} the M4 block is responsible for restructuring the explanation in order to meet the previously mention criteria.
+As it can be seen in the activity diagram of Figure~\ref{fig:M4}, the M4 block is responsible for restructuring the explanation in order to meet the previously mention criteria.
 It starts by identifying the error that made the explanation not be valid to progress and take action accordingly.
 
 \begin{itemize}
@@ -112,49 +226,49 @@ The new string will then be reevaluated by the M3 block.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{ch4/assets/M5.png}
-\caption[Present Explanation Module]{M5: Present Explanation}
+\includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/M5.png}
+\caption[Activity Diagram Present Explanation Module]{Activity Diagram - M5 Present Explanation}
 \label{fig:M5}
 \end{figure}
 
-In the Figure~\ref{fig:M5} the M5 block will be displaying the generated explanation as text and hyperlinks to pages, related with the input string, to the user.
+In the Figure~\ref{fig:M5} activity diagram, the M5 block will be displaying the generated explanation as text and hyperlinks to pages, related with the input string, to the user.
 If the explanation had incompatibility issues in M3, then those faulty words will be also be presented as hypermedia with an explanation of them.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{ch4/assets/M6.png}
-\caption[Avatar Module]{M6: Avatar}
+\includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/M6.png}
+\caption[Activity Diagram Avatar Module]{Activity Diagram - M6 Avatar}
 \label{fig:M6}
 \end{figure}
 
-Shown in Figure~\ref{fig:M6} is the M6 block that will take the explanation text and send it to the avatar \gls{API}.
+Shown in the activity diagram of Figure~\ref{fig:M6}, is the M6 block that will take the explanation text and send it to the avatar \gls{API}.
 The avatar will appear in the web page, and will translate the received text to \gls{LGP}.
 
 With the complete design of the application in mind a simpler and easier to implement approach was design, also known as a \gls{MVP}.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{ch4/assets/mvp_2.png}
-\caption[Minimun Value Product]{Minimum Value Product}
+\includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/mvp_2.png}
+\caption[Flowchart Minimun Value Product]{Flowchart - Minimum Value Product}
 \label{fig:mvp}
 \end{figure}
 
-The Figure~\ref{fig:mvp} shows the starting point of the solution to be developed.
+The Figure~\ref{fig:mvp} activity diagram, shows the starting point of the solution to be developed.
 As a \gls{MVP}, this design focus on the key functionalities that the solution must have, removing everything else.
 The major benefit of choosing this approach is allowing a fast developed of a prototype that can be used to receive feedback from the target audience, in order to grantee that the solution is going towards their needs.
 
-\section{Design alternatives}
+\section{Functional Requirements Design}
 
-The main goal was initial the development of a web application that was capable of showing the users an explanation of a word or expression.
-Like so the application was envisioned to take the input generate the explanation and show it to the user, like its shown in Figure~\ref{fig:ocd}.
+\dots %TODO
+
+\section{System Deployment}
+
+\dots %TODO
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{ch4/assets/component_diagram_old.png}
-\caption[Old Component Diagram]{Old Component Diagram}
-\label{fig:ocd}
+\includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/deployment_diagram.png}
+\caption[Deployment Diagram]{Deployment Diagram}
+\label{fig:mvp}
 \end{figure}
 
-The disadvantage of this design in comparison with the one previously presented is that, in this one, the back end of the web application would produce the explanation.
-This wouldn't allow to easily reutilize the main functionality of the application which is the generation of an explanation.
-In GILT there are projects that would benefit from this feature and therefore the design had to be changed.

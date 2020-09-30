@@ -1,113 +1,12 @@
 % Chapter 3
 
-\chapter{Analysis} % Main chapter title
+\chapter{Value Analysis} % Main chapter title
 \label{chap:Chapter3} % For referencing the chapter elsewhere, use \ref{chap:Chapter3}
-
-In this chapter is dedicated to the exposition of two sections: requirements engineering and value analysis.
-
-The first section, Requirements Engineering, consists in the design of software requirements, in the form of functional and non-functional requirements.
-The second one, Value Analysis, has the main goal of maximizing the value of the system, at the smallest possible cost.
-
-\section{Requirements Engineering}
-
-This section presents the process of analyzing the functional and non-functional requirements of this project.
-The FURPS\cite{eeles2005capturing} is a system to classify requirements and represented them by categories.
-It is also an acronym that represents:
-
-\begin{itemize}
-    \item \textbf{Functionality} is concerned with characteristics such as the main project features.
-    \item \textbf{Usability} is concerned with characteristics such as aesthetics and consistency in the user interface.
-    \item \textbf{Reliability} is concerned with characteristics such as availability, accuracy of system calculations and the system's ability to recover from failure.
-    \item \textbf{Performance} is concerned with characteristics such as throughput, response time, recovery time, start-up time and shutdown time.
-    \item \textbf{Supportability} is concerned with characteristics such as testability, adaptability, maintainability, compatibility, configurability, installability, scalability and localizability.
-\end{itemize}
-
-This was the system used to present and classify these categories in regards to this project.
-
-\subsection{Functional Requirements}
-
-In this section will contain information regarding the functional requirements of the system, in the for of use cases.
-These requirements generally represent the main product features.
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.65]{ch3/assets/usecasediagram.png}
-\caption[Use Case Diagram]{Use Case Diagram}
-\label{fig:ucDiagram}
-\end{figure}
-
-\subsubsection{US01: Obtain explanation}
-
-The user requests the system to present the explanation of a given word or expression.
-The system generates explanations and presents, the first in the list, to the user.
-
-\subsubsection{US02: Obtain alternative explanation}
-
-The user requests the system to present the explanation of a given word or expression.
-The system generates explanations and presents, the first in the list, to the user.
-The user gives negative feedback to the generated explanation.
-The system presents the option to generate a new one.
-The user selects the option for a new explanation.
-The system selects the next explanation on the list or generates a new one if there are none.
-
-\subsubsection{US03: Display LGP translation}
-
-The user requests the system to present the explanation of a given word or expression.
-The system generates explanations and presents, the first in the list, to user.
-The user requests the translation of the explanation to \gls{LGP}.
-The system sends the explanation text to the avatar API.
-The API returns the animation required to perform the translation.
-The integrated avatar performs the animations.
-
-\subsubsection{US04: Change language}
-
-The user requests the system to change the system language.
-The system provides the available languages.
-The user selects the desired language.
-The system updates and saves the information.
-
-\subsection{Non-functional Requirements}
-
-The remaining "URPS" categories describe non-functional requirements that are architecturally significant.
-
-\subsubsection{Usability}
-
-\begin{itemize}
-    \item \textbf{User Interaction} - The interaction with the user must be simple and very intuitive, taking in consideration the target audience special needs.
-    \item \textbf{Help} - The system must provide suitable and contextualized help to the task the user is performing.
-    \item \textbf{Interface} - It is required that the interface to be appealing and easy to read, once again, taking in consideration the target audience special needs.
-    \item \textbf{Error Prevention} - The system must prevent user mistakes and treat them accordingly.
-\end{itemize}
-
-\subsubsection{Reliability}
-
-\begin{itemize}
-    \item \textbf{Availability} - The system should have a very high availability rate.
-    \item \textbf{Predictability} - The system should be reliable, that is, free of technical errors.
-    \item \textbf{Fault Tolerance} - The system should be error-tolerant to protect the user from unintentional errors.
-\end{itemize}
-
-\subsubsection{Performance}
-
-\begin{itemize}
-    \item \textbf{Response Time} - The system's response time should be fast to provide quick access to data.
-\end{itemize}
-
-\subsubsection{Supportability}
-
-\begin{itemize}
-    \item \textbf{Testability} - The system should be easily testable in order to provide high confidence about correctness.
-    \item \textbf{Maintainability} - The system should have high maintainability, in order to allow future requirements and/or repairs.
-    \item \textbf{Configurability} - The system should support easy configurability, in order to allow adding new features.
-    \item \textbf{Localizability} - The system should support multiple languages.
-\end{itemize}
-
-\section{Value Analysis}
 
 In order to develop a new product there is a need for a value analyzing in order to properly assess the relation between cost and value.
 This analysis is presented in the following subsections.
 
-\subsection{New Concept Development Model}
+\section{New Concept Development Model}
 
 The \gls{NCD}\cite{koen2001providing} is a methodology that supplies a structure to transform an opportunity in a concept by following its key stages.
 This will help understand the opportunity value in a well defined manner.
@@ -139,7 +38,7 @@ The five key stages, that compose the model defined by Koen\cite{koen2001providi
 
 \end{itemize}
 
-\subsection{Value}
+\section{Value}
 
 The perceived value is based on the benefits and sacrifices identified.
 
@@ -158,11 +57,11 @@ Sacrifice &  & Search costs & \\
 \end{tabular}
 \end{table}
 
-\subsection{Value Proposition}
+\section{Value Proposition}
 
 With the goal of helping the process of concept explanation, with focus on the inclusion of the deaf community, this solution aims to use information retrieval, information extraction and text mining techniques to develop a system capable of generating an explanation of a given word or expression and also provide the \gls{LGP} translation.
 
-\subsection{Business Model Canvas}
+\section{Business Model Canvas}
 
 In order to ensure a solid structuring of the various business characteristics is necessary to use tools that help in the strategic management planning.
 The tools to be used must help answer some question, such as:
@@ -219,13 +118,13 @@ This solution is in the best interest of education institution, the Portuguese D
 
 Finally, the costs will have their origin in the development and promotion of the application as well as any third-party application required to be used while escalating the solution.
 
-\subsection{Analytic Hierarchy Process (AHP)}
+\section{Analytic Hierarchy Process (AHP)}
 
 The \gls{AHP} was introduced by Saaty\cite{saaty1987analytic} and is an efficient tool to use in the process of complex decision making.
 It allows to define priorities using qualitative and quantitative criteria to help reduce complex decisions to a series of paired comparisons.
 Using this method will also reduce the bias in process of choice.
 
-\subsubsection{Stage 1 - Creating the hierarchical decision tree}
+\subsection{Stage 1 - Creating the hierarchical decision tree}
 
 This stage consists in creating the hierarchical decision tree where the criteria and viable alternatives are defined.
 In regard to the problem, it goal is to determine which natural language processing tools will provide the most value for the project.
@@ -263,7 +162,7 @@ There are countless others tools that are able to perform natural language proce
 
 The tools here mentioned are described in more detail in Chapter~\ref{chap:Chapter2}.
 
-\subsubsection{Stage 2 - Alternative and criteria comparison}
+\subsection{Stage 2 - Alternative and criteria comparison}
 
 This stage consists in defining the priorities between the elements of each hierarchical level.
 This is created using the Fundamental scale created by Saaty\cite{saaty1987analytic}.
@@ -316,7 +215,7 @@ Sum & 6 & 5/3 & 9/2 \\
 With the information in the Table~\ref{tab:criteria} it is possible to assess that the criterion "Support" is of moderate importance (3) in comparison with the "Programming language" criterion, and it is of moderate importance (3) when compared to "Multi-language".
 Also the criterion "Multi-language" is of slightly more importance (2) when compared to the "Programming language" criterion.
 
-\subsubsection{Stage 3 - Relative priority of each criterion}
+\subsection{Stage 3 - Relative priority of each criterion}
 
 This stage consists in obtaining the normalized criteria values and its relative priorities.
 To accomplish this, each value is divided by the sum of its respective column the sum of each column.
@@ -360,7 +259,7 @@ Multi-language & 0.252 \\
 
 With the values from the Table~\ref{tab:relativePriority} is possible to conclude that the principal criterion for choosing one of the alternatives is "Support", followed by "Multi-language" and lastly "Programming language".
 
-\subsubsection{Stage 4 - Consistency evaluation of relative priorities}
+\subsection{Stage 4 - Consistency evaluation of relative priorities}
 
 This stage consists in calculating the \gls{CR} to assess the consistency of the priorities used in Table~\ref{tab:criteria}.
 
@@ -441,7 +340,7 @@ Having the \gls{CI} and the \gls{RI} values, it was possible to calculate the \g
 
 Since the obtained value 0.043 is less than 0.1 it is possible to conclude that the values attributed to the properties are consistent.
 
-\subsubsection{Stage 5 - Construction of the parity comparison matrix for each criterion}
+\subsection{Stage 5 - Construction of the parity comparison matrix for each criterion}
 
 This stage consists in creating a parity comparison matrix for each of the alternatives presented in the hierarchical decision tree, this are the natural language processing tools.
 The relative priorities were calculated as shown previously in Stage 3.
@@ -563,7 +462,7 @@ To conclude this stage, the hierarchical decision tree was recreated with the al
 \label{fig:AHPWeighted}
 \end{figure}
 
-\subsubsection{Stage 6 - Obtain the composite property for alternatives}
+\subsection{Stage 6 - Obtain the composite property for alternatives}
 
 This stage consists in obtaining the composite property for the alternatives, to accomplish this, the matrix composed by each criterion relative priority is multiplied by the criteria weight as shown in the following equation:
 
@@ -587,7 +486,7 @@ This stage consists in obtaining the composite property for the alternatives, to
     \end{bmatrix}
 \end{gather}
 
-\subsubsection{Stage 7 - Choice of alternative}
+\subsection{Stage 7 - Choice of alternative}
 
 This stage consists in analyze the obtained values and determine which is the best alternative.
 Looking at the obtained values, with the criteria selected and its calculated importance in mind, it is safe to affirm that the best option is NLTK since it obtained the highest valued (0.513).
