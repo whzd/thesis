@@ -50,10 +50,10 @@ The system presents the option to generate a new one.
 The user selects the option for a new explanation.
 The system selects the next explanation on the list or generates a new one if there are none.
 
-\subsubsection{US03: Display LGP translation}
+\subsubsection{US03: Display sign language translation}
 
 After the US01 happens.
-The user requests the translation of the explanation to \gls{LGP}.
+The user requests the translation of the explanation to sign language.
 The system sends the explanation text to the avatar API.
 The API returns the animation required to perform the translation.
 The integrated avatar performs the animations.
@@ -122,8 +122,8 @@ The components to be developed are the following:it is composed by the following
 
 The components already developed that will be integrated are the following:
 \begin{itemize}
-    \item \textbf{Avatar API} - This component is responsible for converting a given string to \gls{LGP}.
-    \item \textbf{Avatar DB} - This component is responsible for storing all the translations from Portuguese to \gls{LGP}.
+    \item \textbf{Avatar API} - This component is responsible for converting a given string to sign language.
+    \item \textbf{Avatar DB} - This component is responsible for storing all the animations required to translate a language to their respective sign language (e.g. Portuguese to \gls{LGP}).
 \end{itemize}
 
 \subsection{Design alternative}
@@ -156,7 +156,7 @@ The first step to design a possible solution was to create a high-level view of 
 In the flowchart of Figure~\ref{fig:Diagram1} is shown the main build blocks of the application to be developed.
 The input received in M1 is send to the \gls{API} that generates an explanation in M2, which is validated in M3.
 From there the explanation might be sent back to the application and shown to the user in M5  or if does not meet all the criteria defined in M3 it will be fixed in M4 and reevaluated.
-After presenting the explanation to the user, the application will also be capable of send the text to an already existing \gls{API} that is capable of translate plain text to \gls{LGP} using a avatar in M6.
+After presenting the explanation to the user, the application will also be capable of send the text to an already existing \gls{API} that is capable of translate plain text to sign language using a avatar in M6.
 
 To help better understand the created design, a more detailed view, is presented below using activity diagrams, that describes each of the build blocks and how will they achieve the tasks previously mentioned.
 The activity diagram shows the flow of a functionality, the activities that compose that functionality and the decision making required and its consequences.
@@ -240,7 +240,7 @@ If the explanation had incompatibility issues in M3, then those faulty words wil
 \end{figure}
 
 Shown in the activity diagram of Figure~\ref{fig:M6}, is the M6 block that will take the explanation text and send it to the avatar \gls{API}.
-The avatar will appear in the web page, and will translate the received text to \gls{LGP}.
+The avatar will appear in the web page, and will translate the received text to sign language.
 
 With the complete design of the application in mind a simpler and easier to implement approach was design, also known as a \gls{MVP}.
 
@@ -277,7 +277,7 @@ The major benefit of choosing this approach is allowing a fast developed of a pr
 \label{fig:sdus02}
 \end{figure}
 
-\subsection{US03: Display LGP translation}
+\subsection{US03: Display sign language translation}
 
 \begin{figure}[H]
 \centering
@@ -285,6 +285,12 @@ The major benefit of choosing this approach is allowing a fast developed of a pr
 \caption[Sequence Diagram US03]{Sequence Diagram - US03}
 \label{fig:sdus03}
 \end{figure}
+
+In Figure~\ref{fig:sdus03} sequence diagram is shown how a translation to sign language will occur.
+The user will request the translation of a displayed explanation.
+The Web Application will request the translation of the text to the Avatar API, sending the text and the web application language (e.g. Portuguese, English, etc.).
+The Avatar API will query the Avatar DB for the animations required to translate each word to the respective sign language.
+The Avatar API will then return the list of the animation required to be performed in order to display the translation.
 
 \subsection{US04: Change language}
 
@@ -295,14 +301,26 @@ The major benefit of choosing this approach is allowing a fast developed of a pr
 \label{fig:sdus04}
 \end{figure}
 
+The sequence diagram displayed in Figure~\ref{fig:sdus04} presents how a change in the application language will occur.
+The user will request the Web Application to change the language.
+The Web Application will show a list of available language which were previously defined.
+In order for a language to be eligible to appear in this list, the Avatar and the Text Mining technology needs to support it.
+The user selects one of the available languages.
+The Web Application, saves the change and updated the page.
+
 \section{System Deployment}
 
-\dots %TODO
+A deployment view is used to view and describe the topology of the physical components of a system.
+This view takes in consideration some of the non-functional requirements of the system such as, performance, scalability, availability and reliability.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/deployment_diagram.png}
 \caption[Deployment Diagram]{Deployment Diagram}
-\label{fig:mvp}
+\label{fig:deploy}
 \end{figure}
 
+The deployment diagram presented in Figure~\ref{fig:deploy} shows that the two components to be developed, namely Explanation App and Explanation API will be hosted in the same server.
+The server provider is not yet defined, but initially should be the DEI-ISEP, which is the ISEP computer engineering department.
+In regards to the avatar technology, it is already hosted in a server form GILT.
+Lastly, the Web Browser component will be in the client device.
