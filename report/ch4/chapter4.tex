@@ -3,11 +3,11 @@
 \chapter{Analysis and Design} % Main chapter title
 \label{chap:Chapter4}
 
-%TODO Fix text
-In this chapter is possible to find the progression of the solution design and the reasoning behind it.
-In this chapter is dedicated to the exposition of two sections: requirements engineering and value analysis.
+In this chapter is dedicated to the exposition of the analysis and design of the project solution.
 
-The first section, Requirements Engineering, consists in the design of software requirements, in the form of functional and non-functional requirements.
+It starts by presenting the Requirements Engineering which consists in the design of software requirements, in the form of functional and non-functional requirements.
+After that is describes the logic view, the process view and the design of the functional requirements
+Lastly is presents the deployment view.
 
 \section{Requirements Engineering}
 
@@ -257,7 +257,8 @@ The major benefit of choosing this approach is allowing a fast developed of a pr
 
 \section{Functional Requirements Design}
 
-\dots %TODO
+This section is dedicated to presenting the sequence diagrams of the created use cases that were briefly explained in the Requirements Engineering section.
+A sequence diagram is used to describe the objects involved in a functionality and their interactions arranged in a time sequence.
 
 \subsection{US01: Find Explanation}
 
@@ -268,7 +269,18 @@ The major benefit of choosing this approach is allowing a fast developed of a pr
 \label{fig:sdus01}
 \end{figure}
 
-\dots %TODO
+Displayed in the sequence diagram of Figure~\ref{fig:sdus01} is the design for finding an explanation.
+The users starts by requesting an explanation for a word/expression.
+This makes the Web Application request an explanation to the Explanation API, sending the text string and the web application language (e.g. Portuguese, English, etc.).
+To generate an explanation, the Explanation API passes the received string to the Information Retrieval system.
+The Information Retrieval system requests and stores the starting page related to the string (e.g. for the word "king", getting the wikipedia page for king).
+After the initial page, it requests and stores all the pages from the hyperlinks presented in the initial page and returns its links.
+Once all the pages are gathered, the Explanation API requests the Information Extraction system to filter all the obtained pages.
+To accomplish this, the Information Extraction system filters the useful text from the surrounding noise (e.g. HTML tags) and stores it in new pages.
+Having now pages with only natural language, the Explanation API requests the Text Mining system to generate explanations from all filtered pages.
+In order to perform this task, the Text Mining system applies text mining techniques to convert the text in each page to an explanation and return a list of explanations in the end.
+With a list of explanations, the Explanation API takes the first of the list, evaluates it and returns it to the Web Application.
+To conclude, the Web Application displays the explanation to the user.
 
 \subsection{US02: Obtain alternative explanation}
 
@@ -280,14 +292,14 @@ The major benefit of choosing this approach is allowing a fast developed of a pr
 \end{figure}
 
 Shown in Figure~\ref{fig:sdus02} is the sequence diagram that describes how the system obtains an alternative explanation.
-The user gives negative feedback to a displayed explanation.
-The Web Application asks if the user wants a new explanation.
-The user accepts.
-The Web Application requests a new explanation to the API.
+The user starts by giving negative feedback to a displayed explanation.
+This makes the Web Application ask if the user wants a new explanation.
+The user proceeds to accept it.
+Then, the Web Application requests a new explanation to the Explanation API.
 If the API has more explanation in the list of generated explanation, it returns the next on the list.
 Otherwise, the API sets a new starting page from a list of predefined starting pages and initiates a process of generating explanations like presented in US01.
 After generating the new list of explanation it returns the first explanation to the Web Application.
-The Web Application displays the new explanation.
+To conclude, the Web Application displays the new explanation.
 
 \subsection{US03: Display sign language translation}
 
@@ -299,10 +311,11 @@ The Web Application displays the new explanation.
 \end{figure}
 
 In Figure~\ref{fig:sdus03} sequence diagram is shown how a translation to sign language occurs.
-The user requests the translation of a displayed explanation.
-The Web Application requests the translation of the text to the Avatar API, sending the text and the web application language (e.g. Portuguese, English, etc.).
-The Avatar API queries the Avatar DB for the animations required to translate each word to the respective sign language.
+The user starts by requesting the translation of a displayed explanation.
+This makes the Web Application request the translation of the text to the Avatar API, sending the text and the web application language (e.g. Portuguese, English, etc.).
+To accomplish this, the Avatar API queries the Avatar DB for the animations required to translate each word to the respective sign language.
 The Avatar API then returns the list of the animation required to be performed in order to display the translation.
+To conclude, the Web Application displays the translation using the animations in the obtained list.
 
 \subsection{US04: Change language}
 
@@ -314,13 +327,13 @@ The Avatar API then returns the list of the animation required to be performed i
 \end{figure}
 
 The sequence diagram displayed in Figure~\ref{fig:sdus04} presents how a change in the application language occurs.
-The user requests the Web Application to change the language.
-The Web Application shows a list of available language which were previously defined.
+The user starts by requesting the Web Application to change the language.
+This makes the Web Application show a list of available language which were previously defined.
 In order for a language to be eligible to appear in this list, the Avatar and the Text Mining technology needs to support it.
-The user selects one of the available languages.
-The Web Application, saves the change and updated the page.
+The user the proceeds to select one of the available languages.
+To conclude, the Web Application saves the change and updated the page to the selected language.
 
-\section{System Deployment}
+\section{Deployment View}
 
 A deployment view is used to view and describe the topology of the physical components of a system.
 This view takes in consideration some of the non-functional requirements of the system such as, performance, scalability, availability and reliability.

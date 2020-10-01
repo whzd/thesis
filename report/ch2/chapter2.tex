@@ -431,10 +431,12 @@ Since it follows the HTML5 standards it will pair dangling tags as well as add m
 
 \subsection{Virtual Sign Avatar}
 
-The Virtual Sign Avatar\cite{escudeiro2015virtual} was a project developed by GILT (Games, Interaction and Learning Technologies) and is capable of translate Portuguese text to \gls{LGP}.
+The Virtual Sign Avatar\cite{escudeiro2015virtual} was a project developed by GILT (Games, Interaction and Learning Technologies) and is capable of translate text to its respective sign language (e.g. Portuguese text to \gls{LGP}).
 
 The visual part of the avatar as well as the animations it performs where created using Blender\footnote{https://www.blender.org/}.
 Its appearance was designed to be as close as possible to the human body to help in the process of translation.
 
-All the animations available to be performed by the avatar during the translation are stored in a database that relates each animation to the respective text.
-When is requested the translation of a text that is not present in the database the avatar will perform the animation of each letter of that text.
+To perform a translation of a text the avatar first converts it to gloss and then use the result to queries the database.
+This database is where all the animations available to be performed by the avatar during the translation are stored.
+In this database, each table represents a language and inside, each table relates each animation to the respective word.
+If a word is not present in the database the avatar will use the animation of each letter that compose the word to perform its translation.
