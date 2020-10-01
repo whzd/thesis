@@ -44,8 +44,7 @@ The system generates explanations and presents, the first in the list, to the us
 
 \subsubsection{US02: Obtain alternative explanation}
 
-The user requests the system to present the explanation of a given word or expression.
-The system generates explanations and presents, the first in the list, to the user.
+After US01 happens.
 The user gives negative feedback to the generated explanation.
 The system presents the option to generate a new one.
 The user selects the option for a new explanation.
@@ -53,8 +52,7 @@ The system selects the next explanation on the list or generates a new one if th
 
 \subsubsection{US03: Display LGP translation}
 
-The user requests the system to present the explanation of a given word or expression.
-The system generates explanations and presents, the first in the list, to user.
+After the US01 happens.
 The user requests the translation of the explanation to \gls{LGP}.
 The system sends the explanation text to the avatar API.
 The API returns the animation required to perform the translation.
@@ -260,6 +258,42 @@ The major benefit of choosing this approach is allowing a fast developed of a pr
 \section{Functional Requirements Design}
 
 \dots %TODO
+
+\subsection{US01: Find Explanation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/US01_SD.png}
+\caption[Sequence Diagram US01]{Sequence Diagram - US01}
+\label{fig:sdus01}
+\end{figure}
+
+\subsection{US02: Obtain alternative explanation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{ch4/assets/US02_SD.png}
+\caption[Sequence Diagram US02]{Sequence Diagram - US02}
+\label{fig:sdus02}
+\end{figure}
+
+\subsection{US03: Display LGP translation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{ch4/assets/US03_SD.png}
+\caption[Sequence Diagram US03]{Sequence Diagram - US03}
+\label{fig:sdus03}
+\end{figure}
+
+\subsection{US04: Change language}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{ch4/assets/US04_SD.png}
+\caption[Sequence Diagram US04]{Sequence Diagram - US04}
+\label{fig:sdus04}
+\end{figure}
 
 \section{System Deployment}
 
