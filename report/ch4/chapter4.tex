@@ -32,7 +32,7 @@ These requirements generally represent the main product features.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.65]{ch3/assets/usecasediagram.png}
+\includegraphics[scale=0.65]{ch4/assets/usecasediagram.png}
 \caption[Use Case Diagram]{Use Case Diagram}
 \label{fig:ucDiagram}
 \end{figure}
@@ -268,6 +268,8 @@ The major benefit of choosing this approach is allowing a fast developed of a pr
 \label{fig:sdus01}
 \end{figure}
 
+\dots %TODO
+
 \subsection{US02: Obtain alternative explanation}
 
 \begin{figure}[H]
@@ -276,6 +278,16 @@ The major benefit of choosing this approach is allowing a fast developed of a pr
 \caption[Sequence Diagram US02]{Sequence Diagram - US02}
 \label{fig:sdus02}
 \end{figure}
+
+Shown in Figure~\ref{fig:sdus02} is the sequence diagram that describes how the system obtains an alternative explanation.
+The user gives negative feedback to a displayed explanation.
+The Web Application asks if the user wants a new explanation.
+The user accepts.
+The Web Application requests a new explanation to the API.
+If the API has more explanation in the list of generated explanation, it returns the next on the list.
+Otherwise, the API sets a new starting page from a list of predefined starting pages and initiates a process of generating explanations like presented in US01.
+After generating the new list of explanation it returns the first explanation to the Web Application.
+The Web Application displays the new explanation.
 
 \subsection{US03: Display sign language translation}
 
@@ -286,11 +298,11 @@ The major benefit of choosing this approach is allowing a fast developed of a pr
 \label{fig:sdus03}
 \end{figure}
 
-In Figure~\ref{fig:sdus03} sequence diagram is shown how a translation to sign language will occur.
-The user will request the translation of a displayed explanation.
-The Web Application will request the translation of the text to the Avatar API, sending the text and the web application language (e.g. Portuguese, English, etc.).
-The Avatar API will query the Avatar DB for the animations required to translate each word to the respective sign language.
-The Avatar API will then return the list of the animation required to be performed in order to display the translation.
+In Figure~\ref{fig:sdus03} sequence diagram is shown how a translation to sign language occurs.
+The user requests the translation of a displayed explanation.
+The Web Application requests the translation of the text to the Avatar API, sending the text and the web application language (e.g. Portuguese, English, etc.).
+The Avatar API queries the Avatar DB for the animations required to translate each word to the respective sign language.
+The Avatar API then returns the list of the animation required to be performed in order to display the translation.
 
 \subsection{US04: Change language}
 
@@ -301,9 +313,9 @@ The Avatar API will then return the list of the animation required to be perform
 \label{fig:sdus04}
 \end{figure}
 
-The sequence diagram displayed in Figure~\ref{fig:sdus04} presents how a change in the application language will occur.
-The user will request the Web Application to change the language.
-The Web Application will show a list of available language which were previously defined.
+The sequence diagram displayed in Figure~\ref{fig:sdus04} presents how a change in the application language occurs.
+The user requests the Web Application to change the language.
+The Web Application shows a list of available language which were previously defined.
 In order for a language to be eligible to appear in this list, the Avatar and the Text Mining technology needs to support it.
 The user selects one of the available languages.
 The Web Application, saves the change and updated the page.
