@@ -27,7 +27,7 @@ The approach to be used is set on a configuration file, and should depend on the
 
 (CONFIG FILE CODE) %TODO
 
-For the Portuguese language, it was used a combination of both approaches.
+For Portuguese, it was used a combination of both approaches.
 The first displayed explanation will be generated using the first approach with Priberam\footnote{https://dicionario.priberam.org/} as the source page.
 This decision was due to the fact that this page presents precise and simple information and it also divides the page based on the context of a given expression.
 The second approach is used when generating an alternative explanation, having Wikipedia as the starting page.
@@ -104,18 +104,39 @@ Then it will divide the number of occurrences of each words by the number of the
 
 After having the word frequency it will calculate the weighted frequency of each sentence.
 To accomplish this, first it will tokenize the content into sentences.
-Then it will find the weighted frequency of each sentence by \dots
+Then it will find the weighted frequency of each sentence by adding the frequency of each word that compose the sentence.
+
+(TEXT SUMMARIZATION CODE) %TODO
+
+The tokenization and the stop words used in this process are built-in functions of the NLTK library.
+
+To finalize this process, it creates a summary using the top seven weighted sentences.
+This value may be altered in the summarization configuration.
+
+(RETURN CODE EXAMPLE) %TODO
 
 When this approach is used to generate and alternative explanation which is the case for Portuguese it will take in consideration the context of the previous explanation.
-For this the text summarization will pre order the senteces by calculating the X  coseno between the original sentence and the \dots %TODO
+For this, the text summarization will also sort the sentences in crescent order of similarity between the original sentence and each of the sentences of the summary.
+The similarity is calculated using the cosine similarity using the following formula:
 
-The tokenization and the stop words are built-in functions of the NLTK library.
+\begin{equation}
+    {similarity(A,B)} = \frac{A \cdot B}{\left \| A \right \| \times \left \| B \right \|}= \frac{\sum_{i=1}^{n} A_{i}B_{i}}{\sqrt{\sum_{i=1}^{n} A_{i}^{2}} \times \sqrt{\sum_{i=1}^{n} B_{i}^{2}}}
+\label{similarity}
+\end{equation}
+
+The main advantage of this approach are the following:
+\begin{itemize}
+        \item
+\end{itemize}
+
+In regards to disadvantages:
+\begin{itemize}
+        \item This approach is slower than the first one.
+        \item The time it takes to generate an explanation depends on the amount of pages it was to crawl.
+        \item
+\end{itemize}
 
 \subsection{LGP Readability Formula}
-
-The list of explanations is sorted based on each explanation's \gls{LGP} Readability Score, and the ones with the lowest score are selected.
-
-\dots
 
 For a regular language, there are metrics, like the readability score, that can be used to classify each expression in order to sort them accordingly.
 This score indicates how easily a reader would comprehend the text that he's reading.
@@ -148,7 +169,7 @@ In the Table \ref{table:signs} is shown an example of some signs and their reada
 
 \begin{table}[H]
     \centering
-    \caption{Readability scores example.}
+    \caption{Word readability scores.}
     \label{table:signs}
     \begin{tabular}{l|l|l|l|l}
         {\bfseries Sign} & {\bfseries CF} & {\bfseries MT} & {\bfseries HS} & {\bfseries Score} \\
@@ -169,10 +190,31 @@ In order to calculate the score of an entire sentence, the sum of the scores of 
 
 \begin{equation}
     \frac{(0.7 \times CF + 0.3 \times MT + 1 \times FE) \times (0.5 \times HS)}{WO}
-\label{sentecneScore}
+\label{sentenceScore}
 \end{equation}
 
-\dots %TODO table with sentence scores
+This formula is used to calculate the readability score of the generated explanations.
+In the Table~\ref{table:sentences} is shown an example of some sentences and their readability score.
+
+%TODO fix table
+\begin{table}[H]
+    \centering
+    \caption{Sentence readability scores.}
+    \label{table:sentences}
+    \begin{tabular}{l|l}
+        {\bfseries Sentence} & {\bfseries Score} \\
+        \hline
+        s1 & 1  \\
+        \hline
+        s2 & 2  \\
+        \hline
+        s3 & 2 \\
+        \hline
+        s4 & 4 \\
+        \hline
+        s5 & 7 \\
+    \end{tabular}
+\end{table}
 
 \section{Web Application}
 
@@ -182,7 +224,13 @@ This is also the place where the generated explanations are shown in plain text 
 After each explanation, it is also presented their \gls{LGP} Readability Score, which is presented more in depth in the following subsection, as well as feedback options.
 If one of the presented explanations is not acceptable, it is possible for the user to request a new one.
 
-\dots %TODO listar components
+\begin{itemize}
+    \item \textbf{App}
+    \item \textbf{Avatar}
+    \item \textbf{Display}
+    \item \textbf{Navbar}
+    \item \textbf{Search}
+\end{itemize}
 
 \dots %TODO Ideoma
 
@@ -206,6 +254,13 @@ certbot https
 
 \subsection{Logic view}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{ch5/assets/component_diagram_Implement.png}
+\caption[Component Diagram Implementation]{Component Diagram Implementation}
+\label{fig:componentImp}
+\end{figure}
+
 \dots
 
 \subsection{Use cases}
@@ -216,18 +271,48 @@ In this section the use cases are presented to better understand how the designe
 
 \subsubsection{US01: Find explanation}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{ch5/assets/US01_SD_Implement.png}
+\caption[Sequence Diagram Implementation US01]{Sequence Diagram - Implementation US01}
+\label{fig:uc01Imp}
+\end{figure}
+
 \dots %TODO
 
-\subsubsection{US02: }
+\subsubsection{US02: Obtain alternative explanation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{ch5/assets/US02_SD_Implement.png}
+\caption[Sequence Diagram Implementation US02]{Sequence Diagram - Implementation US02}
+\label{fig:uc02Imp}
+\end{figure}
 
 \dots %TODO
 
-\subsubsection{US04: }
+\subsubsection{US04: Change language}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{ch5/assets/US04_SD_Implement.png}
+\caption[Sequence Diagram Implementation US04]{Sequence Diagram - Implementation US04}
+\label{fig:uc04Imp}
+\end{figure}
 
 \dots %TODO
 
 \subsection{Non-Functional Requirements}
 
+\dots %TODO
+
 \subsection{Deployment view}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{ch5/assets/deployment_diagram_Implement.png}
+\caption[Deployment Diagram Implementation]{Deployment Diagram Implementation}
+\label{fig:deployImp}
+\end{figure}
 
 \dots %TODO
