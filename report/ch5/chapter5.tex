@@ -3,49 +3,135 @@
 \chapter{Implementation} % Main chapter title
 \label{chap:Chapter5}
 
-\section{Web Application}
+This chapter is dedicated to explain all the implementation details.
 
-A user interacts with the web application that was developed in React, an open-source JavaScript framework for building user interfaces.
-Here, the user can search for the desired concept, as well as changing the page language.
-This is also the place where the generated explanations are shown in plain text and in LGP by the avatar.
-After each explanation, it is also presented their LGP Readability Score, which is presented more in depth in the following subsection, as well as feedback options.
-If one of the presented explanations is not acceptable, it is possible for the user to request a new one.
-
-\dots %TODO
+It starts by present the two main components of the developed solution the Explanation API and the Web Application.
+After that it will describe how the system was deployed.
+Lastly, is presented a resume of the implementation which describes in more detail the implemented use cases, the non-functional requirements and the changes made to the original design.
 
 \section{Explanation API}
 
-When a concept is searched for, the input is sent to an API that was developed in Flask, a lightweight open-source Python web framework.
-This API will generate a list of explanations using only web scrapping or a combination of web crawling, web scrapping and text summarization.
-The approach to be used is set on its configuration file, and will depend on the initial source of information.
-For websites where a single page can be a rich source of information like in Priberam\footnote{https://dicionario.priberam.org/}, the first approach can yield good results.
-On the other hand, for websites where the information is scattered across many pages like Wikipedia\footnote{https://pt.wikipedia.org/}, the second approach is ideal.
+The Explanation API is responsible for generating explanations to a given input string.
+This API was developed using Flask, a lightweight open-source Python web framework, which is explained in more detail in Chapter~\ref{chap:Chapter2}.
 
-All the tasks that compose each approach were developed using Python libraries: Scrapy\footnote{https://scrapy.org/} for web-crawling, Beautiful Soup\footnote{https://www.crummy.com/software/BeautifulSoup/bs4/doc/} for web scrapping and Natural Language Toolkit (NLTK)\footnote{https://www.nltk.org/} for text summarization.
+In order to perform its main task, this API has available two approaches that can be used individually or to complement each other.
 
-The list of explanations is sorted based on each explanation's LGP Readability Score, and the ones with the lowest score are selected.
+The first approach will only use web scrapping to generate a list of explanation.
+For websites where a single page can be a rich source of information like in Priberam\footnote{https://dicionario.priberam.org/}, this approach can yield good results.
 
-The avatar and its database are projects that were previously developed by GILT and are used to enhance this project.
+The second approach is a combination of web crawling, web scrapping and text summarization.
+For websites where the information is scattered across many pages like Wikipedia\footnote{https://pt.wikipedia.org/}, this approach is ideal.
 
-\dots %TODO
+Both approaches are explained in more detailed in the two following sub-sections.
+The approach to be used is set on a configuration file, and should depend on the initial source of information.
 
-\section{LGP Readability Formula}
+(CONFIG FILE CODE) %TODO
+
+For the Portuguese language, it was used a combination of both approaches.
+The first displayed explanation will be generated using the first approach with Priberam\footnote{https://dicionario.priberam.org/} as the source page.
+This decision was due to the fact that this page presents precise and simple information and it also divides the page based on the context of a given expression.
+The second approach is used when generating an alternative explanation, having Wikipedia as the starting page.
+Wikipedia was chosen as the starting page of the second approach due to the fact that it is linked to many other pages which will increase the changes for the text summarization to yield better results.
+
+After having a list of explanations it is necessary to order this list according to the needs of the target audience.
+To accomplish this, it was developed a formula that calculates the readability of a sing language sign.
+This formula is described in more detail in the following sub-section "LGP Readability Formula".
+Note that this was specifically developed for the \gls{LGP} so it it will only be used to for explanations generated in Portuguese.
+
+With a list of explanation sorted, the response object is created.
+These response will have the input string, the list of explanation, the source page and a list of links that can provide additional information.
+The list of additional information can be preset in a configuration file or generated during the web-crawling phase of the second approach
+
+(RESPONSE OBJECT CODE) %TODO
+
+\subsection{First approach}
+
+These approach was created during the development of the first prototype, also known as Minimum Value Product, that was presented in Chapter~\ref{chap:Chapter3} and consists of a web scrapping process.
+
+It starts by getting the targeted page source code using the Python library Requests\footnote{https://requests.readthedocs.io/en/master/}.
+After that, the important text is then filtered form the surrounding noise by exploring the parsed tree with the help of the Beautiful Soup 4 library, which was explained in more detail in Chapter~\ref{chap:Chapter2}.
+This extraction process is design for a specific page, so it requires to be recreated if a different page is used.
+
+The following source code is an extract of the web scrapping algorithm design for the Priberam page.
+
+(WS PRIBERAM CODE) %TODO
+
+In the code displayed above is show how it extracts text from the content of a very specific HTML tag.
+
+This process will return a list of expressions per context per explanation.
+
+(RESULT CODE) %TODO
+
+The main advantage of this approach are the following:
+\begin{itemize}
+        \item Obtaining an initial explanation is very fast since it only extracts the targeted information of a specified page.
+\end{itemize}
+
+In regards to disadvantages:
+\begin{itemize}
+        \item The web scrapping algorithm needs to be specifically developed for the target page.
+        \item The text is extracted from a page with content in Portuguese, not \gls{LGP}.
+\end{itemize}
+
+\subsection{Second approach}
+
+These approach was created to utilize Information Retrieval, Information Extraction and Text Mining techniques in order to generate an explanation.
+
+It starts by utilizing a web crawler that was created using the Python library Scrapy, which was described in more detail in Chapter~\ref{chap:Chapter2}.
+This will crawl the web staring in a predefined page and will download this and all the pages in a crawl depth of 1.
+The crawl depth is the level of subpages the web crawler will access that originated from the starting page, it is comparable to folders and their subfolders.
+In this case it will only access the subpages of the starting page.
+
+(Spider CODE) %TODO
+
+All the pages are stored locally with their origin link as first line.
+This will be latter used to create the API response object.
+
+After the web crawling its time for the web scrapping to extract relevant text from the surrounding noise.
+Unlike the web scrapping in the previous approach, this will process multiple pages so it wouldn't be able to target the relevant text.
+Thus it will remove the HTML tags, remove the brackets from the text and extra spaces.
+The cleared pages are then stored locally.
+
+(HTMLtoTXT CODE) %TODO
+
+The last and most important part of this approach is the text summarization that was created using the Python library NLTK, which was described in more detail in Chapter~\ref{chap:Chapter2}.
+Also as mentioned in Chapter~\ref{chap:Chapter2} there are two methods to perform text summarization, extraction and abstraction.
+In this approach it was utilized an extractive methodology because it tends to produce summaries specific and not redundant\cite{cheung2008comparing}.
+
+The text summarization process starts by calculate the word frequency of all the words in the content text.
+For this it will first tokenize the words of the text and count the number of occurrences of each word, ignoring stop words and punctuation.
+Then it will divide the number of occurrences of each words by the number of the most occurring word.
+
+After having the word frequency it will calculate the weighted frequency of each sentence.
+To accomplish this, first it will tokenize the content into sentences.
+Then it will find the weighted frequency of each sentence by \dots
+
+When this approach is used to generate and alternative explanation which is the case for Portuguese it will take in consideration the context of the previous explanation.
+For this the text summarization will pre order the senteces by calculating the X  coseno between the original sentence and the \dots %TODO
+
+The tokenization and the stop words are built-in functions of the NLTK library.
+
+\subsection{LGP Readability Formula}
+
+The list of explanations is sorted based on each explanation's \gls{LGP} Readability Score, and the ones with the lowest score are selected.
+
+\dots
 
 For a regular language, there are metrics, like the readability score, that can be used to classify each expression in order to sort them accordingly.
 This score indicates how easily a reader would comprehend the text that he's reading.
 
-There are multiple formulas that could be used for calculating this score in Portuguese, as shown in Table. %TODO REF.
-However, there is none for the LGP.
+There are multiple formulas that could be used for calculating this score in Portuguese, as shown in Chapter~\ref{chap:Chapter2}.
+However, there is none for the \gls{LGP}.
 
 When looking at the readability formulas for Portuguese, it is easy to notice that, all of them take in consideration the same variables, which are common in every written text: characters, complex words, syllables, words and sentences.
 
-After analyzing the LGP signs, with the goal of creating a new readability calculation formula, all the shared variables where identified:
+After analyzing the \gls{LGP} signs, with the goal of creating a new readability calculation formula, all the shared variables where identified:
 
 \begin{itemize}
-    \item Hand configurations (CF) - The hand shape in a particular moment.
-    \item Moments (MT) - The position of the hand in relation to the body.
-    \item Hands (HS) - Both hands or only the dominant hand.
-    \item Facial expressions (FE) - Motion or position of the face muscles.
+    \item \textbf{Hand configurations (CF)} - The hand shape in a particular moment.
+    \item \textbf{Moments (MT)} - The position of the hand in relation to the body.
+    \item \textbf{Hands (HS)} - Both hands or only the dominant hand.
+    \item \textbf{Facial expressions (FE)} - Motion or position of the face muscles.
 \end{itemize}
 
 Using those variables the following formula was created:
@@ -86,7 +172,21 @@ In order to calculate the score of an entire sentence, the sum of the scores of 
 \label{sentecneScore}
 \end{equation}
 
-\dots %TODO
+\dots %TODO table with sentence scores
+
+\section{Web Application}
+
+A user interacts with the web application that was developed in React, an open-source JavaScript framework for building user interfaces.
+Here, the user can search for the desired concept, as well as changing the page language.
+This is also the place where the generated explanations are shown in plain text and in \gls{LGP} by the avatar.
+After each explanation, it is also presented their \gls{LGP} Readability Score, which is presented more in depth in the following subsection, as well as feedback options.
+If one of the presented explanations is not acceptable, it is possible for the user to request a new one.
+
+\dots %TODO listar components
+
+\dots %TODO Ideoma
+
+\dots %TODO mencionar que foi estruturado para ser responsive apesar de não ser necessariamete um requisito
 
 \section{Hosting}
 
@@ -97,5 +197,37 @@ pm2 react service
 systemctl flask service
 
 certbot https
+
+\dots %TODO
+
+\section{Resume}
+
+\dots %TODO
+
+\subsection{Logic view}
+
+\dots
+
+\subsection{Use cases}
+
+In this section the use cases are presented to better understand how the designed requirements were implemented.
+
+\dots %TODO
+
+\subsubsection{US01: Find explanation}
+
+\dots %TODO
+
+\subsubsection{US02: }
+
+\dots %TODO
+
+\subsubsection{US04: }
+
+\dots %TODO
+
+\subsection{Non-Functional Requirements}
+
+\subsection{Deployment view}
 
 \dots %TODO
