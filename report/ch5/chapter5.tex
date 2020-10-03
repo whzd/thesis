@@ -12,7 +12,7 @@ Lastly, is presented a resume of the implementation which describes in more deta
 \section{Explanation API}
 
 The Explanation API is responsible for generating explanations to a given input string.
-This API was developed using Flask, a lightweight open-source Python web framework, which is explained in more detail in Chapter~\ref{chap:Chapter2}.
+This API was developed using Flask, a lightweight open-source Python web framework, which was explained in more detail in Chapter~\ref{chap:Chapter2}.
 
 In order to perform its main task, this API has available two approaches that can be used individually or to complement each other.
 
@@ -62,7 +62,7 @@ This process will return a list of expressions per context per explanation.
 
 (RESULT CODE) %TODO
 
-The main advantage of this approach are the following:
+The main advantages of this approach are the following:
 \begin{itemize}
         \item Obtaining an initial explanation is very fast since it only extracts the targeted information of a specified page.
 \end{itemize}
@@ -124,16 +124,17 @@ The similarity is calculated using the cosine similarity using the following for
 \label{similarity}
 \end{equation}
 
-The main advantage of this approach are the following:
+The main advantages of this approach are the following:
 \begin{itemize}
-        \item
+        \item It is capable of finding much more results.
+        \item It can be used for any initial page without needing especial configurations.
 \end{itemize}
 
 In regards to disadvantages:
 \begin{itemize}
-        \item This approach is slower than the first one.
+        \item It is slower than the first one.
         \item The time it takes to generate an explanation depends on the amount of pages it was to crawl.
-        \item
+        \item It is not capable of clearly distinguish different contexts if used to generate the initial explanation.
 \end{itemize}
 
 \subsection{LGP Readability Formula}
@@ -196,7 +197,6 @@ In order to calculate the score of an entire sentence, the sum of the scores of 
 This formula is used to calculate the readability score of the generated explanations.
 In the Table~\ref{table:sentences} is shown an example of some sentences and their readability score.
 
-%TODO fix table
 \begin{table}[H]
     \centering
     \caption{Sentence readability scores.}
@@ -204,55 +204,126 @@ In the Table~\ref{table:sentences} is shown an example of some sentences and the
     \begin{tabular}{l|l}
         {\bfseries Sentence} & {\bfseries Score} \\
         \hline
-        s1 & 1  \\
+        Veículo de rodas para transporte de pessoas ou mercadorias & 2.712  \\
         \hline
-        s2 & 2  \\
+        Fazer passar ligeiramente & 3.120  \\
         \hline
-        s3 & 2 \\
+        Abertura por onde entra a luz nos camarotes dos navios & 3.672 \\
         \hline
-        s4 & 4 \\
+        Lugar considerado seguro para nele algo ou alguém se refugiar & 7.010 \\
         \hline
-        s5 & 7 \\
+        Parte de um todo & 8.138 \\
     \end{tabular}
 \end{table}
 
 \section{Web Application}
 
-A user interacts with the web application that was developed in React, an open-source JavaScript framework for building user interfaces.
-Here, the user can search for the desired concept, as well as changing the page language.
-This is also the place where the generated explanations are shown in plain text and in \gls{LGP} by the avatar.
-After each explanation, it is also presented their \gls{LGP} Readability Score, which is presented more in depth in the following subsection, as well as feedback options.
-If one of the presented explanations is not acceptable, it is possible for the user to request a new one.
+The Web Application is responsible for providing a user interface to interact with the Explanation API.
+It was developed using React, an open source JavaScript framework, which was explained in more detail in Chapter~\ref{chap:Chapter2}.
+The skeleton of this singe page application was created using the Create React App\footnote{https://github.com/facebook/create-react-app} toolchain.
+
+One of the most useful features of the React framework is the utilization of components, like so the user interface of this application is composed by five different components.
 
 \begin{itemize}
-    \item \textbf{App}
-    \item \textbf{Avatar}
-    \item \textbf{Display}
-    \item \textbf{Navbar}
-    \item \textbf{Search}
+    \item \textbf{App} - This is the main component of the application.
+        It is responsible for setting the position and order in which the other components are to be displayed.
+    \item \textbf{Avatar} - This component function was to take the plain text and display the avatar performing the translation, but since it was not integrated it only displays a mock image.
+    \item \textbf{Display} - This component is responsible for displaying the results provided by the Explanation API.
+        A result is composed by: the explanation in plain text, a button to display the avatar component, the calculated readability score and two buttons to provide feedback to the generated explanation.
+        The negative feedback button displays the user a option to generate a new explanation.
+    \item \textbf{Navbar} - This component presents the title of the application and the project logo, as well as the language menu.
+        This language menu allows the user to easily change the application language.
+        The language configurations were implemented using react-intl\footnote{https://www.npmjs.com/package/react-intl} and JSON files.
+        Each JSON file contains the application text variables followed by the text to be displayed in that language.
+    \item \textbf{Search} - This component provides a search bar that allows the user to input a string that is sent to the Explanation API.
 \end{itemize}
 
-\dots %TODO Ideoma
+The other two key features of the React framework, JSX and VirtualDOM, were also very useful when creating a component.
+The following image shows the source code of the X component were this features were used. %TODO FIX X
 
-\dots %TODO mencionar que foi estruturado para ser responsive apesar de não ser necessariamete um requisito
+(COMPONENT X SOURCE CODE) %TODO
 
-\section{Hosting}
+The visual aspect of each components was based in components provided by the antd\footnote{https://ant.design/docs/react/introduce} library, and were altered to meet the needs of the targeted audience.
+All of the components were also structured to be responsive even though this was not one of the requirements.
+The following image shows the user interface were is easy to identify each component.
 
-reverse proxy
+(WEBAPP IMAGE) %TODO
 
-pm2 react service
+\section{Deployment}
 
-systemctl flask service
+This section presents all the tasks performed during the deployment of the project.
 
-certbot https
+As initially expected, the DEI-ISEP provided a linux server running the Ubuntu distribution for hosting this project.
+This server was configured with all the technologies and framework used during development that were required to run the Web Application and the Explanation API, such as Python 3, Node.js, React, NLTK, etc.
+In order for the solution to always available it was required extra configuration.
 
-\dots %TODO
+PM2\footnote{https://pm2.keymetrics.io/} is an open source daemon process manager for Node.js applications.
+This was the solution used to keep the Web Application running in the server.
 
-\section{Resume}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{ch5/assets/pm2ls.png}
+\caption[PM2 Managed Application List]{PM2 Managed Application List}
+\label{fig:pm2}
+\end{figure}
 
-\dots %TODO
+The Figure~\ref{fig:pm2} show the list of managed application and some of their details.
+EAC is the name given to the Web Application and in the PM2 configuration.
+The figure also shows that the application was up for the last 48 days, and that it was automatically restarted 4 times.
+
+In regards to the Explanation API, it was created a Systemd service.
+Systemd is a initialization system and service manager native to many Linux distributions such as Ubuntu.
+
+\begin{center}
+\begin{minipage}{0.95\linewidth}
+\lstinputlisting [caption=Explanation Systemd Service.,
+label=lst:explanation-service]
+{ch5/assets/explanation.service}
+\end{minipage}
+\end{center}
+
+In the Listing~\ref{lst:explanation-service} is shown the configuration required to create the service for the Explanation API.
+With this service Systemd will manage the API, and will automatically restart it if goes down.
+
+To allow both the Web Application and the Explanation API to be accessible through HTTP it was required to set up a reverse proxy using nginx\footnote{https://nginx.org/en/}.
+A reverse proxy is an server sided intermediary server that forwards a user request to the available web servers.
+
+\begin{center}
+\begin{minipage}{0.95\linewidth}
+\lstinputlisting [caption=Reverse Proxy Configuration.,
+label=lst:reverse-proxy]
+{ch5/assets/reverse-proxy.conf}
+\end{minipage}
+\end{center}
+
+As shown in the Listing~\ref{lst:reverse-proxy}, the requests made to the "search" endpoint are forward to the Explanation API while the requests to the base endpoint are forward to the Web Application.
+
+In order to protect the integrity and improve the security of this application the HTTPS protocol was enable in the reverse proxy server.
+This was accomplish by using Certbot\footnote{https://certbot.eff.org/} which automatically enables HTTPS in a server running in the HTTP port by deploying Let's Encrypt\footnote{https://letsencrypt.org/} certificates.
+
+\begin{center}
+\begin{minipage}{0.95\linewidth}
+\lstinputlisting [caption=Reverse Proxy Configuration after Certbot.,
+label=lst:reverse-proxy-certbot]
+{ch5/assets/reverse-proxy-https.conf}
+\end{minipage}
+\end{center}
+
+The Listing~\ref{lst:reverse-proxy-certbot} shows an excerpt of the changes made by Cerbot to enable the HTTPS protocol.
+
+\section{Design Changes}
+
+This section will present how the original design changed during the implementation.
+The integration with the avatar API and Database was not possible to be implemented, this had a great impact on how the solution ended up being implemented.
+Without this two components, the "US03: Display sign language translation" was able to be implemented.
+
+The developed \gls{LGP} formula also depended on the Avatar Database to access the sign data, this was able to still be implemented by using a local database.
+
+The design of the "US04: Change language" had no alteration made during the implemented thus it wont be featured in this section.
 
 \subsection{Logic view}
+
+The changes made to the component diagram presented in Chapter~\ref{chap:Chapter4} are shown in the following diagram.
 
 \begin{figure}[H]
 \centering
@@ -261,24 +332,39 @@ certbot https
 \label{fig:componentImp}
 \end{figure}
 
-\dots
+Shown in Figure~\ref{fig:componentImp} is the component diagram of the solution implemented.
+Without the avatar components, there was still a need for a database since the \gls{LGP} formula required sign data to perform the calculation of the readability of each explanation, and this score was a key factor.
+This database was seeded with the sign data from the Portuguese table of the Avatar Database.
 
 \subsection{Use cases}
 
-In this section the use cases are presented to better understand how the designed requirements were implemented.
-
-\dots %TODO
+In this section the implemented use cases are presented to better understand the changes made and how they impacted the final solution.
 
 \subsubsection{US01: Find explanation}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth,keepaspectratio]{ch5/assets/US01_SD_Implement.png}
-\caption[Sequence Diagram Implementation US01]{Sequence Diagram - Implementation US01}
-\label{fig:uc01Imp}
+\includegraphics[scale=0.45]{ch5/assets/US01_SD_Implement_Ap1.png}
+\caption[Sequence Diagram US01 First Approach]{Sequence Diagram - US01 First Approach}
+\label{fig:uc01Imp1}
 \end{figure}
 
-\dots %TODO
+In the sequence diagram of Figure~\ref{fig:uc01Imp1} is shown the first approach to obtain an explained previously explained.
+This is very different from the diagram presented in the previous chapter since it only resorts to web scrapping to generate explanations.
+Also, instead of the design verification it will calculate the readability score of each expression.
+For this calculation it queries the local Database file instead of querying the Avatar Database like it was initially designed.
+This score is used to sort the explanations is a crescent order.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{ch5/assets/US01_SD_Implement_Ap2.png}
+\caption[Sequence Diagram US01 Second Approach]{Sequence Diagram - US01 Second Approach}
+\label{fig:uc01Imp2}
+\end{figure}
+
+The sequence diagram displayed in Figure~\ref{fig:uc01Imp2} describes the second approach previously explained.
+This is very similar to the diagram presented in Chapter~\ref{chap:Chapter4}.
+The main difference is that, like in the first approach, instead of performing a verification to the generated explanation it calculates the readability score and use it to sort the explanations.
 
 \subsubsection{US02: Obtain alternative explanation}
 
@@ -289,24 +375,14 @@ In this section the use cases are presented to better understand how the designe
 \label{fig:uc02Imp}
 \end{figure}
 
-\dots %TODO
-
-\subsubsection{US04: Change language}
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.45]{ch5/assets/US04_SD_Implement.png}
-\caption[Sequence Diagram Implementation US04]{Sequence Diagram - Implementation US04}
-\label{fig:uc04Imp}
-\end{figure}
-
-\dots %TODO
-
-\subsection{Non-Functional Requirements}
-
-\dots %TODO
+In Figure~\ref{fig:uc02Imp} sequence diagram is shown the implemented process for obtaining a new explanation.
+This is also very similar to the diagram presented in Chapter~\ref{chap:Chapter4}.
+The main difference is that it requests the text summarization system to sort the new explanation based on similarity as previously mentioned.
+No note that to generate new explanation, this will always use the second approach.
 
 \subsection{Deployment view}
+
+The changes made to the deployment diagram presented in Chapter~\ref{chap:Chapter4} are shown in the following diagram.
 
 \begin{figure}[H]
 \centering
@@ -315,4 +391,5 @@ In this section the use cases are presented to better understand how the designe
 \label{fig:deployImp}
 \end{figure}
 
-\dots %TODO
+Shown in Figure~\ref{fig:deployImp} is the deployment diagram of the implemented solution.
+As approached throughout this section there is no integration with the Avatar technology, therefor the only change is that there is no interaction with the gilt server.

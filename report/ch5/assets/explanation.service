@@ -1,0 +1,13 @@
+[Unit]
+Description = Explanation API
+After = network.target
+
+[Install]
+WantedBy = multi-user.target
+
+[Service]
+User = asist
+ExecStart = /usr/bin/python3 /home/asist/thesis/code/api/app.py
+WorkingDirectory = /home/asist/thesis/code/api/
+Restart = always
+RemainAfterExit = yes
