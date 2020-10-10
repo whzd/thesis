@@ -3,10 +3,8 @@
 \chapter{Analysis and Design} % Main chapter title
 \label{chap:Chapter4}
 
-In this chapter is dedicated to the exposition of the analysis and design of the project solution.
-
-It starts by presenting the Requirements Engineering which consists in the design of software requirements, in the form of functional and non-functional requirements.
-After that is describes the logic view, the process view and the design of the functional requirements
+This chapter starts by presenting the Requirements Engineering which consists in the design of software requirements, in the form of functional and non-functional requirements.
+After that, is described the logic view, the process view and the design of the functional requirements
 Lastly is presents the deployment view.
 
 \section{Requirements Engineering}
@@ -27,8 +25,8 @@ This was the system used to present and classify these categories in regards to 
 
 \subsection{Functional Requirements}
 
-In this section will contain information regarding the functional requirements of the system, in the for of use cases.
-These requirements generally represent the main product features.
+This section will contain information regarding the functional requirements of the system, in the form of use cases.
+These requirements generally represent the main product features and are presented in the Figure~\ref{fig:ucDiagram}.
 
 \begin{figure}[H]
 \centering
@@ -74,7 +72,7 @@ The remaining "URPS" categories describe non-functional requirements that are ar
 \begin{itemize}
     \item \textbf{User Interaction} - The interaction with the user must be simple and very intuitive, taking in consideration the target audience special needs.
     \item \textbf{Help} - The system must provide suitable and contextualized help to the task the user is performing.
-    \item \textbf{Interface} - It is required that the interface to be appealing and easy to read, once again, taking in consideration the target audience special needs.
+    \item \textbf{Interface} - It is required that the interface has to be appealing and easy to read, once again, taking in consideration the target audience special needs.
     \item \textbf{Error Prevention} - The system must prevent user mistakes and treat them accordingly.
 \end{itemize}
 
@@ -104,6 +102,7 @@ The remaining "URPS" categories describe non-functional requirements that are ar
 \section{Logic View}
 
 A logic view represents the principal components of the application, and their interactions, that will compose the system.
+The architecture proposed to be implemented is shown in Figure~\ref{fig:cd}.
 
 \begin{figure}[H]
 \centering
@@ -112,8 +111,7 @@ A logic view represents the principal components of the application, and their i
 \label{fig:cd}
 \end{figure}
 
-The architecture proposed to be implemented is shown in Figure~\ref{fig:cd}.
-The components to be developed are the following:it is composed by the following components:
+The components presented in the above image are the following:
 
 \begin{itemize}
     \item \textbf{Explanation App} - This component is responsible for processing the users input and converting the APIs output to the Web Browser.
@@ -128,7 +126,7 @@ The components already developed that will be integrated are the following:
 
 \subsection{Design alternative}
 
-The main goal was initial the development of a web application that was capable of showing the users an explanation of a word or expression.
+The main goal was initially the development of a web application that was capable of showing the users an explanation of a word or expression.
 Like so the application was envisioned to take the input generate the explanation and show it to the user, like its shown in Figure~\ref{fig:ocd}.
 
 \begin{figure}[H]
@@ -145,6 +143,7 @@ In GILT there are projects that would benefit from this feature and therefore th
 \section{Process View}
 
 The first step to design a possible solution was to create a high-level view of the main functionalities the application should have.
+In the flowchart of Figure~\ref{fig:Diagram1} is shown the main build blocks of the application to be developed.
 
 \begin{figure}[H]
 \centering
@@ -153,13 +152,14 @@ The first step to design a possible solution was to create a high-level view of 
 \label{fig:Diagram1}
 \end{figure}
 
-In the flowchart of Figure~\ref{fig:Diagram1} is shown the main build blocks of the application to be developed.
 The input received in M1 is send to the \gls{API} that generates an explanation in M2, which is validated in M3.
 From there the explanation might be sent back to the application and shown to the user in M5  or if does not meet all the criteria defined in M3 it will be fixed in M4 and reevaluated.
-After presenting the explanation to the user, the application will also be capable of send the text to an already existing \gls{API} that is capable of translate plain text to sign language using a avatar in M6.
+After presenting the explanation to the user, the application will also be capable of sending the text to an already existing \gls{API} that is capable of translate plain text to sign language using a avatar in M6.
 
-To help better understand the created design, a more detailed view, is presented below using activity diagrams, that describes each of the build blocks and how will they achieve the tasks previously mentioned.
+To help better understand the created design, a more detailed view, is presented below using activity diagrams, that describe each of the build blocks and how will they achieve the tasks previously mentioned.
 The activity diagram shows the flow of a functionality, the activities that compose that functionality and the decision making required and its consequences.
+
+The activity diagram of Figure~\ref{fig:M1}, shows the M1 block that was designed to receive a input string from the user.
 
 \begin{figure}[H]
 \centering
@@ -168,9 +168,10 @@ The activity diagram shows the flow of a functionality, the activities that comp
 \label{fig:M1}
 \end{figure}
 
-As shown in the activity diagram of Figure~\ref{fig:M1}, the M1 block was design to receive a input string from the user.
 This string is validated in order to detect common mistakes, such as typos, and when an mistake is detected the application suggests possible corrections.
 The user is then capable of accepting the suggestion given, make a manual correction or proceed without changing the input string.
+
+The Figure~\ref{fig:M2} activity diagram of the M2 block, shows the process of finding an explanation based on the received string.
 
 \begin{figure}[H]
 \centering
@@ -179,11 +180,12 @@ The user is then capable of accepting the suggestion given, make a manual correc
 \label{fig:M2}
 \end{figure}
 
-The Figure~\ref{fig:M2} activity diagram of the M2 block, shows the process of finding an explanation based on the received string.
 Information Retrieval techniques would be use to find all the pages connected to a predefined starting page, such as Wikipedia or a dictionary.
 From this point, it would filter the pages that may contain information that is related to the received string.
 The filtered pages would then be processed using Information Extraction techniques in order to filter the text that has some degree of relation with the initial string.
 An explanation will the be generated by implementing Text Mining techniques to the blocks of text obtained from the previous step.
+
+In Figure~\ref{fig:M3}, the activity diagram of the M3 block presents the evaluation criteria defined in order to defined an explanation as valid in order to be presented to the user.
 
 \begin{figure}[H]
 \centering
@@ -192,17 +194,18 @@ An explanation will the be generated by implementing Text Mining techniques to t
 \label{fig:M3}
 \end{figure}
 
-In Figure~\ref{fig:M3}, the activity diagram of the M3 block presents the evaluation criteria defined in order to defined an explanation as valid in order to be presented to the user.
-Those criteria are the following:
+The criteria presented in the above image are the following:
 
 \begin{itemize}
-    \item \textbf{Syntax integrity} - The explanation follows syntax rules, or in other word, is a coherent sentence that can be understand when read.
-    \item \textbf{Word count limit} - The explanation string needs to be shorter that a predefined value.
+    \item \textbf{Syntax integrity} - The explanation follows syntax rules, or in other words, is a coherent sentence that can be understand when read.
+    \item \textbf{Word count limit} - The explanation string needs to be shorter than a predefined value.
     \item \textbf{Compatibility with the avatar \gls{DB}} - The explanation string, ideally, needs to be composed only by words already exiting in the avatar \gls{DB}.
 \end{itemize}
 
 If a criterion fails, the error is set, and the process progresses with M4.
 If a received explanation meets all the criteria it will be sent back to the web application, and the process progresses with M5.
+
+As it can be seen in the activity diagram of Figure~\ref{fig:M4}, the M4 block is responsible for restructuring the explanation in order to meet the previously mention criteria.
 
 \begin{figure}[H]
 \centering
@@ -211,16 +214,17 @@ If a received explanation meets all the criteria it will be sent back to the web
 \label{fig:M4}
 \end{figure}
 
-As it can be seen in the activity diagram of Figure~\ref{fig:M4}, the M4 block is responsible for restructuring the explanation in order to meet the previously mention criteria.
-It starts by identifying the error that made the explanation not be valid to progress and take action accordingly.
+This starts by identifying the error that made the explanation not be valid to progress and take action accordingly.
 
 \begin{itemize}
     \item In order to fix a faulty syntax integrity, the string needs to be processed and restructured following syntax rules.
-    \item In order to fix a string above a word count limit, the string need to be analyzed to, ideally, find a word or concept that can replace a portion of the string.
-    \item In order to fix incompatibilities with the avatar \gls{DB}, the words that need to be replaced, a explanation might be generated and be presented as an hypermedia link to the missing word.
+    \item In order to fix a string above a word count limit, the string needs to be analyzed to, ideally, find a word or concept that can replace a portion of the string.
+    \item In order to fix incompatibilities with the avatar \gls{DB}, the words that need to be replaced, an explanation might be generated and be presented as an hypermedia link to the missing word.
 \end{itemize}
 
 The new string will then be reevaluated by the M3 block.
+
+In the Figure~\ref{fig:M5} activity diagram, the M5 block will be displaying the generated explanation as text and hyperlinks to pages, related with the input string, to the user.
 
 \begin{figure}[H]
 \centering
@@ -229,8 +233,9 @@ The new string will then be reevaluated by the M3 block.
 \label{fig:M5}
 \end{figure}
 
-In the Figure~\ref{fig:M5} activity diagram, the M5 block will be displaying the generated explanation as text and hyperlinks to pages, related with the input string, to the user.
-If the explanation had incompatibility issues in M3, then those faulty words will be also be presented as hypermedia with an explanation of them.
+In this block, if the explanation had compatibility issues in M3, then those faulty words will be also be presented as hypermedia with an explanation of them.
+
+Shown in the activity diagram of Figure~\ref{fig:M6}, is the M6 block that will take the explanation text and send it to the avatar \gls{API}.
 
 \begin{figure}[H]
 \centering
@@ -239,10 +244,10 @@ If the explanation had incompatibility issues in M3, then those faulty words wil
 \label{fig:M6}
 \end{figure}
 
-Shown in the activity diagram of Figure~\ref{fig:M6}, is the M6 block that will take the explanation text and send it to the avatar \gls{API}.
 The avatar will appear in the web page, and will translate the received text to sign language.
 
 With the complete design of the application in mind a simpler and easier to implement approach was design, also known as a \gls{MVP}.
+This is presented in the Figure~\ref{fig:mvp}.
 
 \begin{figure}[H]
 \centering
@@ -251,7 +256,7 @@ With the complete design of the application in mind a simpler and easier to impl
 \label{fig:mvp}
 \end{figure}
 
-The Figure~\ref{fig:mvp} activity diagram, shows the starting point of the solution to be developed.
+The activity diagram shown in the above image, shows the starting point of the solution to be developed.
 As a \gls{MVP}, this design focus on the key functionalities that the solution must have, removing everything else.
 The major benefit of choosing this approach is allowing a fast developed of a prototype that can be used to receive feedback from the target audience, in order to grantee that the solution is going towards their needs.
 
@@ -262,6 +267,8 @@ A sequence diagram is used to describe the objects involved in a functionality a
 
 \subsection{US01: Find Explanation}
 
+Displayed in the sequence diagram of Figure~\ref{fig:sdus01} is the design for finding an explanation.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth,keepaspectratio]{ch4/assets/US01_SD.png}
@@ -269,7 +276,6 @@ A sequence diagram is used to describe the objects involved in a functionality a
 \label{fig:sdus01}
 \end{figure}
 
-Displayed in the sequence diagram of Figure~\ref{fig:sdus01} is the design for finding an explanation.
 The users starts by requesting an explanation for a word/expression.
 This makes the Web Application request an explanation to the Explanation API, sending the text string and the web application language (e.g. Portuguese, English, etc.).
 To generate an explanation, the Explanation API passes the received string to the Information Retrieval system.
@@ -284,6 +290,8 @@ To conclude, the Web Application displays the explanation to the user.
 
 \subsection{US02: Obtain alternative explanation}
 
+Shown in Figure~\ref{fig:sdus02} is the sequence diagram that describes how the system obtains an alternative explanation.
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.45]{ch4/assets/US02_SD.png}
@@ -291,7 +299,6 @@ To conclude, the Web Application displays the explanation to the user.
 \label{fig:sdus02}
 \end{figure}
 
-Shown in Figure~\ref{fig:sdus02} is the sequence diagram that describes how the system obtains an alternative explanation.
 The user starts by giving negative feedback to a displayed explanation.
 This makes the Web Application ask if the user wants a new explanation.
 The user proceeds to accept it.
@@ -303,6 +310,8 @@ To conclude, the Web Application displays the new explanation.
 
 \subsection{US03: Display sign language translation}
 
+In Figure~\ref{fig:sdus03} sequence diagram is shown how a translation to sign language occurs.
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.45]{ch4/assets/US03_SD.png}
@@ -310,7 +319,6 @@ To conclude, the Web Application displays the new explanation.
 \label{fig:sdus03}
 \end{figure}
 
-In Figure~\ref{fig:sdus03} sequence diagram is shown how a translation to sign language occurs.
 The user starts by requesting the translation of a displayed explanation.
 This makes the Web Application request the translation of the text to the Avatar API, sending the text and the web application language (e.g. Portuguese, English, etc.).
 To accomplish this, the Avatar API queries the Avatar DB for the animations required to translate each word to the respective sign language.
@@ -319,6 +327,8 @@ To conclude, the Web Application displays the translation using the animations i
 
 \subsection{US04: Change language}
 
+The sequence diagram displayed in Figure~\ref{fig:sdus04} presents how a change in the application language occurs.
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.45]{ch4/assets/US04_SD.png}
@@ -326,17 +336,17 @@ To conclude, the Web Application displays the translation using the animations i
 \label{fig:sdus04}
 \end{figure}
 
-The sequence diagram displayed in Figure~\ref{fig:sdus04} presents how a change in the application language occurs.
 The user starts by requesting the Web Application to change the language.
 This makes the Web Application show a list of available language which were previously defined.
 In order for a language to be eligible to appear in this list, the Avatar and the Text Mining technology needs to support it.
-The user the proceeds to select one of the available languages.
-To conclude, the Web Application saves the change and updated the page to the selected language.
+The user then proceeds to select one of the available languages.
+To conclude, the Web Application saves the change and updates the page to the selected language.
 
 \section{Deployment View}
 
 A deployment view is used to view and describe the topology of the physical components of a system.
 This view takes in consideration some of the non-functional requirements of the system such as, performance, scalability, availability and reliability.
+The Figure~\ref{fig:deploy} presents the deployment diagram created for this project.
 
 \begin{figure}[H]
 \centering
@@ -345,7 +355,7 @@ This view takes in consideration some of the non-functional requirements of the 
 \label{fig:deploy}
 \end{figure}
 
-The deployment diagram presented in Figure~\ref{fig:deploy} shows that the two components to be developed, namely Explanation App and Explanation API will be hosted in the same server.
+As shown in the above image, the two components to be developed, namely Explanation App and Explanation API will be hosted in the same server.
 The server provider is not yet defined, but initially should be the DEI-ISEP, which is the ISEP computer engineering department.
 In regards to the avatar technology, it is already hosted in a server form GILT.
 Lastly, the Web Browser component will be in the client device.
