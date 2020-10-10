@@ -3,8 +3,8 @@
 \chapter{State of Art}
 \label{chap:Chapter2}
 
-This chapter intends to present some essential knowledge about the most relevant topics, namely Portuguese Sign Language, Information Retrieval, Information Extraction, Text Mining.
-It also presents a description of the readability metrics, work related to this solution and technologies that are mentioned through out this report.
+This chapter presents some essential knowledge about the most relevant topics, namely Portuguese Sign Language, Information Retrieval, Information Extraction, Text Mining.
+It also presents a description of the readability metrics, work related to this solution and technologies that are mentioned throughout this report.
 
 \section{Língua Gestual Portuguesa}
 
@@ -21,7 +21,7 @@ This language was approved by the Constitution of the Portuguese Republic, in 19
 In the context of a sign language, a sign, is used to represent an idea and it is composed by the movement and position of the upper limbs.
 Paula Escudeiro et al.\cite{escudeiro2015virtual} present the components of a \gls{LGP} sign as manual and non-manual.
 
-The manual component consists in every variables related to hands which includes:
+The manual component consists in every variable related to hands which includes:
 \begin{itemize}
     \item \textbf{Configuration of the hand} - The form that each hand takes while executing a gesture.
     \item \textbf{Orientation of the palm of the hand} - Some configurations only differ in the palm's orientation.
@@ -44,19 +44,19 @@ Some grammatical characteristics of the Portuguese Sign Language are\cite{bento2
 \begin{itemize}
     \item In most cases the prefix "women" is used to identify the female version of a being while the male version is identified by the lack of a prefix "male".
     \item To describe a quantity of a given subject a number can be added or the use of the suffix "many".
-    \item To represent temporal placement its used the suffix "past" or "future" to the verb.
+    \item To represent temporal placement it's used the suffix "past" or "future" to the verb.
     \item The negation of a sentence is defined by the word "not" at the end.
     \item It is used an interrogative pronoun at the end of the sentence to represent it as a question.
 \end{itemize}
 
-As already mentioned in the Introduction the \gls{LGP} lexicon is quite small in comparison to Portuguese.
-So many Portuguese words are represented by a logical decomposition of its meaning.
-Using the word "Laranjeira" as an example, this the Portuguese word for orange tree.
+As already mentioned in the Introduction, the \gls{LGP} lexicon is quite small in comparison to Portuguese.
+So many Portuguese words are represented by a logical decomposition of their meaning.
+Using the word "Laranjeira" as an example, this is the Portuguese word for orange tree.
 Since there are no sign for this word, it is represented by the signs "Árvore" and "Laranja" (Tree and Orange respectively).
 
-However when a \gls{LGP} user is faced with a word that he does not know its meaning he will spell each letter of the word.
-For short words this can be a practical solution but for long words like "Nanotecnologia" not so much.
-Spelling this word would require 13 sings while representing its meaning would take around 7 signs (e.g. Ciência, Estudar, Manipular, Materia, Tamanho, Muito and Pequeno).
+However when a \gls{LGP} user is faced with a word that he does not know its meaning he will spell each letter of the word, a feature called dactylology.
+For short words this can be a practical solution but for long words like "Nanotecnologia", not so much.
+Spelling this word would require 13 signs while representing its meaning would take around 7 signs (e.g. Ciência, Estudar, Manipular, Materia, Tamanho, Muito and Pequeno).
 
 \section{Information Retrieval}
 
@@ -80,9 +80,9 @@ At its core, Information Retrieval aims to understand and model how people compa
 
 \section{Information Extraction}
 
-As society became more data oriented having access to both structured and unstructured data became easy.
-The difference between those those types of data is that structured data is semantically defined for a target domain and is interpreted with respect to category and context.
-Therefor the need for applications capable of extracting structured data had increased.
+As society became more data oriented, having access to both structured and unstructured data, became easy.
+The difference between those types of data is that structured data is semantically defined for a target domain and is interpreted with respect to category and context.
+Therefore the need for applications capable of extracting structured data had increased.
 
 Information Extraction (IE) is the name given to the process of automatically extracting structured information from an unstructured sources, mainly texts.
 
@@ -101,7 +101,7 @@ With the evolution of technology, IE also evolved and different techniques for t
 This techniques are the following: Rule-based, Statistical, Hybrids (both rule-based and statistical) and Conditional Random Fields\cite{sarawagi2008information}.
 
 A rule-based approach was used by Del Gaudio et al.\cite{del2007automatic}.
-In this paper the authors created a IE system that was capable extracting the definition of a Portuguese words from texts written in Portuguese.
+In this paper the authors created an IE system that was capable of extracting the definition of Portuguese words from texts written in Portuguese.
 
 A statistical approach was used by Ventura\cite{ventura2014automatic}.
 In his PhD report, he presented an alternative approach to the extraction of relevant terms from text.
@@ -113,12 +113,12 @@ This this paper, the authors proposed this approach to extract information that 
 
 \section{Text Mining}
 
-Text mining stands in between the fields of Data Mining, Information Retrieval, Information Extraction, Machine Learning, Knowledge Discovery and Natural Language Processing since its described as the process to find implicit, previously unknown, and potentially useful information from a large data source, which in this case is text.
+Text mining stands in between the fields of Data Mining, Information Retrieval, Information Extraction, Machine Learning, Knowledge Discovery and Natural Language Processing since it's described as the process to find implicit, previously unknown, and potentially useful information from a corpus, i.e., a collection of text documents.
 
 Information Extraction is the field most similar to Text Mining.
 Their main difference is that Information Extraction involves the extraction of specific structured information and predefined relations while Text Mining focus on discovering general unsuspected information and new relations\cite{mulins2008information}.
 
-The goal of text mining is to combines a human's linguistic capabilities with the processing power of a computer\cite{fan2006tapping}.
+The goal of text mining is to combine a human's linguistic capabilities with the processing power of a computer\cite{fan2006tapping}.
 To accomplish this it borrows many algorithms and techniques from the surrounding fields.
 
 Some of the most used Text Mining techniques\cite{gupta2009survey}\cite{tseng2007text}\cite{patel2012text} are the following:
@@ -158,12 +158,12 @@ Another online dictionary that provides content for the \gls{LGP} users is the I
 Although this is a Portuguese dictionary, it also contains a section for searching words in \gls{LGP}.
 Here, the search results, not only provide a video translation of the word, but also an explanation in Portuguese on how to reproduce the sign shown in the video.
 
-Online dictionaries as a solution, is limited by the database of prerecorded videos, and the \gls{LGP} lexicon.
+Online dictionaries as a solution, are limited by the database of prerecorded videos, and the \gls{LGP} lexicon.
 The latter is a problem, because they focus on a direct translation, word to sign, instead of trying to translate the meaning of the word.
 
 \section{Sign Language Interpreter}
 
-Sign language interpreters are people who help bridging the gap between the hearing impaired or deaf individuals and a spoken language.
+Sign language interpreters are people who help to bridge the gap between the hearing impaired or deaf individuals and a spoken language.
 This can occur in a one-on-one situation as well as in a group setting.
 
 In regard to the sign language interpreters in Portugal, there is CTILG\footnote{http://www.ctilg.pt/}, a company that provides professional \gls{LGP} translation services in workshops, classes, congresses, events and more.
@@ -178,9 +178,9 @@ Also by utilizing this solution, the \gls{LGP} user is sacrificing some of his a
 \section{Readability Metrics}
 
 Readability is the trait that makes text clearer and more accessible to its readers.
-The readability metrics are used to calculate a score\cite{meyer2003text}, that relates to the level of education a reader will need, to fully understand the context of a given text.
+The readability metrics are frequently used to calculate a score\cite{meyer2003text} that relates to the level of education a reader will need, to fully understand the context of a given text.
 
-The existing readability metrics\cite{correia2020evaluation} for the English language are the following:
+Common readability metrics\cite{correia2020evaluation} for the English language are the following:
 \begin{itemize}
     \item \textbf{Flesch Reading Ease Score} - This metric outputs a score that ranges from 0 to 100 and the readability levels are mapped to this scores (e.g. 0--30 Very difficult, 31--50 Difficult, etc.).
         Higher values indicate better legibility, intelligibility and readability.
@@ -193,7 +193,7 @@ The existing readability metrics\cite{correia2020evaluation} for the English lan
         The difference to the FLesch-Kincaid Grade Level is that it takes in consideration the existence of complex words in the text.
         Complex words are words with three or more syllables with some exceptions.
     \item \textbf{Automated Readability Index} - This metric also outputs a score that corresponds to the education grade level of the reader.
-        The difference is that it takes in consideration the word length, that is calculated bases on number of characters instead of number of syllables.
+        The difference is that it takes in consideration the word length, that is calculated based on the number of characters instead of number of syllables.
     \item \textbf{Coleman-Liau Index} - This metric produces a score that aims to be an approximation of the minimum U.S. education grade level to comprehend a certain text.
         Like the previous metric Automated Readability Index, this too uses the number of characters to calculate the word length.
         The difference is that it only takes in consideration a sample of 100 words.
@@ -206,13 +206,13 @@ The existing readability metrics\cite{correia2020evaluation} for the English lan
         Polysyllable words are words with 3 or more syllables and are calculated from a sample of 30 lines (first 10, middle 10 and last 10).
     \item \textbf{Fry Graph} - This metric estimates the required grade level of the reader based on a graph created by the author.
         The graph was built assuming that texts that contained shorter sentences and words with less syllables become more readable.
-        To obtain its score, this metric takes in consideration the number of sentences and number of syllables in a sample of 100 words
+        To obtain its score, this metric takes into consideration the number of sentences and number of syllables in a sample of 100 words.
     \item \textbf{Raygor Estimate Graph} - This metric like the previous Fry Graph, estimates the required grade using a graph.
-        The difference is takes in consideration the number of words with six or more characters.
+        The difference is that it takes into consideration the number of words with six or more characters.
     \item \textbf{FORCAST} - This metric can be used to either indicate the grade level required or the age required.
         Unlike the other metrics, this one is typically used to evaluate multiple-choice quizzes and forms rather than text.
     \item \textbf{SPACHE} - This metric, like the Dale-Chall, is used to calculate the grade level taking in consideration sentence length and the number of unfamiliar words.
-        The difference is that its target to determine the readability for third-grade level texts or below.
+        The difference is that it is targeted to determine the readability for third-grade level texts or below.
 \end{itemize}
 
 \subsection{Portuguese Readability Metrics}
@@ -253,19 +253,19 @@ Ni Ke et al.\cite{ni2017learning} also chose a Deep Learning approach and a \gls
 The focus was non-standard expressions, such as slang, presented in this posts.
 The \gls{RNN} was trained using an online, user contributed, dictionary called Urban Dictionary\footnote{https://www.urbandictionary.com/}.
 
-Giorgina Dinu et al.\cite{dinu2014make} tried to generate a phrase that best express the meaning contained in a distributional vector.
+Giorgina Dinu et al.\cite{dinu2014make} tried to generate a phrase that best expressed the meaning contained in a distributional vector.
 The test cases for this approach were a monolingual scenario where the phrase was generated in English and a cross-lingual setting where the vector was first used to generate the English expression and then translate it to Italian
 
-Wiliam Dolan et al.\cite{dolan1993automatically} described an automated strategy to created a lexical knowledge base from online dictionaries.
+Wiliam Dolan et al.\cite{dolan1993automatically} described an automated strategy to create a lexical knowledge base from online dictionaries.
 This strategy was used to create a directed graph for semantic associations between words of the Longman Dictionary of Contemporary English\footnote{https://www.ldoceonline.com/}.
-The authors argue that using a knowledge base provide a more detailed information about a word meaning than a standard lexical lookup.
+The authors argue that using a knowledge base provides a more detailed information about a word meaning than a standard lexical lookup.
 
 Alan Akbik et al.\cite{akbik2009wanderlust} developed an algorithm called Wanderlust which automatically extracts semantic relations from natural language text.
 This algorithm was applied to the English Wikipedia\footnote{https://en.wikipedia.org/} corpus and used to obtain semantic relations to populate a semantic wiki.
 
-Atin Das et al.\cite{das2008neural} present a theoretical model based on using Neural Networks to extract what the authors calls 'featured words' from an article.
-This 'featured words' are the words that best describe a given article.
-Since this is a theoretical work there are no tests or specific use cases.
+Atin Das et al.\cite{das2008neural} present a theoretical model based on using Neural Networks to extract what the authors call 'featured words' from an article.
+These 'featured words' are the words that best describe a given article.
+Since this is a theoretical work, there are no tests or specific use cases.
 
 \section{Technology}
 
@@ -310,7 +310,7 @@ This is composed by three projects: AutoML Natural Language, Healthcare Natural 
 
 The AutoML Natural Language allows the users to train custom models to classify, extract and detect sentiment with minimum effort and previous machine learning knowledge by using the AutoML\footnote{https://cloud.google.com/automl} technology.
 
-The Healthcare Natural Language API is still in early access, but has the goal is to provide the users the ability to generate custom information extraction models for healthcare and life sciences applications.
+The Healthcare Natural Language API is still in early access, but has the goal to provide the users the ability to generate custom information extraction models for healthcare and life sciences applications.
 
 The Natural Language API allows the users to apply natural language understanding such as sentiment analysis, entity analysis, entity sentiment analysis, content classification and syntax analysis.
 Since this technology is not open source, it comes with the disadvantage of being payed to use after a certain threshold, in this case 5000 requests to the API.
@@ -338,20 +338,20 @@ label=lst:helloWorld_python]
 \end{minipage}
 \end{center}
 
-According to StackShare\cite{flask2020Stack}, Flask is being used in the tech stack of 502 companies with some of the most known being Netflix, reddit and trivago.
+According to StackShare\cite{flask2020Stack}, Flask is being used in the tech stack of 502 companies with some of the most known being Netflix, Reddit and Trivago.
 
 \subsection{React}
 
 React\footnote{https://reactjs.org/} is an open source JavaScript library for building user interfaces.
 It allows the users to compose complex UIs using small and isolated pieces of code called "components".
 
-A component is a independent and reusable bit of code that can be compared to a JavaScript function.
-However this components work isolated and return HTML through a render function.
+A component is an independent and reusable bit of code that can be compared to a JavaScript function.
+However, these components work isolated and return HTML through a render function.
 
 There are also two other key features of this framework that make it more appealing:
 \begin{itemize}
     \item \textbf{JSX (JavaScript Extension)} - It's a React extension that facilitates the modifications to the DOM by using simple, XML/HTML like code.
-    \item \textbf{Virtual DOM} - It's a copy of the site actual DOM that React uses to scan for the parts that needs change when an event (like the press of a button) happens.
+    \item \textbf{Virtual DOM} - It's a copy of the site actual DOM that React uses to scan for the parts that needs changes when an event (like the press of a button) happens.
         This reduces loading time and processing power since it doesn't require for the whole DOM to be updated like it would when not using React.
 \end{itemize}
 
@@ -376,13 +376,13 @@ A web crawler is a program that browses the web with the purpose of downloading 
 The name "web crawlers" comes from crawling which is the technical term for automatically accessing a website and obtaining data.
 Web crawling is the first stage of any web information retrieval system\cite{saini2016information}.
 
-The main component of Srapy has the name "Spider" and it's a self-contained crawler that perform a set of instructions.
+The main component of Scrapy has the name "Spider" and it's a self-contained crawler that performs a set of instructions.
 According to the goal a spider is trying to achieve, this instructions can be as simple as just the starting page, for just a simple crawler or as complex as setting XPaths and CSS expressions to extract targeted information and automatically store the data in a database.
 
 In comparison with other web-crawling solution such as wget\footnote{https://www.gnu.org/software/wget/}, it has the benefit of being able to target parts of the document, using the built-in mechanism called Selectors, instead of the whole page.
 This is quite helpful when crawling websites filled with hyperlinks like the Wikipedia.
 
-This framework also offer an option to deploy the spiders in the cloud.
+This framework also offers an option to deploy the spiders in the cloud.
 However, like many other cloud solutions, this requires payment for an unlimited usage.
 
 \subsection{Beautiful Soup 4}
@@ -393,7 +393,7 @@ It creates a parse tree for each page that can be navigated, searched and modifi
 Web scraping is the process of accurately and quickly extracting data from a website.
 This process has 3 main steps:
 \begin{itemize}
-    \item \textbf{Target the data} - The scraper needs to be design to target and extract the exact data from a specific website.
+    \item \textbf{Target the data} - The scraper needs to be designed to target and extract the exact data from a specific website.
     \item \textbf{Parse the data} - The data is extracted in HTML after which it is parsed to extricate the raw data from the surrounding noise.
     \item \textbf{Use the data} - The resulting data is available to be stored in a database or file or used for goal of the project in which it is included.
 \end{itemize}
@@ -426,17 +426,17 @@ Table~\ref{table:parsebs4} presents the available parsers for Beautiful Soup 4 a
 \end{table}
 
 When using an external parse library, lxml is the safest option since is the fastest and is capable of perform both HTML and XML parsing.
-The html5lib is a good option when it comes to parsing pages that may have a flaws in the HMTL form.
+The html5lib is a good option when it comes to parsing pages that may have flaws in the HMTL form.
 Since it follows the HTML5 standards it will pair dangling tags as well as add missing tags that are required.
 
 \subsection{Virtual Sign Avatar}
 
-The Virtual Sign Avatar\cite{escudeiro2015virtual} was a project developed by GILT (Games, Interaction and Learning Technologies) and is capable of translate text to its respective sign language (e.g. Portuguese text to \gls{LGP}).
+The Virtual Sign Avatar\cite{escudeiro2015virtual} was a project developed by GILT (Games, Interaction and Learning Technologies) and is capable of translating text to its respective sign language (e.g. Portuguese text to \gls{LGP}).
 
 The visual part of the avatar as well as the animations it performs where created using Blender\footnote{https://www.blender.org/}.
-Its appearance was designed to be as close as possible to the human body to help in the process of translation.
+It's appearance was designed to be as close as possible to the human body to help in the process of translation.
 
-To perform a translation of a text the avatar first converts it to gloss and then use the result to queries the database.
-This database is where all the animations available to be performed by the avatar during the translation are stored.
+To perform a translation of a text in Portuguese, the avatar first converts it to the corresponding \gls{LGP} gloss and then uses the result to query the database.
+This database is where all the animation's available to be performed by the avatar during the translation are stored.
 In this database, each table represents a language and inside, each table relates each animation to the respective word.
-If a word is not present in the database the avatar will use the animation of each letter that compose the word to perform its translation.
+If a word is not present in the database, the avatar will use the animation of each letter that composes the word to perform its translation.

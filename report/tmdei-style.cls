@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TMDEI Thesis Class File
-% 
+%
 % Based on MastersDoctoralThesis Version 1.2 by Vel (vel@latextemplates.com) and
 % Johannes Böttcher, downloaded from (21/11/15):
 % http://www.LaTeXTemplates.com
@@ -9,13 +9,13 @@
 %  Vel (vel@latextemplates.com)
 %  Johannes Böttcher
 %
-% Adapted to TMDEI/ISEP style (Dec/2015) by 
-%  Nuno Pereira (nap@isep.ipp.pt) and 
+% Adapted to TMDEI/ISEP style (Dec/2015) by
+%  Nuno Pereira (nap@isep.ipp.pt) and
 %  Paulo Baltarejo (pbs@isep.ipp.pt)
 %
 % Notes:
 % 1) This class file defines the structure and layout of the template file (main.tex).
-% 2) It has been written in such a way that under most circumstances you 
+% 2) It has been written in such a way that under most circumstances you
 % should not need to edit it.
 %
 % Class license:
@@ -60,7 +60,7 @@
 %----------------------------------------------------------------------------------------
 %	CLASS OPTIONS
 %----------------------------------------------------------------------------------------
-\ifbool{parskip}{\RequirePackage{parskip}} % If the parskip option is passed to the class, require the parskip package 
+\ifbool{parskip}{\RequirePackage{parskip}} % If the parskip option is passed to the class, require the parskip package
 
 \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{\abovechapterspace}{}{}
 \patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{\abovechapterspace}{}{}
@@ -163,14 +163,14 @@
 
 \RequirePackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
-\RequirePackage{cmbright} % Default font: CM Bright, lighter sans-serif variant of Computer Modern Sans Serif 
+\RequirePackage{cmbright} % Default font: CM Bright, lighter sans-serif variant of Computer Modern Sans Serif
 
 \RequirePackage[chapter]{algorithm} % Required for Algorithms
 \RequirePackage{algpseudocode} % Part algorithmicx package, required to customize the layout of algorithms.
 
 \RequirePackage{listings} % Required for code listings
 \lstset{ %
-  backgroundcolor=\color{white},   % choose the background color; 
+  backgroundcolor=\color{white},   % choose the background color;
   basicstyle=\footnotesize,        % the size of the fonts that are used for the code
   breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
   breaklines=true,                 % sets automatic line breaking
@@ -180,7 +180,7 @@
   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
   extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
   frame=single,	                   % adds a frame around the code
-  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code 
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code
   keywordstyle=\color{blue},       % keyword style
   language=Java,                 % the default language of the code
   otherkeywords={*,...},           % if you want to add more keywords to the set
@@ -204,7 +204,7 @@
 
 %----------------------------------------------------------------------------------------
 
-\newcommand{\checktoopen}{% New command to move content to the next page which prints to the next odd page if twosided mode is active  
+\newcommand{\checktoopen}{% New command to move content to the next page which prints to the next odd page if twosided mode is active
 \if@openright\cleardoublepage\else\clearpage\fi
 }
 
@@ -234,7 +234,7 @@
 	outer=2.6cm, % Outer margin
 	%bindingoffset=2cm, % Binding offset
 	top=3.5cm, % Top margin
-	bottom=2.5cm, % Bottom margin	
+	bottom=2.5cm, % Bottom margin
 }
 
 \raggedbottom
@@ -273,8 +273,8 @@
 \pagestyle{thesis}
 \ifbool{headsepline}{\KOMAoption{headsepline}{true}}{}
 \PreventPackageFromLoading[\ClassError{\classname}{Package `fancyhdr' is
-incompatible\MessageBreak with this class}{The pagesyles are defined 
-using package `scrlayer-scrpage', please consult the\MessageBreak 
+incompatible\MessageBreak with this class}{The pagesyles are defined
+using package `scrlayer-scrpage', please consult the\MessageBreak
 KOMA-script documentation for details.}]{fancyhdr}
 
 
@@ -311,8 +311,8 @@ KOMA-script documentation for details.}]{fancyhdr}
 %----------------------------------------------------------------------------------------
 
 \newcommand{\dissertationdisclamer}{A dissertation submitted in partial fulfilment of the \\ requirements for the degree of Master of Science, Area of}
-\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\dissertationdisclamer}{A dissertation submitted in partial fulfillment of \\ the requirements for the degree of Master of Science, Specialisation Area of}
-\providecaptionname{portuguese}{\dissertationdisclamer}{Disserta\c{c}\~ao para obten\c{c}\~ao do Grau de Mestre em \\ Engenharia Inform\'atica, \'Area de Especializa\c{c}\~ao em\\} % Portuguese 
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\dissertationdisclamer}{A dissertation submitted in partial fulfillment of \\ the requirements for the degree of Master of Science, Specialization Area of}
+\providecaptionname{portuguese}{\dissertationdisclamer}{Disserta\c{c}\~ao para obten\c{c}\~ao do Grau de Mestre em \\ Engenharia Inform\'atica, \'Area de Especializa\c{c}\~ao em\\} % Portuguese
 \newcommand{\supervisorlabel}{Supervisor}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\supervisorlabel}{Supervisor}
 \providecaptionname{portuguese}{\supervisorlabel}{Orientador}
@@ -365,7 +365,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 
 \newcommand{\dedicationlabel}{Dedicatory}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\dedicationlabel}{Dedicatory}
-\providecaptionname{portuguese}{\dedicationlabel}{Dedicat\'oria} % Portuguese 
+\providecaptionname{portuguese}{\dedicationlabel}{Dedicat\'oria} % Portuguese
 \newenvironment{dedicatory}{
 	\checktoopen
 	\tttypeout{\dedicationlabel}
@@ -382,16 +382,16 @@ KOMA-script documentation for details.}]{fancyhdr}
 
 \newcommand{\abslabel}{Abstract}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\abslabel}{Abstract}
-\providecaptionname{portuguese}{\abslabel}{Resumo} % Portuguese 
+\providecaptionname{portuguese}{\abslabel}{Resumo} % Portuguese
 \newcommand{\keywordslabel}{Keywords}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\keywordslabel}{Keywords}
-\providecaptionname{portuguese}{\keywordslabel}{Palavras-chave} % Portuguese 
+\providecaptionname{portuguese}{\keywordslabel}{Palavras-chave} % Portuguese
 \newenvironment{abstract}{
 	\checktoopen
 	\tttypeout{\abstractname}
 	%\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
 	\thispagestyle{plain}
-	\chapter*{\abslabel}	
+	\chapter*{\abslabel}
 }
 {
   \bigskip
@@ -401,11 +401,11 @@ KOMA-script documentation for details.}]{fancyhdr}
 
 \newcommand{\abslabelotherlang}{Resumo}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\abslabelotherlang}{Resumo}
-\providecaptionname{portuguese}{\abslabelotherlang}{Abstract}  
+\providecaptionname{portuguese}{\abslabelotherlang}{Abstract}
 \newenvironment{abstractotherlanguage}{
 	\checktoopen
 	\tttypeout{\abslabel}
-	%\addchaptertocentry{\abslabelotherlang} % Add the abstract to the table of contents	
+	%\addchaptertocentry{\abslabelotherlang} % Add the abstract to the table of contents
 	\thispagestyle{plain}
 	\chapter*{\abslabelotherlang}
 }
@@ -489,7 +489,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 
 
 \ifbool{hyperrefsupport}{% If the nohyperref class option has not been specified
-\AfterPackage{biblatex}{ % Load the hyperref package after the biblatex package for compatibility 
+\AfterPackage{biblatex}{ % Load the hyperref package after the biblatex package for compatibility
 \RequirePackage{hyperref} % Required for customising links and the PDF
 \hypersetup{pdfpagemode={UseOutlines},
 bookmarksopen=true,
@@ -513,7 +513,7 @@ breaklinks=true,
 
 %----------------------------------------------------------------------------------------
 
-% Define some commands to keep the formatting separated from the content 
+% Define some commands to keep the formatting separated from the content
 \newcommand{\keyword}[1]{\textbf{#1}}
 \newcommand{\tabhead}[1]{\textbf{#1}}
 \newcommand{\code}[1]{\texttt{#1}}
