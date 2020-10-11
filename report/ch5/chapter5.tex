@@ -14,15 +14,15 @@ Lastly, is presented a resume of the implementation which describes in more deta
 The Explanation API is responsible for generating explanations to a given input string.
 This API was developed using Flask, a lightweight open-source Python web framework, which was explained in more detail in Chapter~\ref{chap:Chapter2}.
 
-In order to perform its main task, this API has available two approaches that can be used individually or to complement each other.
+In order to perform its main task, this API has two available approaches that can be used individually or as a complement to each other.
 
-The first approach will only use web scrapping to generate a list of explanation.
+The first approach will only use web scrapping to generate a list of explanations.
 For websites where a single page can be a rich source of information like in Priberam\footnote{https://dicionario.priberam.org/}, this approach can yield good results.
 
 The second approach is a combination of web crawling, web scrapping and text summarization.
 For websites where the information is scattered across many pages like Wikipedia\footnote{https://pt.wikipedia.org/}, this approach is ideal.
 
-Both approaches are explained in more detailed in the two following sub-sections.
+Both approaches are explained in more detail in the two following sub-sections.
 The approach to be used is set on a configuration file, and should depend on the initial source of information.
 
 (CONFIG FILE CODE) %TODO
@@ -31,32 +31,32 @@ For Portuguese, it was used a combination of both approaches.
 The first displayed explanation will be generated using the first approach with Priberam\footnote{https://dicionario.priberam.org/} as the source page.
 This decision was due to the fact that this page presents precise and simple information and it also divides the page based on the context of a given expression.
 The second approach is used when generating an alternative explanation, having Wikipedia as the starting page.
-Wikipedia was chosen as the starting page of the second approach due to the fact that it is linked to many other pages which will increase the changes for the text summarization to yield better results.
+Wikipedia was chosen as the starting page of the second approach due to the fact that it is linked to many other pages which will increase the chances for the text summarization to yield better results.
 
-After having a list of explanations it is necessary to order this list according to the needs of the target audience.
+After having a list of explanations, it is necessary to order this list accordingly to the needs of the target audience.
 To accomplish this, it was developed a formula that calculates the readability of a sing language sign.
 This formula is described in more detail in the following sub-section "LGP Readability Formula".
-Note that this was specifically developed for the \gls{LGP} so it it will only be used to for explanations generated in Portuguese.
+Note that this was specifically developed for the \gls{LGP} so it it will only be used for explanations generated in Portuguese.
 
-With a list of explanation sorted, the response object is created.
-These response will have the input string, the list of explanation, the source page and a list of links that can provide additional information.
+With a list of explanations sorted, the response object is created.
+This response will have the input string, the list of explanations, the source page and a list of links that can provide additional information.
 The list of additional information can be preset in a configuration file or generated during the web-crawling phase of the second approach
 
 (RESPONSE OBJECT CODE) %TODO
 
 \subsection{First approach}
 
-These approach was created during the development of the first prototype, also known as Minimum Value Product, that was presented in Chapter~\ref{chap:Chapter3} and consists of a web scrapping process.
+This approach was created during the development of the first prototype, also known as Minimum Value Product, that was presented in Chapter~\ref{chap:Chapter3} and consists of a web scrapping process.
 
 It starts by getting the targeted page source code using the Python library Requests\footnote{https://requests.readthedocs.io/en/master/}.
-After that, the important text is then filtered form the surrounding noise by exploring the parsed tree with the help of the Beautiful Soup 4 library, which was explained in more detail in Chapter~\ref{chap:Chapter2}.
-This extraction process is design for a specific page, so it requires to be recreated if a different page is used.
+After that, the important text is then filtered from the surrounding noise by exploring the parsed tree with the help of the Beautiful Soup 4 library, which was explained in more detail in Chapter~\ref{chap:Chapter2}.
+This extraction process is designed for a specific page, so it requires for it to be recreated if a different page is used.
 
-The following source code is an extract of the web scrapping algorithm design for the Priberam page.
+The following source code is an extract of the web scrapping algorithm designed for the Priberam page.
 
 (WS PRIBERAM CODE) %TODO
 
-In the code displayed above is show how it extracts text from the content of a very specific HTML tag.
+In the code displayed above it is shown how it extracts text from the content of a very specific HTML tag.
 
 This process will return a list of expressions per context per explanation.
 
@@ -75,7 +75,7 @@ In regards to disadvantages:
 
 \subsection{Second approach}
 
-These approach was created to utilize Information Retrieval, Information Extraction and Text Mining techniques in order to generate an explanation.
+This approach was created to utilize Information Retrieval, Information Extraction and Text Mining techniques in order to generate an explanation.
 
 It starts by utilizing a web crawler that was created using the Python library Scrapy, which was described in more detail in Chapter~\ref{chap:Chapter2}.
 This will crawl the web staring in a predefined page and will download this and all the pages in a crawl depth of 1.
@@ -85,9 +85,9 @@ In this case it will only access the subpages of the starting page.
 (Spider CODE) %TODO
 
 All the pages are stored locally with their origin link as first line.
-This will be latter used to create the API response object.
+This will be later used to create the API response object.
 
-After the web crawling its time for the web scrapping to extract relevant text from the surrounding noise.
+After the web crawling, it's time for the web scrapping to extract relevant text from the surrounding noise.
 Unlike the web scrapping in the previous approach, this will process multiple pages so it wouldn't be able to target the relevant text.
 Thus it will remove the HTML tags, remove the brackets from the text and extra spaces.
 The cleared pages are then stored locally.
@@ -96,14 +96,14 @@ The cleared pages are then stored locally.
 
 The last and most important part of this approach is the text summarization that was created using the Python library NLTK, which was described in more detail in Chapter~\ref{chap:Chapter2}.
 Also as mentioned in Chapter~\ref{chap:Chapter2} there are two methods to perform text summarization, extraction and abstraction.
-In this approach it was utilized an extractive methodology because it tends to produce summaries specific and not redundant\cite{cheung2008comparing}.
+In this approach, an extractive methodology was used because it tends to produce summaries specific and not redundant\cite{cheung2008comparing}.
 
-The text summarization process starts by calculate the word frequency of all the words in the content text.
-For this it will first tokenize the words of the text and count the number of occurrences of each word, ignoring stop words and punctuation.
-Then it will divide the number of occurrences of each words by the number of the most occurring word.
+The text summarization process starts by calculating the word frequency of all the words in the content text.
+For this, it will first tokenize the words of the text and count the number of occurrences of each word, ignoring stop words and punctuation.
+Then it will divide the number of occurrences of each word by the number of the most occurring word.
 
-After having the word frequency it will calculate the weighted frequency of each sentence.
-To accomplish this, first it will tokenize the content into sentences.
+After having the word frequency, it will calculate the weighted frequency of each sentence.
+To accomplish this, first, it will tokenize the content into sentences.
 Then it will find the weighted frequency of each sentence by adding the frequency of each word that compose the sentence.
 
 (TEXT SUMMARIZATION CODE) %TODO
@@ -115,7 +115,7 @@ This value may be altered in the summarization configuration.
 
 (RETURN CODE EXAMPLE) %TODO
 
-When this approach is used to generate and alternative explanation which is the case for Portuguese it will take in consideration the context of the previous explanation.
+When this approach is used to generate an alternative explanation, which is the case for Portuguese it will take in consideration the context of the previous explanation.
 For this, the text summarization will also sort the sentences in crescent order of similarity between the original sentence and each of the sentences of the summary.
 The similarity is calculated using the cosine similarity using the following formula:
 
@@ -127,7 +127,7 @@ The similarity is calculated using the cosine similarity using the following for
 The main advantages of this approach are the following:
 \begin{itemize}
         \item It is capable of finding much more results.
-        \item It can be used for any initial page without needing especial configurations.
+        \item It can be used for any initial page without needing special configurations.
 \end{itemize}
 
 In regards to disadvantages:
@@ -145,7 +145,7 @@ This score indicates how easily a reader would comprehend the text that he's rea
 There are multiple formulas that could be used for calculating this score in Portuguese, as shown in Chapter~\ref{chap:Chapter2}.
 However, there is none for the \gls{LGP}.
 
-When looking at the readability formulas for Portuguese, it is easy to notice that, all of them take in consideration the same variables, which are common in every written text: characters, complex words, syllables, words and sentences.
+When looking at the readability formulas for Portuguese, it is easy to notice that, all of them take into consideration the same variables, which are common in every written text: characters, complex words, syllables, words and sentences.
 
 After analyzing the \gls{LGP} signs, with the goal of creating a new readability calculation formula, all the shared variables where identified:
 
@@ -187,7 +187,7 @@ In the Table \ref{table:signs} is shown an example of some signs and their reada
     \end{tabular}
 \end{table}
 
-In order to calculate the score of an entire sentence, the sum of the scores of each word were divided by the number of words in the sentence, creating the following formula:
+In order to calculate the score of an entire sentence, the formula was change to compute the average word readability score for the set of words in that sentence, as shown in Equation~\ref{sentenceScore}.
 
 \begin{equation}
     \frac{(0.7 \times CF + 0.3 \times MT + 1 \times FE) \times (0.5 \times HS)}{WO}
