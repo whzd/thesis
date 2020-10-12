@@ -241,17 +241,17 @@ In the Table~\ref{table:sentences} is shown an example of some sentences and the
 
 The Web Application is responsible for providing a user interface to interact with the Explanation API.
 It was developed using React, an open source JavaScript framework, which was explained in more detail in Chapter~\ref{chap:Chapter2}.
-The skeleton of this singe page application was created using the Create React App\footnote{https://github.com/facebook/create-react-app} toolchain.
+The skeleton of this single page application was created using the Create React App\footnote{https://github.com/facebook/create-react-app} toolchain.
 
-One of the most useful features of the React framework is the utilization of components, like so the user interface of this application is composed by five different components.
+One of the most useful features of the React framework is the utilization of components, as such, the user interface of this application is composed by five different components.
 
 \begin{itemize}
     \item \textbf{App} - This is the main component of the application.
         It is responsible for setting the position and order in which the other components are to be displayed.
-    \item \textbf{Avatar} - This component function was to take the plain text and display the avatar performing the translation, but since it was not integrated it only displays a mock image.
+    \item \textbf{Avatar} - This component function was to take the plain text and display the avatar performing the translation, but since it was not integrated, it only displays a mock image.
     \item \textbf{Display} - This component is responsible for displaying the results provided by the Explanation API.
         A result is composed by: the explanation in plain text, a button to show images related to the explanation, a button to display the avatar component, the calculated readability score and two buttons to provide feedback to the generated explanation.
-        The images related are obtained using the Google search for images using, the explanation string.
+        The images related, are obtained using the Google search for images using the explanation string.
         The negative feedback button displays the user a option to generate a new explanation.
     \item \textbf{Navbar} - This component presents the title of the application and the project logo, as well as the language menu.
         This language menu allows the user to easily change the application language.
@@ -265,9 +265,9 @@ The following image shows the source code of the X component were this features 
 
 (COMPONENT X SOURCE CODE) %TODO
 
-The visual aspect of each components was based in components provided by the antd\footnote{https://ant.design/docs/react/introduce} library, and were altered to meet the needs of the targeted audience.
+The visual aspect of each of the components was based in components provided by the antd\footnote{https://ant.design/docs/react/introduce} library, and were altered to meet the needs of the targeted audience.
 All of the components were also structured to be responsive even though this was not one of the requirements.
-The following image shows the user interface were is easy to identify each component.
+The following image shows the user interface were it is easy to identify each component.
 
 (WEBAPP IMAGE) %TODO
 
@@ -277,10 +277,11 @@ This section presents all the tasks performed during the deployment of the proje
 
 As initially expected, the DEI-ISEP provided a linux server running the Ubuntu distribution for hosting this project.
 This server was configured with all the technologies and framework used during development that were required to run the Web Application and the Explanation API, such as Python 3, Node.js, React, NLTK, etc.
-In order for the solution to always available it was required extra configuration.
+In order for the solution to be always available it was required some extra configuration.
 
 PM2\footnote{https://pm2.keymetrics.io/} is an open source daemon process manager for Node.js applications.
 This was the solution used to keep the Web Application running in the server.
+The Figure~\ref{fig:pm2} presents the list of managed applications and some of their details.
 
 \begin{figure}[H]
 \centering
@@ -289,12 +290,12 @@ This was the solution used to keep the Web Application running in the server.
 \label{fig:pm2}
 \end{figure}
 
-The Figure~\ref{fig:pm2} show the list of managed application and some of their details.
-EAC is the name given to the Web Application and in the PM2 configuration.
+The EAC, shown in the image above, is the name given to the Web Application and in the PM2 configuration.
 The figure also shows that the application was up for the last 48 days, and that it was automatically restarted 4 times.
 
 In regards to the Explanation API, it was created a Systemd service.
 Systemd is a initialization system and service manager native to many Linux distributions such as Ubuntu.
+In the Listing~\ref{lst:explanation-service} is shown the configuration required to create the service for the Explanation API.
 
 \begin{center}
 \begin{minipage}{0.95\linewidth}
@@ -304,11 +305,11 @@ label=lst:explanation-service]
 \end{minipage}
 \end{center}
 
-In the Listing~\ref{lst:explanation-service} is shown the configuration required to create the service for the Explanation API.
-With this service Systemd will manage the API, and will automatically restart it if goes down.
+With this service, Systemd will manage the API, and will automatically restart it if goes down.
 
 To allow both the Web Application and the Explanation API to be accessible through HTTP it was required to set up a reverse proxy using nginx\footnote{https://nginx.org/en/}.
-A reverse proxy is an server sided intermediary server that forwards a user request to the available web servers.
+A reverse proxy is a server sided intermediary server that forwards a user request to the available web servers.
+The Listing~\ref{lst:reverse-proxy} displays the configuration of the reverse-proxy created.
 
 \begin{center}
 \begin{minipage}{0.95\linewidth}
@@ -318,10 +319,11 @@ label=lst:reverse-proxy]
 \end{minipage}
 \end{center}
 
-As shown in the Listing~\ref{lst:reverse-proxy}, the requests made to the "search" endpoint are forward to the Explanation API while the requests to the base endpoint are forward to the Web Application.
+As shown in the configuration file, the requests made to the "search" endpoint are forwarded to the Explanation API while the requests to the base endpoint are forwarded to the Web Application.
 
-In order to protect the integrity and improve the security of this application the HTTPS protocol was enable in the reverse proxy server.
-This was accomplish by using Certbot\footnote{https://certbot.eff.org/} which automatically enables HTTPS in a server running in the HTTP port by deploying Let's Encrypt\footnote{https://letsencrypt.org/} certificates.
+In order to protect the integrity and improve the security of this application, the HTTPS protocol was enabled in the reverse proxy server.
+This was accomplished by using Certbot\footnote{https://certbot.eff.org/} which automatically enables HTTPS in a server running in the HTTP port by deploying Let's Encrypt\footnote{https://letsencrypt.org/} certificates.
+The Listing~\ref{lst:reverse-proxy-certbot} shows an excerpt of the changes made by Cerbot to enable the HTTPS protocol.
 
 \begin{center}
 \begin{minipage}{0.95\linewidth}
@@ -331,21 +333,19 @@ label=lst:reverse-proxy-certbot]
 \end{minipage}
 \end{center}
 
-The Listing~\ref{lst:reverse-proxy-certbot} shows an excerpt of the changes made by Cerbot to enable the HTTPS protocol.
-
 \section{Design Changes}
 
 This section will present how the original design changed during the implementation.
 The integration with the avatar API and Database was not possible to be implemented, this had a great impact on how the solution ended up being implemented.
-Without this two components, the "US03: Display sign language translation" was able to be implemented.
+Without this two components, the "US03: Display sign language translation" wasn't able to be implemented.
 
 The developed \gls{LGP} formula also depended on the Avatar Database to access the sign data, this was able to still be implemented by using a local database.
 
-The design of the "US04: Change language" had no alteration made during the implemented thus it wont be featured in this section.
+The design of the "US04: Change language" had no alterations made during the implementation thus it wont be featured in this section.
 
 \subsection{Logic view}
 
-The changes made to the component diagram presented in Chapter~\ref{chap:Chapter4} are shown in the following diagram.
+The changes made to the component diagram, presented in Chapter~\ref{chap:Chapter4}, are displayed in the Figure~\ref{fig:componentImp} diagram .
 
 \begin{figure}[H]
 \centering
@@ -354,7 +354,7 @@ The changes made to the component diagram presented in Chapter~\ref{chap:Chapter
 \label{fig:componentImp}
 \end{figure}
 
-Shown in Figure~\ref{fig:componentImp} is the component diagram of the solution implemented.
+The above image shows the component diagram of the solution implemented.
 Without the avatar components, there was still a need for a database since the \gls{LGP} formula required sign data to perform the calculation of the readability of each explanation, and this score was a key factor.
 This database was seeded with the sign data from the Portuguese table of the Avatar Database.
 
@@ -364,6 +364,8 @@ In this section the implemented use cases are presented to better understand the
 
 \subsubsection{US01: Find explanation}
 
+In the sequence diagram of Figure~\ref{fig:uc01Imp1} is shown the first approach to obtain an explanation as previously described.
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.45]{ch5/assets/US01_SD_Implement_Ap1.png}
@@ -371,11 +373,12 @@ In this section the implemented use cases are presented to better understand the
 \label{fig:uc01Imp1}
 \end{figure}
 
-In the sequence diagram of Figure~\ref{fig:uc01Imp1} is shown the first approach to obtain an explained previously explained.
 This is very different from the diagram presented in the previous chapter since it only resorts to web scrapping to generate explanations.
 Also, instead of the design verification it will calculate the readability score of each expression.
 For this calculation it queries the local Database file instead of querying the Avatar Database like it was initially designed.
 This score is used to sort the explanations is a crescent order.
+
+The sequence diagram displayed in Figure~\ref{fig:uc01Imp2} describes the second approach previously explained.
 
 \begin{figure}[H]
 \centering
@@ -384,11 +387,12 @@ This score is used to sort the explanations is a crescent order.
 \label{fig:uc01Imp2}
 \end{figure}
 
-The sequence diagram displayed in Figure~\ref{fig:uc01Imp2} describes the second approach previously explained.
 This is very similar to the diagram presented in Chapter~\ref{chap:Chapter4}.
 The main difference is that, like in the first approach, instead of performing a verification to the generated explanation it calculates the readability score and use it to sort the explanations.
 
 \subsubsection{US02: Obtain alternative explanation}
+
+In Figure~\ref{fig:uc02Imp} sequence diagram is shown the implemented process for obtaining a new explanation.
 
 \begin{figure}[H]
 \centering
@@ -397,14 +401,13 @@ The main difference is that, like in the first approach, instead of performing a
 \label{fig:uc02Imp}
 \end{figure}
 
-In Figure~\ref{fig:uc02Imp} sequence diagram is shown the implemented process for obtaining a new explanation.
 This is also very similar to the diagram presented in Chapter~\ref{chap:Chapter4}.
 The main difference is that it requests the text summarization system to sort the new explanation based on similarity as previously mentioned.
-No note that to generate new explanation, this will always use the second approach.
+It's important to refer that to generate a new explanation, the system will always use the second approach.
 
 \subsection{Deployment view}
 
-The changes made to the deployment diagram presented in Chapter~\ref{chap:Chapter4} are shown in the following diagram.
+The changes made to the deployment diagram, presented in Chapter~\ref{chap:Chapter4}, are presented in the Figure~\ref{fig:deployImp} diagram.
 
 \begin{figure}[H]
 \centering
@@ -413,5 +416,5 @@ The changes made to the deployment diagram presented in Chapter~\ref{chap:Chapte
 \label{fig:deployImp}
 \end{figure}
 
-Shown in Figure~\ref{fig:deployImp} is the deployment diagram of the implemented solution.
-As approached throughout this section there is no integration with the Avatar technology, therefor the only change is that there is no interaction with the gilt server.
+Shown in the above image is the deployment diagram of the implemented solution.
+As approached throughout this section there is no integration with the Avatar technology, therefore the only change is that there is no interaction with the GILT server.
