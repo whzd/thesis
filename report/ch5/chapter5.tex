@@ -187,15 +187,36 @@ In the Table \ref{table:signs} is shown an example of some signs and their reada
     \end{tabular}
 \end{table}
 
-In order to calculate the score of an entire sentence, the formula was change to compute the average word readability score for the set of words in that sentence, as shown in Equation~\ref{sentenceScore}.
+In order to calculate the score of an entire sentence, the formula was changed, to compute the average word readability score for the set of words in that sentence, as shown in Equation~\ref{sentenceScore}.
 
 \begin{equation}
     \frac{(0.7 \times CF + 0.3 \times MT + 1 \times FE) \times (0.5 \times HS)}{WO}
 \label{sentenceScore}
 \end{equation}
 
-This formula is used to calculate the readability score of the generated explanations.
-In the Table~\ref{table:sentences} is shown an example of some sentences and their readability score.
+During the test phase, this formula produced values ranging from 1 to 12.
+However, there is no upper limit, so in theory, the score could go higher than that.
+The difficulty associated with the resulting score is defined in the Table~\ref{table:readabilityScale}.
+
+\begin{table}[H]
+    \centering
+    \caption{Readability score scale.}
+    \label{table:readabilityScale}
+    \begin{tabular}{m{3cm}|m{3cm}}
+        {\bfseries Score} & {\bfseries Difficulty} \\
+        \hline
+        1.000--3.000 & Easy\\
+        \hline
+        3.001--7.000 & Medium  \\
+        \hline
+        >7.000 & Hard \\
+        \hline
+    \end{tabular}
+\end{table}
+
+As shown in the above table, as the score increases, so does the difficulty level for a \gls{LGP} user to understand the signs performed during the translation of a sentence to \gls{LGP}.
+Unlike the readability formulas shown in Chapter~\ref{chap:Chapter2}, this doesn't have a direct relation with the education level required to fully understand a sentence.
+In the Table~\ref{table:sentences} is shown an example of some sentences and their calculated readability score.
 
 \begin{table}[H]
     \centering
@@ -358,7 +379,7 @@ This score is used to sort the explanations is a crescent order.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth,keepaspectratio]{ch5/assets/US01_SD_Implement_Ap2.png}
+\includegraphics[width=\textwidth]{ch5/assets/US01_SD_Implement_Ap2.png}
 \caption[Sequence Diagram US01 Second Approach]{Sequence Diagram - US01 Second Approach}
 \label{fig:uc01Imp2}
 \end{figure}
