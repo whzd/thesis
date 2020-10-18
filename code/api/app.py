@@ -47,8 +47,6 @@ def matchResults(definition, sort):
     matches = []
     # Results
     for i in range(0,len(definition)):
-        # Context results
-        matchContext = []
         # Single result
         explScore = {}
         # Each context
@@ -57,10 +55,9 @@ def matchResults(definition, sort):
             explScore[definition[i][j]] = score
         # Sort context explanation
         if sort:
-            matchContext.append(sortDefinitions(explScore))
+            matches.append(sortDefinitions(explScore))
         else:
-            matchContext.append(explScore)
-        matches.append(matchContext)
+            matches.append(explScore)
     return matches
 
 # Get the LGP sign data for each char of a word
@@ -108,8 +105,7 @@ def sentenceLGPReadabilityScore(sentence):
 
 # Sort a dictionary in ascending order of values
 def sortDefinitions(dictionary):
-    sorting = OrderedDict(sorted(dictionary.items(), key=lambda x: x[1]))
-    return sorting
+    return OrderedDict(sorted(dictionary.items(), key=lambda x: x[1]))
 
 # Create response object
 def buildResponse(expression, definition):

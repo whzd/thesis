@@ -27,7 +27,7 @@ class Navbar extends Component {
             <div className="Navbar">
             <Dropdown overlay={menu}>
             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                    Língua <DownOutlined />
+                    Idioma <DownOutlined />
             </a>
             </Dropdown>
             </div>

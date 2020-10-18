@@ -23,7 +23,7 @@
     font-size: calc(9px + 0.8vw);
     line-height: calc(9px + 0.8vw);
     height: calc(20px + 1vw);
-    padding: 4px;
+    padding: 3px;
 }
 
 .ant-collapse > .ant-collapse-item > .ant-collapse-header {
@@ -36,6 +36,25 @@
 .ant-collapse-content-box > p {
     font-size: calc(7px + 0.6vw);
     text-align: center;
+}
+
+#score {
+    display: inline-block;
+    font-size: calc(9px + 0.8vw);
+    font-weight: bold;
+    color: #54b7b4;
+}
+
+#score > span[difficulty="easy"]{
+    color:green;
+}
+
+#score > span[difficulty="medium"]{
+    color:goldenrod;
+}
+
+#score > span[difficulty="hard"]{
+    color:red;
 }
 
 #feedback {
