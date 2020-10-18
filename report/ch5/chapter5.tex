@@ -89,10 +89,16 @@ This will be later used to create the API response object.
 
 After the web crawling, it's time for the web scrapping to extract relevant text from the surrounding noise.
 Unlike the web scrapping in the previous approach, this will process multiple pages so it wouldn't be able to target the relevant text.
-Thus it will remove the HTML tags, remove the brackets from the text and extra spaces.
+Thus it will remove the HTML tags, remove the brackets from the text and extra spaces, as shown in Listing~\ref{lst:htmltotext}.
 The cleared pages are then stored locally.
 
-(HTMLtoTXT CODE) %TODO
+\begin{center}
+\begin{minipage}{0.95\linewidth}
+\lstinputlisting [caption=Extract of HTML to TXT.,
+label=lst:htmltotext]
+{ch5/assets/htmltotxt.py}
+\end{minipage}
+\end{center}
 
 The last and most important part of this approach is the text summarization that was created using the Python library NLTK, which was described in more detail in Chapter~\ref{chap:Chapter2}.
 Also as mentioned in Chapter~\ref{chap:Chapter2} there are two methods to perform text summarization, extraction and abstraction.
@@ -106,7 +112,15 @@ After having the word frequency, it will calculate the weighted frequency of eac
 To accomplish this, first, it will tokenize the content into sentences.
 Then it will find the weighted frequency of each sentence by adding the frequency of each word that compose the sentence.
 
-(TEXT SUMMARIZATION CODE) %TODO
+The described process is shown in the Listing~\ref{lst:summarization}.
+
+\begin{center}
+\begin{minipage}{0.95\linewidth}
+\lstinputlisting [caption=Extract of Text Summarization.,
+label=lst:summarization]
+{ch5/assets/textsumm.py}
+\end{minipage}
+\end{center}
 
 The tokenization and the stop words used in this process are built-in functions of the NLTK library.
 

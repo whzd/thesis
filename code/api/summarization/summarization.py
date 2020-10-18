@@ -26,11 +26,11 @@ for filename in os.listdir(directory):
     title = f.readline()
     content = f.read()
 
+    punctuation = punctuation + '\n'
+
     tokens = word_tokenize(content, language='portuguese')
 
     stop_words = stopwords.words('portuguese')
-
-    punctuation = punctuation + '\n'
 
     word_frequencies = {}
     for word in tokens:
