@@ -5,6 +5,7 @@ from flask_cors import CORS
 from webscraping.ws_priberam import Priberam
 from db.querydb import DBQuery
 from formula.lgp import LGPFormula
+from collections import OrderedDict
 
 app = Flask(__name__)
 CORS(app)
@@ -30,11 +31,11 @@ def search():
 
         #4. Check the number of words from the definition that are in the DB
         # sort results based on LGP readability
-        sort = False
+        sort = True
         resultsScores = matchResults(definitions, sort)
 
         #5. Present the definition with the highest number of matches
-        response_object = buildResponse(expression, definitions)
+        response_object = buildResponse(expression, resultsScores)
 
     else:
         response_object = None
@@ -52,7 +53,7 @@ def matchResults(definition, sort):
         explScore = {}
         # Each context
         for j in range(0,len(definition[i])):
-            score = sentenceLGPReadabilityScore(definition[i][j])
+            score = round(sentenceLGPReadabilityScore(definition[i][j]),3)
             explScore[definition[i][j]] = score
         # Sort context explanation
         if sort:
@@ -107,7 +108,8 @@ def sentenceLGPReadabilityScore(sentence):
 
 # Sort a dictionary in ascending order of values
 def sortDefinitions(dictionary):
-    return dict(sorted(dictionary.items(), key=lambda x: x[1]))
+    sorting = OrderedDict(sorted(dictionary.items(), key=lambda x: x[1]))
+    return sorting
 
 # Create response object
 def buildResponse(expression, definition):

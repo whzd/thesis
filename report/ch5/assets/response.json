@@ -1,0 +1,27 @@
+{"expression": "Carro",
+  "definition":
+  [
+    [
+       {
+         "Parte da maquina de escrever que se desloca lateralmente.": 2.361111111111111,
+         "Parte movel de uma maquina de impressao.": 2.528571428571429,
+         "Ventre da lagosta.": 2.5500000000000003,
+         "Vagao que corre sobre carris.": 2.58,
+         "Veiculo de rodas para transporte de pessoas ou mercadorias (ex.: carro de bois).": 2.7115384615384617,
+         "Quarenta (falando-se dos anos de idade).": 3.216666666666667,
+         "Bobina para enrolar fios.": 3.225,
+         "Parte mais grossa e inferior da verga de mezena.": 3.38125,
+         "Veiculo com motor proprio, geralmente com quatro rodas, destinado a transporte de passageiros ou de carga.": 3.923333333333333,
+         "Dependencia, sujeicao.": 4.9,
+         "Parte da popa que indica a altura da agua que tem o leme.": 10.959090909090909
+       }
+    ]
+  ],
+  "source": "https://dicionario.priberam.org/carro",
+  "additionalInfo":
+  [
+    "https://www.infopedia.pt/dicionarios/lingua-portuguesa/carro",
+    "https://www.lexico.pt/carro",
+    "https://pt.wikipedia.org/wiki/carro"
+  ]
+}

@@ -1,0 +1,11 @@
+"configs":{
+  [
+    "language": "pt",
+    "approach": "webscrapping",
+    "file": "ws_priberam.py"
+  ],
+  [
+    "language": "en",
+    "approach": "summarization"
+  ]
+}

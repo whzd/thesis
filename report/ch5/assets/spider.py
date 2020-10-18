@@ -1,6 +1,3 @@
-import scrapy
-import os.path
-
 class DefaultSpider(scrapy.Spider):
     name = "default"
 
@@ -17,19 +14,7 @@ class DefaultSpider(scrapy.Spider):
     def parse(self, response):
         page = response.url.split("/")[-1].replace(" ", "")
         self.saveFile(page, response.body)
-        for next_page in response.css('div.mw-parser-output > p > a::attr(href)').extract_first():
+        for next_page in response.css('element.mw-body-content > p > a::attr(href)').extract_first():
             if next_page is not None:
                 next_page = response.urljoin(next_page)
                 yield scrapy.Request(next_page, callback=self.parse, dont_filter=True)
-
-    def saveFile(self, pageName, pageContent):
-        tmpDir = './raw-files/'
-        filename = 'page-%s.html' % pageName
-        file_path = os.path.join(tmpDir, filename)
-        if not os.path.isdir(tmpDir):
-            os.mkdir(tmpDir)
-        with open(file_path, 'wb') as f:
-            f.write(pageContent)
-        self.log('Saved file %s' % filename)
-
-

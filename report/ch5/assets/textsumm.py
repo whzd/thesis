@@ -21,8 +21,6 @@
     sentence_scores = {}
     for s in sentence_token:
         sentence = s.split(" ")
-        #Set maximum sentence length
-        #if len(sentence) < MAX_SENT_LENGTH:
         for word in sentence:
             if word.lower() in word_frequencies.keys():
                 if s not in sentence_scores.keys():

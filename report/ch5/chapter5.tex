@@ -23,9 +23,15 @@ The second approach is a combination of web crawling, web scrapping and text sum
 For websites where the information is scattered across many pages like Wikipedia\footnote{https://pt.wikipedia.org/}, this approach is ideal.
 
 Both approaches are explained in more detail in the two following sub-sections.
-The approach to be used is set on a configuration file, and should depend on the initial source of information.
+The approach to be used is set on a configuration file, as shown in the Listing~\ref{lst:configFile}, and should depend on the initial source of information.
 
-(CONFIG FILE CODE) %TODO
+\begin{center}
+\begin{minipage}{0.95\linewidth}
+\lstinputlisting [caption=Approach config file.,
+label=lst:configFile]
+{ch5/assets/config_file.json}
+\end{minipage}
+\end{center}
 
 For Portuguese, it was used a combination of both approaches.
 The first displayed explanation will be generated using the first approach with Priberam\footnote{https://dicionario.priberam.org/} as the source page.
@@ -39,10 +45,16 @@ This formula is described in more detail in the following sub-section "LGP Reada
 Note that this was specifically developed for the \gls{LGP} so it it will only be used for explanations generated in Portuguese.
 
 With a list of explanations sorted, the response object is created.
-This response will have the input string, the list of explanations, the source page and a list of links that can provide additional information.
+This response will have the input string, the list of explanations, the source page and a list of links that can provide additional information, as shown in Listing~\ref{lst:response}.
 The list of additional information can be preset in a configuration file or generated during the web-crawling phase of the second approach
 
-(RESPONSE OBJECT CODE) %TODO
+\begin{center}
+\begin{minipage}{0.95\linewidth}
+\lstinputlisting [caption=Response object for the word "Carro".,
+label=lst:response]
+{ch5/assets/response.json}
+\end{minipage}
+\end{center}
 
 \subsection{First approach}
 
@@ -52,15 +64,27 @@ It starts by getting the targeted page source code using the Python library Requ
 After that, the important text is then filtered from the surrounding noise by exploring the parsed tree with the help of the Beautiful Soup 4 library, which was explained in more detail in Chapter~\ref{chap:Chapter2}.
 This extraction process is designed for a specific page, so it requires for it to be recreated if a different page is used.
 
-The following source code is an extract of the web scrapping algorithm designed for the Priberam page.
+The Listing~\ref{lst:ws} presents the web scrapping algorithm designed for the Priberam page.
 
-(WS PRIBERAM CODE) %TODO
+\begin{center}
+\begin{minipage}{0.95\linewidth}
+\lstinputlisting [caption=Extract of Priberam webscraping code.,
+label=lst:ws]
+{ch5/assets/ws.py}
+\end{minipage}
+\end{center}
 
-In the code displayed above it is shown how it extracts text from the content of a very specific HTML tag.
+In the code displayed above it is shown how it extracts text from the content of very specifics HTML tags.
 
-This process will return a list of expressions per context per explanation.
+This process will return a list of expressions per context per explanation, as shown in the Listing~\ref{lst:resultWs}.
 
-(RESULT CODE) %TODO
+\begin{center}
+\begin{minipage}{0.95\linewidth}
+\lstinputlisting [caption=Example of the result of the Priberam webscraping for the word "Cão".,
+label=lst:resultWs]
+{ch5/assets/result_ws.json}
+\end{minipage}
+\end{center}
 
 The main advantages of this approach are the following:
 \begin{itemize}
@@ -78,11 +102,17 @@ In regards to disadvantages:
 This approach was created to utilize Information Retrieval, Information Extraction and Text Mining techniques in order to generate an explanation.
 
 It starts by utilizing a web crawler that was created using the Python library Scrapy, which was described in more detail in Chapter~\ref{chap:Chapter2}.
-This will crawl the web staring in a predefined page and will download this and all the pages in a crawl depth of 1.
+This will crawl the web staring in a predefined page and will download this and all the pages in a crawl depth of 1, as shown in Listing~\ref{lst:spider}.
 The crawl depth is the level of subpages the web crawler will access that originated from the starting page, it is comparable to folders and their subfolders.
 In this case it will only access the subpages of the starting page.
 
-(Spider CODE) %TODO
+\begin{center}
+\begin{minipage}{0.95\linewidth}
+\lstinputlisting [caption=Extract of the Scrapy spider code.,
+label=lst:spider]
+{ch5/assets/spider.py}
+\end{minipage}
+\end{center}
 
 All the pages are stored locally with their origin link as first line.
 This will be later used to create the API response object.
@@ -94,7 +124,7 @@ The cleared pages are then stored locally.
 
 \begin{center}
 \begin{minipage}{0.95\linewidth}
-\lstinputlisting [caption=Extract of HTML to TXT.,
+\lstinputlisting [caption=Extract of HTML to TXT code.,
 label=lst:htmltotext]
 {ch5/assets/htmltotxt.py}
 \end{minipage}
@@ -116,7 +146,7 @@ The described process is shown in the Listing~\ref{lst:summarization}.
 
 \begin{center}
 \begin{minipage}{0.95\linewidth}
-\lstinputlisting [caption=Extract of Text Summarization.,
+\lstinputlisting [caption=Extract of text summarization code.,
 label=lst:summarization]
 {ch5/assets/textsumm.py}
 \end{minipage}
@@ -126,8 +156,15 @@ The tokenization and the stop words used in this process are built-in functions 
 
 To finalize this process, it creates a summary using the top seven weighted sentences.
 This value may be altered in the summarization configuration.
+The following paragraph presents the summary generated for the mango Wikipedia page in Portuguese.
 
-(RETURN CODE EXAMPLE) %TODO
+\textit{"A manga é a fruta nacional da Índia, onde há mais de 100 variedades, Filipinas e Paquistão.
+Agentes patogénicos podem provocar diversos tipos de doenças, podendo causar pesadas perdas na produção de mangahopper .
+São encontradas menções a ela em canções do século IV em poemas escritos em sânscrito, por poetas como Kalidasa.
+Acredita-se que a manga é a fruta fresca mais consumida em todo o mundo.
+Devem ser plantadas em uma área com boa drenagem e um solo ligeiramente ácido.
+A polpa é suculenta e muito saborosa, em alguns casos fibrosa, doce, encerrando uma única semente grande no centro.
+Podem ser cultivadas em climas tropicais e subtropicais."}
 
 When this approach is used to generate an alternative explanation, which is the case for Portuguese it will take in consideration the context of the previous explanation.
 For this, the text summarization will also sort the sentences in crescent order of similarity between the original sentence and each of the sentences of the summary.
@@ -275,9 +312,15 @@ One of the most useful features of the React framework is the utilization of com
 \end{itemize}
 
 The other two key features of the React framework, JSX and VirtualDOM, were also very useful when creating a component.
-The following image shows the source code of the X component were this features were used. %TODO FIX X
+The Listing~\ref{lst:component} shows the source code of the Avatar component were this features were used.
 
-(COMPONENT X SOURCE CODE) %TODO
+\begin{center}
+\begin{minipage}{0.95\linewidth}
+\lstinputlisting [caption=Extract of Avatar Component.,
+label=lst:component]
+{ch5/assets/component.js}
+\end{minipage}
+\end{center}
 
 The visual aspect of each of the components was based in components provided by the antd\footnote{https://ant.design/docs/react/introduce} library, and were altered to meet the needs of the targeted audience.
 All of the components were also structured to be responsive even though this was not one of the requirements.
