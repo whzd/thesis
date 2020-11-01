@@ -17,10 +17,21 @@ class DefaultSpider(scrapy.Spider):
     def parse(self, response):
         page = response.url.split("/")[-1].replace(" ", "")
         self.saveFile(page, response.body)
-        for next_page in response.css('div.mw-parser-output > p > a::attr(href)').extract_first():
-            if next_page is not None:
+        print("===========================")
+        followUps = response.xpath('/html/body/div[3]/div[3]/div[5]/div[1]//a/@href').extract()
+        #followUps = response.css('div.mw-parser-output > p > a::attr(href)').extract()
+
+        for next_page in followUps:
+            if (next_page is not None) and (next_page.startswith('/wiki')):
+                print("===========================")
+                print(next_page)
+                print("===========================")
                 next_page = response.urljoin(next_page)
                 yield scrapy.Request(next_page, callback=self.parse, dont_filter=True)
+        #for next_page in followUps:
+        #    if next_page is not None:
+        #        next_page = response.urljoin(next_page)
+        #        yield scrapy.Request(next_page, callback=self.parse, dont_filter=True)
 
     def saveFile(self, pageName, pageContent):
         tmpDir = './raw-files/'

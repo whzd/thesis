@@ -6,7 +6,7 @@ directory = './raw-files/'
 
 # Average number of character in a sentence in English (75-100)
 # Minimum number of character a sentence must have in order to be accepted
-MIN_CHAR = 50
+MIN_CHAR = 40
 
 for filename in os.listdir(directory):
 
@@ -32,12 +32,13 @@ for filename in os.listdir(directory):
 
     title = soup.find('title').text.strip()
 
-    newDirectory = './files/'
-    newFilename = '%s.txt' % filename.split('.')[0]
-    new_file_path = os.path.join(newDirectory, newFilename)
-    if not os.path.isdir(newDirectory):
-        os.mkdir(newDirectory)
-    with open(new_file_path, 'w') as f:
-        f.write(title)
-        f.write('\n')
-        f.write(text)
+    if(text != ''):
+        newDirectory = './files/'
+        newFilename = '%s.txt' % filename.split('.')[0]
+        new_file_path = os.path.join(newDirectory, newFilename)
+        if not os.path.isdir(newDirectory):
+            os.mkdir(newDirectory)
+        with open(new_file_path, 'w') as f:
+            f.write(title)
+            f.write('\n')
+            f.write(text)
