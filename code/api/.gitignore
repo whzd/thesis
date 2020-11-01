@@ -1,0 +1,8 @@
+# Ignore webcrawling generated files
+raw-files/
+
+# Ignore html to txt converted files
+files/
+
+# Ignore summaries folder
+summaries/

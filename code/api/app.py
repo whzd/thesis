@@ -1,11 +1,15 @@
 import unidecode
 import string
+import scrapy
+import subprocess
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from webscraping.ws_priberam import Priberam
 from db.querydb import DBQuery
 from formula.lgp import LGPFormula
 from collections import OrderedDict
+from scrapy.crawler import CrawlerProcess
+from summarization.spiders.default_spider import DefaultSpider
 
 app = Flask(__name__)
 CORS(app)
@@ -119,6 +123,36 @@ def buildResponse(expression, definition):
                 'source' : priberam,
                 'additionalInfo' : info}
     return response
+
+@app.route('/summarization')
+def summarization():
+
+    expression = request.args.get('query')
+    prevSentence = request.args.get('sim')
+    startingPage = "https://pt.wikipedia.org/wiki/"
+
+    if(expression != ""):
+
+        subprocess.call(['rm', '-r', 'files', 'raw-files', 'summaries'])
+        print("Remove Previous Search done")
+        subprocess.call(['scrapy', 'runspider', 'summarization/spiders/default_spider.py', "--nolog", "-a", f"link={startingPage}", "-a", f"target={expression}"])
+        print("Crawler done")
+        subprocess.call(['python', 'summarization/htmlToTxt.py'])
+        print("HTML to TXT done")
+        subprocess.call(['python', "summarization/summarization.py"])
+        print("Summarization done")
+        response_object= "teste"
+
+        #if(prevSentence != ""):
+            # calculate cosine similarity
+            #similarDefinitions = similarity(prevSentence)
+
+            # Calculate the score and sort the similar Definitions
+            #sort = True
+            #resultsDefinitions = matchResults(similarDefinitions, sort)
+    else:
+        response_object = None
+    return jsonify(response_object)
 
 if __name__ == "__main__":
     app.run(debug=True)
