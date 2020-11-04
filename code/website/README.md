@@ -10,11 +10,15 @@ It is required to have [Node.js](https://nodejs.org/en/) installed for this appl
 
 All the dependencies are automatically installed using the following command:
 
-`npm install`
+```bash
+npm install
+```
 
 After installation, the app can be run in the development mode, using the following command:
 
-`npm start`
+```bash
+npm start
+```
 
 It will automatically open a browser page at [http://localhost:3000](http://localhost:3000) to view it.
 
@@ -34,22 +38,26 @@ The following image, shows how each component is integrated in the app.
 
 **Color subtitle:**
 
-![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+) app
-![#ff8000](https://via.placeholder.com/15/ff8000/000000?text=+) avatar
-![#0000ff](https://via.placeholder.com/15/0000ff/000000?text=+) display
-![#ff00ff](https://via.placeholder.com/15/ff00ff/000000?text=+) navbar
-![#00ff00](https://via.placeholder.com/15/00ff00/000000?text=+) search
+* ![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+) app
+* ![#ff8000](https://via.placeholder.com/15/ff8000/000000?text=+) avatar
+* ![#0000ff](https://via.placeholder.com/15/0000ff/000000?text=+) display
+* ![#ff00ff](https://via.placeholder.com/15/ff00ff/000000?text=+) navbar
+* ![#00ff00](https://via.placeholder.com/15/00ff00/000000?text=+) search
 
 ## Other Available Scripts
 
 In the project directory, you can run:
 
-### `npm test`
+```bash
+npm test
+```
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+```bash
+npm run build
+```
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -59,7 +67,9 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+```bash
+npm run eject
+```
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
