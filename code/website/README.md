@@ -1,16 +1,48 @@
+# Website
+
+This folder contains the files responsible for creating the WebApp.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## How to run the WebApp
+
+It is required to have [Node.js](https://nodejs.org/en/) installed for this application.
+
+All the dependencies are automatically installed using the following command:
+
+`npm install`
+
+After installation, the app can be run in the development mode, using the following command:
+
+`npm start`
+
+It will automatically open a browser page at [http://localhost:3000](http://localhost:3000) to view it.
+
+The page will reload after saved edits.
+It will also show any lint errors in the console.
+
+## Content
+
+All the developed files are in the `src` folder which has the following content:
+
+* apis - Contains the [axios](https://www.npmjs.com/package/axios) connection to the API.
+* assets - Contains the assets to be used in the webapp, namely fonts and images.
+* components - Contains all the created react components.
+The following image, shows how each component is integrated in the app.
+
+![component_distribution](../../diagrams/webapp_components_destribution.png)
+
+**Color subtitle:**
+
+![#ff0000](https://via.placeholder.com/15/ff0000/000000?text=+) app
+![#ff8000](https://via.placeholder.com/15/ff8000/000000?text=+) avatar
+![#0000ff](https://via.placeholder.com/15/0000ff/000000?text=+) display
+![#ff00ff](https://via.placeholder.com/15/ff00ff/000000?text=+) navbar
+![#00ff00](https://via.placeholder.com/15/00ff00/000000?text=+) search
+
+## Other Available Scripts
 
 In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
 ### `npm test`
 
@@ -37,32 +69,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
