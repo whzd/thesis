@@ -15,7 +15,7 @@ nltk.download('stopwords')
 directory = './files/'
 # Set number of sentences the summary should have
 MAX_SUMM_LENGHT = 7
-# Set maximum sentence length
+# Set maximum sentence length in characters
 #MAX_SENT_LENGTH = 30
 
 for filename in os.listdir(directory):

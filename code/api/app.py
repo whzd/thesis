@@ -10,10 +10,13 @@ from formula.lgp import LGPFormula
 from collections import OrderedDict
 from scrapy.crawler import CrawlerProcess
 from summarization.spiders.default_spider import DefaultSpider
+from summarization.similarity import Similarity
 
 app = Flask(__name__)
 CORS(app)
 app.config['JSON_AS_ASCII'] = False
+app.config['PREV_SEARCH'] = ''
+
 
 @app.route('/')
 def index():
@@ -128,26 +131,32 @@ def buildResponse(expression, definition):
 def summarization():
 
     expression = request.args.get('query')
-    prevSentence = request.args.get('sim')
+    prevSentence = request.args.get('prev')
     startingPage = "https://pt.wikipedia.org/wiki/"
 
     if(expression != ""):
 
-        subprocess.call(['rm', '-r', 'files', 'raw-files', 'summaries'])
-        print("Remove Previous Search done")
-        subprocess.call(['scrapy', 'runspider', 'summarization/spiders/default_spider.py', "--nolog", "-a", f"link={startingPage}", "-a", f"target={expression}"])
-        print("Crawler done")
-        subprocess.call(['python', 'summarization/htmlToTxt.py'])
-        print("HTML to TXT done")
-        subprocess.call(['python', "summarization/summarization.py"])
-        print("Summarization done")
-        response_object= "teste"
+        #  Prevent crawl for the same word twice in a row.
+        if expression != app.config['PREV_SEARCH']:
 
-        #if(prevSentence != ""):
-            # calculate cosine similarity
-            #similarDefinitions = similarity(prevSentence)
+            subprocess.call(['rm', '-r', 'files', 'raw-files', 'summaries'])
+            print("Remove Previous Search done")
 
-            # Calculate the score and sort the similar Definitions
+            subprocess.call(['scrapy', 'runspider', 'summarization/spiders/default_spider.py', "--nolog", "-a", f"link={startingPage}", "-a", f"target={expression}"])
+            print("Crawler done")
+
+            subprocess.call(['python', 'summarization/htmlToTxt.py'])
+            print("HTML to TXT done")
+
+            subprocess.call(['python', "summarization/summarization.py"])
+            print("Summarization done")
+
+        if(prevSentence != ""):
+            #  Calculate cosine similarity
+            similarDefinitions = Similarity.similarity(prevSentence)
+            response_object = similarDefinitions
+
+            #  Calculate the score and sort the similar Definitions
             #sort = True
             #resultsDefinitions = matchResults(similarDefinitions, sort)
     else:
