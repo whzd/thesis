@@ -1,20 +1,18 @@
-import unidecode
-import string
 import scrapy
 import subprocess
-from flask import Flask, jsonify, request
 from flask_cors import CORS
-from webscraping.ws_priberam import Priberam
-from db.querydb import DBQuery
-from formula.lgp import LGPFormula
+from flask import Flask, jsonify, request
 from collections import OrderedDict
+from readability import Readability
 from scrapy.crawler import CrawlerProcess
-from summarization.spiders.default_spider import DefaultSpider
+from webscraping.ws_priberam import Priberam
 from summarization.similarity import Similarity
+from summarization.spiders.default_spider import DefaultSpider
 
 app = Flask(__name__)
 CORS(app)
 app.config['JSON_AS_ASCII'] = False
+app.config['JSON_SORT_KEYS'] = False
 app.config['PREV_SEARCH'] = ''
 
 
@@ -37,82 +35,32 @@ def search():
         #axios.get(/convert?phrase=)
 
         #4. Check the number of words from the definition that are in the DB
-        # sort results based on LGP readability
-        sort = True
-        resultsScores = matchResults(definitions, sort)
+        searchResult = sortDefinitionsByReadability(definitions)
 
         #5. Present the definition with the highest number of matches
-        response_object = buildResponse(expression, resultsScores)
+        response_object = buildResponse(expression, searchResult)
 
     else:
         response_object = None
     return jsonify(response_object)
 
-# Create a dictionary of results orders by LGP readability score
-def matchResults(definition, sort):
-    # All results
-    matches = []
-    # Results
-    for i in range(0,len(definition)):
-        # Single result
-        explScore = {}
-        # Each context
-        for j in range(0,len(definition[i])):
-            score = round(sentenceLGPReadabilityScore(definition[i][j]),3)
-            explScore[definition[i][j]] = score
-        # Sort context explanation
-        if sort:
-            matches.append(sortDefinitions(explScore))
-        else:
-            matches.append(explScore)
-    return matches
 
-# Get the LGP sign data for each char of a word
-def listOfChar(queryDB, word):
-    simpleWord = unidecode.unidecode(word)
-    upperCaseWord = simpleWord.upper()
-    signData = []
-    for char in upperCaseWord:
-        signData.append(dict(queryDB.select_sign_by_word(char)))
-    return signData
-
-# Get LGP sign data of a word
-def signData(word):
-    queryDB = DBQuery()
-    queryResult = queryDB.select_sign_by_word(word)
-    if queryResult == None:
-        signData = listOfChar(queryDB, word)
-    else:
-        signData = dict(queryResult)
-    # sign = (id, word, moments, configs, facialExp, hands)
-    return signData
-
-# Calculate the LGP readability score of a sign
-def wordLGPReadabilityScore(signData):
-    formula = LGPFormula()
-    score = formula.readability(signData['configs'], signData['moments'], signData['hands'], signData['facialExp'])
+#  Sort the sentences of the array of arrays by their calculated readability score
+def sortDefinitionsByReadability(definitions):
+    score = []
+    for context in definitions:
+        contextScore = {}
+        for sentence in context:
+            contextScore[sentence] = Readability.sentenceReadability(sentence)
+        sorted_vec = sortDefinitions(contextScore)
+        score.append(sorted_vec)
     return score
 
-# Calculate the LGP readability score of a sentence
-def sentenceLGPReadabilityScore(sentence):
-    sentenceScore = 0
-    numberOfWords = 0
-    for word in sentence.split(' '):
-        # Removes ponctuation
-        simpleWord = word.translate(str.maketrans('', '', string.punctuation))
-        if len(simpleWord) > 1:
-            numberOfWords += 1
-            sign = signData(simpleWord)
-            if isinstance(sign, dict):
-                sentenceScore += wordLGPReadabilityScore(sign)
-            else:
-                for letter in sign:
-                    sentenceScore += wordLGPReadabilityScore(letter)
-    return sentenceScore/numberOfWords
 
 # Sort a dictionary in ascending order of values
 def sortDefinitions(dictionary):
     return OrderedDict(sorted(dictionary.items(), key=lambda x: x[1]))
+
 
 # Create response object
 def buildResponse(expression, definition):
@@ -121,11 +69,13 @@ def buildResponse(expression, definition):
     lexico = "https://www.lexico.pt/" + expression
     wikipedia = "https://pt.wikipedia.org/wiki/" + expression
     info = [ infopedia, lexico, wikipedia]
-    response = {'expression' : expression.capitalize(),
-                'definition' : definition,
-                'source' : priberam,
-                'additionalInfo' : info}
+    response = {'additionalInfo' : info,
+            'definition' : definition,
+            'expression' : expression.capitalize(),
+            'source' : priberam
+            }
     return response
+
 
 @app.route('/summarization')
 def summarization():
@@ -154,14 +104,23 @@ def summarization():
         if(prevSentence != ""):
             #  Calculate cosine similarity
             similarDefinitions = Similarity.similarity(prevSentence)
-            response_object = similarDefinitions
 
             #  Calculate the score and sort the similar Definitions
-            #sort = True
-            #resultsDefinitions = matchResults(similarDefinitions, sort)
+            resultsDefinitions = sortSimilarDefinitionsByReadability(similarDefinitions)
+
+            response_object = resultsDefinitions
     else:
         response_object = None
     return jsonify(response_object)
+
+#  Sort the sentences of the array by their calculated readability score
+def sortSimilarDefinitionsByReadability(array):
+    score = {}
+    for sentence in array:
+        score[sentence] = Readability.sentenceReadability(sentence)
+    sortedScores = sortDefinitions(score)
+    return sortedScores
+
 
 if __name__ == "__main__":
     app.run(debug=True)

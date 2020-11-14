@@ -42,6 +42,7 @@ class Similarity:
                 if "." in sentence:
                     vecSentence = sentence.split(".")
                     for newSent in vecSentence:
+                        newSent = newSent.strip()
                         if len(newSent) > Similarity.MIN_CHAR:
                             Similarity.SIMILARITY_ARRAY[newSent] = Similarity.calculateSimilarity(originalStr, newSent)
                 else:
