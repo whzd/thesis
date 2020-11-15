@@ -32,7 +32,7 @@ class Display extends Component {
 
 
                 definition = this.props.content.definition.map((item, index) => (
-                    <Board index={index} item={item} expression={this.props.content.expression}/>
+                    <Board index={index} item={item} expression={this.props.content.expression} handleAvatar={this.props.handleAvatar}/>
                 ));
 
 

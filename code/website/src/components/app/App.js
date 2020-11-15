@@ -13,7 +13,8 @@ const { Header, Footer, Content } = Layout;
 class App extends Component {
 
     state = {
-        explanations: null
+        explanations: null,
+        showAvatar: false
     }
 
     handleSubmit = async (conceptFromSearch) => {
@@ -27,6 +28,12 @@ class App extends Component {
             explanations: response.data,
         })
     };
+
+    handleAvatar = (value) => {
+        this.setState({
+           showAvatar: value
+        })
+    }
 
     render() {
         return (
@@ -47,8 +54,8 @@ class App extends Component {
                             <br />
                             <br />
                             <Row justify="center">
-                                <Col xs={ 24 } sm={ 12 } md={ 12 } lg={ 14 } xl={ 14 }><Display content={this.state.explanations}/></Col>
-                                <Col xs={ 0 } sm={ 12 } md={ 8 } lg={ 4 } xl={ 6 }><Avatar show={this.state.explanations}/></Col>
+                                <Col xs={ 24 } sm={ 12 } md={ 12 } lg={ 14 } xl={ 14 }><Display content={this.state.explanations} handleAvatar={this.handleAvatar}/></Col>
+                                <Col xs={ 0 } sm={ 12 } md={ 8 } lg={ 4 } xl={ 6 }><Avatar show={this.state.showAvatar}/></Col>
                             </Row>
                         </div>
                     </Content>

@@ -6,14 +6,11 @@ class Avatar extends Component {
 
     render() {
 
-        const isShown = this.props.show;
-        let img;
-
-        if(isShown!=null) {
-            img = <div className="mock"><img src={ mock } alt="Mock avatar"/></div>
+        if(this.props.show) {
+            var img = <div className="mock"><img src={ mock } alt="Mock avatar"/></div>
         }
         else{
-            img = ""
+            var img = ""
         }
 
         return (

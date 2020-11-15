@@ -16,7 +16,8 @@ class Board extends Component {
             dificulty: Object.values(this.props.item),
             lstLength: Object.keys(this.props.item).length,
             posix: 0,
-            loading: false
+            loading: false,
+            displayAvatar: false
         }
     }
 
@@ -28,8 +29,11 @@ class Board extends Component {
                 dificulty: Object.values(nextProps.item),
                 lstLength: Object.keys(nextProps.item).length,
                 posix: 0,
-                loading: false
+                loading: false,
+                displayAvatar: false
             })
+            this.props.handleAvatar(!this.state.displayAvatar)
+
         }
     }
 
@@ -59,6 +63,13 @@ class Board extends Component {
         }
         console.log(this.state)
     };
+
+    handleChangeAvatarValue = () => {
+        this.setState({
+            displayAvatar: !this.state.displayAvatar
+        })
+        this.props.handleAvatar(!this.state.displayAvatar)
+    }
 
     render(){
 
@@ -99,7 +110,7 @@ class Board extends Component {
                         <Card title={`${this.props.index+1}. ${this.props.expression}`} style={{ width: '90%' }}>
                             <p>{this.state.explanation[this.state.posix]}  &nbsp; <a href={`https://www.google.com/search?q=${this.state.explanation[this.state.posix]}&tbm=isch`} target="_blank" rel="noopener noreferrer"><CameraOutlined style={{ fontSize: '30 px'}} /></a></p>
                             <p>
-                                <Button type="primary">Visualizar<PlayCircleOutlined /></Button>
+                                <Button type="primary" onClick={this.handleChangeAvatarValue}>Visualizar<PlayCircleOutlined /></Button>
 
                                 <div id="score"> Índice: &nbsp;
                                 <span difficulty={dif(this.state.dificulty[this.state.posix])}>{this.state.dificulty[this.state.posix]}</span> &nbsp;
