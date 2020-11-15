@@ -12,7 +12,12 @@ class Priberam:
         source = requests.get(path, headers=Priberam.HEADERS).content
         soup = BeautifulSoup(source, "lxml")
         results = []
-        notFound = soup.find('div', {'class': 'alert alert-info'})
+        sublteTest = soup.find('div', {'id': 'resultados'})
+        notFoundSubtle = sublteTest.find_next('b').text.strip()
+        if(notFoundSubtle == "Palavra não encontrada"):
+            notFound = notFoundSubtle
+        else:
+            notFound = soup.find('div', {'class': 'alert alert-info'})
         if(notFound==None):
             multipleContexts = soup.find('sup')
             if ' ' in string :
