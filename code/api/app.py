@@ -31,7 +31,7 @@ def search():
         #2. Get the definitions of the word
         definitions = Priberam.scrap(expression)
 
-        if definitions[0][0] == "Não foram encontrados resultados.":
+        if definitions[0][0] == "Não foram encontrados resultados." or definitions[0][0] == "Funcionalidade ainda não implementada.":
             return jsonify(definitions[0][0])
 
         #3. Get the glosa of each definition

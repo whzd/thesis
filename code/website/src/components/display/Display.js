@@ -2,13 +2,31 @@ import React, { Component } from 'react';
 import { Collapse,  Alert } from 'antd';
 import './Display.css';
 import Board from '../board/Board.js';
+import i18n from '../../i18next';
 
 const { Panel } = Collapse;
 
 
 class Display extends Component {
 
+    constructor(props){
+        super(props)
+        this.state = {
+            language: this.props.language
+        }
+    }
+
+    componentWillUpdate(nextprops) {
+        if(nextprops.language !== this.props.language){
+            this.setState({
+                language: nextprops.language
+            })
+        }
+    }
+
     render() {
+
+        let lng = this.state.language
 
         let displayContent
         let moreInfo
@@ -18,11 +36,18 @@ class Display extends Component {
             console.log(this.props.content)
             if (this.props.content === "Não foram encontrados resultados."){
                 displayContent = <div><Alert
-                message="Erro!"
-                description="Não foram encontrados resultados."
+                message={ i18n.t('display.notFound.title', { lng }) }
+                description={ i18n.t('display.notFound.msg', { lng }) }
                 type="error"
                 showIcon
             /></div>
+            }else if(this.props.content === "Funcionalidade ainda não implementada."){
+                displayContent = <div>
+                    <Alert message={ i18n.t('display.notSupported.title', { lng }) }
+                    description={ i18n.t('display.notSupported.msg', { lng }) }
+                    type="warning"
+                    showIcon/>
+                    </div>
             }else{
 
 
@@ -32,7 +57,7 @@ class Display extends Component {
 
 
                 definition = this.props.content.definition.map((item, index) => (
-                    <Board index={index} item={item} expression={this.props.content.expression} handleAvatar={this.props.handleAvatar}/>
+                    <Board index={index} item={item} expression={this.props.content.expression} handleAvatar={this.props.handleAvatar} handleLanguageChange={this.props.handleLanguageChange} language={this.props.language}/>
                 ));
 
 
@@ -40,10 +65,10 @@ class Display extends Component {
                     <div>
                         {definition}
                         <Collapse defaultActiveKey={['1','2']} style={{ width: '90%' }}>
-                            <Panel header="Fontes" key="1">
+                            <Panel header={ i18n.t('display.source', { lng }) } key="1">
                                 <p><a href={this.props.content.source}>{this.props.content.source}</a></p>
                             </Panel>
-                            <Panel header="Informação Adicional" key="2">
+                            <Panel header={ i18n.t('display.additionalInfo', { lng }) } key="2">
                                 {moreInfo}
                             </Panel>
                         </Collapse>

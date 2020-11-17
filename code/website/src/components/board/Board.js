@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Card, Popconfirm, Tooltip, Spin } from 'antd';
 import { PlayCircleOutlined, CameraOutlined, DislikeOutlined, LikeOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import Explanation from '../../apis/Explanation.js';
-
+import i18n from '../../i18next';
 
 function cancel(e) {
     console.log(e);
@@ -17,13 +17,18 @@ class Board extends Component {
             lstLength: Object.keys(this.props.item).length,
             posix: 0,
             loading: false,
-            displayAvatar: false
+            displayAvatar: false,
+            language: this.props.language
         }
     }
 
     componentWillUpdate(nextProps) {
         // Any time props.item changes, update state.
-        if (nextProps.item !== this.props.item) {
+        if (nextProps.language !== this.props.language){
+            this.setState({
+                language: nextProps.language
+            })
+        }else if (nextProps.item !== this.props.item) {
             this.setState({
                 explanation: Object.keys(nextProps.item),
                 dificulty: Object.values(nextProps.item),
@@ -32,7 +37,7 @@ class Board extends Component {
                 loading: false,
                 displayAvatar: false
             })
-            this.props.handleAvatar(!this.state.displayAvatar)
+            this.props.handleAvatar(false)
 
         }
     }
@@ -61,7 +66,6 @@ class Board extends Component {
                 loading: false
             })
         }
-        console.log(this.state)
     };
 
     handleChangeAvatarValue = () => {
@@ -72,6 +76,8 @@ class Board extends Component {
     }
 
     render(){
+
+        let lng = this.state.language
 
         function dif(value){
             if(value< 3){
@@ -95,27 +101,32 @@ class Board extends Component {
             const feedback = <div id="feedback">
                 <Button type="link"><LikeOutlined /></Button>
                 <Popconfirm
-                title="Deseja uma nova explicação?"
+                title={ i18n.t('display.board.feedback.tooltip.text', { lng }) }
                 onConfirm={this.handleNegativeFeedback}
                 onCancel={cancel}
-                okText="Sim"
-                cancelText="Não">
+                okText={ i18n.t('display.board.feedback.tooltip.positiveBtn', { lng }) }
+                cancelText={ i18n.t('display.board.feedback.tooltip.negativeBtn', { lng }) }>
                 <Button type="link"><DislikeOutlined /></Button>
             </Popconfirm>
         </div>
 
-            return(
-                <div id={this.props.index}>
-                    <Spin spinning={this.state.loading} size="large">
-                        <Card title={`${this.props.index+1}. ${this.props.expression}`} style={{ width: '90%' }}>
-                            <p>{this.state.explanation[this.state.posix]}  &nbsp; <a href={`https://www.google.com/search?q=${this.state.explanation[this.state.posix]}&tbm=isch`} target="_blank" rel="noopener noreferrer"><CameraOutlined style={{ fontSize: '30 px'}} /></a></p>
-                            <p>
-                                <Button type="primary" onClick={this.handleChangeAvatarValue}>Visualizar<PlayCircleOutlined /></Button>
+            var index = <div id="score"></div>
+            if(this.state.language === "pt"){
+                index = <div id="score"> Índice: &nbsp;
+                <span difficulty={dif(this.state.dificulty[this.state.posix])}>{this.state.dificulty[this.state.posix]}</span> &nbsp;
+                <Tooltip placement="bottomLeft" title={tooltipText}><InfoCircleOutlined /></Tooltip>
+            </div>
+            }
 
-                                <div id="score"> Índice: &nbsp;
-                                <span difficulty={dif(this.state.dificulty[this.state.posix])}>{this.state.dificulty[this.state.posix]}</span> &nbsp;
-                                <Tooltip placement="bottomLeft" title={tooltipText}><InfoCircleOutlined /></Tooltip>
-                            </div>
+
+        return(
+            <div id={this.props.index}>
+                <Spin spinning={this.state.loading} size="large">
+                    <Card title={`${this.props.index+1}. ${this.props.expression}`} style={{ width: '90%' }}>
+                        <p>{this.state.explanation[this.state.posix]}  &nbsp; <a href={`https://www.google.com/search?q=${this.state.explanation[this.state.posix]}&tbm=isch`} target="_blank" rel="noopener noreferrer"><CameraOutlined style={{ fontSize: '30 px'}} /></a></p>
+                        <p>
+                            <Button type="primary" onClick={this.handleChangeAvatarValue}>{ i18n.t('display.board.button.display', { lng }) }<PlayCircleOutlined /></Button>
+                            {index}
                             {feedback}
                         </p>
                     </Card>
@@ -123,7 +134,7 @@ class Board extends Component {
                 </Spin>
             </div>
 
-            )
+        )
     }
 }
 

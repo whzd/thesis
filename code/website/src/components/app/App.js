@@ -14,7 +14,8 @@ class App extends Component {
 
     state = {
         explanations: null,
-        showAvatar: false
+        showAvatar: false,
+        language: window.localStorage.getItem("language") || 'pt'
     }
 
     handleSubmit = async (conceptFromSearch) => {
@@ -31,11 +32,20 @@ class App extends Component {
 
     handleAvatar = (value) => {
         this.setState({
-           showAvatar: value
+            showAvatar: value
         })
     }
 
+    handleLanguageChange = (lng) => {
+        this.setState({
+            language: lng
+        })
+        window.localStorage.setItem("language",lng)
+        window.location.reload(false);
+    }
+
     render() {
+
         return (
             <div className="App">
                 <Layout className="layout">
@@ -43,18 +53,18 @@ class App extends Component {
                         <Row justify="center">
                             <Col xs={ 6 } sm={ 5 } md={ 4 } lg={ 3 } xl={ 2 }><div className="logo" /></Col>
                             <Col xs={ 18 } sm={ 14 } md={ 15 } lg={ 16 } xl={ 18 }><h1> <b>E</b>xplicação <b>A</b>utomática de <b>C</b>onceitos </h1></Col>
-                            <Col xs={ 0 } sm={ 5 } md={ 4 } lg={ 3 } xl={ 2 }><Navbar /></Col>
+                            <Col xs={ 0 } sm={ 5 } md={ 4 } lg={ 3 } xl={ 2 }><Navbar handleLanguageChange={this.handleLanguageChange} language={this.state.language}/></Col>
                         </Row>
                     </Header>
                     <Content style={{ padding: '0 50px' }}>
                         <div className="site-layout-content">
                             <Row justify="center">
-                                <Col xs={ 24 } sm={ 24 } md={ 24 } lg={ 24 } xl={ 24 }><Search handleFormSubmit={this.handleSubmit}/></Col>
+                                <Col xs={ 24 } sm={ 24 } md={ 24 } lg={ 24 } xl={ 24 }><Search handleFormSubmit={this.handleSubmit} handleLanguageChange={this.handleLanguageChange} language={this.state.language}/></Col>
                             </Row>
                             <br />
                             <br />
                             <Row justify="center">
-                                <Col xs={ 24 } sm={ 12 } md={ 12 } lg={ 14 } xl={ 14 }><Display content={this.state.explanations} handleAvatar={this.handleAvatar}/></Col>
+                                <Col xs={ 24 } sm={ 12 } md={ 12 } lg={ 14 } xl={ 14 }><Display content={this.state.explanations} handleAvatar={this.handleAvatar} handleLanguageChange={this.handleLanguageChange} language={this.state.language}/></Col>
                                 <Col xs={ 0 } sm={ 12 } md={ 8 } lg={ 4 } xl={ 6 }><Avatar show={this.state.showAvatar}/></Col>
                             </Row>
                         </div>

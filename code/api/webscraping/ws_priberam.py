@@ -12,6 +12,9 @@ class Priberam:
         source = requests.get(path, headers=Priberam.HEADERS).content
         soup = BeautifulSoup(source, "lxml")
         results = []
+        if " " in string:
+            results.append(["Funcionalidade ainda não implementada."])
+            return results
         sublteTest = soup.find('div', {'id': 'resultados'})
         notFoundSubtle = sublteTest.find_next('b').text.strip()
         if(notFoundSubtle == "Palavra não encontrada"):
@@ -20,11 +23,7 @@ class Priberam:
             notFound = soup.find('div', {'class': 'alert alert-info'})
         if(notFound==None):
             multipleContexts = soup.find('sup')
-            if ' ' in string :
-                results.append(["Funcionalidade ainda não implementada."])
-                #expression = soup.find_all('span', text=string , attr={'class':'def'})
-                #expreDef = expression.find_next_sibling('span', attr={'class':'def'})
-            elif multipleContexts != None :
+            if multipleContexts != None :
                 targetBlock = soup.find('div', {'style': 'padding:10px;border:2px solid #d0d2d7;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;'})
                 typoMsg = soup.find('div', {'style': 'margin-top:10px;'})
                 if typoMsg != None :
